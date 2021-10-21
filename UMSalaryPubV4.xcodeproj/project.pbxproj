@@ -20,6 +20,7 @@
 		41E5A4B42721B95300A51D80 /* Campus+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A4AC2721B95300A51D80 /* Campus+CoreDataProperties.swift */; };
 		41E5A4B52721B95300A51D80 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A4AD2721B95300A51D80 /* Person+CoreDataClass.swift */; };
 		41E5A4B62721B95300A51D80 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A4AE2721B95300A51D80 /* Person+CoreDataProperties.swift */; };
+		41E5A4B92721BED800A51D80 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A4B82721BED800A51D80 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		41E5A4AC2721B95300A51D80 /* Campus+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Campus+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		41E5A4AD2721B95300A51D80 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		41E5A4AE2721B95300A51D80 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		41E5A4B82721BED800A51D80 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		41E5A48B2721B37700A51D80 /* UMSalaryPubV4 */ = {
 			isa = PBXGroup;
 			children = (
+				41E5A4B72721BEBE00A51D80 /* Managers */,
 				41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */,
 				41E5A48E2721B37700A51D80 /* ContentView.swift */,
 				41E5A4902721B37A00A51D80 /* Assets.xcassets */,
@@ -92,6 +95,14 @@
 				41E5A4932721B37A00A51D80 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		41E5A4B72721BEBE00A51D80 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				41E5A4B82721BED800A51D80 /* CoreDataManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 				41E5A4B32721B95300A51D80 /* Campus+CoreDataClass.swift in Sources */,
 				41E5A4B42721B95300A51D80 /* Campus+CoreDataProperties.swift in Sources */,
 				41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */,
+				41E5A4B92721BED800A51D80 /* CoreDataManager.swift in Sources */,
 				41E5A4AF2721B95300A51D80 /* Department+CoreDataClass.swift in Sources */,
 				41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */,
 				41E5A4A22721B6CE00A51D80 /* UMSalaryPub.xcdatamodeld in Sources */,
