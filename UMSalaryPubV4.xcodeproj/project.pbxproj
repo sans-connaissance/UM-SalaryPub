@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		414AD14A2723169600316A45 /* csvjson-02020p.json in Resources */ = {isa = PBXBuildFile; fileRef = 414AD1492723169600316A45 /* csvjson-02020p.json */; };
 		414AD1502723208A00316A45 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD14F2723208A00316A45 /* AppUtils.swift */; };
+		414AD156272320C300316A45 /* TitleDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD151272320C300316A45 /* TitleDAO.swift */; };
+		414AD157272320C300316A45 /* PersonDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD152272320C300316A45 /* PersonDAO.swift */; };
+		414AD158272320C300316A45 /* BaseDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD153272320C300316A45 /* BaseDAO.swift */; };
+		414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD154272320C300316A45 /* DepartmentDAO.swift */; };
+		414AD15A272320C300316A45 /* CampusDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD155272320C300316A45 /* CampusDAO.swift */; };
 		41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */; };
 		41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48E2721B37700A51D80 /* ContentView.swift */; };
 		41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E5A4902721B37A00A51D80 /* Assets.xcassets */; };
@@ -28,6 +33,11 @@
 /* Begin PBXFileReference section */
 		414AD1492723169600316A45 /* csvjson-02020p.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02020p.json"; sourceTree = "<group>"; };
 		414AD14F2723208A00316A45 /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
+		414AD151272320C300316A45 /* TitleDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleDAO.swift; sourceTree = "<group>"; };
+		414AD152272320C300316A45 /* PersonDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDAO.swift; sourceTree = "<group>"; };
+		414AD153272320C300316A45 /* BaseDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDAO.swift; sourceTree = "<group>"; };
+		414AD154272320C300316A45 /* DepartmentDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentDAO.swift; sourceTree = "<group>"; };
+		414AD155272320C300316A45 /* CampusDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampusDAO.swift; sourceTree = "<group>"; };
 		41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMSalaryPubV4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMSalaryPubV4App.swift; sourceTree = "<group>"; };
 		41E5A48E2721B37700A51D80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +71,11 @@
 			children = (
 				414AD1492723169600316A45 /* csvjson-02020p.json */,
 				41E5A4A02721B6CE00A51D80 /* UMSalaryPub.xcdatamodeld */,
+				414AD153272320C300316A45 /* BaseDAO.swift */,
+				414AD155272320C300316A45 /* CampusDAO.swift */,
+				414AD154272320C300316A45 /* DepartmentDAO.swift */,
+				414AD152272320C300316A45 /* PersonDAO.swift */,
+				414AD151272320C300316A45 /* TitleDAO.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -121,11 +136,11 @@
 		41E5A48B2721B37700A51D80 /* UMSalaryPubV4 */ = {
 			isa = PBXGroup;
 			children = (
-				414AD14E2723175500316A45 /* Utils */,
 				41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */,
+				414AD14E2723175500316A45 /* Utils */,
 				414AD14D272316EE00316A45 /* Extensions */,
 				414AD1482723146800316A45 /* Data */,
-				41E5A4B72721BEBE00A51D80 /* Managers */,
+				41E5A4B72721BEBE00A51D80 /* CoreData Managers */,
 				414AD14C272316BD00316A45 /* ViewModels */,
 				414AD14B272316B500316A45 /* Views */,
 				41E5A48E2721B37700A51D80 /* ContentView.swift */,
@@ -143,12 +158,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		41E5A4B72721BEBE00A51D80 /* Managers */ = {
+		41E5A4B72721BEBE00A51D80 /* CoreData Managers */ = {
 			isa = PBXGroup;
 			children = (
 				41E5A4B82721BED800A51D80 /* CoreDataManager.swift */,
 			);
-			path = Managers;
+			path = "CoreData Managers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,13 +239,18 @@
 			files = (
 				41E5A4B12721B95300A51D80 /* Title+CoreDataClass.swift in Sources */,
 				41E5A4B02721B95300A51D80 /* Department+CoreDataProperties.swift in Sources */,
+				414AD157272320C300316A45 /* PersonDAO.swift in Sources */,
 				41E5A4B52721B95300A51D80 /* Person+CoreDataClass.swift in Sources */,
 				414AD1502723208A00316A45 /* AppUtils.swift in Sources */,
+				414AD15A272320C300316A45 /* CampusDAO.swift in Sources */,
 				41E5A4B32721B95300A51D80 /* Campus+CoreDataClass.swift in Sources */,
 				41E5A4B42721B95300A51D80 /* Campus+CoreDataProperties.swift in Sources */,
+				414AD158272320C300316A45 /* BaseDAO.swift in Sources */,
 				41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */,
+				414AD156272320C300316A45 /* TitleDAO.swift in Sources */,
 				41E5A4B92721BED800A51D80 /* CoreDataManager.swift in Sources */,
 				41E5A4AF2721B95300A51D80 /* Department+CoreDataClass.swift in Sources */,
+				414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */,
 				41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */,
 				41E5A4A22721B6CE00A51D80 /* UMSalaryPub.xcdatamodeld in Sources */,
 				41E5A4B22721B95300A51D80 /* Title+CoreDataProperties.swift in Sources */,
