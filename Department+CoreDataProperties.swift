@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 
 extension Department {
@@ -24,6 +25,14 @@ extension Department {
     @NSManaged public var departmentName: String?
     @NSManaged public var departmentYear: Int64
     @NSManaged public var personsInDepartment: Array<Person>
+    
+    static func twentyTwentyDepartments() -> FetchRequest<Department> {
+        
+        let yearPredicate = NSPredicate(format: "ANY personsInDepartment.year = %@", "2020")
+        
+        return FetchRequest(entity: Department.entity(), sortDescriptors: [], predicate: yearPredicate)
+        
+    }
 
 }
 

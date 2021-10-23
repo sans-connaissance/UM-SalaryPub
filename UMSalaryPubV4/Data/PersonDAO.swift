@@ -20,7 +20,7 @@ class PersonDAO: BaseDAO {
             return
         }
         
-        if let persons = AppUtils.dictionaryFromFile(name: "csvjson-02016")["persons"] as? [[String: Any]] {
+        if let persons = AppUtils.dictionaryFromFile(name: "csvjson-02020p")["persons"] as? [[String: Any]] {
             for person in persons {
                 
                 var campus: Campus?
@@ -165,7 +165,7 @@ class PersonDAO: BaseDAO {
             print("Could not count. \(error)")
         }
         
-//                        return count != 0
-        return count == 1
+                        return count != 0
+//        return count == 1
     }
 }

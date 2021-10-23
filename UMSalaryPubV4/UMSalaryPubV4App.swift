@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct UMSalaryPubV4App: App {
+    
+    let persistenceController = CoreDataManager.shared
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+                
         }
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 
 extension Title {
@@ -27,6 +28,14 @@ extension Title {
     @NSManaged public var titleName: String?
     @NSManaged public var titleYear: Int64
     @NSManaged public var personsWithTitle: Array<Person>
+    
+    static func twentyTwentyTitles() -> FetchRequest<Title> {
+        
+        let yearPredicate = NSPredicate(format: "ANY personsWithTitle.year = %@", "2020")
+        
+        return FetchRequest(entity: Title.entity(), sortDescriptors: [], predicate: yearPredicate)
+        
+    }
 
 }
 

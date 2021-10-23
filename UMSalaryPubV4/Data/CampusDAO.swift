@@ -29,7 +29,7 @@ class CampusDAO: BaseDAO {
        
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: campusEntityName)
         
-        let importYear = 2016
+        let importYear = 2020
         
         let yearPredicate = NSPredicate(format: "campusYear = %i", importYear)
         

@@ -27,7 +27,7 @@ class DepartmentDAO: BaseDAO {
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: departmentEntityName)
         
-        let importYear = 2016
+        let importYear = 2020
         
         let yearPredicate = NSPredicate(format: "departmentYear = %i", importYear)
         

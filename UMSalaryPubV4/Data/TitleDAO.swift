@@ -31,7 +31,7 @@ class TitleDAO: BaseDAO {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: titleEntityName)
         
         //This is the answer
-        let importYear = 2016
+        let importYear = 2020
         
         let yearPredicate = NSPredicate(format: "titleYear = %i", importYear)
         

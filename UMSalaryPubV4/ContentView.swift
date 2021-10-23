@@ -8,14 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            loadButton
+            TwentyDataDashBoardView()
+        }.padding()
+    }
+}
+
+
+var loadButton: some View {
+    Button {
+        PersonDAO.shared.addPersonsIfNeeded()
+    } label: {
+        Text("Load Data")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
+    
     static var previews: some View {
         ContentView()
+
     }
 }
+
+
+
