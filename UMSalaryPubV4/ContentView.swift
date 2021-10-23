@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @StateObject private var adminVM = AdminViewModel()
     
     var body: some View {
         VStack {
@@ -26,6 +27,8 @@ var loadButton: some View {
         Text("Load Data")
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     

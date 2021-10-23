@@ -42,6 +42,17 @@ class CoreDataManager {
         })
     }
     
+    func getAllPersons() -> [Person] {
+        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+        
+        do {
+            return try container.viewContext.fetch(fetchRequest)
+        } catch {
+            return []
+        }
+        
+    }
+    
     func saveContext() {
         let context = container.viewContext
         if context.hasChanges {
