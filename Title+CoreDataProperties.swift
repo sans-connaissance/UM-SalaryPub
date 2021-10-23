@@ -29,12 +29,14 @@ extension Title {
     @NSManaged public var titleYear: Int64
     @NSManaged public var personsWithTitle: Array<Person>
     
-    static func twentyTwentyTitles() -> FetchRequest<Title> {
+    static func twentyTwentyTitles() -> NSFetchRequest<Title> {
         
-        let yearPredicate = NSPredicate(format: "ANY personsWithTitle.year = %@", "2020")
+        let fetch: NSFetchRequest<Title> = NSFetchRequest<Title>(entityName: "Title")
+        fetch.predicate = NSPredicate(format: "ANY personsWithTitle.year = %@", "2020")
+        //let yearPredicate = NSPredicate(format: "ANY personsWithTitle.year = %@", "2020")
         
-        return FetchRequest(entity: Title.entity(), sortDescriptors: [], predicate: yearPredicate)
-        
+       // return NSFetchRequest(entity: Title.entity(), sortDescriptors: [], predicate: yearPredicate)
+        return fetch
     }
 
 }

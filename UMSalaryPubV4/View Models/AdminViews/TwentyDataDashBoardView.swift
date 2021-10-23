@@ -15,7 +15,8 @@ struct TwentyDataDashBoardView: View {
         
         VStack {
             displayButton
-            
+            Text("Person Count: \(adminVM.personCount)")
+            Text("Title Count: \(adminVM.titleCount)")
             List {
                 ForEach(adminVM.persons, id: \.id) { person in
                     PersonCell(person: person)
@@ -30,6 +31,7 @@ struct TwentyDataDashBoardView: View {
     var displayButton: some View {
         Button {
             adminVM.getAllPersons()
+            adminVM.getAllTitles()
         } label: {
             Text("Display em")
         }
@@ -44,6 +46,8 @@ struct PersonCell: View {
     var body: some View {
         VStack {
             Text(person.fullName)
+            Text(person.title)
+            Text(person.salary)
         }
         
     }

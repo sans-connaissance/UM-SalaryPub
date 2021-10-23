@@ -53,6 +53,17 @@ class CoreDataManager {
         
     }
     
+    func getAllTitles() -> [Title] {
+        let fetchRequest: NSFetchRequest<Title> = Title.twentyTwentyTitles()
+        
+        do {
+            return try container.viewContext.fetch(fetchRequest)
+        } catch {
+            return []
+        }
+        
+    }
+    
     func saveContext() {
         let context = container.viewContext
         if context.hasChanges {

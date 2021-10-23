@@ -12,18 +12,50 @@ import CoreData
 class AdminViewModel: ObservableObject {
     
     @Published var persons = [PersonViewModel]()
+    @Published var titles = [TitleViewModel]()
+    
     
     func getAllPersons() {
         let persons = CoreDataManager.shared.getAllPersons()
         DispatchQueue.main.async {
             self.persons = persons.map(PersonViewModel.init)
         }
-        
+    }
+    
+    func getAllTitles() {
+        let titles = CoreDataManager.shared.getAllTitles()
+        DispatchQueue.main.async {
+            self.titles = titles.map(TitleViewModel.init)
+        }
         
     }
     
+    var titleCount: Int {
+        return titles.count
+    }
+    
+    
+    var personCount: Int {
+        return persons.count
+    }
     
 }
+
+
+struct TitleViewModel {
+    
+    let title: Title
+    
+    var id: NSManagedObjectID {
+        return title.objectID
+    }
+    
+    var titleName: String {
+        return title.titleName ?? ""
+    }
+    
+}
+
 
 
 struct PersonViewModel {
@@ -37,6 +69,17 @@ struct PersonViewModel {
     var fullName: String {
         
         return person.fullName ?? ""
+    }
+    
+    var title: String {
+        
+        return person.title?.titleName ?? ""
+        
+    }
+    
+    var salary: String {
+        
+        return "$" + String(person.apptAnnualFTR)
     }
     
 }
