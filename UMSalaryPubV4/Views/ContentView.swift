@@ -9,18 +9,39 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject private var adminVM = AdminViewModel()
+    //@StateObject private var adminVM = AdminViewModel()
+    
+    
+    // Create the Tab views so that Admin // Main // and Other stuff is there
     
     var body: some View {
-        VStack {
-            loadButton
+        
+        TabView {
             TwentyDataDashBoardView()
-
-        }.padding()
-
+                .tabItem {
+                    Image(systemName: "wrench.and.screwdriver")
+                    Text(verbatim: "Admin")
+                }.tag(0)
+            
+            TwentyDataDashBoardView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text(verbatim: "Search")
+                }.tag(1)
+            
+            TwentyDataDashBoardView()
+                .tabItem {
+                    Image(systemName: "star")
+                    Text(verbatim: "Favorites")
+                }.tag(2)
+            
+            TwentyDataDashBoardView()
+                .tabItem {
+                    Image(systemName: "info")
+                    Text(verbatim: "More Info")
+                }.tag(3)
+        }
     }
-
-    
 }
 
 
