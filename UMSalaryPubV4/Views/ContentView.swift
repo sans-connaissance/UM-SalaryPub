@@ -23,7 +23,7 @@ struct ContentView: View {
                     Text(verbatim: "Admin")
                 }.tag(0)
             
-            TwentyDataDashBoardView()
+            HomeScreenView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text(verbatim: "Search")
