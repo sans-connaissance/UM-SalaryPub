@@ -1,5 +1,5 @@
 //
-//  MoreInfoView.swift
+//  FavoriteView.swift
 //  UMSalaryPubV4
 //
 //  Created by David Malicke on 10/24/21.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct MoreInfoView: View {
+struct FavoriteView: View {
     var body: some View {
-        Text("MoreInfoView")
+        Text("Favs so cool")
     }
 }
 
-struct MoreInfoView_Previews: PreviewProvider {
+struct FavoriteView_Previews: PreviewProvider {
     static var previews: some View {
-        MoreInfoView()
+        FavoriteView()
     }
 }

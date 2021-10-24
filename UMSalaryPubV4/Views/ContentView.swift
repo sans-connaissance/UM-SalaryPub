@@ -29,13 +29,13 @@ struct ContentView: View {
                     Text(verbatim: "Search")
                 }.tag(1)
             
-            TwentyDataDashBoardView()
+            FavoriteView()
                 .tabItem {
                     Image(systemName: "star")
                     Text(verbatim: "Favorites")
                 }.tag(2)
             
-            TwentyDataDashBoardView()
+            MoreInfoView()
                 .tabItem {
                     Image(systemName: "info")
                     Text(verbatim: "More Info")
