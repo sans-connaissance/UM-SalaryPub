@@ -11,6 +11,9 @@ import CoreData
 struct TwentyDataDashBoardView: View {
     @StateObject private var adminVM = AdminViewModel()
     
+    
+    
+    
     var body: some View {
         
         VStack {
@@ -25,18 +28,20 @@ struct TwentyDataDashBoardView: View {
                 
             }.listStyle(GroupedListStyle())
                 .embedInNavigationView()
+
             
         }
+
     }
-    var displayButton: some View {
-        Button {
-            adminVM.getAllPersons()
-            adminVM.getAllTitles()
-        } label: {
-            Text("Display em")
+        var displayButton: some View {
+            Button {
+                adminVM.getAllPersons()
+                adminVM.getAllTitles()
+            } label: {
+                Text("Display em")
+            }
+    
         }
-        
-    }
 }
 
 struct PersonCell: View {

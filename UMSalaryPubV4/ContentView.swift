@@ -15,8 +15,12 @@ struct ContentView: View {
         VStack {
             loadButton
             TwentyDataDashBoardView()
+
         }.padding()
+
     }
+
+    
 }
 
 
@@ -26,6 +30,7 @@ var loadButton: some View {
     } label: {
         Text("Load Data")
     }
+    
 }
 
 
@@ -35,7 +40,7 @@ struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
         ContentView()
-
+        
     }
 }
 
