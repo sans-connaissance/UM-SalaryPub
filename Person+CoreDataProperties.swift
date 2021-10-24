@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreData
-import SwiftUI
 
 extension Person {
 
@@ -26,13 +25,6 @@ extension Person {
     @NSManaged public var department: Department?
     @NSManaged public var title: Title?
     
-    static func twentyTwentyPersons() -> FetchRequest<Person> {
-        let yearPredicate = NSPredicate(format: "year == 2020")
-        // let yearPredicate = NSPredicate(format: "firstName == 'Dave'")
-        //let lastNameSortDescriptor = NSSortDescriptor(key: "lastName", ascending: true)
-        return FetchRequest(entity: Person.entity(), sortDescriptors: [], predicate: yearPredicate)
-        
-    }
 
 }
 

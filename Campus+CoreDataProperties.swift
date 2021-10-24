@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreData
-import SwiftUI
 
 
 extension Campus {
@@ -29,13 +28,6 @@ extension Campus {
     @NSManaged public var campusYear: Int64
     @NSManaged public var personsOnCampus: Array<Person>
     
-    static func twentyTwentyCampuses() -> FetchRequest<Campus> {
-        
-        let yearPredicate = NSPredicate(format: "ANY personsOnCampus.year = %@", "2020")
-        
-        return FetchRequest(entity: Campus.entity(), sortDescriptors: [], predicate: yearPredicate)
-        
-    }
 
 }
 

@@ -10,6 +10,8 @@ import CoreData
 
 class CoreDataManager {
     
+//MARK: I think I'll have to write a bunch of extensions for all the search functions and stuff by category (people, title, etc.)
+    
     let container: NSPersistentContainer
     
     static let shared = CoreDataManager()
