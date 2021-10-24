@@ -11,13 +11,10 @@ struct ContentView: View {
     
     //@StateObject private var adminVM = AdminViewModel()
     
-    
-    // Create the Tab views so that Admin // Main // and Other stuff is there
-    
     var body: some View {
         
         TabView {
-            TwentyDataDashBoardView()
+            DataDashBoardView()
                 .tabItem {
                     Image(systemName: "wrench.and.screwdriver")
                     Text(verbatim: "Admin")
@@ -45,14 +42,7 @@ struct ContentView: View {
 }
 
 
-var loadButton: some View {
-    Button {
-        PersonDAO.shared.addPersonsIfNeeded()
-    } label: {
-        Text("Load Data")
-    }
-    
-}
+
 
 
 
