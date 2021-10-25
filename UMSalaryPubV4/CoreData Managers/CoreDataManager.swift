@@ -45,7 +45,7 @@ class CoreDataManager {
     }
     
     func getAllPersons() -> [Person] {
-        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest(year: "2020")
         
         do {
             return try container.viewContext.fetch(fetchRequest)
@@ -56,15 +56,36 @@ class CoreDataManager {
     }
     
     func getAllTitles() -> [Title] {
-        let fetchRequest: NSFetchRequest<Title> = Title.twentyTwentyTitles()
+        let fetchRequest: NSFetchRequest<Title> = Title.fetchRequest()
         
         do {
             return try container.viewContext.fetch(fetchRequest)
         } catch {
             return []
         }
-        
     }
+    
+    
+    func getAllDepartments() -> [Department] {
+        let fetchRequest: NSFetchRequest<Department> = Department.fetchRequest()
+        
+        do {
+            return try container.viewContext.fetch(fetchRequest)
+        } catch {
+            return []
+        }
+    }
+    
+    func getAllCampuses() -> [Campus] {
+        let fetchRequest: NSFetchRequest<Campus> = Campus.fetchRequest()
+        
+        do {
+            return try container.viewContext.fetch(fetchRequest)
+        } catch {
+            return []
+        }
+    }
+    
     
     func saveContext() {
         let context = container.viewContext

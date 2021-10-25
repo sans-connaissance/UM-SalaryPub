@@ -32,9 +32,7 @@ extension Title {
         
         let fetch: NSFetchRequest<Title> = NSFetchRequest<Title>(entityName: "Title")
         fetch.predicate = NSPredicate(format: "ANY personsWithTitle.year = %@", "2020")
-        //let yearPredicate = NSPredicate(format: "ANY personsWithTitle.year = %@", "2020")
-        
-       // return NSFetchRequest(entity: Title.entity(), sortDescriptors: [], predicate: yearPredicate)
+
         return fetch
     }
 

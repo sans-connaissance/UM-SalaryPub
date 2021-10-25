@@ -9,20 +9,12 @@ import SwiftUI
 import CoreData
 
 struct TwentyDataDashBoardView: View {
+    
     @StateObject private var adminVM = AdminViewModel()
-    
-    //need to rebuild ContentView in order to more directly embed the loaded views.
-    //like in the MovieScreen example
-    
-    // create a version where there is a list of the topLevel People, Title, Campus, etc...
-    // then click that to see if .onAppear works as expected.
-    
-    
     
     var body: some View {
         
         VStack {
-            displayButton
             Text("Person Count: \(adminVM.personCount)")
             Text("Title Count: \(adminVM.titleCount)")
             List {
@@ -37,21 +29,11 @@ struct TwentyDataDashBoardView: View {
                 adminVM.getAllTitles()
             })
             .listStyle(GroupedListStyle())
-            .embedInNavigationView()
-            
             
         }
         
     }
-    var displayButton: some View {
-        Button {
-            adminVM.getAllPersons()
-            adminVM.getAllTitles()
-        } label: {
-            Text("Display em")
-        }
-        
-    }
+
 }
 
 struct PersonCell: View {

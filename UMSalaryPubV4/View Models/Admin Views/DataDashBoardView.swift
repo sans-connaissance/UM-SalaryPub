@@ -9,11 +9,14 @@ import SwiftUI
 
 struct DataDashBoardView: View {
     
+    @StateObject private var adminVM = AdminViewModel()
     
     var body: some View {
         
         VStack {
             
+            
+            TwentyDataDashBoardView()
             
         }
     }
@@ -21,10 +24,21 @@ struct DataDashBoardView: View {
     var loadButton: some View {
         Button {
             PersonDAO.shared.addPersonsIfNeeded()
+            adminVM.getAllPersons()
+            adminVM.getAllTitles()
         } label: {
             Text("Load Data")
         }
     }
+    
+//    var displayButton: some View {
+//        Button {
+//
+//        } label: {
+//            Text("Display em")
+//        }
+//
+//    }
 }
 
 struct DataDashBoardView_Previews: PreviewProvider {

@@ -11,8 +11,12 @@ import CoreData
 
 extension Person {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Person> {
-        return NSFetchRequest<Person>(entityName: "Person")
+    @nonobjc public class func fetchRequest(year: String) -> NSFetchRequest<Person> {
+        
+        let fetch: NSFetchRequest<Person> = NSFetchRequest<Person>(entityName: "Person")
+        fetch.predicate = NSPredicate(format: "year == \(year)")
+        
+        return fetch
     }
 
     @NSManaged public var amtSalaryFromGeneralFund: Double
