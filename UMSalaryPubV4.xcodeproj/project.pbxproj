@@ -104,7 +104,7 @@
 			path = "Search Views";
 			sourceTree = "<group>";
 		};
-		4139F4FD2725AB4000E6EC5C /* CoreData Classes */ = {
+		4139F4FD2725AB4000E6EC5C /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				41E5A4AB2721B95300A51D80 /* Campus+CoreDataClass.swift */,
@@ -116,7 +116,7 @@
 				41E5A4A92721B95300A51D80 /* Title+CoreDataClass.swift */,
 				41E5A4AA2721B95300A51D80 /* Title+CoreDataProperties.swift */,
 			);
-			path = "CoreData Classes";
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4139F4FE2725AC1B00E6EC5C /* More Info Views */ = {
@@ -189,7 +189,6 @@
 		41E5A4802721B37700A51D80 = {
 			isa = PBXGroup;
 			children = (
-				4139F4FD2725AB4000E6EC5C /* CoreData Classes */,
 				41E5A48B2721B37700A51D80 /* UMSalaryPubV4 */,
 				41E5A48A2721B37700A51D80 /* Products */,
 			);
@@ -206,6 +205,7 @@
 		41E5A48B2721B37700A51D80 /* UMSalaryPubV4 */ = {
 			isa = PBXGroup;
 			children = (
+				4139F4FD2725AB4000E6EC5C /* Models */,
 				41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */,
 				414AD14D272316EE00316A45 /* Extensions */,
 				41E5A4B72721BEBE00A51D80 /* CoreData Managers */,
