@@ -23,15 +23,9 @@ class AdminViewModel: ObservableObject {
         }
     }
 
-//    func getAllPersons() {
-//        let persons = CoreDataManager.shared.getAllPersons()
-//        DispatchQueue.main.async {
-//            self.persons = persons.map(PersonViewModel.init)
-//        }
-//    }
     
     func getAllTitles() {
-        let titles = CoreDataManager.shared.getAllTitles()
+        let titles: [Title] = Title.all()
         DispatchQueue.main.async {
             self.titles = titles.map(TitleViewModel.init)
         }
