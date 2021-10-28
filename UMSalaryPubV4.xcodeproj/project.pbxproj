@@ -21,6 +21,7 @@
 		414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD154272320C300316A45 /* DepartmentDAO.swift */; };
 		414AD15A272320C300316A45 /* CampusDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD155272320C300316A45 /* CampusDAO.swift */; };
 		414AD15D2723259200316A45 /* TwentyDataDashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD15C2723259200316A45 /* TwentyDataDashBoardView.swift */; };
+		416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C8A5D272B10CE00653032 /* BaseModel.swift */; };
 		41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */; };
 		41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48E2721B37700A51D80 /* ContentView.swift */; };
 		41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E5A4902721B37A00A51D80 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		414AD154272320C300316A45 /* DepartmentDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentDAO.swift; sourceTree = "<group>"; };
 		414AD155272320C300316A45 /* CampusDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampusDAO.swift; sourceTree = "<group>"; };
 		414AD15C2723259200316A45 /* TwentyDataDashBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwentyDataDashBoardView.swift; sourceTree = "<group>"; };
+		416C8A5D272B10CE00653032 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMSalaryPubV4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMSalaryPubV4App.swift; sourceTree = "<group>"; };
 		41E5A48E2721B37700A51D80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				41E5A4AE2721B95300A51D80 /* Person+CoreDataProperties.swift */,
 				41E5A4A92721B95300A51D80 /* Title+CoreDataClass.swift */,
 				41E5A4AA2721B95300A51D80 /* Title+CoreDataProperties.swift */,
+				416C8A5D272B10CE00653032 /* BaseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				414AD156272320C300316A45 /* TitleDAO.swift in Sources */,
 				41E5A4B92721BED800A51D80 /* CoreDataManager.swift in Sources */,
 				41E5A4AF2721B95300A51D80 /* Department+CoreDataClass.swift in Sources */,
+				416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */,
 				414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */,
 				4139F5032725AD0F00E6EC5C /* FavoriteView.swift in Sources */,
 				41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */,

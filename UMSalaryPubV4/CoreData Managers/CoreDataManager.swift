@@ -12,21 +12,25 @@ class CoreDataManager {
     
 //MARK: I think I'll have to write a bunch of extensions for all the search functions and stuff by category (people, title, etc.)
     
-    let container: NSPersistentContainer
+    let persistentContainer: NSPersistentContainer
     
     static let shared = CoreDataManager()
     
     let containerPath = Bundle.main.path(forResource: "UMSalaryPub", ofType: "sqlite")
     
+    var viewContext: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+    
     private init(inMemory: Bool = false) {
         
-        container = NSPersistentContainer(name: "UMSalaryPub")
+        persistentContainer = NSPersistentContainer(name: "UMSalaryPub")
         
         if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: containerPath ?? "/dev/null")
+            persistentContainer.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: containerPath ?? "/dev/null")
         }
         
-        container.loadPersistentStores(completionHandler: { (NSReadOnlyPersistentStoreOption, error) in
+        persistentContainer.loadPersistentStores(completionHandler: { (NSReadOnlyPersistentStoreOption, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -44,11 +48,13 @@ class CoreDataManager {
         })
     }
     
+    //this is redundant -- I only need to do this in the Person+CoreDataClass model
+    // All of the model type calls can be moved into their respective extensions
     func getAllPersons() -> [Person] {
         let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest(year: "2020")
         
         do {
-            return try container.viewContext.fetch(fetchRequest)
+            return try persistentContainer.viewContext.fetch(fetchRequest)
         } catch {
             return []
         }
@@ -59,7 +65,7 @@ class CoreDataManager {
         let fetchRequest: NSFetchRequest<Title> = Title.fetchRequest()
         
         do {
-            return try container.viewContext.fetch(fetchRequest)
+            return try persistentContainer.viewContext.fetch(fetchRequest)
         } catch {
             return []
         }
@@ -70,7 +76,7 @@ class CoreDataManager {
         let fetchRequest: NSFetchRequest<Department> = Department.fetchRequest()
         
         do {
-            return try container.viewContext.fetch(fetchRequest)
+            return try persistentContainer.viewContext.fetch(fetchRequest)
         } catch {
             return []
         }
@@ -80,7 +86,7 @@ class CoreDataManager {
         let fetchRequest: NSFetchRequest<Campus> = Campus.fetchRequest()
         
         do {
-            return try container.viewContext.fetch(fetchRequest)
+            return try persistentContainer.viewContext.fetch(fetchRequest)
         } catch {
             return []
         }
@@ -88,7 +94,7 @@ class CoreDataManager {
     
     
     func saveContext() {
-        let context = container.viewContext
+        let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()

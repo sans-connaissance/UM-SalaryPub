@@ -10,6 +10,6 @@ import CoreData
 
 class BaseDAO {
     
-    let managedContext: NSManagedObjectContext = CoreDataManager.shared.container.viewContext
+    let managedContext: NSManagedObjectContext = CoreDataManager.shared.persistentContainer.viewContext
     
 }
