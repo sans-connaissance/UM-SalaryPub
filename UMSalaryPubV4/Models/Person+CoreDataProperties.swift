@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-extension Person {
+extension Person: BaseModel {
 
     @nonobjc public class func fetchRequest(year: String) -> NSFetchRequest<Person> {
         
