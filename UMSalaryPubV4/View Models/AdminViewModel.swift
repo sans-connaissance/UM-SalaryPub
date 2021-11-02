@@ -24,6 +24,9 @@ class AdminViewModel: ObservableObject {
     
     
     
+    
+    
+    
     @Published var titles = [TitleViewModel]()
     @Published var departments = [DepartmentViewModel]()
     @Published var campuses = [CampusViewModel]()
@@ -33,7 +36,7 @@ class AdminViewModel: ObservableObject {
     
     
     
-    func loadScreen() {
+    func loadAdminScreen() {
         
         getAllPersons()
         getAllTitles()
@@ -142,30 +145,6 @@ class AdminViewModel: ObservableObject {
             self.persons2013 = persons2013.map(PersonViewModel.init)
         }
         
-    }
-    
-    
-    
-    
-    var personCountAll: Int {
-        return personsAll.count
-    }
-
-    
-    var personCount: Int {
-        return personsAll.count
-    }
-    
-    var titleCount: Int {
-        return titles.count
-    }
-    
-    var departmentCount: Int {
-        return departments.count
-    }
-    
-    var campusCount: Int {
-        return campuses.count
     }
     
 }

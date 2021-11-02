@@ -91,18 +91,10 @@
 		4139F4F427245CDC00E6EC5C /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				4139F4F92724FB6A00E6EC5C /* AdminVMs */,
+				4139F4F527248DCF00E6EC5C /* AdminViewModel.swift */,
 				41EA3BB12731C642001070CF /* TempViewModels.swift */,
 			);
 			path = "View Models";
-			sourceTree = "<group>";
-		};
-		4139F4F92724FB6A00E6EC5C /* AdminVMs */ = {
-			isa = PBXGroup;
-			children = (
-				4139F4F527248DCF00E6EC5C /* AdminViewModel.swift */,
-			);
-			path = AdminVMs;
 			sourceTree = "<group>";
 		};
 		4139F4FA2725A96E00E6EC5C /* Search Views */ = {
