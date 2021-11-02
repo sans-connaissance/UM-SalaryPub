@@ -16,10 +16,12 @@ struct DataDashBoardView: View {
         VStack {
             
             loadButton
-            TwentyDataDashBoardView()
+            DashboardCountsView()
             
         }
     }
+    
+    
     
     var loadButton: some View {
         Button {
@@ -31,14 +33,6 @@ struct DataDashBoardView: View {
         }
     }
     
-//    var displayButton: some View {
-//        Button {
-//
-//        } label: {
-//            Text("Display em")
-//        }
-//
-//    }
 }
 
 struct DataDashBoardView_Previews: PreviewProvider {

@@ -73,7 +73,6 @@ class AdminViewModel: ObservableObject {
     }
     
 
-    
     func getPersons2020() {
         let persons2020: [Person] = Person.byYear(year: "2020")
         

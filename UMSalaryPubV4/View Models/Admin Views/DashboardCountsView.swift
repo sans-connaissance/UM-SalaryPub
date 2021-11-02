@@ -1,14 +1,15 @@
 //
-//  TwentyDataDashBoardView.swift
-//  UMICHSalaryPub (iOS)
+//  DashboardCountsView.swift
+//  UMSalaryPubV4
 //
-//  Created by David Malicke on 1/24/21.
+//  Created by David Malicke on 11/2/21.
 //
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
-struct TwentyDataDashBoardView: View {
+
+struct DashboardCountsView: View {
     
     @StateObject private var adminVM = AdminViewModel()
     
@@ -28,4 +29,8 @@ struct TwentyDataDashBoardView: View {
     
 }
 
-
+struct DashboardCountsView_Previews: PreviewProvider {
+    static var previews: some View {
+        DashboardCountsView()
+    }
+}

@@ -20,7 +20,6 @@
 		414AD158272320C300316A45 /* BaseDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD153272320C300316A45 /* BaseDAO.swift */; };
 		414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD154272320C300316A45 /* DepartmentDAO.swift */; };
 		414AD15A272320C300316A45 /* CampusDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD155272320C300316A45 /* CampusDAO.swift */; };
-		414AD15D2723259200316A45 /* TwentyDataDashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD15C2723259200316A45 /* TwentyDataDashBoardView.swift */; };
 		416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C8A5D272B10CE00653032 /* BaseModel.swift */; };
 		41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */; };
 		41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48E2721B37700A51D80 /* ContentView.swift */; };
@@ -39,6 +38,7 @@
 		41EA3BAE2731C338001070CF /* PersonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BAD2731C338001070CF /* PersonRow.swift */; };
 		41EA3BB02731C35C001070CF /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BAF2731C35C001070CF /* FontStyles.swift */; };
 		41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BB12731C642001070CF /* TempViewModels.swift */; };
+		41EA3BB42731D9F2001070CF /* DashboardCountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,6 @@
 		414AD153272320C300316A45 /* BaseDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDAO.swift; sourceTree = "<group>"; };
 		414AD154272320C300316A45 /* DepartmentDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentDAO.swift; sourceTree = "<group>"; };
 		414AD155272320C300316A45 /* CampusDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampusDAO.swift; sourceTree = "<group>"; };
-		414AD15C2723259200316A45 /* TwentyDataDashBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwentyDataDashBoardView.swift; sourceTree = "<group>"; };
 		416C8A5D272B10CE00653032 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMSalaryPubV4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMSalaryPubV4App.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		41EA3BAD2731C338001070CF /* PersonRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonRow.swift; sourceTree = "<group>"; };
 		41EA3BAF2731C35C001070CF /* FontStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 		41EA3BB12731C642001070CF /* TempViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewModels.swift; sourceTree = "<group>"; };
+		41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCountsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,8 +183,8 @@
 		414AD15B2723257200316A45 /* Admin Views */ = {
 			isa = PBXGroup;
 			children = (
-				414AD15C2723259200316A45 /* TwentyDataDashBoardView.swift */,
 				4139F5042725C91200E6EC5C /* DataDashBoardView.swift */,
+				41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */,
 			);
 			name = "Admin Views";
 			path = "../View Models/Admin Views";
@@ -340,11 +340,11 @@
 				414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */,
 				4139F5032725AD0F00E6EC5C /* FavoriteView.swift in Sources */,
 				41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */,
+				41EA3BB42731D9F2001070CF /* DashboardCountsView.swift in Sources */,
 				41EA3BAE2731C338001070CF /* PersonRow.swift in Sources */,
 				41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */,
 				41E5A4A22721B6CE00A51D80 /* UMSalaryPub.xcdatamodeld in Sources */,
 				4139F4F627248DCF00E6EC5C /* AdminViewModel.swift in Sources */,
-				414AD15D2723259200316A45 /* TwentyDataDashBoardView.swift in Sources */,
 				41E5A4B22721B95300A51D80 /* Title+CoreDataProperties.swift in Sources */,
 				4139F5002725AC6600E6EC5C /* MoreInfoView.swift in Sources */,
 				41E5A4B62721B95300A51D80 /* Person+CoreDataProperties.swift in Sources */,
