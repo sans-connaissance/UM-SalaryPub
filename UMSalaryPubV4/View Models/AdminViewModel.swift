@@ -21,14 +21,39 @@ class AdminViewModel: ObservableObject {
     @Published var persons2014 = [PersonViewModel]()
     @Published var persons2013 = [PersonViewModel]()
     
+    @Published var titlesAll = [TitleViewModel]()
+    @Published var titles2020 = [TitleViewModel]()
+    @Published var titles2019 = [TitleViewModel]()
+    @Published var titles2018 = [TitleViewModel]()
+    @Published var titles2017 = [TitleViewModel]()
+    @Published var titles2016 = [TitleViewModel]()
+    @Published var titles2015 = [TitleViewModel]()
+    @Published var titles2014 = [TitleViewModel]()
+    @Published var titles2013 = [TitleViewModel]()
+    
+    @Published var departmentsAll = [DepartmentViewModel]()
+    @Published var departments2020 = [DepartmentViewModel]()
+    @Published var departments2019 = [DepartmentViewModel]()
+    @Published var departments2018 = [DepartmentViewModel]()
+    @Published var departments2017 = [DepartmentViewModel]()
+    @Published var departments2016 = [DepartmentViewModel]()
+    @Published var departments2015 = [DepartmentViewModel]()
+    @Published var departments2014 = [DepartmentViewModel]()
+    @Published var departments2013 = [DepartmentViewModel]()
+    
+    @Published var campusesAll = [CampusViewModel]()
+    @Published var campuses2020 = [CampusViewModel]()
+    @Published var campuses2019 = [CampusViewModel]()
+    @Published var campuses2018 = [CampusViewModel]()
+    @Published var campuses2017 = [CampusViewModel]()
+    @Published var campuses2016 = [CampusViewModel]()
+    @Published var campuses2015 = [CampusViewModel]()
+    @Published var campuses2014 = [CampusViewModel]()
+    @Published var campuses2013 = [CampusViewModel]()
     
     
     
     
-    
-    
-    @Published var titles = [TitleViewModel]()
-    @Published var departments = [DepartmentViewModel]()
     @Published var campuses = [CampusViewModel]()
     
     
@@ -46,18 +71,18 @@ class AdminViewModel: ObservableObject {
 
     
     func getAllTitles() {
-        let titles: [Title] = Title.all()
+        let titlesAll: [Title] = Title.all()
         DispatchQueue.main.async {
-            self.titles = titles.map(TitleViewModel.init)
+            self.titlesAll = titlesAll.map(TitleViewModel.init)
         }
         
     }
     
     
     func getAllDepartments() {
-        let departments: [Department] = Department.all()
+        let departmentsAll: [Department] = Department.all()
         DispatchQueue.main.async {
-            self.departments = departments.map(DepartmentViewModel.init)
+            self.departmentsAll = departmentsAll.map(DepartmentViewModel.init)
         }
         
     }

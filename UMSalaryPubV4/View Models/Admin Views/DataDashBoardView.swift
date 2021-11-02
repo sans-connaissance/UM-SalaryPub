@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DataDashBoardView: View {
+struct DataDashboardView: View {
     
     @StateObject private var adminVM = AdminViewModel()
     
@@ -37,6 +37,6 @@ struct DataDashBoardView: View {
 
 struct DataDashBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        DataDashBoardView()
+        DataDashboardView()
     }
 }

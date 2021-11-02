@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         
         TabView {
-            DataDashBoardView()
+            DataDashboardView()
                 .tabItem {
                     Image(systemName: "wrench.and.screwdriver")
                     Text(verbatim: "Admin")
