@@ -13,8 +13,7 @@ protocol BaseModel where Self: NSManagedObject {
     
     static func byId<T: NSManagedObject>(id: NSManagedObjectID) -> T?
     static func all<T: NSManagedObject>() -> [T]
-    
-
+  
 }
 
 
@@ -23,6 +22,17 @@ extension BaseModel {
     
     static var viewContext: NSManagedObjectContext {
         return CoreDataManager.shared.viewContext
+    }
+    
+    
+    static func byId<T>(id: NSManagedObjectID) -> T? where T: NSManagedObject {
+        
+        do {
+            return try viewContext.existingObject(with: id) as? T
+        } catch {
+            print(error)
+            return nil
+        }
     }
     
     
@@ -37,20 +47,5 @@ extension BaseModel {
         }
     }
     
-    
-    
-    static func byId<T>(id: NSManagedObjectID) -> T? where T: NSManagedObject {
-        
-        do {
-            return try viewContext.existingObject(with: id) as? T
-        } catch {
-            print(error)
-            return nil
-        }
-    }
 }
 
-//enum ObjectType {
-// case Person, Title, Department, Campus
-//
-//}
