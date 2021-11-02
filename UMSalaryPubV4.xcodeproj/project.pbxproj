@@ -38,6 +38,7 @@
 		41E5A4B92721BED800A51D80 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A4B82721BED800A51D80 /* CoreDataManager.swift */; };
 		41EA3BAE2731C338001070CF /* PersonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BAD2731C338001070CF /* PersonRow.swift */; };
 		41EA3BB02731C35C001070CF /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BAF2731C35C001070CF /* FontStyles.swift */; };
+		41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BB12731C642001070CF /* TempViewModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		41E5A4B82721BED800A51D80 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		41EA3BAD2731C338001070CF /* PersonRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonRow.swift; sourceTree = "<group>"; };
 		41EA3BAF2731C35C001070CF /* FontStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
+		41EA3BB12731C642001070CF /* TempViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				4139F4F92724FB6A00E6EC5C /* AdminVMs */,
+				41EA3BB12731C642001070CF /* TempViewModels.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */,
 				414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */,
 				4139F5032725AD0F00E6EC5C /* FavoriteView.swift in Sources */,
+				41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */,
 				41EA3BAE2731C338001070CF /* PersonRow.swift in Sources */,
 				41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */,
 				41E5A4A22721B6CE00A51D80 /* UMSalaryPub.xcdatamodeld in Sources */,

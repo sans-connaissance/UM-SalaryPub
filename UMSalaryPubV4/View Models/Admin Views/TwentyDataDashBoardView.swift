@@ -19,7 +19,7 @@ struct TwentyDataDashBoardView: View {
             Text("Title Count: \(adminVM.titleCount)")
             Text("Department Count: \(adminVM.departmentCount)")
             List {
-                ForEach(adminVM.persons, id: \.id) { person in
+                ForEach(adminVM.personsAll, id: \.id) { person in
                     PersonCell(person: person)
                     
                 }

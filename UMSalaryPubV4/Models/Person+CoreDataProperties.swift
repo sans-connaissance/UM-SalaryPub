@@ -10,11 +10,11 @@ import Foundation
 import CoreData
 
 extension Person: BaseModel {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Person> {
         return NSFetchRequest<Person>(entityName: "Person")
     }
-
+    
     @NSManaged public var amtSalaryFromGeneralFund: Double
     @NSManaged public var apptAnnualFTR: Double
     @NSManaged public var apptFraction: Double
@@ -25,17 +25,23 @@ extension Person: BaseModel {
     @NSManaged public var department: Department?
     @NSManaged public var title: Title?
     
-
+    
 }
 
 extension Person : Identifiable {
     
-    static func byYear(year: String) -> NSFetchRequest<Person> {
+    static func byYear(year: String) -> [Person] {
         
-        let fetchRequest: NSFetchRequest<Person> = NSFetchRequest<Person>(entityName: "Person")
-        fetchRequest.predicate = NSPredicate(format: "year == \(year)")
+        let request: NSFetchRequest<Person> = Person.fetchRequest()
         
-        return fetchRequest
+        // request.predicate = NSPredicate(format: "year == \(year)")
+        request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), year)
+        
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            return []
+        }
     }
     
 }
