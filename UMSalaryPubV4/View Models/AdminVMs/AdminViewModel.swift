@@ -14,6 +14,7 @@ class AdminViewModel: ObservableObject {
     @Published var persons = [PersonViewModel]()
     @Published var titles = [TitleViewModel]()
     @Published var departments = [DepartmentViewModel]()
+    @Published var campuses = [CampusViewModel]()
     
     func loadScreen() {
         
@@ -89,6 +90,20 @@ struct DepartmentViewModel {
     
     var departmentName: String {
         return department.departmentName ?? ""
+    }
+    
+}
+
+struct CampusViewModel {
+    
+    let campus: Campus
+    
+    var id: NSManagedObjectID {
+        return campus.objectID
+    }
+    
+    var campusName: String {
+        return campus.campusName ?? ""
     }
     
 }
