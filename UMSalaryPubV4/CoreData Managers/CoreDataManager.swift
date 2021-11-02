@@ -50,47 +50,7 @@ class CoreDataManager {
     
     //this is redundant -- I only need to do this in the Person+CoreDataClass model
     // All of the model type calls can be moved into their respective extensions
-    func getAllPersons() -> [Person] {
-        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest(year: "2020")
-        
-        do {
-            return try persistentContainer.viewContext.fetch(fetchRequest)
-        } catch {
-            return []
-        }
-        
-    }
-    
-    func getAllTitles() -> [Title] {
-        let fetchRequest: NSFetchRequest<Title> = Title.fetchRequest()
-        
-        do {
-            return try persistentContainer.viewContext.fetch(fetchRequest)
-        } catch {
-            return []
-        }
-    }
-    
-    
-    func getAllDepartments() -> [Department] {
-        let fetchRequest: NSFetchRequest<Department> = Department.fetchRequest()
-        
-        do {
-            return try persistentContainer.viewContext.fetch(fetchRequest)
-        } catch {
-            return []
-        }
-    }
-    
-    func getAllCampuses() -> [Campus] {
-        let fetchRequest: NSFetchRequest<Campus> = Campus.fetchRequest()
-        
-        do {
-            return try persistentContainer.viewContext.fetch(fetchRequest)
-        } catch {
-            return []
-        }
-    }
+   
     
     
     func saveContext() {

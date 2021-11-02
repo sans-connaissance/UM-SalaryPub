@@ -14,7 +14,7 @@ protocol BaseModel where Self: NSManagedObject {
     static func byId<T: NSManagedObject>(id: NSManagedObjectID) -> T?
     static func all<T: NSManagedObject>() -> [T]
     
-    
+
 }
 
 
@@ -24,6 +24,7 @@ extension BaseModel {
     static var viewContext: NSManagedObjectContext {
         return CoreDataManager.shared.viewContext
     }
+    
     
     static func all<T>() -> [T] where T: NSManagedObject {
         
@@ -36,6 +37,8 @@ extension BaseModel {
         }
     }
     
+    
+    
     static func byId<T>(id: NSManagedObjectID) -> T? where T: NSManagedObject {
         
         do {
@@ -45,7 +48,9 @@ extension BaseModel {
             return nil
         }
     }
-    
-    
 }
 
+//enum ObjectType {
+// case Person, Title, Department, Campus
+//
+//}

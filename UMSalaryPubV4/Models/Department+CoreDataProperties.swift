@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-extension Department {
+extension Department: BaseModel {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Department> {
         return NSFetchRequest<Department>(entityName: "Department")

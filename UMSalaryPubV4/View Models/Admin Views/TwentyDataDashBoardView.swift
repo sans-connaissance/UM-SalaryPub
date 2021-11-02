@@ -17,6 +17,7 @@ struct TwentyDataDashBoardView: View {
         VStack {
             Text("Person Count: \(adminVM.personCount)")
             Text("Title Count: \(adminVM.titleCount)")
+            Text("Department Count: \(adminVM.departmentCount)")
             List {
                 ForEach(adminVM.persons, id: \.id) { person in
                     PersonCell(person: person)
@@ -25,8 +26,7 @@ struct TwentyDataDashBoardView: View {
                 
             }
             .onAppear(perform: {
-                adminVM.getAllPersons()
-                adminVM.getAllTitles()
+                adminVM.loadScreen()
             })
             .listStyle(GroupedListStyle())
             

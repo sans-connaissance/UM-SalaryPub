@@ -15,7 +15,7 @@ struct DataDashBoardView: View {
         
         VStack {
             
-            
+            loadButton
             TwentyDataDashBoardView()
             
         }

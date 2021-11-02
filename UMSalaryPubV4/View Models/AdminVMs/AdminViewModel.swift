@@ -13,7 +13,14 @@ class AdminViewModel: ObservableObject {
     
     @Published var persons = [PersonViewModel]()
     @Published var titles = [TitleViewModel]()
+    @Published var departments = [DepartmentViewModel]()
     
+    func loadScreen() {
+        
+        getAllPersons()
+        getAllTitles()
+        getAllDepartments()
+    }
     
     func getAllPersons() {
         
@@ -32,6 +39,16 @@ class AdminViewModel: ObservableObject {
         
     }
     
+    
+    func getAllDepartments() {
+        let departments: [Department] = Department.all()
+        DispatchQueue.main.async {
+            self.departments = departments.map(DepartmentViewModel.init)
+        }
+        
+    }
+    
+    
     var titleCount: Int {
         return titles.count
     }
@@ -41,9 +58,11 @@ class AdminViewModel: ObservableObject {
         return persons.count
     }
     
+    var departmentCount: Int {
+        return departments.count
+    }
+    
 }
-
-
 
 
 struct TitleViewModel {
@@ -56,6 +75,20 @@ struct TitleViewModel {
     
     var titleName: String {
         return title.titleName ?? ""
+    }
+    
+}
+
+struct DepartmentViewModel {
+    
+    let department: Department
+    
+    var id: NSManagedObjectID {
+        return department.objectID
+    }
+    
+    var departmentName: String {
+        return department.departmentName ?? ""
     }
     
 }
