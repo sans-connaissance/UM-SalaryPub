@@ -13,6 +13,7 @@ protocol BaseModel where Self: NSManagedObject {
     
     static func byId<T: NSManagedObject>(id: NSManagedObjectID) -> T?
     static func all<T: NSManagedObject>() -> [T]
+
   
 }
 
@@ -46,6 +47,8 @@ extension BaseModel {
             return []
         }
     }
+    
+    
     
 }
 

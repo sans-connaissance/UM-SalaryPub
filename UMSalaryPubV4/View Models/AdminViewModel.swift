@@ -41,6 +41,9 @@ class AdminViewModel: ObservableObject {
     @Published var departments2014 = [DepartmentViewModel]()
     @Published var departments2013 = [DepartmentViewModel]()
     
+    @Published var departmentAllYears = [[DepartmentViewModel]]()
+    private var  departmentByYear = [Department]()
+    
     @Published var campusesAll = [CampusViewModel]()
     @Published var campuses2020 = [CampusViewModel]()
     @Published var campuses2019 = [CampusViewModel]()
@@ -68,24 +71,12 @@ class AdminViewModel: ObservableObject {
         getCampuses2020()
     }
     
+    
+    
+    
+    
+    
 
-    
-    func getAllTitles() {
-        let titlesAll: [Title] = Title.all()
-        DispatchQueue.main.async {
-            self.titlesAll = titlesAll.map(TitleViewModel.init)
-        }
-        
-    }
-    
-    
-    func getAllDepartments() {
-        let departmentsAll: [Department] = Department.all()
-        DispatchQueue.main.async {
-            self.departmentsAll = departmentsAll.map(DepartmentViewModel.init)
-        }
-        
-    }
     
     
     //MARK: ------------------------ Person ------------------------
@@ -97,7 +88,7 @@ class AdminViewModel: ObservableObject {
         }
     }
     
-
+    
     func getPersons2020() {
         let persons2020: [Person] = Person.byYear(year: "2020")
         
@@ -174,6 +165,13 @@ class AdminViewModel: ObservableObject {
     
     //MARK: ------------------------ Titles ------------------------
     
+    func getAllTitles() {
+        let titlesAll: [Title] = Title.all()
+        DispatchQueue.main.async {
+            self.titlesAll = titlesAll.map(TitleViewModel.init)
+        }
+    }
+    
     func getTitles2020() {
         let titles2020: [Title] = Title.byYear(year: "2020")
         
@@ -246,10 +244,19 @@ class AdminViewModel: ObservableObject {
         
     }
     
-
+    
     
     //MARK: ------------------------ Departments ---------------------
-
+    
+    func getAllDepartments() {
+        let departmentsAll: [Department] = Department.all()
+        DispatchQueue.main.async {
+            self.departmentsAll = departmentsAll.map(DepartmentViewModel.init)
+        }
+        
+    }
+    
+    
     func getDepartments2020() {
         let departments2020: [Department] = Department.byYear(year: "2020")
         
@@ -257,6 +264,83 @@ class AdminViewModel: ObservableObject {
             self.departments2020 = departments2020.map(DepartmentViewModel.init)
         }
         
+    }
+    
+    func getDepartments2019() {
+        let departments2019: [Department] = Department.byYear(year: "2019")
+        
+        DispatchQueue.main.async {
+            self.departments2019 = departments2019.map(DepartmentViewModel.init)
+        }
+        
+    }
+    
+    func getDepartments2018() {
+        let departments2018: [Department] = Department.byYear(year: "2018")
+        
+        DispatchQueue.main.async {
+            self.departments2018 = departments2018.map(DepartmentViewModel.init)
+        }
+        
+    }
+    
+    func getDepartments2017() {
+        let departments2017: [Department] = Department.byYear(year: "2017")
+        
+        DispatchQueue.main.async {
+            self.departments2017 = departments2017.map(DepartmentViewModel.init)
+        }
+        
+    }
+    
+    func getDepartments2016() {
+        let departments2016: [Department] = Department.byYear(year: "2016")
+        
+        DispatchQueue.main.async {
+            self.departments2016 = departments2016.map(DepartmentViewModel.init)
+        }
+        
+    }
+    
+    func getDepartments2015() {
+        let departments2015: [Department] = Department.byYear(year: "2015")
+        
+        DispatchQueue.main.async {
+            self.departments2015 = departments2015.map(DepartmentViewModel.init)
+        }
+        
+    }
+    
+    func getDepartments2014() {
+        let departments2014: [Department] = Department.byYear(year: "2014")
+        
+        DispatchQueue.main.async {
+            self.departments2014 = departments2014.map(DepartmentViewModel.init)
+        }
+        
+    }
+    
+    func getDepartments2013() {
+        let departments2013: [Department] = Department.byYear(year: "2013")
+        
+        DispatchQueue.main.async {
+            self.departments2013 = departments2013.map(DepartmentViewModel.init)
+        }
+        
+    }
+    
+    //This is a great question to add to github -- do that after getting the rest of this to work the slow way.
+    func getAllDepartmentsByYear(years: [String]) {
+        
+
+        for year in years {
+            let departmentByYear: [Department] = Department.byYear(year: year)
+            
+//            DispatchQueue.main.async {
+//                self.departmentByYear = departmentByYear.map(DepartmentViewModel.init)
+//
+//            }
+        }
     }
     
     
