@@ -67,5 +67,19 @@ extension Campus {
 }
 
 extension Campus : Identifiable {
+    
+    
+    static func byYear(year: String) -> [Campus] {
+        
+        let request: NSFetchRequest<Campus> = Campus.fetchRequest()
+        
+        request.predicate = NSPredicate(format: " ANY %K = %@", #keyPath(Campus.personsOnCampus.year), year)
+        
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
 
 }

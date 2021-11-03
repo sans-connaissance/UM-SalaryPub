@@ -63,5 +63,19 @@ extension Department {
 }
 
 extension Department : Identifiable {
+    
+    static func byYear(year: String) -> [Department] {
+        
+        let request: NSFetchRequest<Department> = Department.fetchRequest()
+        
+        request.predicate = NSPredicate(format: " ANY %K = %@", #keyPath(Department.personsInDepartment.year), year)
+        
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
+    
 
 }

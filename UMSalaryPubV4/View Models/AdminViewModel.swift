@@ -52,20 +52,20 @@ class AdminViewModel: ObservableObject {
     @Published var campuses2013 = [CampusViewModel]()
     
     
-    
-    
-    @Published var campuses = [CampusViewModel]()
-    
-    
-    
-    
-    
-    
     func loadAdminScreen() {
         
         getAllPersons()
         getAllTitles()
         getAllDepartments()
+        
+        getPersons2020()
+        
+        getTitles2020()
+        
+        getDepartments2020()
+        
+        
+        getCampuses2020()
     }
     
 
@@ -170,6 +170,109 @@ class AdminViewModel: ObservableObject {
         }
         
     }
+    
+    
+    //MARK: ------------------------ Titles ------------------------
+    
+    func getTitles2020() {
+        let titles2020: [Title] = Title.byYear(year: "2020")
+        
+        DispatchQueue.main.async {
+            self.titles2020 = titles2020.map(TitleViewModel.init)
+        }
+        
+    }
+    
+    func getTitles2019() {
+        let titles2020: [Title] = Title.byYear(year: "2019")
+        
+        DispatchQueue.main.async {
+            self.titles2020 = titles2020.map(TitleViewModel.init)
+        }
+        
+    }
+    
+    func getTitles2018() {
+        let titles2018: [Title] = Title.byYear(year: "2018")
+        
+        DispatchQueue.main.async {
+            self.titles2018 = titles2018.map(TitleViewModel.init)
+        }
+        
+    }
+    
+    func getTitles2017() {
+        let titles2017: [Title] = Title.byYear(year: "2017")
+        
+        DispatchQueue.main.async {
+            self.titles2017 = titles2017.map(TitleViewModel.init)
+        }
+        
+    }
+    
+    func getTitles2016() {
+        let titles2016: [Title] = Title.byYear(year: "2016")
+        
+        DispatchQueue.main.async {
+            self.titles2016 = titles2016.map(TitleViewModel.init)
+        }
+        
+    }
+    
+    func getTitles2015() {
+        let titles2015: [Title] = Title.byYear(year: "2015")
+        
+        DispatchQueue.main.async {
+            self.titles2015 = titles2015.map(TitleViewModel.init)
+        }
+        
+    }
+    
+    func getTitles2014() {
+        let titles2014: [Title] = Title.byYear(year: "2014")
+        
+        DispatchQueue.main.async {
+            self.titles2014 = titles2014.map(TitleViewModel.init)
+        }
+        
+    }
+    
+    func getTitles2013() {
+        let titles2013: [Title] = Title.byYear(year: "2013")
+        
+        DispatchQueue.main.async {
+            self.titles2013 = titles2013.map(TitleViewModel.init)
+        }
+        
+    }
+    
+
+    
+    //MARK: ------------------------ Departments ---------------------
+
+    func getDepartments2020() {
+        let departments2020: [Department] = Department.byYear(year: "2020")
+        
+        DispatchQueue.main.async {
+            self.departments2020 = departments2020.map(DepartmentViewModel.init)
+        }
+        
+    }
+    
+    
+    
+    //MARK: ------------------------ Campuses ---------------------
+    
+    func getCampuses2020() {
+        let campuses2020: [Campus] = Campus.byYear(year: "2020")
+        
+        DispatchQueue.main.async {
+            self.campuses2020 = campuses2020.map(CampusViewModel.init)
+        }
+        
+    }
+    
+    
     
 }
 

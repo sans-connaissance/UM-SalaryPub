@@ -27,14 +27,6 @@ extension Title: BaseModel {
     @NSManaged public var titleName: String?
     @NSManaged public var titleYear: Int64
     @NSManaged public var personsWithTitle: Array<Person>
-    
-    static func twentyTwentyTitles() -> NSFetchRequest<Title> {
-        
-        let fetch: NSFetchRequest<Title> = NSFetchRequest<Title>(entityName: "Title")
-        fetch.predicate = NSPredicate(format: "ANY personsWithTitle.year = %@", "2020")
-
-        return fetch
-    }
 
 }
 
@@ -74,5 +66,19 @@ extension Title {
 }
 
 extension Title : Identifiable {
+    
+    
+    static func byYear(year: String) -> [Title] {
+        
+        let request: NSFetchRequest<Title> = Title.fetchRequest()
+        
+        request.predicate = NSPredicate(format: " ANY %K = %@", #keyPath(Title.personsWithTitle.year), year)
+        
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
 
 }

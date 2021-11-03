@@ -39,6 +39,7 @@
 		41EA3BB02731C35C001070CF /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BAF2731C35C001070CF /* FontStyles.swift */; };
 		41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BB12731C642001070CF /* TempViewModels.swift */; };
 		41EA3BB42731D9F2001070CF /* DashboardCountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */; };
+		41EA3BB62731FEF7001070CF /* csvjson-02020.json in Resources */ = {isa = PBXBuildFile; fileRef = 41EA3BB52731FEF7001070CF /* csvjson-02020.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		41EA3BAF2731C35C001070CF /* FontStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 		41EA3BB12731C642001070CF /* TempViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewModels.swift; sourceTree = "<group>"; };
 		41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCountsView.swift; sourceTree = "<group>"; };
+		41EA3BB52731FEF7001070CF /* csvjson-02020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02020.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,14 +110,14 @@
 		4139F4FD2725AB4000E6EC5C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				41E5A4AB2721B95300A51D80 /* Campus+CoreDataClass.swift */,
-				41E5A4AC2721B95300A51D80 /* Campus+CoreDataProperties.swift */,
-				41E5A4A72721B95300A51D80 /* Department+CoreDataClass.swift */,
-				41E5A4A82721B95300A51D80 /* Department+CoreDataProperties.swift */,
 				41E5A4AD2721B95300A51D80 /* Person+CoreDataClass.swift */,
 				41E5A4AE2721B95300A51D80 /* Person+CoreDataProperties.swift */,
 				41E5A4A92721B95300A51D80 /* Title+CoreDataClass.swift */,
 				41E5A4AA2721B95300A51D80 /* Title+CoreDataProperties.swift */,
+				41E5A4A72721B95300A51D80 /* Department+CoreDataClass.swift */,
+				41E5A4A82721B95300A51D80 /* Department+CoreDataProperties.swift */,
+				41E5A4AB2721B95300A51D80 /* Campus+CoreDataClass.swift */,
+				41E5A4AC2721B95300A51D80 /* Campus+CoreDataProperties.swift */,
 				416C8A5D272B10CE00653032 /* BaseModel.swift */,
 			);
 			path = Models;
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				414AD1492723169600316A45 /* csvjson-02020p.json */,
+				41EA3BB52731FEF7001070CF /* csvjson-02020.json */,
 				414AD153272320C300316A45 /* BaseDAO.swift */,
 				414AD155272320C300316A45 /* CampusDAO.swift */,
 				414AD154272320C300316A45 /* DepartmentDAO.swift */,
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41E5A4942721B37A00A51D80 /* Preview Assets.xcassets in Resources */,
+				41EA3BB62731FEF7001070CF /* csvjson-02020.json in Resources */,
 				41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */,
 				414AD14A2723169600316A45 /* csvjson-02020p.json in Resources */,
 			);
