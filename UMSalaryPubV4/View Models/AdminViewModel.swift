@@ -356,6 +356,69 @@ class AdminViewModel: ObservableObject {
         
     }
     
+    func getCampuses2019() {
+        let campuses2019: [Campus] = Campus.byYear(year: "2019")
+        
+        DispatchQueue.main.async {
+            self.campuses2019 = campuses2019.map(CampusViewModel.init)
+        }
+        
+    }
+    
+    func getCampuses2018() {
+        let campuses2018: [Campus] = Campus.byYear(year: "2018")
+        
+        DispatchQueue.main.async {
+            self.campuses2018 = campuses2018.map(CampusViewModel.init)
+        }
+        
+    }
+    
+    func getCampuses2017() {
+        let campuses2017: [Campus] = Campus.byYear(year: "2017")
+        
+        DispatchQueue.main.async {
+            self.campuses2017 = campuses2017.map(CampusViewModel.init)
+        }
+        
+    }
+    
+    func getCampuses2016() {
+        let campuses2016: [Campus] = Campus.byYear(year: "2016")
+        
+        DispatchQueue.main.async {
+            self.campuses2016 = campuses2016.map(CampusViewModel.init)
+        }
+        
+    }
+    
+    func getCampuses2015() {
+        let campuses2015: [Campus] = Campus.byYear(year: "2015")
+        
+        DispatchQueue.main.async {
+            self.campuses2015 = campuses2015.map(CampusViewModel.init)
+        }
+        
+    }
+    
+    func getCampuses2014() {
+        let campuses2014: [Campus] = Campus.byYear(year: "2014")
+        
+        DispatchQueue.main.async {
+            self.campuses2014 = campuses2014.map(CampusViewModel.init)
+        }
+        
+    }
+    
+    func getCampuses2013() {
+        let campuses2013: [Campus] = Campus.byYear(year: "2013")
+        
+        DispatchQueue.main.async {
+            self.campuses2013 = campuses2013.map(CampusViewModel.init)
+        }
+        
+    }
+    
     
     
 }
