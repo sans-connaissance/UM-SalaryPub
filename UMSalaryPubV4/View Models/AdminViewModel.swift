@@ -41,8 +41,8 @@ class AdminViewModel: ObservableObject {
     @Published var departments2014 = [DepartmentViewModel]()
     @Published var departments2013 = [DepartmentViewModel]()
     
-    @Published var departmentAllYears = [[DepartmentViewModel]]()
-    private var  departmentByYear = [Department]()
+//    @Published var departmentAllYears = [[DepartmentViewModel]]()
+//    private var  departmentByYear = [Department]()
     
     @Published var campusesAll = [CampusViewModel]()
     @Published var campuses2020 = [CampusViewModel]()
@@ -62,13 +62,40 @@ class AdminViewModel: ObservableObject {
         getAllDepartments()
         
         getPersons2020()
+        getPersons2019()
+        getPersons2018()
+        getPersons2017()
+        getPersons2016()
+        getPersons2015()
+        getPersons2014()
+        getPersons2013()
         
         getTitles2020()
+        getTitles2019()
+        getTitles2018()
+        getTitles2017()
+        getTitles2016()
+        getTitles2015()
+        getTitles2014()
+        getTitles2013()
         
         getDepartments2020()
-        
+        getDepartments2019()
+        getDepartments2018()
+        getDepartments2017()
+        getDepartments2016()
+        getDepartments2015()
+        getDepartments2014()
+        getDepartments2013()
         
         getCampuses2020()
+        getCampuses2019()
+        getCampuses2018()
+        getCampuses2017()
+        getCampuses2016()
+        getCampuses2015()
+        getCampuses2014()
+        getCampuses2013()
     }
     
     
