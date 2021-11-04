@@ -58,8 +58,8 @@ class AdminViewModel: ObservableObject {
     func loadAdminScreen() {
         
         getAllPersons()
-        getAllTitles()
-        getAllDepartments()
+//        getAllTitles()
+//        getAllDepartments()
         
         getPersons2020()
         getPersons2019()
@@ -209,10 +209,10 @@ class AdminViewModel: ObservableObject {
     }
     
     func getTitles2019() {
-        let titles2020: [Title] = Title.byYear(year: "2019")
+        let titles2019: [Title] = Title.byYear(year: "2019")
         
         DispatchQueue.main.async {
-            self.titles2020 = titles2020.map(TitleViewModel.init)
+            self.titles2019 = titles2019.map(TitleViewModel.init)
         }
         
     }
@@ -357,18 +357,18 @@ class AdminViewModel: ObservableObject {
     }
     
     //This is a great question to add to github -- do that after getting the rest of this to work the slow way.
-    func getAllDepartmentsByYear(years: [String]) {
-        
-
-        for year in years {
-            let departmentByYear: [Department] = Department.byYear(year: year)
-            
-//            DispatchQueue.main.async {
-//                self.departmentByYear = departmentByYear.map(DepartmentViewModel.init)
+//    func getAllDepartmentsByYear(years: [String]) {
 //
-//            }
-        }
-    }
+//
+//        for year in years {
+//            let departmentByYear: [Department] = Department.byYear(year: year)
+//
+////            DispatchQueue.main.async {
+////                self.departmentByYear = departmentByYear.map(DepartmentViewModel.init)
+////
+////            }
+//        }
+//    }
     
     
     
