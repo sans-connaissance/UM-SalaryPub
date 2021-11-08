@@ -12,7 +12,6 @@
 		4139F4FC2725AACB00E6EC5C /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4FB2725AACB00E6EC5C /* HomeScreenView.swift */; };
 		4139F5002725AC6600E6EC5C /* MoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4FF2725AC6600E6EC5C /* MoreInfoView.swift */; };
 		4139F5032725AD0F00E6EC5C /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F5022725AD0F00E6EC5C /* FavoriteView.swift */; };
-		414AD14A2723169600316A45 /* csvjson-02020p.json in Resources */ = {isa = PBXBuildFile; fileRef = 414AD1492723169600316A45 /* csvjson-02020p.json */; };
 		414AD1502723208A00316A45 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD14F2723208A00316A45 /* AppUtils.swift */; };
 		414AD156272320C300316A45 /* TitleDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD151272320C300316A45 /* TitleDAO.swift */; };
 		414AD157272320C300316A45 /* PersonDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD152272320C300316A45 /* PersonDAO.swift */; };
@@ -21,6 +20,16 @@
 		414AD15A272320C300316A45 /* CampusDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD155272320C300316A45 /* CampusDAO.swift */; };
 		416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C8A5D272B10CE00653032 /* BaseModel.swift */; };
 		41998B5C2738480A0021D632 /* DataDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B5B2738480A0021D632 /* DataDashboardView.swift */; };
+		41998B732738C0860021D632 /* csvjson-02013.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B6B2738C0840021D632 /* csvjson-02013.json */; };
+		41998B742738C0860021D632 /* csvjson-02016.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B6C2738C0840021D632 /* csvjson-02016.json */; };
+		41998B752738C0860021D632 /* csvjson-02017.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B6D2738C0840021D632 /* csvjson-02017.json */; };
+		41998B762738C0860021D632 /* csvjson-02014.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B6E2738C0850021D632 /* csvjson-02014.json */; };
+		41998B772738C0860021D632 /* csvjson-02020.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B6F2738C0850021D632 /* csvjson-02020.json */; };
+		41998B782738C0860021D632 /* csvjson-02019.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B702738C0850021D632 /* csvjson-02019.json */; };
+		41998B792738C0860021D632 /* csvjson-02018.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B712738C0860021D632 /* csvjson-02018.json */; };
+		41998B7A2738C0860021D632 /* csvjson-02015.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B722738C0860021D632 /* csvjson-02015.json */; };
+		41998B7D273970C70021D632 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 41998B7C273970C70021D632 /* Collections */; };
+		41998B7F273970C70021D632 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 41998B7E273970C70021D632 /* OrderedCollections */; };
 		41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */; };
 		41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48E2721B37700A51D80 /* ContentView.swift */; };
 		41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E5A4902721B37A00A51D80 /* Assets.xcassets */; };
@@ -39,7 +48,6 @@
 		41EA3BB02731C35C001070CF /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BAF2731C35C001070CF /* FontStyles.swift */; };
 		41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BB12731C642001070CF /* TempViewModels.swift */; };
 		41EA3BB42731D9F2001070CF /* DashboardCountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */; };
-		41EA3BB62731FEF7001070CF /* csvjson-02020.json in Resources */ = {isa = PBXBuildFile; fileRef = 41EA3BB52731FEF7001070CF /* csvjson-02020.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +56,6 @@
 		4139F4FB2725AACB00E6EC5C /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		4139F4FF2725AC6600E6EC5C /* MoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoView.swift; sourceTree = "<group>"; };
 		4139F5022725AD0F00E6EC5C /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
-		414AD1492723169600316A45 /* csvjson-02020p.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02020p.json"; sourceTree = "<group>"; };
 		414AD14F2723208A00316A45 /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		414AD151272320C300316A45 /* TitleDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleDAO.swift; sourceTree = "<group>"; };
 		414AD152272320C300316A45 /* PersonDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDAO.swift; sourceTree = "<group>"; };
@@ -57,6 +64,14 @@
 		414AD155272320C300316A45 /* CampusDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampusDAO.swift; sourceTree = "<group>"; };
 		416C8A5D272B10CE00653032 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		41998B5B2738480A0021D632 /* DataDashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDashboardView.swift; sourceTree = "<group>"; };
+		41998B6B2738C0840021D632 /* csvjson-02013.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02013.json"; sourceTree = "<group>"; };
+		41998B6C2738C0840021D632 /* csvjson-02016.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02016.json"; sourceTree = "<group>"; };
+		41998B6D2738C0840021D632 /* csvjson-02017.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02017.json"; sourceTree = "<group>"; };
+		41998B6E2738C0850021D632 /* csvjson-02014.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02014.json"; sourceTree = "<group>"; };
+		41998B6F2738C0850021D632 /* csvjson-02020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02020.json"; sourceTree = "<group>"; };
+		41998B702738C0850021D632 /* csvjson-02019.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02019.json"; sourceTree = "<group>"; };
+		41998B712738C0860021D632 /* csvjson-02018.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02018.json"; sourceTree = "<group>"; };
+		41998B722738C0860021D632 /* csvjson-02015.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02015.json"; sourceTree = "<group>"; };
 		41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMSalaryPubV4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMSalaryPubV4App.swift; sourceTree = "<group>"; };
 		41E5A48E2721B37700A51D80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,7 +91,6 @@
 		41EA3BAF2731C35C001070CF /* FontStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 		41EA3BB12731C642001070CF /* TempViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewModels.swift; sourceTree = "<group>"; };
 		41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCountsView.swift; sourceTree = "<group>"; };
-		41EA3BB52731FEF7001070CF /* csvjson-02020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02020.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41998B7F273970C70021D632 /* OrderedCollections in Frameworks */,
+				41998B7D273970C70021D632 /* Collections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,13 +158,19 @@
 		414AD1482723146800316A45 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				414AD1492723169600316A45 /* csvjson-02020p.json */,
-				41EA3BB52731FEF7001070CF /* csvjson-02020.json */,
 				414AD153272320C300316A45 /* BaseDAO.swift */,
 				414AD155272320C300316A45 /* CampusDAO.swift */,
 				414AD154272320C300316A45 /* DepartmentDAO.swift */,
 				414AD152272320C300316A45 /* PersonDAO.swift */,
 				414AD151272320C300316A45 /* TitleDAO.swift */,
+				41998B6B2738C0840021D632 /* csvjson-02013.json */,
+				41998B6E2738C0850021D632 /* csvjson-02014.json */,
+				41998B722738C0860021D632 /* csvjson-02015.json */,
+				41998B6C2738C0840021D632 /* csvjson-02016.json */,
+				41998B6D2738C0840021D632 /* csvjson-02017.json */,
+				41998B712738C0860021D632 /* csvjson-02018.json */,
+				41998B702738C0850021D632 /* csvjson-02019.json */,
+				41998B6F2738C0850021D632 /* csvjson-02020.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -267,6 +289,10 @@
 			dependencies = (
 			);
 			name = UMSalaryPubV4;
+			packageProductDependencies = (
+				41998B7C273970C70021D632 /* Collections */,
+				41998B7E273970C70021D632 /* OrderedCollections */,
+			);
 			productName = UMSalaryPubV4;
 			productReference = 41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */;
 			productType = "com.apple.product-type.application";
@@ -295,6 +321,9 @@
 				Base,
 			);
 			mainGroup = 41E5A4802721B37700A51D80;
+			packageReferences = (
+				41998B7B273970C70021D632 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = 41E5A48A2721B37700A51D80 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,10 +338,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41998B772738C0860021D632 /* csvjson-02020.json in Resources */,
+				41998B782738C0860021D632 /* csvjson-02019.json in Resources */,
 				41E5A4942721B37A00A51D80 /* Preview Assets.xcassets in Resources */,
-				41EA3BB62731FEF7001070CF /* csvjson-02020.json in Resources */,
+				41998B792738C0860021D632 /* csvjson-02018.json in Resources */,
+				41998B732738C0860021D632 /* csvjson-02013.json in Resources */,
+				41998B762738C0860021D632 /* csvjson-02014.json in Resources */,
+				41998B742738C0860021D632 /* csvjson-02016.json in Resources */,
 				41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */,
-				414AD14A2723169600316A45 /* csvjson-02020p.json in Resources */,
+				41998B752738C0860021D632 /* csvjson-02017.json in Resources */,
+				41998B7A2738C0860021D632 /* csvjson-02015.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +591,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		41998B7B273970C70021D632 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		41998B7C273970C70021D632 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41998B7B273970C70021D632 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		41998B7E273970C70021D632 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41998B7B273970C70021D632 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		41E5A4A02721B6CE00A51D80 /* UMSalaryPub.xcdatamodeld */ = {

@@ -11,6 +11,11 @@ import CoreData
 
 class AdminViewModel: ObservableObject {
     
+    @Published var importYears = [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
+    
+    
+    @Published var allPersons = [Int: [PersonViewModel]]()
+    
     @Published var personsAll = [PersonViewModel]()
     @Published var persons2020 = [PersonViewModel]()
     @Published var persons2019 = [PersonViewModel]()
@@ -41,8 +46,8 @@ class AdminViewModel: ObservableObject {
     @Published var departments2014 = [DepartmentViewModel]()
     @Published var departments2013 = [DepartmentViewModel]()
     
-//    @Published var departmentAllYears = [[DepartmentViewModel]]()
-//    private var  departmentByYear = [Department]()
+    //    @Published var departmentAllYears = [[DepartmentViewModel]]()
+    //    private var  departmentByYear = [Department]()
     
     @Published var campusesAll = [CampusViewModel]()
     @Published var campuses2020 = [CampusViewModel]()
@@ -57,9 +62,11 @@ class AdminViewModel: ObservableObject {
     
     func loadAdminScreen() {
         
+        allPersonsGet()
+        
         getAllPersons()
-//        getAllTitles()
-//        getAllDepartments()
+        //        getAllTitles()
+        //        getAllDepartments()
         
         getPersons2020()
         getPersons2019()
@@ -103,7 +110,7 @@ class AdminViewModel: ObservableObject {
     
     
     
-
+    
     
     
     //MARK: ------------------------ Person ------------------------
@@ -115,6 +122,17 @@ class AdminViewModel: ObservableObject {
         }
     }
     
+    func allPersonsGet() {
+        
+        for year in importYears {
+            
+            let personViewModel: [Person] = Person.byYear(year: String(year))
+            
+            allPersons[year] = personViewModel.map(PersonViewModel.init)
+            
+        }
+        
+    }
     
     func getPersons2020() {
         let persons2020: [Person] = Person.byYear(year: "2020")
@@ -357,18 +375,18 @@ class AdminViewModel: ObservableObject {
     }
     
     //This is a great question to add to github -- do that after getting the rest of this to work the slow way.
-//    func getAllDepartmentsByYear(years: [String]) {
-//
-//
-//        for year in years {
-//            let departmentByYear: [Department] = Department.byYear(year: year)
-//
-////            DispatchQueue.main.async {
-////                self.departmentByYear = departmentByYear.map(DepartmentViewModel.init)
-////
-////            }
-//        }
-//    }
+    //    func getAllDepartmentsByYear(years: [String]) {
+    //
+    //
+    //        for year in years {
+    //            let departmentByYear: [Department] = Department.byYear(year: year)
+    //
+    ////            DispatchQueue.main.async {
+    ////                self.departmentByYear = departmentByYear.map(DepartmentViewModel.init)
+    ////
+    ////            }
+    //        }
+    //    }
     
     
     

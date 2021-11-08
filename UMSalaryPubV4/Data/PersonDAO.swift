@@ -16,14 +16,14 @@ class PersonDAO: BaseDAO {
     private let personEntityName = "Person"
     
     func addPersonsIfNeeded(importYear: Int) {
-        guard !hasRecords()
+        guard !hasRecords(importYear: importYear)
         
         
         else {
             return
         }
         
-        if let persons = AppUtils.dictionaryFromFile(name: "csvjson-\(String(importYear))")["persons"] as? [[String: Any]] {
+        if let persons = AppUtils.dictionaryFromFile(name: "csvjson-0\(String(importYear))")["persons"] as? [[String: Any]] {
             for person in persons {
                 
                 var campus: Campus?
@@ -159,8 +159,9 @@ class PersonDAO: BaseDAO {
         }
     }
     
-    func hasRecords() -> Bool {
+    func hasRecords(importYear: Int) -> Bool {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: personEntityName)
+        fetchRequest.predicate = NSPredicate(format: "year == \(importYear)")
         var count = 0
         do {
             count = try managedContext.count(for: fetchRequest)

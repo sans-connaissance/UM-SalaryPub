@@ -13,9 +13,11 @@ struct DataDashboardView: View {
     @State private var selectedYear = 2020
     
     
-    var importYears = [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
-    
+
+//    
     var body: some View {
+        
+        let importYears = adminVM.importYears
         
         VStack {
             
