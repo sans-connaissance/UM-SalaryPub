@@ -9,7 +9,28 @@ import SwiftUI
 
 struct HomeScreenView: View {
     var body: some View {
-        Text("Search Views")
+        NavigationView {
+            
+            VStack {
+                List {
+                    Section(header: VStack {
+                        Text("UM SalaryPub")
+                    }
+                    
+                    ) {
+                        NavigationLink {
+                            PersonView()
+                        } label: {
+                            Text("People").font(.headline)
+                        }
+                        .isDetailLink(false)
+                        .padding(.top)
+                        .padding(.bottom)
+
+                    }
+                }
+            }
+        }
     }
 }
 
