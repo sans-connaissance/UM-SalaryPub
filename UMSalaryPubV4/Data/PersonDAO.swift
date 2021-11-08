@@ -15,12 +15,15 @@ class PersonDAO: BaseDAO {
     
     private let personEntityName = "Person"
     
-    func addPersonsIfNeeded() {
-        guard !hasRecords() else {
+    func addPersonsIfNeeded(fileDate: Int) {
+        guard !hasRecords()
+        
+        
+        else {
             return
         }
         
-        if let persons = AppUtils.dictionaryFromFile(name: "csvjson-02020")["persons"] as? [[String: Any]] {
+        if let persons = AppUtils.dictionaryFromFile(name: "csvjson-\(String(fileDate))")["persons"] as? [[String: Any]] {
             for person in persons {
                 
                 var campus: Campus?
@@ -48,7 +51,7 @@ class PersonDAO: BaseDAO {
                                                                                         campusAnnArborAverage: campusAnnArborAverage,
                                                                                         campusDearbornAverage: campusDearbornAverage,
                                                                                         campusFlintAverage: campusFlintAverage,
-                                                                                        campusCount: campusCount)
+                                                                                         campusCount: campusCount, importYear: fileDate)
                                                     
                                                     
                                                     

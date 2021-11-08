@@ -25,11 +25,12 @@ class CampusDAO: BaseDAO {
                             campusDearbornAverage: Double,
                             campusFlintAverage: Double,
                             
-                            campusCount: Double) -> Campus {
+                            campusCount: Double,
+                            importYear: Int) -> Campus {
        
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: campusEntityName)
         
-        let importYear = 2020
+        let importYear = importYear
         
         let yearPredicate = NSPredicate(format: "campusYear = %i", importYear)
         

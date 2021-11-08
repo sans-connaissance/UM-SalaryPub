@@ -25,7 +25,7 @@ struct DataDashboardView: View {
     
     var loadButton: some View {
         Button {
-            PersonDAO.shared.addPersonsIfNeeded()
+            PersonDAO.shared.addPersonsIfNeeded(fileDate: 2020)
 
         } label: {
             Text("Load Data")
