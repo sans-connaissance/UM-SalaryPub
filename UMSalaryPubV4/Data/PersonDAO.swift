@@ -15,7 +15,7 @@ class PersonDAO: BaseDAO {
     
     private let personEntityName = "Person"
     
-    func addPersonsIfNeeded(fileDate: Int) {
+    func addPersonsIfNeeded(importYear: Int) {
         guard !hasRecords()
         
         
@@ -23,7 +23,7 @@ class PersonDAO: BaseDAO {
             return
         }
         
-        if let persons = AppUtils.dictionaryFromFile(name: "csvjson-\(String(fileDate))")["persons"] as? [[String: Any]] {
+        if let persons = AppUtils.dictionaryFromFile(name: "csvjson-\(String(importYear))")["persons"] as? [[String: Any]] {
             for person in persons {
                 
                 var campus: Campus?
@@ -51,7 +51,7 @@ class PersonDAO: BaseDAO {
                                                                                         campusAnnArborAverage: campusAnnArborAverage,
                                                                                         campusDearbornAverage: campusDearbornAverage,
                                                                                         campusFlintAverage: campusFlintAverage,
-                                                                                         campusCount: campusCount, importYear: fileDate)
+                                                                                         campusCount: campusCount, importYear: importYear)
                                                     
                                                     
                                                     
@@ -97,7 +97,7 @@ class PersonDAO: BaseDAO {
                                                                                                      
                                                                                                      departmentMinAnnual: departmentMinAnnual,
                                                                                                      
-                                                                                                     departmentCount: departmentCount)
+                                                                                                     departmentCount: departmentCount, importYear: importYear)
                                             
                                         }
                                     }
@@ -129,7 +129,7 @@ class PersonDAO: BaseDAO {
                                                                                       titleAnnArborAverage: titleAnnArborAverage,
                                                                                       titleDearbornAverage: titleDearbornAverage,
                                                                                       titleFlintAverage: titleFlintAverage,
-                                                                                      titleCount: titleCount)
+                                                                                      titleCount: titleCount, importYear: importYear)
                                                     }
                                                 }
                                             }

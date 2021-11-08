@@ -21,13 +21,14 @@ class DepartmentDAO: BaseDAO {
                                 departmentMedianAnnual: Double,
                                 departmentMaxAnnual: Double,
                                 departmentMinAnnual: Double,
-                                departmentCount: Double) -> Department {
+                                departmentCount: Double,
+                                importYear: Int) -> Department {
         
         
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: departmentEntityName)
         
-        let importYear = 2020
+        let importYear = importYear
         
         let yearPredicate = NSPredicate(format: "departmentYear = %i", importYear)
         

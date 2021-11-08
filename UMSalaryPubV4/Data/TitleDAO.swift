@@ -24,14 +24,15 @@ class TitleDAO: BaseDAO {
                            titleDearbornAverage: Double,
                            titleFlintAverage: Double,
         
-                           titleCount: Double) -> Title {
+                           titleCount: Double,
+                           importYear: Int) -> Title {
        
         
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: titleEntityName)
         
         //This is the answer
-        let importYear = 2020
+        let importYear = importYear
         
         let yearPredicate = NSPredicate(format: "titleYear = %i", importYear)
         
