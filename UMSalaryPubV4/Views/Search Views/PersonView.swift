@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct PersonView: View {
+    
+    @StateObject private var personListVM = PersonListViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(personListVM.persons, id: \.self) { person in
+                PersonRow(person: person)
+                
+                
+            }
+        }
+        .listStyle(GroupedListStyle())
+        .onAppear(perform: personListVM.getAllPersons)
     }
 }
 

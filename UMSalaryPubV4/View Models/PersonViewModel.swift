@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 
 
-struct PersonViewModel {
+struct PersonViewModel: Hashable {
     
     let person: Person
     
