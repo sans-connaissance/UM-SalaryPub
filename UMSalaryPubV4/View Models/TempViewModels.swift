@@ -52,28 +52,4 @@ struct CampusViewModel {
 
 
 
-struct PersonViewModel {
-    
-    let person: Person
-    
-    var id: NSManagedObjectID {
-        return person.objectID
-    }
-    
-    var fullName: String {
-        
-        return person.fullName ?? ""
-    }
-    
-    var title: String {
-        
-        return person.title?.titleName ?? ""
-        
-    }
-    
-    var salary: String {
-        
-        return "$" + String(person.apptAnnualFTR)
-    }
-    
-}
+
