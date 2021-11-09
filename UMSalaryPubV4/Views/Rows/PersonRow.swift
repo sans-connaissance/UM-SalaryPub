@@ -15,6 +15,7 @@ struct PersonRow: View {
         
         VStack(alignment: .leading, spacing: 2) {
             Text(person.fullName).font(.headline)
+            Text(String(person.year))
             Text(person.title).textStyle(DetailData())
             Text(person.apptAnnualFTR).textStyle(DetailData())
         }
