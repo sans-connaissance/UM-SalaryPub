@@ -25,6 +25,10 @@ extension BaseModel {
         return CoreDataManager.shared.viewContext
     }
     
+    static var importYears: [Int] {
+        return [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
+    }
+    
     
     static func byId<T>(id: NSManagedObjectID) -> T? where T: NSManagedObject {
         
