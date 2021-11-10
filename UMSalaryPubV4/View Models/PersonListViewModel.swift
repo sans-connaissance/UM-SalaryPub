@@ -64,14 +64,19 @@ class PersonListViewModel: NSObject, ObservableObject {
         fetchedResultsController.delegate = self
         try? fetchedResultsController.performFetch()
         
-        DispatchQueue.main.async {
-            self.persons = (self.fetchedResultsController.fetchedObjects ?? []).map(PersonViewModel.init)
+        for year in importYears {
+            DispatchQueue.main.async {
+                self.allPersons[year] = (self.fetchedResultsController.fetchedObjects ?? []).map(PersonViewModel.init)
+            }
         }
     }
 }
 
 extension PersonListViewModel: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.persons = (controller.fetchedObjects as? [Person] ?? []).map(PersonViewModel.init)
+        
+        for year in importYears {
+        self.allPersons[year] = (controller.fetchedObjects as? [Person] ?? []).map(PersonViewModel.init)
+        }
     }
 }

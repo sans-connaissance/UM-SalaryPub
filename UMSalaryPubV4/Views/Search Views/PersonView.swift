@@ -20,8 +20,12 @@ struct PersonView: View {
             }
             Divider()
             List {
-                ForEach(personListVM.persons, id: \.self) { person in
-                    PersonRow(person: person)
+                ForEach(personListVM.importYears, id: \.self) { year in
+                    
+                    ForEach(personListVM.allPersons[year]!, id: \.self) { person in
+                        PersonRow(person: person)
+                        
+                    }
                     
                     
                 }
