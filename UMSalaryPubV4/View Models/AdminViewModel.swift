@@ -11,11 +11,8 @@ import CoreData
 
 class AdminViewModel: ObservableObject {
     
-//    @Published var importYears = [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
     
     @Published var importYears = Person.importYears
-    
-    
     @Published var allPersons = [Int: [PersonViewModel]]()
     @Published var allTitles = [Int: [TitleViewModel]]()
     @Published var allDepartments = [Int: [DepartmentViewModel]]()

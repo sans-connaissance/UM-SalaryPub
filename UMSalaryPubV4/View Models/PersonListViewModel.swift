@@ -33,6 +33,8 @@ class PersonListViewModel: NSObject, ObservableObject {
     // This is where I need to add all the filters and stuff I think
     
     @Published var persons = [PersonViewModel]()
+    @Published var allPersons = [Int: [PersonViewModel]]()
+    
     @Published var selectedSortYear: SortYear = .twenty
     
     private var fetchedResultsController: NSFetchedResultsController<Person>!
@@ -44,13 +46,10 @@ class PersonListViewModel: NSObject, ObservableObject {
         persons = personViewModel.map(PersonViewModel.init)
     }
     
-    func getNineteen() {
-        
-        
-    }
+
     
     
-    // you can SORT with a PREDICATE DUMMY!
+    // you can't SORT with a PREDICATE DUMMY!
     func sortByYear() {
         
         let request: NSFetchRequest<Person> = Person.fetchRequest()
