@@ -21,13 +21,12 @@ struct PersonView: View {
             Divider()
             List {
                 ForEach(personListVM.importYears, id: \.self) { year in
-                    
-                    ForEach(personListVM.allPersons[year]!, id: \.self) { person in
-                        PersonRow(person: person)
-                        
+                    if let personArray = personListVM.allPersons[year] {
+                        ForEach(personArray, id: \.self) { person in
+                            PersonRow(person: person)
+                            
+                        }
                     }
-                    
-                    
                 }
             }
             .listStyle(GroupedListStyle())

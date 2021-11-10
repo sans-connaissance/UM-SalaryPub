@@ -47,12 +47,6 @@ class PersonListViewModel: NSObject, ObservableObject {
         persons = personViewModel.map(PersonViewModel.init)
     }
     
-
-    
-    
-
-    
-    
     
     func getAllByYear() {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
