@@ -34,6 +34,7 @@ class PersonListViewModel: NSObject, ObservableObject {
     
     @Published var persons = [PersonViewModel]()
     @Published var allPersons = [Int: [PersonViewModel]]()
+    @Published var importYears = Person.importYears
     
     @Published var selectedSortYear: SortYear = .twenty
     
@@ -49,34 +50,15 @@ class PersonListViewModel: NSObject, ObservableObject {
 
     
     
-    // you can't SORT with a PREDICATE DUMMY!
-    func sortByYear() {
-        
-        let request: NSFetchRequest<Person> = Person.fetchRequest()
-//        request.sortDescriptors = [NSSortDescriptor(key: "year", ascending: true)]
-        
-        request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), selectedSortYear.rawValue)
-        
-        let fetchedResultsController: NSFetchedResultsController<Person> = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.shared.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        
-        //Example of multiple sort descriptors
-//        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true), NSSortDescriptor(key: "rating", ascending: false)]
-        
-        try? fetchedResultsController.performFetch()
-        
-        DispatchQueue.main.async {
-            self.persons = (fetchedResultsController.fetchedObjects ?? []).map(PersonViewModel.init)
-        }
-        
-        
-    }
+
     
     
     
     func getAllByYear() {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "year", ascending: true)]
+        request.fetchBatchSize = 20
+        request.fetchLimit = 50
+        request.sortDescriptors = [NSSortDescriptor(key: "year", ascending: false)]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.shared.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         
         fetchedResultsController.delegate = self

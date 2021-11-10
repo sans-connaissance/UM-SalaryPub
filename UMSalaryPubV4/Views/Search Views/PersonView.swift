@@ -18,13 +18,6 @@ struct PersonView: View {
                 year19
                 
             }
-//            Picker("Select Year", selection: $personListVM.selectedSortYear) {
-//                ForEach(SortYear.allCases, id: \.self) {
-//                    Text($0.displayText)
-//
-//                }
-//            }
-            
             Divider()
             List {
                 ForEach(personListVM.persons, id: \.self) { person in
@@ -41,7 +34,7 @@ struct PersonView: View {
     var year20: some View {
         Button {
             personListVM.selectedSortYear = SortYear.twenty
-            personListVM.sortByYear()
+           
         } label: {
             Text("2020")
         }
@@ -50,7 +43,7 @@ struct PersonView: View {
     var year19: some View {
         Button {
             personListVM.selectedSortYear = SortYear.nineteen
-            personListVM.sortByYear()
+          
         } label: {
             Text("2020")
         }
