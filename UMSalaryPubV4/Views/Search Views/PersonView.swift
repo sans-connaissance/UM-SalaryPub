@@ -14,15 +14,27 @@ struct PersonView: View {
     var body: some View {
         VStack {
             HStack {
-                year20
-                year19
                 
+                Picker("Select year", selection: $personListVM.selectedSortYear) {
+                    ForEach(SortYear.allCases, id: \.self) {
+                        Text($0.displayText)
+                    }
+                }
             }
             Divider()
+            if personListVM.selectedSortYear == .twenty {
+                Text("2020")
+            }
+            
+            if personListVM.selectedSortYear == .nineteen {
+                Text("2019")
+            }
             
             // maybe add the original getPersonsByYear func here instead.
             
             // or create another view with ForEaches here, that then inject the personrow into that by year
+
+            
 //            List {
 //                ForEach(personListVM.importYears, id: \.self) { year in
 //                    if let personArray = personListVM.allPersons[year] {
@@ -33,25 +45,14 @@ struct PersonView: View {
 //                    }
 //                }
 //            }
-            
-            List {
-                ForEach(personListVM.importYears, id: \.self) { year in
-                    if let personArray = personListVM.allPersons[year] {
-                        ForEach(personArray, id: \.self) { person in
-                            PersonRow(person: person)
-
-                        }
-                    }
-                }
-            }
-            .listStyle(GroupedListStyle())
-            .onAppear(perform: personListVM.getPersonsByYear)
+//            .listStyle(GroupedListStyle())
+//            .onAppear(perform: personListVM.getPersonsByYear)
         }
     }
     
     var year20: some View {
         Button {
-            personListVM.selectedSortYear = SortYear.twenty
+            
            
         } label: {
             Text("2020")
@@ -60,10 +61,10 @@ struct PersonView: View {
     
     var year19: some View {
         Button {
-            personListVM.selectedSortYear = SortYear.nineteen
+            
           
         } label: {
-            Text("2020")
+            Text("2019")
         }
     }
     
