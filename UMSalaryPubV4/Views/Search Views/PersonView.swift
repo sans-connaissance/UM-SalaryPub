@@ -19,18 +19,33 @@ struct PersonView: View {
                 
             }
             Divider()
+            
+            // maybe add the original getPersonsByYear func here instead.
+            
+            // or create another view with ForEaches here, that then inject the personrow into that by year
+//            List {
+//                ForEach(personListVM.importYears, id: \.self) { year in
+//                    if let personArray = personListVM.allPersons[year] {
+//                        ForEach(personArray, id: \.self) { person in
+//                            PersonRow(person: person)
+//
+//                        }
+//                    }
+//                }
+//            }
+            
             List {
                 ForEach(personListVM.importYears, id: \.self) { year in
                     if let personArray = personListVM.allPersons[year] {
                         ForEach(personArray, id: \.self) { person in
                             PersonRow(person: person)
-                            
+
                         }
                     }
                 }
             }
             .listStyle(GroupedListStyle())
-            .onAppear(perform: personListVM.getAllByYear)
+            .onAppear(perform: personListVM.getPersonsByYear)
         }
     }
     

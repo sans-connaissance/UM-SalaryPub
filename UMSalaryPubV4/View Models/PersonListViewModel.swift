@@ -40,14 +40,35 @@ class PersonListViewModel: NSObject, ObservableObject {
     
     private var fetchedResultsController: NSFetchedResultsController<Person>!
     
+    //    func loadPersonView() {
+    //        getAllByYear()
+    //        extractByYear(year: 2020)
+    //    }
+    
+    //    func getPersonsByYear() {
+    //
+    //        let personViewModel: [Person] = Person.byYear(year: String(selectedSortYear.rawValue))
+    //
+    //        persons = personViewModel.map(PersonViewModel.init)
+    //    }
+    
+    func extractByYear(year: Int) -> [PersonViewModel] {
+        var personArray = [PersonViewModel]()
+        personArray = allPersons[year]!
+        
+        return personArray
+    }
+    
     func getPersonsByYear() {
         
-        let personViewModel: [Person] = Person.byYear(year: String(selectedSortYear.rawValue))
-        
-        persons = personViewModel.map(PersonViewModel.init)
+        for year in importYears {
+            let request: [Person] = Person.byYear(year: String(year))
+            allPersons[year] = request.map(PersonViewModel.init)
+        }
     }
     
     
+    // do i need to pass in a year here?
     func getAllByYear() {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
         request.fetchBatchSize = 20
@@ -70,7 +91,7 @@ extension PersonListViewModel: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
         for year in importYears {
-        self.allPersons[year] = (controller.fetchedObjects as? [Person] ?? []).map(PersonViewModel.init)
+            self.allPersons[year] = (controller.fetchedObjects as? [Person] ?? []).map(PersonViewModel.init)
         }
     }
 }

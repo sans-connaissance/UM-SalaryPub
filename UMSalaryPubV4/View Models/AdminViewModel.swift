@@ -29,7 +29,7 @@ class AdminViewModel: ObservableObject {
     }
     
     func getAllPersons() {
-        
+        // should refactor this so that it reads request and not ViewModel
         for year in importYears {
             let personViewModel: [Person] = Person.byYear(year: String(year))
             allPersons[year] = personViewModel.map(PersonViewModel.init)

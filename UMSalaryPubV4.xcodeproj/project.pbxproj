@@ -33,6 +33,7 @@
 		41998BA2273C51E00021D632 /* csvjson-02013.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B9A273C51DF0021D632 /* csvjson-02013.json */; };
 		41998BA3273C51E00021D632 /* csvjson-02014.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B9B273C51E00021D632 /* csvjson-02014.json */; };
 		41998BA7273C5BD10021D632 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998BA6273C5BD10021D632 /* PersonView.swift */; };
+		41998BA9273C8F150021D632 /* PersonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998BA8273C8F150021D632 /* PersonListView.swift */; };
 		41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */; };
 		41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48E2721B37700A51D80 /* ContentView.swift */; };
 		41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E5A4902721B37A00A51D80 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		41998B9A273C51DF0021D632 /* csvjson-02013.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02013.json"; sourceTree = "<group>"; };
 		41998B9B273C51E00021D632 /* csvjson-02014.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02014.json"; sourceTree = "<group>"; };
 		41998BA6273C5BD10021D632 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		41998BA8273C8F150021D632 /* PersonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListView.swift; sourceTree = "<group>"; };
 		41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMSalaryPubV4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMSalaryPubV4App.swift; sourceTree = "<group>"; };
 		41E5A48E2721B37700A51D80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				41EA3BAD2731C338001070CF /* PersonRow.swift */,
+				41998BA8273C8F150021D632 /* PersonListView.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */,
 				414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */,
 				41998B852739C2850021D632 /* PersonListViewModel.swift in Sources */,
+				41998BA9273C8F150021D632 /* PersonListView.swift in Sources */,
 				41998B5C2738480A0021D632 /* DataDashboardView.swift in Sources */,
 				4139F5032725AD0F00E6EC5C /* FavoriteView.swift in Sources */,
 				41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */,

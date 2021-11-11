@@ -33,7 +33,8 @@ extension Person : Identifiable {
     static func byYear(year: String) -> [Person] {
         
         let request: NSFetchRequest<Person> = Person.fetchRequest()
-        
+        request.fetchBatchSize = 20
+        request.fetchLimit = 50
         // request.predicate = NSPredicate(format: "year == \(year)")
         request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), year)
         
