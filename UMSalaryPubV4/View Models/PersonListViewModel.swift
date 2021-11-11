@@ -30,34 +30,18 @@ enum SortYear: Int, CaseIterable {
 
 class PersonListViewModel: NSObject, ObservableObject {
     
-    // This is where I need to add all the filters and stuff I think
+
     
-    @Published var persons = [PersonViewModel]()
     @Published var allPersons = [Int: [PersonViewModel]]()
     @Published var importYears = Person.importYears
-    
     @Published var selectedSortYear: SortYear = .twenty
+    
     
     private var fetchedResultsController: NSFetchedResultsController<Person>!
     
-    //    func loadPersonView() {
-    //        getAllByYear()
-    //        extractByYear(year: 2020)
-    //    }
+
     
-    //    func getPersonsByYear() {
-    //
-    //        let personViewModel: [Person] = Person.byYear(year: String(selectedSortYear.rawValue))
-    //
-    //        persons = personViewModel.map(PersonViewModel.init)
-    //    }
-    
-    func extractByYear(year: Int) -> [PersonViewModel] {
-        var personArray = [PersonViewModel]()
-        personArray = allPersons[year]!
-        
-        return personArray
-    }
+
     
     func getPersonsByYear() {
         
@@ -68,7 +52,6 @@ class PersonListViewModel: NSObject, ObservableObject {
     }
     
     
-    // do i need to pass in a year here?
     func getAllByYear() {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
         request.fetchBatchSize = 20
