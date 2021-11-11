@@ -10,6 +10,7 @@ import SwiftUI
 struct PersonView: View {
     
     @StateObject private var personListVM = PersonListViewModel()
+
     
     var body: some View {
         VStack {
@@ -22,35 +23,23 @@ struct PersonView: View {
                 }
             }
             Divider()
-            if personListVM.selectedSortYear == .twenty {
-                Text("2020")
+            List {
+                                
+                if let personarray = personListVM.allPersons[personListVM.selectedSortYear.rawValue] {
+                    ForEach(personarray, id: \.self) { person in
+                        PersonRow(person: person)
+                        
+                    }
+                }
             }
+            .listStyle(GroupedListStyle())
+            .onAppear(perform: personListVM.getPersonsByYear)
             
-            if personListVM.selectedSortYear == .nineteen {
-                Text("2019")
-            }
-            
-            // maybe add the original getPersonsByYear func here instead.
-            
-            // or create another view with ForEaches here, that then inject the personrow into that by year
 
-            
-//            List {
-//                ForEach(personListVM.importYears, id: \.self) { year in
-//                    if let personArray = personListVM.allPersons[year] {
-//                        ForEach(personArray, id: \.self) { person in
-//                            PersonRow(person: person)
-//
-//                        }
-//                    }
-//                }
-//            }
-//            .listStyle(GroupedListStyle())
-//            .onAppear(perform: personListVM.getPersonsByYear)
         }
     }
     
-    var year20: some View {
+    var moneySort: some View {
         Button {
             
            

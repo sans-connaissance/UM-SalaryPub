@@ -11,7 +11,7 @@ import CoreData
 
 
 
-enum SortYear: Int64, CaseIterable {
+enum SortYear: Int, CaseIterable {
     
     case twenty = 2020
     case nineteen = 2019
