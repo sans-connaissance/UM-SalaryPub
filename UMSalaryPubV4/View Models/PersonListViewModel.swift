@@ -69,6 +69,7 @@ class PersonListViewModel: NSObject, ObservableObject {
 
     
 //Add filters
+    //I think filters will have to be a new request
     
     func getPersonsByYear() {
         

@@ -19,13 +19,17 @@ struct PersonView: View {
                 Picker("Select year", selection: $personListVM.selectedSortYear) {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
+                        
                     }
+                    
                 }
+                
                 
                 Picker("Money Filter", selection: $personListVM.moneySort) {
                     ForEach(MoneySort.allCases, id: \.self) {
                         Text($0.displayText)
                     }
+                }.onChange(of: personListVM.moneySort) { _ in personListVM.getPersonsByYear()
                 }
             }
             Divider()
