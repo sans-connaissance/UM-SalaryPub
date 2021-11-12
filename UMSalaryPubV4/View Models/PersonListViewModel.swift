@@ -75,7 +75,7 @@ class PersonListViewModel: NSObject, ObservableObject {
     func getPersonsByYear() {
         
         for year in importYears {
-            let request: [Person] = Person.byYear(year: String(year), moneySort: moneySort.value)
+            let request: [Person] = Person.byYear(year: String(year), moneySort: moneySort.value, alphabetSort: alphabetSort)
             allPersons[year] = request.map(PersonViewModel.init)
         }
     }

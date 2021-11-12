@@ -30,22 +30,26 @@ extension Person: BaseModel {
 
 extension Person : Identifiable {
     
-    static func byYear(year: String, moneySort: Bool) -> [Person] {
+    static func byYear(year: String, moneySort: Bool, alphabetSort: Bool) -> [Person] {
         
         let request: NSFetchRequest<Person> = Person.fetchRequest()
-        let mostMoneySort = NSSortDescriptor(key: "apptAnnualFTR", ascending: false)
-        let leastMoneySort = NSSortDescriptor(key: "apptAnnualFTR", ascending: true)
+       
+        let mostMoneySortDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: false)
+        let leastMoneySortDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: true)
+        let alphabetSortDescriptor = NSSortDescriptor(key: "fullName", ascending: true)
         
-        request.fetchBatchSize = 20
-        request.fetchLimit = 50
+        if moneySort { request.sortDescriptors = [mostMoneySortDescriptor] }
+        if !moneySort { request.sortDescriptors = [leastMoneySortDescriptor] }
+        if alphabetSort { request.sortDescriptors = [alphabetSortDescriptor] }
 
         request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), year)
         
-        if moneySort {
-            request.sortDescriptors = [mostMoneySort]
-        } else {
-            request.sortDescriptors = [leastMoneySort]
-        }
+        
+
+ 
+            
+        request.fetchBatchSize = 20
+        request.fetchLimit = 50
         
         do {
             return try viewContext.fetch(request)
