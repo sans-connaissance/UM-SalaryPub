@@ -25,13 +25,17 @@ struct PersonView: View {
                 }
                 
                 
-                Picker("Money Filter", selection: $personListVM.moneySort) {
-                    ForEach(MoneySort.allCases, id: \.self) {
-                        Text($0.displayText)
-                    }
-                }.onChange(of: personListVM.moneySort) { _ in personListVM.getPersonsByYear()
-                }
-                
+//                Picker("Money Filter", selection: $personListVM.moneySort) {
+//                    ForEach(MoneySort.allCases, id: \.self) {
+//                        Text($0.displayText)
+//                    }
+//                }
+//                .onChange(of: personListVM.moneySort) { _ in personListVM.getPersonsByYear()
+//                    personListVM.alphabetSort = false
+//                }
+//                .accentColor(personListVM.alphabetSort ? .gray : .blue)
+                mostMoneySortButton
+                leastMoneySortButton
                 alphabetSortButton
             }
             Divider()
@@ -57,13 +61,28 @@ struct PersonView: View {
             personListVM.getPersonsByYear()
             
         } label: {
-            if personListVM.alphabetSort {
-                Text("abc")
-            } else {
-                Text("abc")
-                    .foregroundColor(.gray)
-            }
-            
+            Text("abc")
+                .foregroundColor(personListVM.alphabetSort ? .blue : .gray)
+        }
+    }
+    
+    var mostMoneySortButton: some View {
+        Button {
+            personListVM.moneySort = true
+            personListVM.getPersonsByYear()
+        } label: {
+            Text("$$$")
+                .foregroundColor(personListVM.moneySort ? .blue : .gray)
+        }
+    }
+    
+    var leastMoneySortButton: some View {
+        Button {
+            personListVM.moneySort = false
+            personListVM.getPersonsByYear()
+        } label: {
+            Text("$$$")
+                .foregroundColor(personListVM.moneySort ? .gray : .blue)
         }
     }
 }
