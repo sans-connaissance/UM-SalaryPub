@@ -28,6 +28,30 @@ enum FetchYear: Int, CaseIterable {
     }
 }
 
+enum MoneySort: CaseIterable {
+    
+    case most
+    case least
+    
+    var value: Bool {
+        switch self {
+        case .most:
+            return true
+        case .least:
+            return false
+        }
+    }
+    
+    var displayText: String {
+        switch self {
+        case .most:
+            return "$$$"
+        case .least:
+            return "$"
+        }
+    }
+}
+
 
 
 class PersonListViewModel: NSObject, ObservableObject {
@@ -37,7 +61,8 @@ class PersonListViewModel: NSObject, ObservableObject {
     @Published var allPersons = [Int: [PersonViewModel]]()
     @Published var importYears = Person.importYears
     @Published var selectedSortYear: FetchYear = .twenty
-    @Published var moneySortEnabled = false
+    @Published var moneySort: MoneySort = .most
+
     
     private var fetchedResultsController: NSFetchedResultsController<Person>!
     
@@ -48,7 +73,7 @@ class PersonListViewModel: NSObject, ObservableObject {
     func getPersonsByYear() {
         
         for year in importYears {
-            let request: [Person] = Person.byYear(year: String(year), moneySort: true)
+            let request: [Person] = Person.byYear(year: String(year), moneySort: moneySort.value)
             allPersons[year] = request.map(PersonViewModel.init)
         }
     }

@@ -10,7 +10,7 @@ import SwiftUI
 struct PersonView: View {
     
     @StateObject private var personListVM = PersonListViewModel()
-
+    
     
     var body: some View {
         VStack {
@@ -21,10 +21,16 @@ struct PersonView: View {
                         Text($0.displayText)
                     }
                 }
+                
+                Picker("Money Filter", selection: $personListVM.moneySort) {
+                    ForEach(MoneySort.allCases, id: \.self) {
+                        Text($0.displayText)
+                    }
+                }
             }
             Divider()
             List {
-                                
+                
                 if let personarray = personListVM.allPersons[personListVM.selectedSortYear.rawValue] {
                     ForEach(personarray, id: \.self) { person in
                         PersonRow(person: person)
@@ -35,14 +41,14 @@ struct PersonView: View {
             .listStyle(GroupedListStyle())
             .onAppear(perform: personListVM.getPersonsByYear)
             
-
+            
         }
     }
     
     var moneySort: some View {
         Button {
             
-           
+            
         } label: {
             Text("2020")
         }
@@ -51,7 +57,7 @@ struct PersonView: View {
     var year19: some View {
         Button {
             
-          
+            
         } label: {
             Text("2019")
         }
