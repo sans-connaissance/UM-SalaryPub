@@ -11,7 +11,7 @@ import CoreData
 
 
 
-enum SortYear: Int, CaseIterable {
+enum FetchYear: Int, CaseIterable {
     
     case twenty = 2020
     case nineteen = 2019
@@ -28,25 +28,27 @@ enum SortYear: Int, CaseIterable {
     }
 }
 
+
+
 class PersonListViewModel: NSObject, ObservableObject {
     
 
     
     @Published var allPersons = [Int: [PersonViewModel]]()
     @Published var importYears = Person.importYears
-    @Published var selectedSortYear: SortYear = .twenty
-    
+    @Published var selectedSortYear: FetchYear = .twenty
+    @Published var moneySortEnabled = false
     
     private var fetchedResultsController: NSFetchedResultsController<Person>!
     
 
     
-
+//Add filters
     
     func getPersonsByYear() {
         
         for year in importYears {
-            let request: [Person] = Person.byYear(year: String(year))
+            let request: [Person] = Person.byYear(year: String(year), moneySort: true)
             allPersons[year] = request.map(PersonViewModel.init)
         }
     }

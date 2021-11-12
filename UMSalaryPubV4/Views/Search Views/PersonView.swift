@@ -17,7 +17,7 @@ struct PersonView: View {
             HStack {
                 
                 Picker("Select year", selection: $personListVM.selectedSortYear) {
-                    ForEach(SortYear.allCases, id: \.self) {
+                    ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
                     }
                 }

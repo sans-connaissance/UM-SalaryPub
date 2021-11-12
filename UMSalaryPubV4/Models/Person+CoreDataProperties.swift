@@ -30,13 +30,22 @@ extension Person: BaseModel {
 
 extension Person : Identifiable {
     
-    static func byYear(year: String) -> [Person] {
+    static func byYear(year: String, moneySort: Bool) -> [Person] {
         
         let request: NSFetchRequest<Person> = Person.fetchRequest()
+        let mostMoneySort = NSSortDescriptor(key: "apptAnnualFTR", ascending: false)
+        let leastMoneySort = NSSortDescriptor(key: "apptAnnualFTR", ascending: true)
+        
         request.fetchBatchSize = 20
         request.fetchLimit = 50
-        // request.predicate = NSPredicate(format: "year == \(year)")
+
         request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), year)
+        
+        if moneySort {
+            request.sortDescriptors = [mostMoneySort]
+        } else {
+            request.sortDescriptors = [leastMoneySort]
+        }
         
         do {
             return try viewContext.fetch(request)
