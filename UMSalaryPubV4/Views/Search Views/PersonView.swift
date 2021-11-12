@@ -19,21 +19,8 @@ struct PersonView: View {
                 Picker("Select year", selection: $personListVM.selectedSortYear) {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
-                        
                     }
-                    
                 }
-                
-                
-//                Picker("Money Filter", selection: $personListVM.moneySort) {
-//                    ForEach(MoneySort.allCases, id: \.self) {
-//                        Text($0.displayText)
-//                    }
-//                }
-//                .onChange(of: personListVM.moneySort) { _ in personListVM.getPersonsByYear()
-//                    personListVM.alphabetSort = false
-//                }
-//                .accentColor(personListVM.alphabetSort ? .gray : .blue)
                 mostMoneySortButton
                 leastMoneySortButton
                 alphabetSortButton
@@ -50,8 +37,7 @@ struct PersonView: View {
             }
             .listStyle(GroupedListStyle())
             .onAppear(perform: personListVM.getPersonsByYear)
-            
-            
+
         }
     }
     
@@ -98,3 +84,15 @@ struct PersonView_Previews: PreviewProvider {
         PersonView()
     }
 }
+
+
+
+//                Picker("Money Filter", selection: $personListVM.moneySort) {
+//                    ForEach(MoneySort.allCases, id: \.self) {
+//                        Text($0.displayText)
+//                    }
+//                }
+//                .onChange(of: personListVM.moneySort) { _ in personListVM.getPersonsByYear()
+//                    personListVM.alphabetSort = false
+//                }
+//                .accentColor(personListVM.alphabetSort ? .gray : .blue)

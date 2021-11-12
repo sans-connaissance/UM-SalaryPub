@@ -28,33 +28,6 @@ enum FetchYear: Int, CaseIterable {
     }
 }
 
-enum MoneySort: CaseIterable {
-    
-    case most
-    case least
-    
-    var value: Bool {
-        switch self {
-        case .most:
-            return true
-        case .least:
-            return false
-        }
-    }
-    
-    var displayText: String {
-        switch self {
-        case .most:
-            return "$$$"
-        case .least:
-            return "$"
-        }
-    }
-}
-
-
-
-
 
 class PersonListViewModel: NSObject, ObservableObject {
     
@@ -63,7 +36,6 @@ class PersonListViewModel: NSObject, ObservableObject {
     @Published var allPersons = [Int: [PersonViewModel]]()
     @Published var importYears = Person.importYears
     @Published var selectedSortYear: FetchYear = .twenty
-    //@Published var moneySort: MoneySort = .most
     @Published var mostMoneySort = true
     @Published var leastMoneySort = false
     @Published var alphabetSort = false
