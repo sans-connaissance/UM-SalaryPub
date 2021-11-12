@@ -54,6 +54,8 @@ enum MoneySort: CaseIterable {
 
 
 
+
+
 class PersonListViewModel: NSObject, ObservableObject {
     
 
@@ -62,14 +64,13 @@ class PersonListViewModel: NSObject, ObservableObject {
     @Published var importYears = Person.importYears
     @Published var selectedSortYear: FetchYear = .twenty
     @Published var moneySort: MoneySort = .most
+    @Published var alphabetSort = false
 
     
     private var fetchedResultsController: NSFetchedResultsController<Person>!
     
 
     
-//Add filters
-    //I think filters will have to be a new request
     
     func getPersonsByYear() {
         

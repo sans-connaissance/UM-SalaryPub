@@ -31,6 +31,8 @@ struct PersonView: View {
                     }
                 }.onChange(of: personListVM.moneySort) { _ in personListVM.getPersonsByYear()
                 }
+                
+                alphabetSortButton
             }
             Divider()
             List {
@@ -49,24 +51,21 @@ struct PersonView: View {
         }
     }
     
-    var moneySort: some View {
+    var alphabetSortButton: some View {
         Button {
-            
+            personListVM.alphabetSort.toggle()
+            personListVM.getPersonsByYear()
             
         } label: {
-            Text("2020")
+            if personListVM.alphabetSort {
+                Text("abc")
+            } else {
+                Text("abc")
+                    .foregroundColor(.gray)
+            }
+            
         }
     }
-    
-    var year19: some View {
-        Button {
-            
-            
-        } label: {
-            Text("2019")
-        }
-    }
-    
 }
 
 struct PersonView_Previews: PreviewProvider {
