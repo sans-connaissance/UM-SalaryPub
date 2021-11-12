@@ -64,7 +64,8 @@ class PersonListViewModel: NSObject, ObservableObject {
     @Published var importYears = Person.importYears
     @Published var selectedSortYear: FetchYear = .twenty
     //@Published var moneySort: MoneySort = .most
-    @Published var moneySort = true
+    @Published var mostMoneySort = true
+    @Published var leastMoneySort = false
     @Published var alphabetSort = false
 
     
@@ -76,7 +77,7 @@ class PersonListViewModel: NSObject, ObservableObject {
     func getPersonsByYear() {
         
         for year in importYears {
-            let request: [Person] = Person.byYear(year: String(year), moneySort: moneySort, alphabetSort: alphabetSort)
+            let request: [Person] = Person.byYear(year: String(year), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort)
             allPersons[year] = request.map(PersonViewModel.init)
         }
     }

@@ -57,7 +57,9 @@ struct PersonView: View {
     
     var alphabetSortButton: some View {
         Button {
-            personListVM.alphabetSort.toggle()
+            personListVM.mostMoneySort = false
+            personListVM.leastMoneySort = false
+            personListVM.alphabetSort = true
             personListVM.getPersonsByYear()
             
         } label: {
@@ -68,21 +70,25 @@ struct PersonView: View {
     
     var mostMoneySortButton: some View {
         Button {
-            personListVM.moneySort = true
+            personListVM.mostMoneySort = true
+            personListVM.leastMoneySort = false
+            personListVM.alphabetSort = false
             personListVM.getPersonsByYear()
         } label: {
             Text("$$$")
-                .foregroundColor(personListVM.moneySort ? .blue : .gray)
+                .foregroundColor(personListVM.mostMoneySort ? .blue : .gray)
         }
     }
     
     var leastMoneySortButton: some View {
         Button {
-            personListVM.moneySort = false
+            personListVM.mostMoneySort = false
+            personListVM.leastMoneySort = true
+            personListVM.alphabetSort = false
             personListVM.getPersonsByYear()
         } label: {
-            Text("$$$")
-                .foregroundColor(personListVM.moneySort ? .gray : .blue)
+            Text("$")
+                .foregroundColor(personListVM.leastMoneySort ? .blue : .gray)
         }
     }
 }
