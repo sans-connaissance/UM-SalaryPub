@@ -39,22 +39,21 @@ class PersonListViewModel: NSObject, ObservableObject {
     @Published var mostMoneySort = true
     @Published var leastMoneySort = false
     @Published var alphabetSort = false
+    
 
     
     private var fetchedResultsController: NSFetchedResultsController<Person>!
     
 
-    
-    
-    func getPersonsByYear() {
+    func getPersonsByYear(filter: String) {
         
         for year in importYears {
-            let request: [Person] = Person.byYear(year: String(year), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort)
+            let request: [Person] = Person.byYear(year: String(year), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort, filter: filter)
             allPersons[year] = request.map(PersonViewModel.init)
         }
     }
     
-    
+
     func getAllByYear() {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
         request.fetchBatchSize = 20

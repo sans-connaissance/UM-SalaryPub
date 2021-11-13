@@ -30,7 +30,7 @@ extension Person: BaseModel {
 
 extension Person : Identifiable {
     
-    static func byYear(year: String, mostMoneySort: Bool, leastMoneySort: Bool, alphabetSort: Bool) -> [Person] {
+    static func byYear(year: String, mostMoneySort: Bool, leastMoneySort: Bool, alphabetSort: Bool, filter: String) -> [Person] {
         
         let request: NSFetchRequest<Person> = Person.fetchRequest()
        
@@ -42,10 +42,12 @@ extension Person : Identifiable {
         if leastMoneySort { request.sortDescriptors = [leastMoneySortDescriptor] }
         if alphabetSort { request.sortDescriptors = [alphabetSortDescriptor] }
 
-        request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), year)
+//        request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), year)
         
-        
-
+        let yearPredicate = NSPredicate(format: "year == %@", year)
+        let namePredicate = NSPredicate(format: "fullName CONTAINS[c] %@", filter)
+        let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
+        request.predicate = combinedPredicate
  
             
         request.fetchBatchSize = 20
@@ -57,5 +59,4 @@ extension Person : Identifiable {
             return []
         }
     }
-    
 }

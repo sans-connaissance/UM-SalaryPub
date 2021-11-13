@@ -10,10 +10,14 @@ import SwiftUI
 struct PersonView: View {
     
     @StateObject private var personListVM = PersonListViewModel()
-    
+    @State var searchText = " "
     
     var body: some View {
         VStack {
+            //work on search bar next
+            SearchBarView(searchText: $searchText)
+//                .onReceive(Publisher, perform: T##(Publisher.Output) -> Void)
+
             HStack {
                 
                 Picker("Select year", selection: $personListVM.selectedSortYear) {
@@ -21,6 +25,7 @@ struct PersonView: View {
                         Text($0.displayText)
                     }
                 }
+              
                 mostMoneySortButton
                 leastMoneySortButton
                 alphabetSortButton
@@ -36,17 +41,16 @@ struct PersonView: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .onAppear(perform: personListVM.getPersonsByYear)
-
+            .onAppear(perform: { personListVM.getPersonsByYear(filter: searchText)
+            })
         }
     }
-    
     var alphabetSortButton: some View {
         Button {
             personListVM.mostMoneySort = false
             personListVM.leastMoneySort = false
             personListVM.alphabetSort = true
-            personListVM.getPersonsByYear()
+            personListVM.getPersonsByYear(filter: searchText)
             
         } label: {
             Text("abc")
@@ -59,7 +63,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = true
             personListVM.leastMoneySort = false
             personListVM.alphabetSort = false
-            personListVM.getPersonsByYear()
+            personListVM.getPersonsByYear(filter: searchText)
         } label: {
             Text("$$$")
                 .foregroundColor(personListVM.mostMoneySort ? .blue : .gray)
@@ -71,7 +75,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = false
             personListVM.leastMoneySort = true
             personListVM.alphabetSort = false
-            personListVM.getPersonsByYear()
+            personListVM.getPersonsByYear(filter: searchText)
         } label: {
             Text("$")
                 .foregroundColor(personListVM.leastMoneySort ? .blue : .gray)
