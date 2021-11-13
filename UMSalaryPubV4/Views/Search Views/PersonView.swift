@@ -10,13 +10,11 @@ import SwiftUI
 struct PersonView: View {
     
     @StateObject private var personListVM = PersonListViewModel()
-    @State var searchText = " "
     
     var body: some View {
         VStack {
-            //work on search bar next
-            SearchBarView(searchText: $searchText)
-//                .onReceive(Publisher, perform: T##(Publisher.Output) -> Void)
+            SearchBarView(searchText: $personListVM.searchText)
+               .onChange(of: personListVM.searchText) { _ in personListVM.getPersonsByYear()}
 
             HStack {
                 
@@ -41,7 +39,7 @@ struct PersonView: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .onAppear(perform: { personListVM.getPersonsByYear(filter: searchText)
+            .onAppear(perform: { personListVM.getPersonsByYear()
             })
         }
     }
@@ -50,7 +48,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = false
             personListVM.leastMoneySort = false
             personListVM.alphabetSort = true
-            personListVM.getPersonsByYear(filter: searchText)
+            personListVM.getPersonsByYear()
             
         } label: {
             Text("abc")
@@ -63,7 +61,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = true
             personListVM.leastMoneySort = false
             personListVM.alphabetSort = false
-            personListVM.getPersonsByYear(filter: searchText)
+            personListVM.getPersonsByYear()
         } label: {
             Text("$$$")
                 .foregroundColor(personListVM.mostMoneySort ? .blue : .gray)
@@ -75,7 +73,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = false
             personListVM.leastMoneySort = true
             personListVM.alphabetSort = false
-            personListVM.getPersonsByYear(filter: searchText)
+            personListVM.getPersonsByYear()
         } label: {
             Text("$")
                 .foregroundColor(personListVM.leastMoneySort ? .blue : .gray)
