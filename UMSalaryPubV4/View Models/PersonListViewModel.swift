@@ -58,6 +58,11 @@ class PersonListViewModel: NSObject, ObservableObject {
         }
     }
     
+    func personsByYear() {
+        let request: [Person] = Person.byYear(year: String(selectedSortYear.rawValue), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort, filter: searchText)
+        allPersons[selectedSortYear.rawValue] = request.map(PersonViewModel.init)
+    }
+    
 
     func getAllByYear() {
         let request: NSFetchRequest<Person> = Person.fetchRequest()

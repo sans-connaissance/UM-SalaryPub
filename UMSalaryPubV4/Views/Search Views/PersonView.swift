@@ -14,7 +14,7 @@ struct PersonView: View {
     var body: some View {
         VStack {
             SearchBarView(searchText: $personListVM.searchText)
-               .onChange(of: personListVM.searchText) { _ in personListVM.getPersonsByYear()}
+               .onChange(of: personListVM.searchText) { _ in personListVM.personsByYear()}
 
             HStack {
                 
@@ -48,7 +48,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = false
             personListVM.leastMoneySort = false
             personListVM.alphabetSort = true
-            personListVM.getPersonsByYear()
+            personListVM.personsByYear()
             
         } label: {
             Text("abc")
@@ -61,7 +61,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = true
             personListVM.leastMoneySort = false
             personListVM.alphabetSort = false
-            personListVM.getPersonsByYear()
+            personListVM.personsByYear()
         } label: {
             Text("$$$")
                 .foregroundColor(personListVM.mostMoneySort ? .blue : .gray)
@@ -73,7 +73,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = false
             personListVM.leastMoneySort = true
             personListVM.alphabetSort = false
-            personListVM.getPersonsByYear()
+            personListVM.personsByYear()
         } label: {
             Text("$")
                 .foregroundColor(personListVM.leastMoneySort ? .blue : .gray)
