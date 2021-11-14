@@ -38,8 +38,8 @@ struct PersonViewModel: Hashable {
     }
     
     var apptAnnualFTR: String {
-        let formattedValue = String(format: "%.2f", person.apptAnnualFTR)
-        return "$" + formattedValue
+        let apptAnnualFTR = person.apptAnnualFTR.withCommas()
+        return "$" + apptAnnualFTR
     }
     
     var apptFTRBasis: String {
@@ -52,8 +52,9 @@ struct PersonViewModel: Hashable {
     }
     
     var amtSalaryFromGeneralFund: String {
-        let formattedValue = String(format: "%.2f", person.amtSalaryFromGeneralFund)
-        return "$" + formattedValue
+        let amtSalaryFromGeneralFund = person.amtSalaryFromGeneralFund.withCommas()
+        return "$" + amtSalaryFromGeneralFund
     }
     
 }
+

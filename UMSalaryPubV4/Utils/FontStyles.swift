@@ -26,13 +26,6 @@ struct DetailData: ViewModifier {
 }
 
 
-
-extension Text {
-    func textStyle<Style: ViewModifier>(_ style: Style) -> some View {
-        ModifiedContent(content: self, modifier: style)
-    }
-}
-
 struct CustomHeader: View {
     let name: String
     let color: Color
@@ -50,4 +43,8 @@ struct CustomHeader: View {
         .background(color)
     }
 }
+
+
+
+
 
