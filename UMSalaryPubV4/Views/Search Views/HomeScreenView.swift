@@ -28,7 +28,8 @@ struct HomeScreenView: View {
                         .padding(.bottom)
 
                     }
-                }
+                }.navigationTitle("Home")
+                    .listStyle(GroupedListStyle())
             }
         }
     }

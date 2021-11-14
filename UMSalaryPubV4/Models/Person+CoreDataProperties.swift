@@ -50,8 +50,8 @@ extension Person : Identifiable {
         request.predicate = combinedPredicate
  
             
-        request.fetchBatchSize = 10
-        request.fetchLimit = 10
+        request.fetchBatchSize = 25
+        request.fetchLimit = 50
         
         do {
             return try viewContext.fetch(request)

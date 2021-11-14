@@ -20,13 +20,10 @@ struct PersonView: View {
                 Picker("Select year", selection: $personListVM.selectedSortYear) {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
-       
                     }
-   
                 }
                 .onChange(of: personListVM.selectedSortYear) { _ in personListVM.personsByYear()}
 
-                
                 mostMoneySortButton
                 leastMoneySortButton
                 alphabetSortButton
@@ -36,15 +33,19 @@ struct PersonView: View {
                 
                 if let personarray = personListVM.allPersons[personListVM.selectedSortYear.rawValue] {
                     ForEach(personarray, id: \.self) { person in
-                        PersonRow(person: person)
-                        
+                        NavigationLink {
+                            PersonDetailView(person: person)
+                        } label: {
+                            PersonRow(person: person)
+                        }
                     }
                 }
             }
             .listStyle(GroupedListStyle())
+            .navigationTitle("People")
             .onAppear(perform: { personListVM.personsByYear()
             })
-        }
+        }  
     }
     var alphabetSortButton: some View {
         Button {
@@ -89,15 +90,3 @@ struct PersonView_Previews: PreviewProvider {
         PersonView()
     }
 }
-
-
-
-//                Picker("Money Filter", selection: $personListVM.moneySort) {
-//                    ForEach(MoneySort.allCases, id: \.self) {
-//                        Text($0.displayText)
-//                    }
-//                }
-//                .onChange(of: personListVM.moneySort) { _ in personListVM.getPersonsByYear()
-//                    personListVM.alphabetSort = false
-//                }
-//                .accentColor(personListVM.alphabetSort ? .gray : .blue)
