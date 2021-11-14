@@ -14,16 +14,19 @@ struct PersonView: View {
     var body: some View {
         VStack {
             SearchBarView(searchText: $personListVM.searchText)
-               .onChange(of: personListVM.searchText) { _ in personListVM.personsByYear()}
-
+                .onChange(of: personListVM.searchText) { _ in personListVM.personsByYear()}
+            
             HStack {
-                
                 Picker("Select year", selection: $personListVM.selectedSortYear) {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
+       
                     }
+   
                 }
-              
+                .onChange(of: personListVM.selectedSortYear) { _ in personListVM.personsByYear()}
+
+                
                 mostMoneySortButton
                 leastMoneySortButton
                 alphabetSortButton
@@ -39,7 +42,7 @@ struct PersonView: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .onAppear(perform: { personListVM.getPersonsByYear()
+            .onAppear(perform: { personListVM.personsByYear()
             })
         }
     }

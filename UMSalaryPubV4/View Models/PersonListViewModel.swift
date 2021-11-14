@@ -66,7 +66,7 @@ class PersonListViewModel: NSObject, ObservableObject {
 
     func getAllByYear() {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
-        request.fetchBatchSize = 20
+        request.fetchBatchSize = 25
         request.fetchLimit = 25
         request.sortDescriptors = [NSSortDescriptor(key: "year", ascending: false)]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.shared.viewContext, sectionNameKeyPath: nil, cacheName: nil)
