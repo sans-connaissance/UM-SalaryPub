@@ -14,17 +14,29 @@ struct PersonDetailView: View {
     
     var body: some View {
         
-        List{
-            ForEach(personDetailVM.personsDetail.reversed(), id: \.self) { person in
-                VStack {
-                    Text(person.fullName)
-                    Text(String(person.year))
-                    Text(person.apptAnnualFTR)
+        ScrollView{
+            
+            VStack(alignment: .center) {
+                ForEach(personDetailVM.personsDetail.reversed(), id: \.self) { person in
+                    Divider()
                     
+                    Section(header: Text(String(person.year)).bold()) {
+                        Divider()
+                        
+                        VStack {
+                            HStack(spacing: 5){
+                                Spacer()
+                                PersonDetailRowLeft(person: person)
+                                Spacer()
+                                PersonDetailRowRight(person: person)
+                                Spacer()
+                            }
+                        }
+                    }
                 }
             }
-            
         }
+        .navigationTitle(person.fullName)
         .onAppear(perform: {personDetailVM.getPersons(vm: person)})
     }
 }
