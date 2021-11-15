@@ -18,7 +18,6 @@ protocol BaseModel where Self: NSManagedObject {
   
 }
 
-// create an enum of the various "Types" by name
 
 extension BaseModel {
     
@@ -31,10 +30,7 @@ extension BaseModel {
         return [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
     }
     
-    
 
-    
-    
     static func byId<T>(id: NSManagedObjectID) -> T? where T: NSManagedObject {
         
         do {
@@ -92,9 +88,39 @@ enum NameKeyPath: String, CaseIterable {
         case .Campus:
             return "campusName"
         }
-        
     }
-    
-    
+}
 
+enum FetchYear: Int, CaseIterable {
+    
+    case twenty = 2020
+    case nineteen = 2019
+    case eighteen = 2018
+    case seventeen = 2017
+    case sixteen = 2016
+    case fifteen = 2015
+    case fourteen = 2014
+    case thirteen = 2013
+    
+    var displayText: String {
+        
+        switch self {
+        case .twenty:
+            return "2020"
+        case .nineteen:
+            return "2019"
+        case .eighteen:
+            return "2018"
+        case .seventeen:
+            return "2017"
+        case .sixteen:
+            return "2016"
+        case .fifteen:
+            return "2015"
+        case .fourteen:
+            return "2014"
+        case .thirteen:
+            return "2013"
+        }
+    }
 }

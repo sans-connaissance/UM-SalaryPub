@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PersonDetailViewModel: ObservableObject {
+class DetailViewModel: ObservableObject {
     
     
     @Published var personsDetail = [PersonViewModel]()

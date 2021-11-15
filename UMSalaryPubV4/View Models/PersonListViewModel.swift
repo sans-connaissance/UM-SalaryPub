@@ -8,23 +8,6 @@
 import Foundation
 import CoreData
 
-enum FetchYear: Int, CaseIterable {
-    
-    case twenty = 2020
-    case nineteen = 2019
-    
-    var displayText: String {
-        
-        switch self {
-        case .twenty:
-            return "2020"
-        case .nineteen:
-            return "2019"
-            
-        }
-    }
-}
-
 
 class PersonListViewModel: ObservableObject {
     
@@ -33,6 +16,7 @@ class PersonListViewModel: ObservableObject {
     @Published var allPersons = [Int: [PersonViewModel]]()
     @Published var importYears = Person.importYears
     @Published var selectedSortYear: FetchYear = .twenty
+//    @Published var selectedSortYear = Person.importYears.last
     @Published var searchText = " "
     
     @Published var mostMoneySort = true
