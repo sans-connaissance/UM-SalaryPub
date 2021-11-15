@@ -13,10 +13,12 @@ protocol BaseModel where Self: NSManagedObject {
     
     static func byId<T: NSManagedObject>(id: NSManagedObjectID) -> T?
     static func all<T: NSManagedObject>() -> [T]
+    static func by<T: NSManagedObject>(keyPath: String, name: String) -> [T]
 
   
 }
 
+// create an enum of the various "Types" by name
 
 extension BaseModel {
     
@@ -28,6 +30,9 @@ extension BaseModel {
     static var importYears: [Int] {
         return [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
     }
+    
+    
+
     
     
     static func byId<T>(id: NSManagedObjectID) -> T? where T: NSManagedObject {
@@ -52,7 +57,44 @@ extension BaseModel {
         }
     }
     
-    
-    
+    static func by<T>(keyPath: String, name: String) -> [T] where T: NSManagedObject {
+        let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
+        
+        let namePredicate = NSPredicate(format: "%K == %@", keyPath, name)
+        
+        fetchRequest.predicate = namePredicate
+        
+        do {
+            return try viewContext.fetch(fetchRequest)
+        } catch {
+            return []
+        }
+    }
+
 }
 
+
+enum NameKeyPath: String, CaseIterable {
+    
+    case Person
+    case Title
+    case Department
+    case Campus
+    
+    var returnText: String {
+        switch self {
+        case .Person:
+            return "fullName"
+        case .Title:
+            return "titleName"
+        case .Department:
+            return "departmentName"
+        case .Campus:
+            return "campusName"
+        }
+        
+    }
+    
+    
+
+}

@@ -47,8 +47,7 @@ class PersonListViewModel: ObservableObject {
 }
 
 
-//    this is running it a bunch of times!
-//    func getPersonsByYear(){
+
 //
 //        for year in importYears {
 //            let request: [Person] = Person.byYear(year: String(year), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort, filter: searchText)
