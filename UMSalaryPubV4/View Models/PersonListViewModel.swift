@@ -11,12 +11,14 @@ import CoreData
 
 class PersonListViewModel: ObservableObject {
     
-
+    @Published var importYears = Person.importYears
     
     @Published var allPersons = [Int: [PersonViewModel]]()
-    @Published var importYears = Person.importYears
+    
+    
     @Published var selectedSortYear: FetchYear = .twenty
-//    @Published var selectedSortYear = Person.importYears.last
+    @Published var selectedKeyPath: NameKeyPaths = .Person
+    
     @Published var searchText = " "
     
     @Published var mostMoneySort = true
@@ -25,7 +27,7 @@ class PersonListViewModel: ObservableObject {
     
 
     func personsByYear() {
-        let request: [Person] = Person.byYear(year: String(selectedSortYear.rawValue), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort, filter: searchText)
+        let request: [Person] = Person.byYear(year: String(selectedSortYear.rawValue), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort, filter: searchText, keyPath: selectedKeyPath.returnText)
         allPersons[selectedSortYear.rawValue] = request.map(PersonViewModel.init)
     }
 }

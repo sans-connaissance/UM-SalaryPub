@@ -10,17 +10,16 @@ import Foundation
 
 protocol BaseModel where Self: NSManagedObject {
     
-    
     static func byId<T: NSManagedObject>(id: NSManagedObjectID) -> T?
+    
     static func all<T: NSManagedObject>() -> [T]
+    
     static func by<T: NSManagedObject>(keyPath: String, name: String) -> [T]
 
-  
 }
 
 
 extension BaseModel {
-    
     
     static var viewContext: NSManagedObjectContext {
         return CoreDataManager.shared.viewContext
@@ -30,7 +29,6 @@ extension BaseModel {
         return [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
     }
     
-
     static func byId<T>(id: NSManagedObjectID) -> T? where T: NSManagedObject {
         
         do {
@@ -40,7 +38,6 @@ extension BaseModel {
             return nil
         }
     }
-    
     
     static func all<T>() -> [T] where T: NSManagedObject {
         
@@ -69,8 +66,7 @@ extension BaseModel {
 
 }
 
-
-enum NameKeyPath: String, CaseIterable {
+enum NameKeyPaths: String, CaseIterable {
     
     case Person
     case Title
