@@ -12,14 +12,12 @@ import CoreData
 class PersonListViewModel: ObservableObject {
     
     @Published var importYears = Person.importYears
-    
     @Published var allPersons = [Int: [PersonViewModel]]()
     
-    
-    @Published var selectedSortYear: FetchYear = .twenty
-    @Published var selectedKeyPath: NamePredicateOrSort = .Person
-    
     @Published var searchText = " "
+    @Published var selectedYear: FetchYear = .twenty
+    @Published var selectedNamePredicate: NamePredicateOrSort = .Person
+    @Published var selectMoneyDescriptor: MoneySortDescriptor = .Person
     
     @Published var mostMoneySort = true
     @Published var leastMoneySort = false
@@ -27,8 +25,14 @@ class PersonListViewModel: ObservableObject {
     
 
     func personsByYear() {
-        let request: [Person] = Person.byYear(year: String(selectedSortYear.rawValue), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort, filter: searchText)
-        allPersons[selectedSortYear.rawValue] = request.map(PersonViewModel.init)
+        let request: [Person] = Person.byYear(year: String(selectedYear.rawValue), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort, filter: searchText)
+        allPersons[selectedYear.rawValue] = request.map(PersonViewModel.init)
+    }
+    
+    func personSearch() {
+        let request: [Person] = Person.search(yearPredicate: String(selectedYear.rawValue), filterPredicate: searchText, mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, moneySortDescriptor: selectMoneyDescriptor.returnText, alphabetSort: alphabetSort, namePredicateOrSort: selectedNamePredicate.returnText, mostPeopleSort: false, leastPeopleSort: false, countSortDescriptor: "")
+        allPersons[selectedYear.rawValue] = request.map(PersonViewModel.init)
+        
     }
 }
 

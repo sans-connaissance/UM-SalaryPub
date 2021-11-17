@@ -17,7 +17,7 @@ protocol BaseModel where Self: NSManagedObject {
     //byName
     static func by<T: NSManagedObject>(keyPath: String, name: String) -> [T]
     
-    static func search<T: NSManagedObject>(showCountSort: Bool,
+    static func search<T: NSManagedObject>(
                                            yearPredicate: String,
                                            filterPredicate: String,
                                            mostMoneySort: Bool,
@@ -81,7 +81,7 @@ extension BaseModel {
         }
     }
     
-    static func search<T>(showCountSort: Bool,
+    static func search<T>(
                           yearPredicate: String,
                           filterPredicate: String,
                           mostMoneySort: Bool,
@@ -101,7 +101,7 @@ extension BaseModel {
         let mostPeopleSortDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: false)
         let leastPeopleSortDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: true)
         
-        let yearPredicate = NSPredicate(format: "\(yearPredicate) == %@")
+        let yearPredicate = NSPredicate(format: "year == %@", yearPredicate)
         let namePredicate = NSPredicate(format: "\(namePredicateOrSort) CONTAINS[c] %@", filterPredicate)
         let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
         
@@ -111,8 +111,6 @@ extension BaseModel {
         if mostPeopleSort { fetchRequest.sortDescriptors = [mostPeopleSortDescriptor] }
         if leastPeopleSort { fetchRequest.sortDescriptors = [leastPeopleSortDescriptor] }
         
-        
- 
         fetchRequest.predicate = combinedPredicate
         fetchRequest.fetchBatchSize = 25
         fetchRequest.fetchLimit = 50

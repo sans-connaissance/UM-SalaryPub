@@ -14,15 +14,15 @@ struct PersonView: View {
     var body: some View {
         VStack {
             SearchBarView(searchText: $personListVM.searchText)
-                .onChange(of: personListVM.searchText) { _ in personListVM.personsByYear()}
+                .onChange(of: personListVM.searchText) { _ in personListVM.personSearch()}
             
             HStack {
-                Picker("Select year", selection: $personListVM.selectedSortYear) {
+                Picker("Select year", selection: $personListVM.selectedYear) {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
                     }
                 }
-                .onChange(of: personListVM.selectedSortYear) { _ in personListVM.personsByYear()}
+                .onChange(of: personListVM.selectedYear) { _ in personListVM.personSearch()}
 
                 mostMoneySortButton
                 leastMoneySortButton
@@ -31,7 +31,7 @@ struct PersonView: View {
             Divider()
             List {
                 
-                if let personarray = personListVM.allPersons[personListVM.selectedSortYear.rawValue] {
+                if let personarray = personListVM.allPersons[personListVM.selectedYear.rawValue] {
                     ForEach(personarray, id: \.self) { person in
                         NavigationLink {
                             PersonDetailView(person: person)
@@ -43,7 +43,7 @@ struct PersonView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("People")
-            .onAppear(perform: { personListVM.personsByYear()
+            .onAppear(perform: { personListVM.personSearch()
             })
         }  
     }
@@ -52,7 +52,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = false
             personListVM.leastMoneySort = false
             personListVM.alphabetSort = true
-            personListVM.personsByYear()
+            personListVM.personSearch()
             
         } label: {
             Text("abc")
@@ -65,7 +65,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = true
             personListVM.leastMoneySort = false
             personListVM.alphabetSort = false
-            personListVM.personsByYear()
+            personListVM.personSearch()
         } label: {
             Text("$$$")
                 .foregroundColor(personListVM.mostMoneySort ? .blue : .gray)
@@ -77,7 +77,7 @@ struct PersonView: View {
             personListVM.mostMoneySort = false
             personListVM.leastMoneySort = true
             personListVM.alphabetSort = false
-            personListVM.personsByYear()
+            personListVM.personSearch()
         } label: {
             Text("$")
                 .foregroundColor(personListVM.leastMoneySort ? .blue : .gray)
