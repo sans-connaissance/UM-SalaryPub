@@ -17,7 +17,7 @@ class PersonListViewModel: ObservableObject {
     
     
     @Published var selectedSortYear: FetchYear = .twenty
-    @Published var selectedKeyPath: NameKeyPaths = .Person
+    @Published var selectedKeyPath: NamePredicate = .Person
     
     @Published var searchText = " "
     
@@ -27,7 +27,7 @@ class PersonListViewModel: ObservableObject {
     
 
     func personsByYear() {
-        let request: [Person] = Person.byYear(year: String(selectedSortYear.rawValue), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort, filter: searchText, keyPath: selectedKeyPath.returnText)
+        let request: [Person] = Person.byYear(year: String(selectedSortYear.rawValue), mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, alphabetSort: alphabetSort, filter: searchText)
         allPersons[selectedSortYear.rawValue] = request.map(PersonViewModel.init)
     }
 }

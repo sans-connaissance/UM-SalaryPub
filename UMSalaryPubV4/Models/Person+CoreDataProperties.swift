@@ -29,8 +29,9 @@ extension Person: BaseModel {
 }
 
 extension Person : Identifiable {
-    // This can be abstracted so that it works for all types
-    static func byYear(year: String, mostMoneySort: Bool, leastMoneySort: Bool, alphabetSort: Bool, filter: String, keyPath: String) -> [Person] {
+    // This can be abstracted so that it works for the other three types, but this one cannot be abstracted because the other three have counts, and this one does not.
+    
+    static func byYear(year: String, mostMoneySort: Bool, leastMoneySort: Bool, alphabetSort: Bool, filter: String) -> [Person] {
         
         let request: NSFetchRequest<Person> = Person.fetchRequest()
        
@@ -45,7 +46,7 @@ extension Person : Identifiable {
 //        request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), year)
         
         let yearPredicate = NSPredicate(format: "year == %@", year)
-        let namePredicate = NSPredicate(format: "\(keyPath) CONTAINS[c] %@", filter)
+        let namePredicate = NSPredicate(format: "fullName CONTAINS[c] %@", filter)
         let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
         request.predicate = combinedPredicate
  

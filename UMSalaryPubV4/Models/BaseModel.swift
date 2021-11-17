@@ -49,7 +49,7 @@ extension BaseModel {
             return []
         }
     }
-    
+    // maybe refactor this so that it reads byName
     static func by<T>(keyPath: String, name: String) -> [T] where T: NSManagedObject {
         let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
         
@@ -66,7 +66,7 @@ extension BaseModel {
 
 }
 
-enum NameKeyPaths: String, CaseIterable {
+enum NamePredicate: String, CaseIterable {
     
     case Person
     case Title
@@ -117,6 +117,45 @@ enum FetchYear: Int, CaseIterable {
             return "2014"
         case .thirteen:
             return "2013"
+        }
+    }
+}
+
+enum MoneySortDescriptor: String, CaseIterable {
+    
+    case Person
+    case Title
+    case Department
+    case Campus
+    
+    var returnText: String {
+        switch self {
+        case .Person:
+            return "apptAnnualFTR"
+        case .Title:
+            return "titleAverageAnnual"
+        case .Department:
+            return "departmentAverageAnnual"
+        case .Campus:
+            return "campusAverageAnnual"
+        }
+    }
+}
+
+enum CountSortDescriptor: String, CaseIterable {
+    
+    case Title
+    case Department
+    case Campus
+    
+    var returnText: String {
+        switch self {
+        case .Title:
+            return "titleCount"
+        case .Department:
+            return "departmentCount"
+        case .Campus:
+            return "campusCount"
         }
     }
 }
