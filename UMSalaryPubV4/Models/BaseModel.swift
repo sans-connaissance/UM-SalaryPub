@@ -14,7 +14,23 @@ protocol BaseModel where Self: NSManagedObject {
     
     static func all<T: NSManagedObject>() -> [T]
     
+    //byName
     static func by<T: NSManagedObject>(keyPath: String, name: String) -> [T]
+    
+    static func search<T: NSManagedObject>(showCountSort: Bool,
+                                           year: String,
+                                           mostMoneySort: Bool,
+                                           leastMoneySort: Bool,
+                                           moneySortDescriptor: String,
+                                           alphabetSort: Bool,
+                                           namePredicateOrSort: String,
+                                           mostPeopleSort: Bool,
+                                           leastPeopleSort: Bool,
+                                           countSortDescriptor: String) -> [T]
+    
+    //add by year function too
+    
+    // static func search
 
 }
 
@@ -66,7 +82,7 @@ extension BaseModel {
 
 }
 
-enum NamePredicate: String, CaseIterable {
+enum NamePredicateOrSort: String, CaseIterable {
     
     case Person
     case Title

@@ -17,7 +17,7 @@ class PersonListViewModel: ObservableObject {
     
     
     @Published var selectedSortYear: FetchYear = .twenty
-    @Published var selectedKeyPath: NamePredicate = .Person
+    @Published var selectedKeyPath: NamePredicateOrSort = .Person
     
     @Published var searchText = " "
     
