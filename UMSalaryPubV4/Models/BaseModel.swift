@@ -14,8 +14,7 @@ protocol BaseModel where Self: NSManagedObject {
     
     static func all<T: NSManagedObject>() -> [T]
     
-    //byName
-    static func by<T: NSManagedObject>(keyPath: String, name: String) -> [T]
+    static func byName<T: NSManagedObject>(keyPath: String, name: String) -> [T]
     
     static func search<T: NSManagedObject>(
                                            yearPredicate: String,
@@ -28,11 +27,6 @@ protocol BaseModel where Self: NSManagedObject {
                                            mostPeopleSort: Bool,
                                            leastPeopleSort: Bool,
                                            countSortDescriptor: String) -> [T]
-    
-    //add by year function too
-    
-    // static func search
-    
 }
 
 
@@ -66,8 +60,8 @@ extension BaseModel {
             return []
         }
     }
-    // maybe refactor this so that it reads byName
-    static func by<T>(keyPath: String, name: String) -> [T] where T: NSManagedObject {
+    
+    static func byName<T>(keyPath: String, name: String) -> [T] where T: NSManagedObject {
         let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
         
         let namePredicate = NSPredicate(format: "%K == %@", keyPath, name)
@@ -203,12 +197,15 @@ enum MoneySortDescriptor: String, CaseIterable {
 
 enum CountSortDescriptor: String, CaseIterable {
     
+    case Person
     case Title
     case Department
     case Campus
     
     var returnText: String {
         switch self {
+        case .Person:
+            return ""
         case .Title:
             return "titleCount"
         case .Department:

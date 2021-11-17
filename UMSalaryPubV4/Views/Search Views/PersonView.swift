@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PersonView: View {
     
-    @StateObject private var personListVM = PersonListViewModel()
+    @StateObject private var personListVM = ListViewModel(selectedNamePredicate: NamePredicateOrSort.Person, selectMoneyDescriptor: MoneySortDescriptor.Person, selectCountDescriptor: CountSortDescriptor.Person)
     
     var body: some View {
         VStack {

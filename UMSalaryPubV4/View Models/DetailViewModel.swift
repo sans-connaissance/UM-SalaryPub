@@ -14,7 +14,7 @@ class DetailViewModel: ObservableObject {
     @Published var selectedKeyPath: NamePredicateOrSort = .Person
     
     func getPersons(vm: PersonViewModel) {
-        let request: [Person] = Person.by(keyPath: selectedKeyPath.returnText, name: vm.fullName)
+        let request: [Person] = Person.byName(keyPath: selectedKeyPath.returnText, name: vm.fullName)
         personsDetail = request.map(PersonViewModel.init)
         
     }

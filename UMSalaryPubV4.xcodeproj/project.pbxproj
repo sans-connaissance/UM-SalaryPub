@@ -23,7 +23,7 @@
 		41998B7D273970C70021D632 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 41998B7C273970C70021D632 /* Collections */; };
 		41998B7F273970C70021D632 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 41998B7E273970C70021D632 /* OrderedCollections */; };
 		41998B812739A2550021D632 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B802739A2550021D632 /* PersonViewModel.swift */; };
-		41998B852739C2850021D632 /* PersonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B842739C2850021D632 /* PersonListViewModel.swift */; };
+		41998B852739C2850021D632 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B842739C2850021D632 /* ListViewModel.swift */; };
 		41998B9C273C51E00021D632 /* csvjson-02018.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B94273C51DD0021D632 /* csvjson-02018.json */; };
 		41998B9D273C51E00021D632 /* csvjson-02019.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B95273C51DE0021D632 /* csvjson-02019.json */; };
 		41998B9E273C51E00021D632 /* csvjson-02020.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B96273C51DE0021D632 /* csvjson-02020.json */; };
@@ -71,7 +71,7 @@
 		416C8A5D272B10CE00653032 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		41998B5B2738480A0021D632 /* DataDashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDashboardView.swift; sourceTree = "<group>"; };
 		41998B802739A2550021D632 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
-		41998B842739C2850021D632 /* PersonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewModel.swift; sourceTree = "<group>"; };
+		41998B842739C2850021D632 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		41998B94273C51DD0021D632 /* csvjson-02018.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02018.json"; sourceTree = "<group>"; };
 		41998B95273C51DE0021D632 /* csvjson-02019.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02019.json"; sourceTree = "<group>"; };
 		41998B96273C51DE0021D632 /* csvjson-02020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02020.json"; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 				4139F4F527248DCF00E6EC5C /* AdminViewModel.swift */,
 				41EA3BB12731C642001070CF /* TempViewModels.swift */,
 				41998B802739A2550021D632 /* PersonViewModel.swift */,
-				41998B842739C2850021D632 /* PersonListViewModel.swift */,
+				41998B842739C2850021D632 /* ListViewModel.swift */,
 				41D4B87E2740C4BD00F0FB92 /* DetailViewModel.swift */,
 			);
 			path = "View Models";
@@ -197,6 +197,7 @@
 		414AD14B272316B500316A45 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				41D4B8822745863400F0FB92 /* Buttons */,
 				41E5A48E2721B37700A51D80 /* ContentView.swift */,
 				414AD15B2723257200316A45 /* Admin Views */,
 				4139F4FA2725A96E00E6EC5C /* Search Views */,
@@ -231,6 +232,13 @@
 			);
 			name = "Admin Views";
 			path = "../View Models/Admin Views";
+			sourceTree = "<group>";
+		};
+		41D4B8822745863400F0FB92 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		41E5A4802721B37700A51D80 = {
@@ -398,7 +406,7 @@
 				41E5A4AF2721B95300A51D80 /* Department+CoreDataClass.swift in Sources */,
 				416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */,
 				414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */,
-				41998B852739C2850021D632 /* PersonListViewModel.swift in Sources */,
+				41998B852739C2850021D632 /* ListViewModel.swift in Sources */,
 				41998B5C2738480A0021D632 /* DataDashboardView.swift in Sources */,
 				4139F5032725AD0F00E6EC5C /* FavoriteView.swift in Sources */,
 				41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */,
