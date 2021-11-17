@@ -8,19 +8,7 @@
 import Foundation
 import CoreData
 
-struct TitleViewModel {
-    
-    let title: Title
-    
-    var id: NSManagedObjectID {
-        return title.objectID
-    }
-    
-    var titleName: String {
-        return title.titleName ?? ""
-    }
-    
-}
+
 
 struct DepartmentViewModel {
     
