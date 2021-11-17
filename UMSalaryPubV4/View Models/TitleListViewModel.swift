@@ -28,7 +28,7 @@ class TitleListViewModel: ObservableObject {
     @Published var leastPeopleSort = false
     
     
-    func titlesSearch() {
+    func titleSearch() {
         let request: [Title] = Title.search(yearPredicate: String(selectedYear.rawValue), filterPredicate: searchText, mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, moneySortDescriptor: selectMoneyDescriptor.returnText, alphabetSort: alphabetSort, namePredicateOrSort: selectedNamePredicate.returnText, mostPeopleSort: mostPeopleSort, leastPeopleSort: leastPeopleSort, countSortDescriptor: selectCountDescriptor.returnText)
         allTitles[selectedYear.rawValue] = request.map(TitleViewModel.init)
         
