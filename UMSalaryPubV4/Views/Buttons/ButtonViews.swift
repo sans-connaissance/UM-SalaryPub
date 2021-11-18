@@ -52,7 +52,6 @@ struct SortByMoneyAscendingButton: View {
             Text("$")
                 .foregroundColor(sortByMoneyAscending ? .blue : .gray)
         }
-        
     }
 }
 
@@ -98,10 +97,9 @@ struct SortByPersonCountDescending: View {
             sortByPersonCountAscending = false
             
         } label: {
-            Text("abc")
+            Image(systemName: "person.3.fill")
                 .foregroundColor(sortByPersonCountDescending ? .blue : .gray)
         }
-        
     }
 }
 
@@ -122,7 +120,7 @@ struct SortByPersonCountAscending: View {
             sortByPersonCountAscending = true
             
         } label: {
-            Text("abc")
+            Image(systemName: "person.fill")
                 .foregroundColor(sortByPersonCountAscending ? .blue : .gray)
         }
     }
