@@ -9,35 +9,36 @@ import SwiftUI
 
 struct PersonView: View {
     
-    @StateObject private var personListVM = PersonListViewModel()
+    @StateObject private var vm = PersonListViewModel()
     
     var body: some View {
         VStack {
-            SearchBarView(searchText: $personListVM.searchText)
-                .onChange(of: personListVM.searchText) { _ in personListVM.personSearch()}
+            SearchBarView(searchText: $vm.searchText)
+                .onChange(of: vm.searchText) { _ in vm.personSearch()}
             
             HStack {
-                Picker("Select year", selection: $personListVM.selectedYear) {
+                Picker("Select year", selection: $vm.selectedYear) {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
                     }
                 }
-                .onChange(of: personListVM.selectedYear) { _ in personListVM.personSearch()}
+                .onChange(of: vm.selectedYear) { _ in vm.personSearch()}
                 
                 sortByMoneyDescendingButton
                 sortByMoneyAscendingButton
                 
-                
-                //Alright lets create the other buttons and get moving
-                SortAlphabeticallyButton(sortByMoneyDescending: $personListVM.sortByMoneyDescending, sortByMoneyAscending: $personListVM.sortByMoneyAscending, sortAlphabetically: $personListVM.sortAlphabetically, sortByPersonCountDescending: $personListVM.sortByPersonCountDescending, sortByPersonCountAscending: $personListVM.sortByMoneyAscending)
-                    .onChange(of: personListVM.sortAlphabetically){ _ in
-                        personListVM.personSearch()
-                    }
+                SortAlphabeticallyButton(
+                    sortByMoneyDescending: $vm.sortByMoneyDescending,
+                    sortByMoneyAscending: $vm.sortByMoneyAscending,
+                    sortAlphabetically: $vm.sortAlphabetically,
+                    sortByPersonCountDescending: $vm.sortByPersonCountDescending,
+                    sortByPersonCountAscending: $vm.sortByMoneyAscending)
+                    .onChange(of: vm.sortAlphabetically){ _ in vm.personSearch()}
             }
             Divider()
             List {
                 
-                if let personarray = personListVM.allPersons[personListVM.selectedYear.rawValue] {
+                if let personarray = vm.allPersons[vm.selectedYear.rawValue] {
                     ForEach(personarray, id: \.self) { person in
                         NavigationLink {
                             PersonDetailView(person: person)
@@ -49,44 +50,44 @@ struct PersonView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("People")
-            .onAppear(perform: { personListVM.personSearch()
+            .onAppear(perform: { vm.personSearch()
             })
         }
     }
     var sortAlphabeticallyButton: some View {
         Button {
-            personListVM.sortByMoneyDescending = false
-            personListVM.sortByMoneyAscending = false
-            personListVM.sortAlphabetically = true
-            personListVM.personSearch()
+            vm.sortByMoneyDescending = false
+            vm.sortByMoneyAscending = false
+            vm.sortAlphabetically = true
+            vm.personSearch()
             
         } label: {
             Text("abc")
-                .foregroundColor(personListVM.sortAlphabetically ? .blue : .gray)
+                .foregroundColor(vm.sortAlphabetically ? .blue : .gray)
         }
     }
     
     var sortByMoneyDescendingButton: some View {
         Button {
-            personListVM.sortByMoneyDescending = true
-            personListVM.sortByMoneyAscending = false
-            personListVM.sortAlphabetically = false
-            personListVM.personSearch()
+            vm.sortByMoneyDescending = true
+            vm.sortByMoneyAscending = false
+            vm.sortAlphabetically = false
+            vm.personSearch()
         } label: {
             Text("$$$")
-                .foregroundColor(personListVM.sortByMoneyDescending ? .blue : .gray)
+                .foregroundColor(vm.sortByMoneyDescending ? .blue : .gray)
         }
     }
     
     var sortByMoneyAscendingButton: some View {
         Button {
-            personListVM.sortByMoneyDescending = false
-            personListVM.sortByMoneyAscending = true
-            personListVM.sortAlphabetically = false
-            personListVM.personSearch()
+            vm.sortByMoneyDescending = false
+            vm.sortByMoneyAscending = true
+            vm.sortAlphabetically = false
+            vm.personSearch()
         } label: {
             Text("$")
-                .foregroundColor(personListVM.sortByMoneyAscending ? .blue : .gray)
+                .foregroundColor(vm.sortByMoneyAscending ? .blue : .gray)
         }
     }
 }
