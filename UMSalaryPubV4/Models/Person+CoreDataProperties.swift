@@ -29,18 +29,18 @@ extension Person: BaseModel {
 }
 
 extension Person : Identifiable {
-    // This can be abstracted so that it works for the other three types, but this one cannot be abstracted because the other three have counts, and this one does not.
+    // This can be abstracted so that it works for the other three types, but this one cannot be abstracted
     
-    static func byYear(year: String, mostMoneySort: Bool, leastMoneySort: Bool, alphabetSort: Bool, filter: String) -> [Person] {
+    static func byYear(year: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, alphabetSort: Bool, filter: String) -> [Person] {
         
         let request: NSFetchRequest<Person> = Person.fetchRequest()
        
-        let mostMoneySortDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: false)
-        let leastMoneySortDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: true)
+        let sortByMoneyDescendingDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: false)
+        let sortByMoneyAscendingDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: true)
         let alphabetSortDescriptor = NSSortDescriptor(key: "fullName", ascending: true)
         
-        if mostMoneySort { request.sortDescriptors = [mostMoneySortDescriptor] }
-        if leastMoneySort { request.sortDescriptors = [leastMoneySortDescriptor] }
+        if sortByMoneyDescending { request.sortDescriptors = [sortByMoneyDescendingDescriptor] }
+        if sortByMoneyAscending { request.sortDescriptors = [sortByMoneyAscendingDescriptor] }
         if alphabetSort { request.sortDescriptors = [alphabetSortDescriptor] }
 
 //        request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), year)

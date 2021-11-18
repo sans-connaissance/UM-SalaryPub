@@ -23,10 +23,16 @@ struct PersonView: View {
                     }
                 }
                 .onChange(of: personListVM.selectedYear) { _ in personListVM.personSearch()}
-
-                mostMoneySortButton
-                leastMoneySortButton
-                alphabetSortButton
+                
+                sortByMoneyDescendingButton
+                sortByMoneyAscendingButton
+                
+                
+                //Alright lets create the other buttons and get moving
+                AlphabetSortButton(sortByMoneyDescending: $personListVM.sortByMoneyDescending, sortByMoneyAscending: $personListVM.sortByMoneyAscending, alphabetSort: $personListVM.alphabetSort, mostPeopleSort: $personListVM.mostPeopleSort, leastPeopleSort: $personListVM.sortByMoneyAscending)
+                    .onChange(of: personListVM.alphabetSort){ _ in
+                        personListVM.personSearch()
+                    }
             }
             Divider()
             List {
@@ -45,12 +51,12 @@ struct PersonView: View {
             .navigationTitle("People")
             .onAppear(perform: { personListVM.personSearch()
             })
-        }  
+        }
     }
     var alphabetSortButton: some View {
         Button {
-            personListVM.mostMoneySort = false
-            personListVM.leastMoneySort = false
+            personListVM.sortByMoneyDescending = false
+            personListVM.sortByMoneyAscending = false
             personListVM.alphabetSort = true
             personListVM.personSearch()
             
@@ -60,27 +66,27 @@ struct PersonView: View {
         }
     }
     
-    var mostMoneySortButton: some View {
+    var sortByMoneyDescendingButton: some View {
         Button {
-            personListVM.mostMoneySort = true
-            personListVM.leastMoneySort = false
+            personListVM.sortByMoneyDescending = true
+            personListVM.sortByMoneyAscending = false
             personListVM.alphabetSort = false
             personListVM.personSearch()
         } label: {
             Text("$$$")
-                .foregroundColor(personListVM.mostMoneySort ? .blue : .gray)
+                .foregroundColor(personListVM.sortByMoneyDescending ? .blue : .gray)
         }
     }
     
-    var leastMoneySortButton: some View {
+    var sortByMoneyAscendingButton: some View {
         Button {
-            personListVM.mostMoneySort = false
-            personListVM.leastMoneySort = true
+            personListVM.sortByMoneyDescending = false
+            personListVM.sortByMoneyAscending = true
             personListVM.alphabetSort = false
             personListVM.personSearch()
         } label: {
             Text("$")
-                .foregroundColor(personListVM.leastMoneySort ? .blue : .gray)
+                .foregroundColor(personListVM.sortByMoneyAscending ? .blue : .gray)
         }
     }
 }

@@ -22,22 +22,16 @@ class PersonListViewModel: ObservableObject {
     @Published var selectCountDescriptor: CountSortDescriptor = .Person
     @Published var selectYearByType: YearByType = .Person
     
-    @Published var mostMoneySort = true
-    @Published var leastMoneySort = false
+    //change to MoneyAscending
+    @Published var sortByMoneyDescending = true
+    @Published var sortByMoneyAscending = false
     @Published var alphabetSort = false
     
     @Published var mostPeopleSort = true
     @Published var leastPeopleSort = false
-    
-//    init(selectedNamePredicate: NamePredicateOrSort, selectMoneyDescriptor: MoneySortDescriptor, selectCountDescriptor: CountSortDescriptor) {
-//        self.selectedNamePredicate = selectedNamePredicate
-//        self.selectMoneyDescriptor = selectMoneyDescriptor
-//        self.selectCountDescriptor = selectCountDescriptor
-//
-//    }
 
     func personSearch() {
-        let request: [Person] = Person.search(yearPredicate: String(selectedYear.rawValue),yearByType: selectYearByType.returnText, filterPredicate: searchText, mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, moneySortDescriptor: selectMoneyDescriptor.returnText, alphabetSort: alphabetSort, namePredicateOrSort: selectedNamePredicate.returnText, mostPeopleSort: false, leastPeopleSort: false, countSortDescriptor: selectCountDescriptor.returnText)
+        let request: [Person] = Person.search(yearPredicate: String(selectedYear.rawValue),yearByType: selectYearByType.returnText, filterPredicate: searchText, descendingMoney: sortByMoneyDescending, sortByMoneyAscending: sortByMoneyAscending, moneySortDescriptor: selectMoneyDescriptor.returnText, alphabetSort: alphabetSort, namePredicateOrSort: selectedNamePredicate.returnText, mostPeopleSort: false, leastPeopleSort: false, countSortDescriptor: selectCountDescriptor.returnText)
         allPersons[selectedYear.rawValue] = request.map(PersonViewModel.init)
         
     }

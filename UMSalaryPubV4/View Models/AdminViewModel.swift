@@ -31,7 +31,7 @@ class AdminViewModel: ObservableObject {
     // maybe even abstract all these "By Year functions"
     func getAllPersons() {
         for year in importYears {
-            let personViewModel: [Person] = Person.byYear(year: String(year), mostMoneySort: true, leastMoneySort: true, alphabetSort: true, filter: " ")
+            let personViewModel: [Person] = Person.byYear(year: String(year), sortByMoneyDescending: true, sortByMoneyAscending: true, alphabetSort: true, filter: " ")
             allPersons[year] = personViewModel.map(PersonViewModel.init)
         }
     }

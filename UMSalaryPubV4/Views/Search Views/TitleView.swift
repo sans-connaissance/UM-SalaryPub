@@ -23,8 +23,8 @@ struct TitleView: View {
                 }
                 .onChange(of: titleListVM.selectedYear) { _ in titleListVM.titleSearch()}
 
-                mostMoneySortButton
-                leastMoneySortButton
+                sortByMoneyDescendingButton
+                sortByMoneyAscendingButton
                 alphabetSortButton
             }
             Divider()
@@ -48,8 +48,8 @@ struct TitleView: View {
     }
     var alphabetSortButton: some View {
         Button {
-            titleListVM.mostMoneySort = false
-            titleListVM.leastMoneySort = false
+            titleListVM.sortByMoneyDescending = false
+            titleListVM.sortByMoneyAscending = false
             titleListVM.alphabetSort = true
             titleListVM.titleSearch()
             
@@ -59,27 +59,27 @@ struct TitleView: View {
         }
     }
     
-    var mostMoneySortButton: some View {
+    var sortByMoneyDescendingButton: some View {
         Button {
-            titleListVM.mostMoneySort = true
-            titleListVM.leastMoneySort = false
+            titleListVM.sortByMoneyDescending = true
+            titleListVM.sortByMoneyAscending = false
             titleListVM.alphabetSort = false
             titleListVM.titleSearch()
         } label: {
             Text("$$$")
-                .foregroundColor(titleListVM.mostMoneySort ? .blue : .gray)
+                .foregroundColor(titleListVM.sortByMoneyDescending ? .blue : .gray)
         }
     }
     
-    var leastMoneySortButton: some View {
+    var sortByMoneyAscendingButton: some View {
         Button {
-            titleListVM.mostMoneySort = false
-            titleListVM.leastMoneySort = true
+            titleListVM.sortByMoneyDescending = false
+            titleListVM.sortByMoneyAscending = true
             titleListVM.alphabetSort = false
             titleListVM.titleSearch()
         } label: {
             Text("$")
-                .foregroundColor(titleListVM.leastMoneySort ? .blue : .gray)
+                .foregroundColor(titleListVM.sortByMoneyAscending ? .blue : .gray)
         }
     }
 }
