@@ -25,7 +25,7 @@ struct SortByMoneyDescendingButton: View {
             sortByPersonCountAscending = false
             
         } label: {
-            Text("abc")
+            Text("$$$")
                 .foregroundColor(sortByMoneyDescending ? .blue : .gray)
         }
         
@@ -49,7 +49,7 @@ struct SortByMoneyAscendingButton: View {
             sortByPersonCountAscending = false
             
         } label: {
-            Text("abc")
+            Text("$")
                 .foregroundColor(sortByMoneyAscending ? .blue : .gray)
         }
         
