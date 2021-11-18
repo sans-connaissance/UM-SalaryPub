@@ -14,9 +14,9 @@ class TitleListViewModel: ObservableObject {
     @Published var searchText = " "
     @Published var sortByMoneyDescending = false
     @Published var sortByMoneyAscending = false
-    @Published var alphabetSort = false
-    @Published var mostPeopleSort = true
-    @Published var leastPeopleSort = false
+    @Published var sortAlphabetically = false
+    @Published var sortByPersonCountDescending = true
+    @Published var sortByPersonCountAscending = false
     @Published var selectedYear: FetchYear = .twenty
     
     private var importYears = Title.importYears
@@ -27,7 +27,7 @@ class TitleListViewModel: ObservableObject {
     
 
     func titleSearch() {
-        let request: [Title] = Title.search(yearPredicate: String(selectedYear.rawValue), yearByType: selectYearByType.returnText, filterPredicate: searchText, descendingMoney: sortByMoneyDescending, sortByMoneyAscending: sortByMoneyAscending, moneySortDescriptor: selectMoneyDescriptor.returnText, alphabetSort: alphabetSort, namePredicateOrSort: selectedNamePredicate.returnText, mostPeopleSort: mostPeopleSort, leastPeopleSort: leastPeopleSort, countSortDescriptor: selectCountDescriptor.returnText)
+        let request: [Title] = Title.search(yearPredicate: String(selectedYear.rawValue), yearByType: selectYearByType.returnText, filterPredicate: searchText, sortByMoneyDescending: sortByMoneyDescending, sortByMoneyAscending: sortByMoneyAscending, moneySortDescriptor: selectMoneyDescriptor.returnText, sortAlphabetically: sortAlphabetically, namePredicateOrSort: selectedNamePredicate.returnText, sortByPersonCountDescending: sortByPersonCountDescending, leastPeopleSort: sortByPersonCountAscending, countSortDescriptor: selectCountDescriptor.returnText)
         allTitles[selectedYear.rawValue] = request.map(TitleViewModel.init)
         
     }

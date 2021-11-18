@@ -8,25 +8,25 @@
 import SwiftUI
 
 
-struct AlphabetSortButton: View {
+struct SortAlphabeticallyButton: View {
     
     @Binding var sortByMoneyDescending: Bool
     @Binding var sortByMoneyAscending: Bool
-    @Binding var alphabetSort: Bool
-    @Binding var mostPeopleSort: Bool
-    @Binding var leastPeopleSort: Bool
+    @Binding var sortAlphabetically: Bool
+    @Binding var sortByPersonCountDescending: Bool
+    @Binding var sortByPersonCountAscending: Bool
     
     var body: some View {
         Button {
             sortByMoneyDescending = false
             sortByMoneyAscending = false
-            alphabetSort = true
-            mostPeopleSort = false
-            leastPeopleSort = false
+            sortAlphabetically = true
+            sortByPersonCountDescending = false
+            sortByPersonCountAscending = false
             
         } label: {
             Text("abc")
-               .foregroundColor(alphabetSort ? .blue : .gray)
+               .foregroundColor(sortAlphabetically ? .blue : .gray)
         }
         
     }
@@ -38,7 +38,7 @@ struct AlphabetSortButton: View {
 //    Button {
 //        titleListVM.sortByMoneyDescending = true
 //        titleListVM.sortByMoneyAscending = false
-//        titleListVM.alphabetSort = false
+//        titleListVM.sortAlphabetically = false
 //        titleListVM.titleSearch()
 //    } label: {
 //        Text("$$$")
@@ -50,7 +50,7 @@ struct AlphabetSortButton: View {
 //    Button {
 //        titleListVM.sortByMoneyDescending = false
 //        titleListVM.sortByMoneyAscending = true
-//        titleListVM.alphabetSort = false
+//        titleListVM.sortAlphabetically = false
 //        titleListVM.titleSearch()
 //    } label: {
 //        Text("$")

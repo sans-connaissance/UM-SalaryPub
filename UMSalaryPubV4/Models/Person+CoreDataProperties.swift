@@ -31,17 +31,17 @@ extension Person: BaseModel {
 extension Person : Identifiable {
     // This can be abstracted so that it works for the other three types, but this one cannot be abstracted
     
-    static func byYear(year: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, alphabetSort: Bool, filter: String) -> [Person] {
+    static func byYear(year: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, sortAlphabetically: Bool, filter: String) -> [Person] {
         
         let request: NSFetchRequest<Person> = Person.fetchRequest()
        
         let sortByMoneyDescendingDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: false)
         let sortByMoneyAscendingDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: true)
-        let alphabetSortDescriptor = NSSortDescriptor(key: "fullName", ascending: true)
+        let sortAlphabeticallyDescriptor = NSSortDescriptor(key: "fullName", ascending: true)
         
         if sortByMoneyDescending { request.sortDescriptors = [sortByMoneyDescendingDescriptor] }
         if sortByMoneyAscending { request.sortDescriptors = [sortByMoneyAscendingDescriptor] }
-        if alphabetSort { request.sortDescriptors = [alphabetSortDescriptor] }
+        if sortAlphabetically { request.sortDescriptors = [sortAlphabeticallyDescriptor] }
 
 //        request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), year)
         

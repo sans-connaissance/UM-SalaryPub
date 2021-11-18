@@ -29,8 +29,8 @@ struct PersonView: View {
                 
                 
                 //Alright lets create the other buttons and get moving
-                AlphabetSortButton(sortByMoneyDescending: $personListVM.sortByMoneyDescending, sortByMoneyAscending: $personListVM.sortByMoneyAscending, alphabetSort: $personListVM.alphabetSort, mostPeopleSort: $personListVM.mostPeopleSort, leastPeopleSort: $personListVM.sortByMoneyAscending)
-                    .onChange(of: personListVM.alphabetSort){ _ in
+                SortAlphabeticallyButton(sortByMoneyDescending: $personListVM.sortByMoneyDescending, sortByMoneyAscending: $personListVM.sortByMoneyAscending, sortAlphabetically: $personListVM.sortAlphabetically, sortByPersonCountDescending: $personListVM.sortByPersonCountDescending, sortByPersonCountAscending: $personListVM.sortByMoneyAscending)
+                    .onChange(of: personListVM.sortAlphabetically){ _ in
                         personListVM.personSearch()
                     }
             }
@@ -53,16 +53,16 @@ struct PersonView: View {
             })
         }
     }
-    var alphabetSortButton: some View {
+    var sortAlphabeticallyButton: some View {
         Button {
             personListVM.sortByMoneyDescending = false
             personListVM.sortByMoneyAscending = false
-            personListVM.alphabetSort = true
+            personListVM.sortAlphabetically = true
             personListVM.personSearch()
             
         } label: {
             Text("abc")
-                .foregroundColor(personListVM.alphabetSort ? .blue : .gray)
+                .foregroundColor(personListVM.sortAlphabetically ? .blue : .gray)
         }
     }
     
@@ -70,7 +70,7 @@ struct PersonView: View {
         Button {
             personListVM.sortByMoneyDescending = true
             personListVM.sortByMoneyAscending = false
-            personListVM.alphabetSort = false
+            personListVM.sortAlphabetically = false
             personListVM.personSearch()
         } label: {
             Text("$$$")
@@ -82,7 +82,7 @@ struct PersonView: View {
         Button {
             personListVM.sortByMoneyDescending = false
             personListVM.sortByMoneyAscending = true
-            personListVM.alphabetSort = false
+            personListVM.sortAlphabetically = false
             personListVM.personSearch()
         } label: {
             Text("$")

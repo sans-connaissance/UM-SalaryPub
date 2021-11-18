@@ -25,7 +25,7 @@ struct TitleView: View {
 
                 sortByMoneyDescendingButton
                 sortByMoneyAscendingButton
-                alphabetSortButton
+                sortAlphabeticallyButton
             }
             Divider()
             List {
@@ -46,16 +46,16 @@ struct TitleView: View {
             })
         }
     }
-    var alphabetSortButton: some View {
+    var sortAlphabeticallyButton: some View {
         Button {
             titleListVM.sortByMoneyDescending = false
             titleListVM.sortByMoneyAscending = false
-            titleListVM.alphabetSort = true
+            titleListVM.sortAlphabetically = true
             titleListVM.titleSearch()
             
         } label: {
             Text("abc")
-                .foregroundColor(titleListVM.alphabetSort ? .blue : .gray)
+                .foregroundColor(titleListVM.sortAlphabetically ? .blue : .gray)
         }
     }
     
@@ -63,7 +63,7 @@ struct TitleView: View {
         Button {
             titleListVM.sortByMoneyDescending = true
             titleListVM.sortByMoneyAscending = false
-            titleListVM.alphabetSort = false
+            titleListVM.sortAlphabetically = false
             titleListVM.titleSearch()
         } label: {
             Text("$$$")
@@ -75,7 +75,7 @@ struct TitleView: View {
         Button {
             titleListVM.sortByMoneyDescending = false
             titleListVM.sortByMoneyAscending = true
-            titleListVM.alphabetSort = false
+            titleListVM.sortAlphabetically = false
             titleListVM.titleSearch()
         } label: {
             Text("$")

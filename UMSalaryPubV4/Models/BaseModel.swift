@@ -20,12 +20,12 @@ protocol BaseModel where Self: NSManagedObject {
                                            yearPredicate: String,
                                            yearByType: String,
                                            filterPredicate: String,
-                                           descendingMoney: Bool,
+                                           sortByMoneyDescending: Bool,
                                            sortByMoneyAscending: Bool,
                                            moneySortDescriptor: String,
-                                           alphabetSort: Bool,
+                                           sortAlphabetically: Bool,
                                            namePredicateOrSort: String,
-                                           mostPeopleSort: Bool,
+                                           sortByPersonCountDescending: Bool,
                                            leastPeopleSort: Bool,
                                            countSortDescriptor: String) -> [T]
 }
@@ -80,31 +80,31 @@ extension BaseModel {
                           yearPredicate: String,
                           yearByType: String,
                           filterPredicate: String,
-                          descendingMoney: Bool,
+                          sortByMoneyDescending: Bool,
                           sortByMoneyAscending: Bool,
                           moneySortDescriptor: String,
-                          alphabetSort: Bool,
+                          sortAlphabetically: Bool,
                           namePredicateOrSort: String,
-                          mostPeopleSort: Bool,
+                          sortByPersonCountDescending: Bool,
                           leastPeopleSort: Bool,
                           countSortDescriptor: String) -> [T] where T: NSManagedObject {
         
         let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
         
-        let descendingMoneyDescriptor = NSSortDescriptor(key: "\(moneySortDescriptor)", ascending: false)
+        let sortByMoneyDescendingDescriptor = NSSortDescriptor(key: "\(moneySortDescriptor)", ascending: false)
         let sortByMoneyAscendingDescriptor = NSSortDescriptor(key: "\(moneySortDescriptor)", ascending: true)
-        let alphabetSortDescriptor = NSSortDescriptor(key: "\(namePredicateOrSort)", ascending: true)
-        let mostPeopleSortDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: false)
+        let sortAlphabeticallyDescriptor = NSSortDescriptor(key: "\(namePredicateOrSort)", ascending: true)
+        let sortByPersonCountDescendingDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: false)
         let leastPeopleSortDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: true)
                               
         let yearPredicate = NSPredicate(format: "\(yearByType) == %@", yearPredicate)
         let namePredicate = NSPredicate(format: "\(namePredicateOrSort) CONTAINS[c] %@", filterPredicate)
         let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
         
-        if descendingMoney { fetchRequest.sortDescriptors = [descendingMoneyDescriptor] }
+        if sortByMoneyDescending { fetchRequest.sortDescriptors = [sortByMoneyDescendingDescriptor] }
         if sortByMoneyAscending { fetchRequest.sortDescriptors = [sortByMoneyAscendingDescriptor] }
-        if alphabetSort { fetchRequest.sortDescriptors = [alphabetSortDescriptor] }
-        if mostPeopleSort { fetchRequest.sortDescriptors = [mostPeopleSortDescriptor] }
+        if sortAlphabetically { fetchRequest.sortDescriptors = [sortAlphabeticallyDescriptor] }
+        if sortByPersonCountDescending { fetchRequest.sortDescriptors = [sortByPersonCountDescendingDescriptor] }
         if leastPeopleSort { fetchRequest.sortDescriptors = [leastPeopleSortDescriptor] }
         
         fetchRequest.predicate = combinedPredicate

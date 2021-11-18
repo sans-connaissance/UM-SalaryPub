@@ -25,13 +25,13 @@ class PersonListViewModel: ObservableObject {
     //change to MoneyAscending
     @Published var sortByMoneyDescending = true
     @Published var sortByMoneyAscending = false
-    @Published var alphabetSort = false
+    @Published var sortAlphabetically = false
     
-    @Published var mostPeopleSort = true
-    @Published var leastPeopleSort = false
+    @Published var sortByPersonCountDescending = true
+    @Published var sortByPersonCountAscending = false
 
     func personSearch() {
-        let request: [Person] = Person.search(yearPredicate: String(selectedYear.rawValue),yearByType: selectYearByType.returnText, filterPredicate: searchText, descendingMoney: sortByMoneyDescending, sortByMoneyAscending: sortByMoneyAscending, moneySortDescriptor: selectMoneyDescriptor.returnText, alphabetSort: alphabetSort, namePredicateOrSort: selectedNamePredicate.returnText, mostPeopleSort: false, leastPeopleSort: false, countSortDescriptor: selectCountDescriptor.returnText)
+        let request: [Person] = Person.search(yearPredicate: String(selectedYear.rawValue),yearByType: selectYearByType.returnText, filterPredicate: searchText, sortByMoneyDescending: sortByMoneyDescending, sortByMoneyAscending: sortByMoneyAscending, moneySortDescriptor: selectMoneyDescriptor.returnText, sortAlphabetically: sortAlphabetically, namePredicateOrSort: selectedNamePredicate.returnText, sortByPersonCountDescending: false, leastPeopleSort: false, countSortDescriptor: selectCountDescriptor.returnText)
         allPersons[selectedYear.rawValue] = request.map(PersonViewModel.init)
         
     }
