@@ -18,6 +18,7 @@ protocol BaseModel where Self: NSManagedObject {
     
     static func search<T: NSManagedObject>(
                                            yearPredicate: String,
+                                           yearByType: String,
                                            filterPredicate: String,
                                            mostMoneySort: Bool,
                                            leastMoneySort: Bool,
@@ -77,6 +78,7 @@ extension BaseModel {
     
     static func search<T>(
                           yearPredicate: String,
+                          yearByType: String,
                           filterPredicate: String,
                           mostMoneySort: Bool,
                           leastMoneySort: Bool,
@@ -95,7 +97,9 @@ extension BaseModel {
         let mostPeopleSortDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: false)
         let leastPeopleSortDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: true)
         
-        let yearPredicate = NSPredicate(format: "year == %@", yearPredicate)
+                              //need to fix Year here so that there's a switch with all the years
+                              
+        let yearPredicate = NSPredicate(format: "\(yearByType) == %@", yearPredicate)
         let namePredicate = NSPredicate(format: "\(namePredicateOrSort) CONTAINS[c] %@", filterPredicate)
         let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
         
@@ -212,6 +216,27 @@ enum CountSortDescriptor: String, CaseIterable {
             return "departmentCount"
         case .Campus:
             return "campusCount"
+        }
+    }
+}
+
+enum YearByType: String, CaseIterable {
+    
+    case Person
+    case Title
+    case Department
+    case Campus
+    
+    var returnText: String {
+        switch self {
+        case .Person:
+            return "year"
+        case .Title:
+            return "titleYear"
+        case .Department:
+            return "departmentYear"
+        case .Campus:
+            return "campusYear"
         }
     }
 }

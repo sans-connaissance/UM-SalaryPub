@@ -20,6 +20,7 @@ class PersonListViewModel: ObservableObject {
     @Published var selectedNamePredicate: NamePredicateOrSort = .Person
     @Published var selectMoneyDescriptor: MoneySortDescriptor = .Person
     @Published var selectCountDescriptor: CountSortDescriptor = .Person
+    @Published var selectYearByType: YearByType = .Person
     
     @Published var mostMoneySort = true
     @Published var leastMoneySort = false
@@ -36,7 +37,7 @@ class PersonListViewModel: ObservableObject {
 //    }
 
     func personSearch() {
-        let request: [Person] = Person.search(yearPredicate: String(selectedYear.rawValue), filterPredicate: searchText, mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, moneySortDescriptor: selectMoneyDescriptor.returnText, alphabetSort: alphabetSort, namePredicateOrSort: selectedNamePredicate.returnText, mostPeopleSort: false, leastPeopleSort: false, countSortDescriptor: selectCountDescriptor.returnText)
+        let request: [Person] = Person.search(yearPredicate: String(selectedYear.rawValue),yearByType: selectYearByType.returnText, filterPredicate: searchText, mostMoneySort: mostMoneySort, leastMoneySort: leastMoneySort, moneySortDescriptor: selectMoneyDescriptor.returnText, alphabetSort: alphabetSort, namePredicateOrSort: selectedNamePredicate.returnText, mostPeopleSort: false, leastPeopleSort: false, countSortDescriptor: selectCountDescriptor.returnText)
         allPersons[selectedYear.rawValue] = request.map(PersonViewModel.init)
         
     }
