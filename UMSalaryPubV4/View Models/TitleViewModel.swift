@@ -26,13 +26,28 @@ struct TitleViewModel: Hashable {
     }
     
     var titleCount: String {
-        let formattedValue = String(title.titleCount)
-        return formattedValue
+        let titleCount = title.titleCount.withCommas()
+        return titleCount
     }
     
     var titleAverageAnnual: String {
         let titleAverageAnnual = title.titleAverageAnnual.withCommas()
         return "$" + titleAverageAnnual
+    }
+    
+    var titleMedianAnnual: String {
+        let titleMedianAnnual = title.titleMedianAnnual.withCommas()
+        return "$" + titleMedianAnnual
+    }
+    
+    var titleMaxAnnual: String {
+        let titleMaxAnnual = title.titleMaxAnnual.withCommas()
+        return "$" + titleMaxAnnual
+    }
+    
+    var titleMinAnnual: String {
+        let titleMinAnnual = title.titleMinAnnual.withCommas()
+        return "$" + titleMinAnnual
     }
     
 }

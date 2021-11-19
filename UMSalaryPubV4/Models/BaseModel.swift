@@ -30,20 +30,6 @@ protocol BaseModel where Self: NSManagedObject {
         countSortDescriptor: String) -> [T]
 }
 
-//static func search<T: NSManagedObject>(
-//                                       yearPredicate: String,
-//                                       yearByType: String,
-//                                       filterPredicate: String,
-//                                       sortByMoneyDescending: Bool,
-//                                       sortByMoneyAscending: Bool,
-//                                       moneySortDescriptor: String,
-//                                       sortAlphabetically: Bool,
-//                                       namePredicateOrSort: String,
-//                                       sortByPersonCountDescending: Bool,
-//                                       sortByPersonCountAscending: Bool,
-//                                       countSortDescriptor: String) -> [T]
-//}
-
 
 extension BaseModel {
     
@@ -66,7 +52,6 @@ extension BaseModel {
     }
     
     static func all<T>() -> [T] where T: NSManagedObject {
-        
         let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
         
         do {
@@ -78,7 +63,6 @@ extension BaseModel {
     
     static func byName<T>(keyPath: String, name: String) -> [T] where T: NSManagedObject {
         let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
-        
         let namePredicate = NSPredicate(format: "%K == %@", keyPath, name)
         
         fetchRequest.predicate = namePredicate
