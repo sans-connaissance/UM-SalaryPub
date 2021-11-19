@@ -17,12 +17,12 @@ struct PersonView: View {
                 .onChange(of: vm.searchText) { _ in vm.personSearch()}
             
             HStack {
-                Picker("Select year", selection: $vm.selectedYear) {
+                Picker("Select year", selection: $vm.year) {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
                     }
                 }
-                .onChange(of: vm.selectedYear) { _ in vm.personSearch()}
+                .onChange(of: vm.year) { _ in vm.personSearch()}
                 
                 SortByMoneyDescendingButton(
                     sortByMoneyDescending: $vm.sortByMoneyDescending,
@@ -51,7 +51,7 @@ struct PersonView: View {
             Divider()
             List {
                 
-                if let personarray = vm.allPersons[vm.selectedYear.rawValue] {
+                if let personarray = vm.allPersons[vm.year.rawValue] {
                     ForEach(personarray, id: \.self) { person in
                         NavigationLink {
                             PersonDetailView(person: person)

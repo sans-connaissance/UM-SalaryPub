@@ -17,18 +17,32 @@ protocol BaseModel where Self: NSManagedObject {
     static func byName<T: NSManagedObject>(keyPath: String, name: String) -> [T]
     
     static func search<T: NSManagedObject>(
-                                           yearPredicate: String,
-                                           yearByType: String,
-                                           filterPredicate: String,
-                                           sortByMoneyDescending: Bool,
-                                           sortByMoneyAscending: Bool,
-                                           moneySortDescriptor: String,
-                                           sortAlphabetically: Bool,
-                                           namePredicateOrSort: String,
-                                           sortByPersonCountDescending: Bool,
-                                           leastPeopleSort: Bool,
-                                           countSortDescriptor: String) -> [T]
+        byYear: String,
+        byType: String,
+        bySearchText: String,
+        byNamePredicate: String,
+        sortAlphabetically: Bool,
+        sortByMoneyDescending: Bool,
+        sortByMoneyAscending: Bool,
+        sortByPersonCountDescending: Bool,
+        sortByPersonCountAscending: Bool,
+        moneySortDescriptor: String,
+        countSortDescriptor: String) -> [T]
 }
+
+//static func search<T: NSManagedObject>(
+//                                       yearPredicate: String,
+//                                       yearByType: String,
+//                                       filterPredicate: String,
+//                                       sortByMoneyDescending: Bool,
+//                                       sortByMoneyAscending: Bool,
+//                                       moneySortDescriptor: String,
+//                                       sortAlphabetically: Bool,
+//                                       namePredicateOrSort: String,
+//                                       sortByPersonCountDescending: Bool,
+//                                       sortByPersonCountAscending: Bool,
+//                                       countSortDescriptor: String) -> [T]
+//}
 
 
 extension BaseModel {
@@ -77,51 +91,51 @@ extension BaseModel {
     }
     
     static func search<T>(
-                          yearPredicate: String,
-                          yearByType: String,
-                          filterPredicate: String,
-                          sortByMoneyDescending: Bool,
-                          sortByMoneyAscending: Bool,
-                          moneySortDescriptor: String,
-                          sortAlphabetically: Bool,
-                          namePredicateOrSort: String,
-                          sortByPersonCountDescending: Bool,
-                          leastPeopleSort: Bool,
-                          countSortDescriptor: String) -> [T] where T: NSManagedObject {
-        
-        let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
-        
-        let sortByMoneyDescendingDescriptor = NSSortDescriptor(key: "\(moneySortDescriptor)", ascending: false)
-        let sortByMoneyAscendingDescriptor = NSSortDescriptor(key: "\(moneySortDescriptor)", ascending: true)
-        let sortAlphabeticallyDescriptor = NSSortDescriptor(key: "\(namePredicateOrSort)", ascending: true)
-        let sortByPersonCountDescendingDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: false)
-        let leastPeopleSortDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: true)
-                              
-        let yearPredicate = NSPredicate(format: "\(yearByType) == %@", yearPredicate)
-        let namePredicate = NSPredicate(format: "\(namePredicateOrSort) CONTAINS[c] %@", filterPredicate)
-        let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
-        
-        if sortByMoneyDescending { fetchRequest.sortDescriptors = [sortByMoneyDescendingDescriptor] }
-        if sortByMoneyAscending { fetchRequest.sortDescriptors = [sortByMoneyAscendingDescriptor] }
-        if sortAlphabetically { fetchRequest.sortDescriptors = [sortAlphabeticallyDescriptor] }
-        if sortByPersonCountDescending { fetchRequest.sortDescriptors = [sortByPersonCountDescendingDescriptor] }
-        if leastPeopleSort { fetchRequest.sortDescriptors = [leastPeopleSortDescriptor] }
-        
-        fetchRequest.predicate = combinedPredicate
-        fetchRequest.fetchBatchSize = 25
-        fetchRequest.fetchLimit = 50
-        
-        
-        do {
-            return try viewContext.fetch(fetchRequest)
-        } catch {
-            return []
+        byYear: String,
+        byType: String,
+        bySearchText: String,
+        byNamePredicate: String,
+        sortAlphabetically: Bool,
+        sortByMoneyDescending: Bool,
+        sortByMoneyAscending: Bool,
+        sortByPersonCountDescending: Bool,
+        sortByPersonCountAscending: Bool,
+        moneySortDescriptor: String,
+        countSortDescriptor: String) -> [T] where T: NSManagedObject {
+            
+            let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
+            
+            let sortByMoneyDescendingDescriptor = NSSortDescriptor(key: "\(moneySortDescriptor)", ascending: false)
+            let sortByMoneyAscendingDescriptor = NSSortDescriptor(key: "\(moneySortDescriptor)", ascending: true)
+            let sortAlphabeticallyDescriptor = NSSortDescriptor(key: "\(byNamePredicate)", ascending: true)
+            let sortByPersonCountDescendingDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: false)
+            let sortByPersonCountAscendingDescriptor = NSSortDescriptor(key: "\(countSortDescriptor)", ascending: true)
+            
+            let yearPredicate = NSPredicate(format: "\(byType) == %@", byYear)
+            let namePredicate = NSPredicate(format: "\(byNamePredicate) CONTAINS[c] %@", bySearchText)
+            let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
+            
+            if sortByMoneyDescending { fetchRequest.sortDescriptors = [sortByMoneyDescendingDescriptor] }
+            if sortByMoneyAscending { fetchRequest.sortDescriptors = [sortByMoneyAscendingDescriptor] }
+            if sortAlphabetically { fetchRequest.sortDescriptors = [sortAlphabeticallyDescriptor] }
+            if sortByPersonCountDescending { fetchRequest.sortDescriptors = [sortByPersonCountDescendingDescriptor] }
+            if sortByPersonCountAscending { fetchRequest.sortDescriptors = [sortByPersonCountAscendingDescriptor] }
+            
+            fetchRequest.predicate = combinedPredicate
+            fetchRequest.fetchBatchSize = 25
+            fetchRequest.fetchLimit = 50
+            
+            
+            do {
+                return try viewContext.fetch(fetchRequest)
+            } catch {
+                return []
+            }
         }
-    }
     
 }
 
-enum NamePredicateOrSort: String, CaseIterable {
+enum NamePredicate: String, CaseIterable {
     
     case Person
     case Title

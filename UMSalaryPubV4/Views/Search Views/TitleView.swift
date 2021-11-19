@@ -16,12 +16,12 @@ struct TitleView: View {
                 .onChange(of: vm.searchText) { _ in vm.titleSearch()}
             
             HStack {
-                Picker("Select year", selection: $vm.selectedYear) {
+                Picker("Select year", selection: $vm.year) {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
                     }
                 }
-                .onChange(of: vm.selectedYear) { _ in vm.titleSearch()}
+                .onChange(of: vm.year) { _ in vm.titleSearch()}
                 
                 SortByMoneyDescendingButton(
                     sortByMoneyDescending: $vm.sortByMoneyDescending,
@@ -67,7 +67,7 @@ struct TitleView: View {
             Divider()
             List {
                 
-                if let titlearray = vm.allTitles[vm.selectedYear.rawValue] {
+                if let titlearray = vm.allTitles[vm.year.rawValue] {
                     ForEach(titlearray, id: \.self) { title in
                         NavigationLink {
                             EmptyView()

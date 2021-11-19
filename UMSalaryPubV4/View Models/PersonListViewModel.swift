@@ -8,31 +8,39 @@
 import Foundation
 import CoreData
 
-// this might work for all ListViewModels
 class PersonListViewModel: ObservableObject {
-    
-    @Published var importYears = Person.importYears
     
     @Published var allPersons = [Int: [PersonViewModel]]()
     
+    @Published var year: FetchYear = .twenty
     @Published var searchText = " "
-    @Published var selectedYear: FetchYear = .twenty
-    @Published var selectedNamePredicate: NamePredicateOrSort = .Person
-    @Published var selectMoneyDescriptor: MoneySortDescriptor = .Person
-    @Published var selectCountDescriptor: CountSortDescriptor = .Person
-    @Published var selectYearByType: YearByType = .Person
-    
-    //change to MoneyAscending
     @Published var sortByMoneyDescending = true
     @Published var sortByMoneyAscending = false
     @Published var sortAlphabetically = false
-    
-    @Published var sortByPersonCountDescending = true
+    @Published var sortByPersonCountDescending = false
     @Published var sortByPersonCountAscending = false
+    
+    private var yearByType: YearByType = .Person
+    private var importYears = Person.importYears
+    private var namePredicate: NamePredicate = .Person
+    private var moneyDescriptor: MoneySortDescriptor = .Person
+    private var countDescriptor: CountSortDescriptor = .Person
 
     func personSearch() {
-        let request: [Person] = Person.search(yearPredicate: String(selectedYear.rawValue),yearByType: selectYearByType.returnText, filterPredicate: searchText, sortByMoneyDescending: sortByMoneyDescending, sortByMoneyAscending: sortByMoneyAscending, moneySortDescriptor: selectMoneyDescriptor.returnText, sortAlphabetically: sortAlphabetically, namePredicateOrSort: selectedNamePredicate.returnText, sortByPersonCountDescending: false, leastPeopleSort: false, countSortDescriptor: selectCountDescriptor.returnText)
-        allPersons[selectedYear.rawValue] = request.map(PersonViewModel.init)
+        let request: [Person] = Person.search(
+            byYear: String(year.rawValue),
+            byType: yearByType.returnText,
+            bySearchText: searchText,
+            byNamePredicate: namePredicate.returnText,
+            sortAlphabetically: sortAlphabetically,
+            sortByMoneyDescending: sortByMoneyDescending,
+            sortByMoneyAscending: sortByMoneyAscending,
+            sortByPersonCountDescending: sortByPersonCountDescending,
+            sortByPersonCountAscending: sortByPersonCountAscending,
+            moneySortDescriptor: moneyDescriptor.returnText,
+            countSortDescriptor: countDescriptor.returnText)
+        
+        allPersons[year.rawValue] = request.map(PersonViewModel.init)
         
     }
 }

@@ -5,31 +5,42 @@
 //  Created by David Malicke on 11/17/21.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 class TitleListViewModel: ObservableObject {
 
     @Published var allTitles = [Int: [TitleViewModel]]()
+    
+    @Published var year: FetchYear = .twenty
     @Published var searchText = " "
     @Published var sortByMoneyDescending = false
     @Published var sortByMoneyAscending = false
     @Published var sortAlphabetically = false
     @Published var sortByPersonCountDescending = true
     @Published var sortByPersonCountAscending = false
-    @Published var selectedYear: FetchYear = .twenty
     
+    private var yearByType: YearByType = .Title
     private var importYears = Title.importYears
-    private var selectedNamePredicate: NamePredicateOrSort = .Title
-    private var selectMoneyDescriptor: MoneySortDescriptor = .Title
-    private var selectCountDescriptor: CountSortDescriptor = .Title
-    private var selectYearByType: YearByType = .Title
+    private var namePredicate: NamePredicate = .Title
+    private var moneyDescriptor: MoneySortDescriptor = .Title
+    private var countDescriptor: CountSortDescriptor = .Title
     
-
+    
     func titleSearch() {
-        let request: [Title] = Title.search(yearPredicate: String(selectedYear.rawValue), yearByType: selectYearByType.returnText, filterPredicate: searchText, sortByMoneyDescending: sortByMoneyDescending, sortByMoneyAscending: sortByMoneyAscending, moneySortDescriptor: selectMoneyDescriptor.returnText, sortAlphabetically: sortAlphabetically, namePredicateOrSort: selectedNamePredicate.returnText, sortByPersonCountDescending: sortByPersonCountDescending, leastPeopleSort: sortByPersonCountAscending, countSortDescriptor: selectCountDescriptor.returnText)
-        allTitles[selectedYear.rawValue] = request.map(TitleViewModel.init)
+        let request: [Title] = Title.search(
+            byYear: String(year.rawValue),
+            byType: yearByType.returnText,
+            bySearchText: searchText,
+            byNamePredicate: namePredicate.returnText,
+            sortAlphabetically: sortAlphabetically,
+            sortByMoneyDescending: sortByMoneyDescending,
+            sortByMoneyAscending: sortByMoneyAscending,
+            sortByPersonCountDescending: sortByPersonCountDescending,
+            sortByPersonCountAscending: sortByPersonCountAscending,
+            moneySortDescriptor: moneyDescriptor.returnText,
+            countSortDescriptor: countDescriptor.returnText)
         
+        allTitles[year.rawValue] = request.map(TitleViewModel.init)
     }
-    
 }
