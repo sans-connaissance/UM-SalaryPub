@@ -10,19 +10,6 @@ import CoreData
 
 
 
-struct DepartmentViewModel {
-    
-    let department: Department
-    
-    var id: NSManagedObjectID {
-        return department.objectID
-    }
-    
-    var departmentName: String {
-        return department.departmentName ?? ""
-    }
-    
-}
 
 struct CampusViewModel {
     

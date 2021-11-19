@@ -40,6 +40,7 @@
 		41D4B88A2745A71600F0FB92 /* TitleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B8892745A71600F0FB92 /* TitleListViewModel.swift */; };
 		41D4B88C2745AAC600F0FB92 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B88B2745AAC600F0FB92 /* TitleView.swift */; };
 		41D4B88E2745F4B600F0FB92 /* ButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B88D2745F4B600F0FB92 /* ButtonViews.swift */; };
+		41D4B890274749E100F0FB92 /* DepartmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B88F274749E100F0FB92 /* DepartmentViewModel.swift */; };
 		41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */; };
 		41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48E2721B37700A51D80 /* ContentView.swift */; };
 		41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E5A4902721B37A00A51D80 /* Assets.xcassets */; };
@@ -91,6 +92,7 @@
 		41D4B8892745A71600F0FB92 /* TitleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleListViewModel.swift; sourceTree = "<group>"; };
 		41D4B88B2745AAC600F0FB92 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		41D4B88D2745F4B600F0FB92 /* ButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViews.swift; sourceTree = "<group>"; };
+		41D4B88F274749E100F0FB92 /* DepartmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentViewModel.swift; sourceTree = "<group>"; };
 		41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMSalaryPubV4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMSalaryPubV4App.swift; sourceTree = "<group>"; };
 		41E5A48E2721B37700A51D80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				41D4B87E2740C4BD00F0FB92 /* DetailViewModel.swift */,
 				41D4B8852745942900F0FB92 /* TitleViewModel.swift */,
 				41D4B8892745A71600F0FB92 /* TitleListViewModel.swift */,
+				41D4B88F274749E100F0FB92 /* DepartmentViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */,
 				414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */,
 				41998B852739C2850021D632 /* PersonListViewModel.swift in Sources */,
+				41D4B890274749E100F0FB92 /* DepartmentViewModel.swift in Sources */,
 				41998B5C2738480A0021D632 /* DataDashboardView.swift in Sources */,
 				4139F5032725AD0F00E6EC5C /* FavoriteView.swift in Sources */,
 				41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */,

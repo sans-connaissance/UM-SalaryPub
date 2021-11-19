@@ -5,8 +5,8 @@
 //  Created by David Malicke on 11/17/21.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 
 struct TitleViewModel: Hashable {
