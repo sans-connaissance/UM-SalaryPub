@@ -14,7 +14,7 @@ struct TitleView: View {
     var body: some View {
         VStack {
             SearchBarView(searchText: $vm.searchText)
-                .onChange(of: vm.searchText) { _ in vm.titleSearch()}
+                .onChange(of: vm.searchText) { _ in vm.getTitles()}
             
             HStack {
                 Picker("Select year", selection: $vm.year) {
@@ -22,7 +22,7 @@ struct TitleView: View {
                         Text($0.displayText)
                     }
                 }
-                .onChange(of: vm.year) { _ in vm.titleSearch()}
+                .onChange(of: vm.year) { _ in vm.getTitles()}
                 
                 sortButtons
                 
@@ -42,7 +42,7 @@ struct TitleView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Titles")
-            .onAppear(perform: { vm.titleSearch()})
+            .onAppear(perform: { vm.getTitles()})
         }
     }
     
@@ -55,7 +55,7 @@ struct TitleView: View {
                 sortAlphabetically: $vm.sortAlphabetically,
                 sortByPersonCountDescending: $vm.sortByPersonCountDescending,
                 sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByMoneyDescending){ _ in vm.titleSearch()}
+                .onChange(of: vm.sortByMoneyDescending){ _ in vm.getTitles()}
             
             SortByMoneyAscendingButton(
                 sortByMoneyDescending: $vm.sortByMoneyDescending,
@@ -63,7 +63,7 @@ struct TitleView: View {
                 sortAlphabetically: $vm.sortAlphabetically,
                 sortByPersonCountDescending: $vm.sortByPersonCountDescending,
                 sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByMoneyAscending){ _ in vm.titleSearch()}
+                .onChange(of: vm.sortByMoneyAscending){ _ in vm.getTitles()}
             
             SortAlphabeticallyButton(
                 sortByMoneyDescending: $vm.sortByMoneyDescending,
@@ -71,7 +71,7 @@ struct TitleView: View {
                 sortAlphabetically: $vm.sortAlphabetically,
                 sortByPersonCountDescending: $vm.sortByPersonCountDescending,
                 sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortAlphabetically){ _ in vm.titleSearch()}
+                .onChange(of: vm.sortAlphabetically){ _ in vm.getTitles()}
             
             SortByPersonCountDescending(
                 sortByMoneyDescending: $vm.sortByMoneyDescending,
@@ -79,7 +79,7 @@ struct TitleView: View {
                 sortAlphabetically: $vm.sortAlphabetically,
                 sortByPersonCountDescending: $vm.sortByPersonCountDescending,
                 sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByPersonCountDescending){ _ in vm.titleSearch()}
+                .onChange(of: vm.sortByPersonCountDescending){ _ in vm.getTitles()}
             
             SortByPersonCountAscending(
                 sortByMoneyDescending: $vm.sortByMoneyDescending,
@@ -87,7 +87,7 @@ struct TitleView: View {
                 sortAlphabetically: $vm.sortAlphabetically,
                 sortByPersonCountDescending: $vm.sortByPersonCountDescending,
                 sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByPersonCountAscending){ _ in vm.titleSearch()}
+                .onChange(of: vm.sortByPersonCountAscending){ _ in vm.getTitles()}
         }
     }
 }

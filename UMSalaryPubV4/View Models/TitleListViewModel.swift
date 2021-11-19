@@ -27,7 +27,7 @@ class TitleListViewModel: ObservableObject {
     private var countDescriptor: CountSortDescriptor = .Title
     
     
-    func titleSearch() {
+    func getTitles() {
         let request: [Title] = Title.search(
             byYear: String(year.rawValue),
             byType: yearByType.returnText,

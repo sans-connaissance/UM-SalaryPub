@@ -26,7 +26,7 @@ class PersonListViewModel: ObservableObject {
     private var moneyDescriptor: MoneySortDescriptor = .Person
     private var countDescriptor: CountSortDescriptor = .Person
 
-    func personSearch() {
+    func getPersons() {
         let request: [Person] = Person.search(
             byYear: String(year.rawValue),
             byType: yearByType.returnText,

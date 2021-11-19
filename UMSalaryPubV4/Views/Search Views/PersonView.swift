@@ -14,7 +14,7 @@ struct PersonView: View {
     var body: some View {
         VStack {
             SearchBarView(searchText: $vm.searchText)
-                .onChange(of: vm.searchText) { _ in vm.personSearch()}
+                .onChange(of: vm.searchText) { _ in vm.getPersons()}
             
             HStack {
                 Picker("Select year", selection: $vm.year) {
@@ -22,7 +22,7 @@ struct PersonView: View {
                         Text($0.displayText)
                     }
                 }
-                .onChange(of: vm.year) { _ in vm.personSearch()}
+                .onChange(of: vm.year) { _ in vm.getPersons()}
                 
                 sortButtons
                 
@@ -42,7 +42,7 @@ struct PersonView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("People")
-            .onAppear(perform: { vm.personSearch()})
+            .onAppear(perform: { vm.getPersons()})
         }
     }
     
@@ -55,7 +55,7 @@ struct PersonView: View {
                 sortAlphabetically: $vm.sortAlphabetically,
                 sortByPersonCountDescending: $vm.sortByPersonCountDescending,
                 sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByMoneyDescending){ _ in vm.personSearch()}
+                .onChange(of: vm.sortByMoneyDescending){ _ in vm.getPersons()}
             
             SortByMoneyAscendingButton(
                 sortByMoneyDescending: $vm.sortByMoneyDescending,
@@ -63,7 +63,7 @@ struct PersonView: View {
                 sortAlphabetically: $vm.sortAlphabetically,
                 sortByPersonCountDescending: $vm.sortByPersonCountDescending,
                 sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByMoneyAscending){ _ in vm.personSearch()}
+                .onChange(of: vm.sortByMoneyAscending){ _ in vm.getPersons()}
             
             SortAlphabeticallyButton(
                 sortByMoneyDescending: $vm.sortByMoneyDescending,
@@ -71,7 +71,7 @@ struct PersonView: View {
                 sortAlphabetically: $vm.sortAlphabetically,
                 sortByPersonCountDescending: $vm.sortByPersonCountDescending,
                 sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortAlphabetically){ _ in vm.personSearch()}
+                .onChange(of: vm.sortAlphabetically){ _ in vm.getPersons()}
         }
     }
 }
