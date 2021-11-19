@@ -54,7 +54,6 @@
 		41E5A4B52721B95300A51D80 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A4AD2721B95300A51D80 /* Person+CoreDataClass.swift */; };
 		41E5A4B62721B95300A51D80 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A4AE2721B95300A51D80 /* Person+CoreDataProperties.swift */; };
 		41E5A4B92721BED800A51D80 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A4B82721BED800A51D80 /* CoreDataManager.swift */; };
-		41EA3BAE2731C338001070CF /* PersonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BAD2731C338001070CF /* PersonRow.swift */; };
 		41EA3BB02731C35C001070CF /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BAF2731C35C001070CF /* FontStyles.swift */; };
 		41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BB12731C642001070CF /* TempViewModels.swift */; };
 		41EA3BB42731D9F2001070CF /* DashboardCountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */; };
@@ -107,7 +106,6 @@
 		41E5A4AD2721B95300A51D80 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		41E5A4AE2721B95300A51D80 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		41E5A4B82721BED800A51D80 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		41EA3BAD2731C338001070CF /* PersonRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonRow.swift; sourceTree = "<group>"; };
 		41EA3BAF2731C35C001070CF /* FontStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 		41EA3BB12731C642001070CF /* TempViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewModels.swift; sourceTree = "<group>"; };
 		41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCountsView.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				41998BA6273C5BD10021D632 /* PersonView.swift */,
 				41D4B88B2745AAC600F0FB92 /* TitleView.swift */,
 				41D4B87C2740B24100F0FB92 /* PersonDetailView.swift */,
-				41EA3BAC2731B0B7001070CF /* Rows */,
 			);
 			path = "Search Views";
 			sourceTree = "<group>";
@@ -303,14 +300,6 @@
 			path = "CoreData Managers";
 			sourceTree = "<group>";
 		};
-		41EA3BAC2731B0B7001070CF /* Rows */ = {
-			isa = PBXGroup;
-			children = (
-				41EA3BAD2731C338001070CF /* PersonRow.swift */,
-			);
-			path = Rows;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,7 +417,6 @@
 				41EA3BB22731C642001070CF /* TempViewModels.swift in Sources */,
 				41998B812739A2550021D632 /* PersonViewModel.swift in Sources */,
 				41EA3BB42731D9F2001070CF /* DashboardCountsView.swift in Sources */,
-				41EA3BAE2731C338001070CF /* PersonRow.swift in Sources */,
 				41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */,
 				41E5A4A22721B6CE00A51D80 /* UMSalaryPub.xcdatamodeld in Sources */,
 				4139F4F627248DCF00E6EC5C /* AdminViewModel.swift in Sources */,

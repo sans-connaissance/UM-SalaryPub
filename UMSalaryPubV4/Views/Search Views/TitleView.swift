@@ -94,8 +94,7 @@ struct TitleView: View {
 
 struct TitleRow: View {
     let title: TitleViewModel
-    
-    
+
     var body: some View {
         
         VStack(alignment: .leading, spacing: 2) {
