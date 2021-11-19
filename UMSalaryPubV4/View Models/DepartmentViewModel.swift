@@ -20,6 +20,15 @@ struct DepartmentViewModel: Hashable {
         return department.departmentName ?? ""
     }
     
+    var year: Int64 {
+        department.departmentYear
+    }
+    
+    var departmentCount: String {
+        let departmentCount = department.departmentCount.withCommas()
+        return departmentCount
+    }
+    
     var departmentAverageAnnual: String {
         let departmentAverageAnnual = department.departmentAverageAnnual.withCommas()
         return "$" + departmentAverageAnnual
