@@ -8,7 +8,7 @@
 import CoreData
 import Foundation
 
-struct CampusViewModel {
+struct CampusViewModel: Hashable {
     
     let campus: Campus
     
