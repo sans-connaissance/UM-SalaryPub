@@ -19,7 +19,7 @@ struct HomeScreenView: View {
                     
                     ) {
                         NavigationLink {
-                            PersonView()
+                            PersonListView()
                         } label: {
                             Text("People").font(.headline)
                         }
@@ -28,7 +28,7 @@ struct HomeScreenView: View {
                         .padding(.bottom)
                         
                         NavigationLink {
-                            TitleView()
+                            TitleListView()
                         } label: {
                             Text("Titles").font(.headline)
                         }

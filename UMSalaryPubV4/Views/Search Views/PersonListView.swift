@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PersonView: View {
+struct PersonListView: View {
     
     @StateObject private var vm = PersonListViewModel()
     
@@ -95,6 +95,6 @@ struct PersonRow: View {
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonView()
+        PersonListView()
     }
 }

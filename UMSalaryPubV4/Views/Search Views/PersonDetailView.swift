@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PersonDetailView: View {
     
-    @StateObject private var personDetailVM = DetailViewModel()
+    @StateObject private var personDetailVM = PersonDetailViewModel()
     let person: PersonViewModel
     
     var body: some View {

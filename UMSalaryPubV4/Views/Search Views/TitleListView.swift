@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TitleView: View {
+struct TitleListView: View {
     
     @StateObject private var vm = TitleListViewModel()
     
@@ -108,6 +108,6 @@ struct TitleRow: View {
 
 struct TitleView_Previews: PreviewProvider {
     static var previews: some View {
-        TitleView()
+        TitleListView()
     }
 }
