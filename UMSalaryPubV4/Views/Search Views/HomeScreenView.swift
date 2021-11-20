@@ -35,6 +35,14 @@ struct HomeScreenView: View {
                         .isDetailLink(false)
                         .padding(.top)
                         .padding(.bottom)
+                        NavigationLink {
+                            DepartmentListView()
+                        } label: {
+                            Text("Departments").font(.headline)
+                        }
+                        .isDetailLink(false)
+                        .padding(.top)
+                        .padding(.bottom)
 
                     }
                 }.navigationTitle("Home")
