@@ -29,7 +29,7 @@ extension Person: BaseModel {
 }
 
 extension Person : Identifiable {
-    // This can be abstracted so that it works for the other three types, but this one cannot be abstracted
+
     
     static func byYear(year: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, sortAlphabetically: Bool, filter: String) -> [Person] {
         

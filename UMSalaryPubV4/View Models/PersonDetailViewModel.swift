@@ -9,7 +9,6 @@ import Foundation
 
 class PersonDetailViewModel: ObservableObject {
     
-    
     @Published var personsDetail = [PersonViewModel]()
     @Published var selectedKeyPath: NamePredicate = .Person
     

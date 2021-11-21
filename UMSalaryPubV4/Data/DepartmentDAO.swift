@@ -10,7 +10,6 @@ import CoreData
 
 class DepartmentDAO: BaseDAO {
     
-    // Singleton object
     static let shared = DepartmentDAO()
     
     private let departmentEntityName = "Department"

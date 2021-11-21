@@ -1,6 +1,5 @@
 //
 //  SearchBarView.swift
-//  searchBarTest3
 //
 //  Created by Dave Malicke on 12/14/20.
 //

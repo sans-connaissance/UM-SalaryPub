@@ -10,8 +10,6 @@ import CoreData
 
 class CoreDataManager {
     
-//MARK: I think I'll have to write a bunch of extensions for all the search functions and stuff by category (people, title, etc.)
-    
     let persistentContainer: NSPersistentContainer
     
     static let shared = CoreDataManager()
@@ -47,11 +45,6 @@ class CoreDataManager {
             }
         })
     }
-    
-    //this is redundant -- I only need to do this in the Person+CoreDataClass model
-    // All of the model type calls can be moved into their respective extensions
-   
-    
     
     func saveContext() {
         let context = persistentContainer.viewContext

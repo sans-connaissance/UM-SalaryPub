@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    //@StateObject private var adminVM = AdminViewModel()
-    
     var body: some View {
         
         TabView {
