@@ -12,7 +12,7 @@ class TitleDetailViewModel: ObservableObject {
     @Published var titlesDetail = [TitleViewModel]()
     @Published var selectedKeyPath: NamePredicate = .Title
     
-    func getPersons(vm: TitleViewModel) {
+    func getTitles(vm: TitleViewModel) {
         let request: [Title] = Title.byName(keyPath: selectedKeyPath.returnText, name: vm.titleName)
         titlesDetail = request.map(TitleViewModel.init)
         
