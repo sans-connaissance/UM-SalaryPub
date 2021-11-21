@@ -126,4 +126,31 @@ struct SortByPersonCountAscending: View {
     }
 }
 
+struct CloseInsightView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        Button( action: {
+            presentationMode.wrappedValue.dismiss()
+        },  label: {
+            Text("Close").font(.subheadline)}).padding()
+    }
+}
+
+struct InsightsButton: View {
+    
+    @Binding var isPresented: Bool
+    
+    var body: some View {
+        Button(action: {
+            isPresented.toggle()}){
+            HStack(alignment: .center, spacing: 2){
+                Image(systemName: "chart.bar.xaxis").rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0)).opacity(0.6)
+                Text("Insights")
+                    .textStyle(DetailData())
+            }
+        }
+    }
+}
 

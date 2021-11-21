@@ -10,10 +10,23 @@ import SwiftUI
 struct PersonDetailView: View {
     
     @StateObject private var vm = PersonDetailViewModel()
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State var isPresented = false
+    
     
     let person: PersonViewModel
     
     var body: some View {
+        
+        VStack(alignment: .leading) {
+            InsightsButton(isPresented: $isPresented)
+                .padding()
+                .fullScreenCover(isPresented: $isPresented) {
+                    PersonInsightView(person: person)
+                }
+        }
+        
         
         ScrollView{
             
