@@ -33,7 +33,7 @@ struct CampusListView: View {
                 if let campusArray = vm.allCampuses[vm.year.rawValue] {
                     ForEach(campusArray, id: \.self) { campus in
                         NavigationLink {
-                            EmptyView()
+                            CampusDetailView(campus: campus)
                         } label: {
                             CampusRow(campus: campus)
                         }

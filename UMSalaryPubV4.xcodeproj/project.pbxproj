@@ -171,14 +171,14 @@
 			children = (
 				4139F4FB2725AACB00E6EC5C /* HomeScreenView.swift */,
 				41D4B87A273FC2EA00F0FB92 /* SearchBarView.swift */,
-				41998BA6273C5BD10021D632 /* PersonListView.swift */,
-				41D4B88B2745AAC600F0FB92 /* TitleListView.swift */,
 				41D4B87C2740B24100F0FB92 /* PersonDetailView.swift */,
-				41D4B89727493D6C00F0FB92 /* DepartmentListView.swift */,
-				41D4B899274941C200F0FB92 /* CampusListView.swift */,
+				41998BA6273C5BD10021D632 /* PersonListView.swift */,
 				41D4B8A12749CE6D00F0FB92 /* TitleDetailView.swift */,
+				41D4B88B2745AAC600F0FB92 /* TitleListView.swift */,
 				41D4B8A32749DB4700F0FB92 /* DepartmentDetailView.swift */,
+				41D4B89727493D6C00F0FB92 /* DepartmentListView.swift */,
 				41D4B8A52749DD4D00F0FB92 /* CampusDetailView.swift */,
+				41D4B899274941C200F0FB92 /* CampusListView.swift */,
 			);
 			path = "Search Views";
 			sourceTree = "<group>";

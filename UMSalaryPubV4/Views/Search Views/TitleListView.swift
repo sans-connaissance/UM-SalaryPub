@@ -30,10 +30,10 @@ struct TitleListView: View {
             Divider()
             List {
                 
-                if let titlearray = vm.allTitles[vm.year.rawValue] {
-                    ForEach(titlearray, id: \.self) { title in
+                if let titleArray = vm.allTitles[vm.year.rawValue] {
+                    ForEach(titleArray, id: \.self) { title in
                         NavigationLink {
-                            EmptyView()
+                            TitleDetailView(title: title)
                         } label: {
                             TitleRow(title: title)
                         }
