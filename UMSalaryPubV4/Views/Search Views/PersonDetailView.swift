@@ -9,7 +9,8 @@ import SwiftUI
 
 struct PersonDetailView: View {
     
-    @StateObject private var personDetailVM = PersonDetailViewModel()
+    @StateObject private var vm = PersonDetailViewModel()
+    
     let person: PersonViewModel
     
     var body: some View {
@@ -17,7 +18,7 @@ struct PersonDetailView: View {
         ScrollView{
             
             VStack(alignment: .center) {
-                ForEach(personDetailVM.personsDetail.reversed(), id: \.self) { person in
+                ForEach(vm.personsDetail.reversed(), id: \.self) { person in
                     Divider()
                     
                     Section(header: Text(String(person.year)).bold()) {
@@ -37,7 +38,7 @@ struct PersonDetailView: View {
             }
         }
         .navigationTitle(person.fullName)
-        .onAppear(perform: {personDetailVM.getPersons(vm: person)})
+        .onAppear(perform: {vm.getPersons(vm: person)})
     }
 }
 
