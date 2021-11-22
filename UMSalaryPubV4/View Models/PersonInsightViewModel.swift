@@ -11,6 +11,7 @@ class PersonInsightViewModel: ObservableObject {
     
     @Published var personsInsight = [PersonViewModel]()
     @Published var personsKeyPath: NamePredicate = .Person
+    @Published var salaries = [Double]()
     
     @Published var titles = [TitleViewModel]()
     @Published var titlesKeyPath: NamePredicate = .Title
@@ -28,5 +29,9 @@ class PersonInsightViewModel: ObservableObject {
         
     }
     
+    func getPercentChange(array: [PersonViewModel]) {
+        salaries = Person.personPercentChange(personsInsight)
+        
+    }
     
 }

@@ -11,6 +11,7 @@ class PersonDetailViewModel: ObservableObject {
     
     @Published var personsDetail = [PersonViewModel]()
     @Published var selectedKeyPath: NamePredicate = .Person
+    @Published var isPresented = false
     
     func getPersons(vm: PersonViewModel) {
         let request: [Person] = Person.byName(keyPath: selectedKeyPath.returnText, name: vm.fullName)

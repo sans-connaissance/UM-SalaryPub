@@ -28,18 +28,29 @@ struct PersonInsightView: View {
             
             Text("Annual Full-Time Rate").font(.headline)
             Text("Yearly % Change").font(.headline)
-//            ForEach(vm.personsInsight, id: \.self) { person in
-//                Text(String(person.year) + person.fullName)
-//
-//            }
+
             GeometryReader { geometry in
                 ScrollView(.horizontal, showsIndicators: false) {
-                    PercentChangeView(persons: vm.personsInsight)
+//                    PercentChangeView(persons: vm.personsInsight)
+                    VStack(alignment: .center){
+                        HStack(alignment: .center){
+                            ForEach(vm.personsInsight, id: \.self ) { person in
+                                Spacer()
+                                VStack(alignment: .center){
+                                    Text(String(person.year)).textStyle(DetailData())
+                                    Text(person.apptAnnualFTR).textStyle(DetailData())
+                                }
+                                Spacer()
+                                
+                            }
+                            
+                        }
+                        PercentChangeRowTwo(salaries: Person.personPercentChange(vm.personsInsight))
+                        
+
+                    }
                         .frame(minWidth: geometry.size.width)
                 }
-//                .flipsForRightToLeftLayoutDirection(true)
-//                    .environment(\.layoutDirection, .rightToLeft)
-
 
             }
             .frame(height: 70)
@@ -48,42 +59,6 @@ struct PersonInsightView: View {
             Divider()
             
         }.onAppear(perform: {vm.getPersons(vm: person)})
-    }
-}
-
-struct PercentChangeView: View {
-    
-    let persons: [PersonViewModel]
-    
-    
-    var body: some View {
-        
-        VStack(alignment: .center){
-            HStack(alignment: .center){
-                ForEach(persons, id: \.self ) { person in
-                    Spacer()
-                    PercentChangeRowOne(person: person)
-//                        .rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
-                    Spacer()
-                    
-                }
-                
-            }
-            PercentChangeRowTwo(salaries: Person.personPercentChange(persons))
-//                .rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
-        }
-    }
-}
-
-
-struct PercentChangeRowOne: View {
-    var person: PersonViewModel
-    
-    var body: some View {
-        VStack(alignment: .center){
-            Text(String(person.year)).textStyle(DetailData())
-            Text(person.apptAnnualFTR).textStyle(DetailData())
-        }
     }
 }
 
@@ -100,6 +75,47 @@ struct PercentChangeRowTwo: View {
         }
     }
 }
+
+//struct PercentChangeView: View {
+//
+//    let persons: [PersonViewModel]
+//
+//
+//    var body: some View {
+//
+//        VStack(alignment: .center){
+//            HStack(alignment: .center){
+//                ForEach(persons, id: \.self ) { person in
+//                    Spacer()
+//                    VStack(alignment: .center){
+//                        Text(String(person.year)).textStyle(DetailData())
+//                        Text(person.apptAnnualFTR).textStyle(DetailData())
+//                    }
+//                    Spacer()
+//
+//                }
+//
+//            }
+//            PercentChangeRowTwo(salaries: Person.personPercentChange(persons))
+//
+//
+//        }
+//    }
+//}
+
+
+//struct PercentChangeRowOne: View {
+//    var person: PersonViewModel
+//
+//    var body: some View {
+//        VStack(alignment: .center){
+//            Text(String(person.year)).textStyle(DetailData())
+//            Text(person.apptAnnualFTR).textStyle(DetailData())
+//        }
+//    }
+//}
+
+
 
 
 

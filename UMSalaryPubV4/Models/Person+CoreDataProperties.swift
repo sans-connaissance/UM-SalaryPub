@@ -63,13 +63,13 @@ extension Person : Identifiable {
     }
     
     
-    
+    //MARK: can this be added to the base model?
     static func personPercentChange(_ persons: [PersonViewModel]) -> [Double] {
         var salaries : [Double] = []
-        let personsR = persons
+        let personsArray = persons
         
         
-        for salary in personsR {
+        for salary in  personsArray {
             
             salaries.append(salary.apptAnnualFTRDouble)
         }
