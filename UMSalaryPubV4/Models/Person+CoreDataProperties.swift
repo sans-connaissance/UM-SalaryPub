@@ -5,9 +5,10 @@
 //  Created by David Malicke on 10/21/21.
 //
 //
-
-import Foundation
 import CoreData
+import Foundation
+import SwiftUI
+
 
 extension Person: BaseModel {
     
@@ -60,4 +61,25 @@ extension Person : Identifiable {
             return []
         }
     }
+    
+    
+    
+    static func personPercentChange(_ persons: [PersonViewModel]) -> [Double] {
+        var salaries : [Double] = []
+        let personsR = persons
+        
+        
+        for salary in personsR {
+            
+            salaries.append(salary.apptAnnualFTRDouble)
+        }
+
+        
+        let percentages = [0] + zip(salaries, salaries.dropFirst()).map {
+            100.0 * ($1 - $0) / $0
+        }
+        
+        return percentages
+    }
+    
 }

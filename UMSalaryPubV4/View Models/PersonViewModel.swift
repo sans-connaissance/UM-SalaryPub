@@ -42,6 +42,10 @@ struct PersonViewModel: Hashable {
         return "$" + apptAnnualFTR
     }
     
+    var apptAnnualFTRDouble: Double {
+        return person.apptAnnualFTR
+    }
+    
     var apptFTRBasis: String {
         person.apptFTRBasis ?? ""
     }

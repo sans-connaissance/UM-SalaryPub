@@ -12,7 +12,7 @@ class PersonInsightViewModel: ObservableObject {
     @Published var personsInsight = [PersonViewModel]()
     @Published var personsKeyPath: NamePredicate = .Person
     
-    @Published var titlesInsight = [TitleViewModel]()
+    @Published var titles = [TitleViewModel]()
     @Published var titlesKeyPath: NamePredicate = .Title
     
     func getPersons(vm: PersonViewModel) {
@@ -24,7 +24,7 @@ class PersonInsightViewModel: ObservableObject {
     
     func getTitles(vm: TitleViewModel) {
         let request: [Title] = Title.byName(keyPath: titlesKeyPath.returnText, name: vm.titleName)
-        titlesInsight = request.map(TitleViewModel.init)
+        titles = request.map(TitleViewModel.init)
         
     }
     
