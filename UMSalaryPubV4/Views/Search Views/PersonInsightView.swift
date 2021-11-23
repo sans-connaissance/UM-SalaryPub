@@ -28,7 +28,7 @@ struct PersonInsightView: View {
             
             Text("Annual Full-Time Rate").font(.headline)
             Text("Yearly % Change").font(.headline)
-            Text("Title count: \(vm.titlesInsight.count)")
+            
             
             GeometryReader { geometry in
                 ScrollView(.horizontal, showsIndicators: false) {

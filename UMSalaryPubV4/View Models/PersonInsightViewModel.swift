@@ -46,8 +46,7 @@ class PersonInsightViewModel: ObservableObject {
         campusesInsight = request.map(CampusViewModel.init)
         
     }
-    
-    
+
     func getPercentChange(array: [PersonViewModel]) {
         salaries = Person.personPercentChange(personsInsight)
         
