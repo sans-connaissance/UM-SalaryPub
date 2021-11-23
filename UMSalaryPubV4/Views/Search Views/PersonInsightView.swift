@@ -56,9 +56,13 @@ struct PersonInsightView: View {
                 }
             }.frame(height: 70)
             Divider()
+            VStack {
+
+                //linechart goes here
+            }
         }
         .onAppear(perform: {vm.getPersons(vm: person)})
-        .onAppear(perform: {vm.getPercentChange(array: vm.personsInsight)})
+        .onAppear(perform: {vm.getPercentChange()})
         .onAppear(perform: {vm.getTitles(vm: person)})
         
     }

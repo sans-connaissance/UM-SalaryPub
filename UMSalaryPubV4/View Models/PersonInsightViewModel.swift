@@ -5,6 +5,7 @@
 //  Created by David Malicke on 11/20/21.
 //
 
+import Charts
 import Foundation
 
 class PersonInsightViewModel: ObservableObject {
@@ -15,7 +16,15 @@ class PersonInsightViewModel: ObservableObject {
     @Published var departmentsInsight = [DepartmentViewModel]()
     @Published var campusesInsight = [CampusViewModel]()
     
+    @Published  var showTitleAverage = false
+    @Published  var showDepartmentAverage = false
+    @Published  var showCampusAverage = true
+    @Published  var showAnnualFTR = true
     
+    @Published var personEntryAnnualFTR = [ChartDataEntry]()
+    @Published var personEntryTitleAverageAnnual = [ChartDataEntry]()
+    @Published var personEntryDepartmentAverageAnnual = [ChartDataEntry]()
+    @Published var personEntryCampusAverageAnnual = [ChartDataEntry]()
 
     private var personsKP: NamePredicate = .Person
     private var titleNameKP: NamePredicate = .Title
@@ -25,19 +34,19 @@ class PersonInsightViewModel: ObservableObject {
     private var campusNameKP: NamePredicate = .Campus
     private var campusYearKP: YearByType = .Campus
     
-    public var personCount: Int {
+    var personCount: Int {
         return personsInsight.count
     }
     
-    public var titleCount: Int {
+    var titleCount: Int {
         return titlesInsight.count
     }
     
-    public var departmentCount: Int {
+    var departmentCount: Int {
         return departmentsInsight.count
     }
     
-    public var campusCount: Int {
+    var campusCount: Int {
         return campusesInsight.count
     }
     
@@ -63,8 +72,19 @@ class PersonInsightViewModel: ObservableObject {
         
     }
 
-    func getPercentChange(array: [PersonViewModel]) {
+    func getPercentChange() {
         salaries = Person.personPercentChange(personsInsight)
+        
+    }
+    
+    func getChartData() {
+        personEntryAnnualFTR = Person.personLineChartAnnualFTR(personsInsight)
+        personEntryTitleAverageAnnual =
+        
+        //MARK: THESE ARE WRONG -- NEED TO ADD THEM BY TYPE
+        Person.personLineChartTitleAverage(personsInsight)
+        personEntryDepartmentAverageAnnual = Person.personLineChartDepartmentAverage(personsInsight)
+        personEntryCampusAverageAnnual =
         
     }
     

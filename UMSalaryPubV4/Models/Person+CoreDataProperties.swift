@@ -87,6 +87,8 @@ extension Person : Identifiable {
         
     }
     
+    
+    //MARK: THESE ARE WRONG -- NEED TO ADD FUNCTIONS BY TYPE 
     static func personLineChartTitleAverage(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
         let personArray = persons
         

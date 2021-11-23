@@ -10,6 +10,11 @@ import Charts
 
 struct PersonLineChartView: UIViewRepresentable {
     
+    @StateObject private var vm = PersonInsightViewModel()
+    
+    let person: PersonViewModel
+    let lineChart = LineChartView()
+    
     let personCount: Int
     let titleCount: Int
     let departmentCount: Int
@@ -20,7 +25,7 @@ struct PersonLineChartView: UIViewRepresentable {
     @Binding  var showCampusAverage: Bool
     @Binding  var showAnnualFTR: Bool
     
-    let lineChart = LineChartView()
+    
     let personEntryAnnualFTR: [ChartDataEntry]
     let personEntryTitleAverageAnnual: [ChartDataEntry]
     let personEntryDepartmentAverageAnnual: [ChartDataEntry]
@@ -32,17 +37,16 @@ struct PersonLineChartView: UIViewRepresentable {
         return lineChart
     }
     
+    
     func updateUIView(_ uiView: LineChartView, context: Context) {
         
         setChartData(uiView)
         configureChart(uiView)
-        
         formatXAxis(xAxis: uiView.xAxis)
         formatLeftAxis(leftAxis: uiView.leftAxis)
-        
-        
         uiView.notifyDataSetChanged()
     }
+    
     
     func setChartData(_ lineChart: LineChartView) {
         
@@ -50,8 +54,6 @@ struct PersonLineChartView: UIViewRepresentable {
         let personSetTitleAverageAnnual = LineChartDataSet(entries: personEntryTitleAverageAnnual)
         let personSetDepartmentAverageAnnual = LineChartDataSet(entries: personEntryDepartmentAverageAnnual)
         let personSetCampusAverageAnnual = LineChartDataSet(entries: personEntryCampusAverageAnnual)
-        
-        //this is what needs to change in order to update the lines!
         
         
         func createDataSets(showTitleAverage: Bool, showDepartmentAverage: Bool, showCampusAverage: Bool, showAnnualFTR: Bool) -> [LineChartDataSet] {
@@ -85,7 +87,6 @@ struct PersonLineChartView: UIViewRepresentable {
             return dataSets
         }
         
-        
         let lineChartData = LineChartData(dataSets: createDataSets(showTitleAverage: showTitleAverage, showDepartmentAverage: showDepartmentAverage, showCampusAverage: showCampusAverage, showAnnualFTR: showAnnualFTR))
         
         lineChart.data = lineChartData
@@ -94,9 +95,8 @@ struct PersonLineChartView: UIViewRepresentable {
         formatDataSet(dataSet: personSetDepartmentAverageAnnual, label: "Department Average FTR", color: .systemIndigo)
         formatDataSet(dataSet: personSetTitleAverageAnnual, label: "Title Average FTR", color: .systemOrange)
         
-        
-        
     }
+    
     
     func formatDataSet(dataSet: LineChartDataSet, label: String, color: UIColor) {
         
@@ -112,10 +112,10 @@ struct PersonLineChartView: UIViewRepresentable {
         format.numberStyle = .currency
         format.currencySymbol = "$"
         dataSet.valueFormatter = DefaultValueFormatter(formatter: format)
-        //        dataSet.valueFont = UIFont.systemFont(ofSize: 12)
-        
         
     }
+    
+    
     func configureChart(_ lineChart: LineChartView) {
         lineChart.noDataText = "No Data"
         lineChart.drawGridBackgroundEnabled = false
@@ -133,21 +133,9 @@ struct PersonLineChartView: UIViewRepresentable {
         if lineChart.scaleX == 1.0 {
             lineChart.zoom(scaleX: 1.0, scaleY: 1.0, x: 0, y: 0)
         }
-        //            lineChart.animate(xAxisDuration: 0, yAxisDuration: 0.5, easingOption: .linear)
-        
-        //I think all of this can be removed.
-        //        let marker:BalloonMarker = BalloonMarker(color: UIColor.red, font: UIFont(name: "Helvetica", size: 12)!, textColor: UIColor.white, insets: UIEdgeInsets(top: 7.0, left: 7.0, bottom: 7.0, right: 7.0))
-        //        marker.minimumSize = CGSize(width: 75, height: 35)
-        //        lineChart.marker = marker
     }
     
     
-    
-    //    @Binding  var showTitleAverage: Bool
-    //    @Binding  var showDepartmentAverage: Bool
-    //    @Binding  var showCampusAverage: Bool
-    //    @Binding  var showAnnualFTR: Bool
-    //
     func formatXAxis(xAxis: XAxis) {
         let xAxisFormatter = NumberFormatter()
         xAxisFormatter.generatesDecimalNumbers = false
@@ -165,13 +153,8 @@ struct PersonLineChartView: UIViewRepresentable {
         }
         
         xAxis.labelPosition = .bottom
-        //        xAxis.valueFormatter = IndexAxisValueFormatter(values: PersonLineChartOne.yearArray)
-        //        xAxis.labelFont = UIFont.boldSystemFont(ofSize: 12)
-        // Setting the max and min make sure that the markers are visible at the edges
-        //                xAxis.axisMaximum = 3
-        //                xAxis.axisMinimum = -1
-        
     }
+    
     
     func formatLeftAxis(leftAxis:YAxis) {
         let leftAxisFormatter = NumberFormatter()
@@ -185,14 +168,6 @@ struct PersonLineChartView: UIViewRepresentable {
         } else {
             leftAxis.labelCount = 4
         }
-        
-        
-        
-        
-        //        leftAxis.labelTextColor =  .red
-        //        leftAxis.labelFont = UIFont.boldSystemFont(ofSize: 12)
     }
-    
-    
 }
 
