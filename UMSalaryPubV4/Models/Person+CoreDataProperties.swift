@@ -63,23 +63,19 @@ extension Person : Identifiable {
             return []
         }
     }
-    
-    
+
   
     static func personPercentChange(_ persons: [PersonViewModel]) -> [Double] {
         var salaries : [Double] = []
         let personsArray = persons
-        
-        
+
         for salary in  personsArray {
             
             salaries.append(salary.apptAnnualFTRDouble)
         }
 
-        
         let percentages = [0] + zip(salaries, salaries.dropFirst()).map {
-            100.0 * ($1 - $0) / $0
-        }
+            100.0 * ($1 - $0) / $0 }
         
         return percentages
     }
@@ -91,14 +87,13 @@ extension Person : Identifiable {
         
     }
     
-    static func personLineChartTitleAverageAnnual(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
+    static func personLineChartTitleAverage(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
         let personArray = persons
-        //$0.title!.titleAverageAnnual
         
         return personArray.map{BarChartDataEntry(x: Double($0.year), y: $0.titleAverageAnnual)}
     }
     
-    static func personLineChartDepartmentAverageAnnual(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
+    static func personLineChartDepartmentAverage(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
         let person = persons
         
         return person.map{BarChartDataEntry(x: Double($0.year), y: $0.departmentAverageAnnual)}

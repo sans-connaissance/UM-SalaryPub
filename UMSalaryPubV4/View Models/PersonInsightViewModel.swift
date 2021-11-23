@@ -14,6 +14,8 @@ class PersonInsightViewModel: ObservableObject {
     @Published var titlesInsight = [TitleViewModel]()
     @Published var departmentsInsight = [DepartmentViewModel]()
     @Published var campusesInsight = [CampusViewModel]()
+    
+    
 
     private var personsKP: NamePredicate = .Person
     private var titleNameKP: NamePredicate = .Title
@@ -23,7 +25,21 @@ class PersonInsightViewModel: ObservableObject {
     private var campusNameKP: NamePredicate = .Campus
     private var campusYearKP: YearByType = .Campus
     
+    public var personCount: Int {
+        return personsInsight.count
+    }
     
+    public var titleCount: Int {
+        return titlesInsight.count
+    }
+    
+    public var departmentCount: Int {
+        return departmentsInsight.count
+    }
+    
+    public var campusCount: Int {
+        return campusesInsight.count
+    }
     
     func getPersons(vm: PersonViewModel) {
         let request: [Person] = Person.byName(keyPath: personsKP.returnText, name: vm.fullName)
