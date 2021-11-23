@@ -54,6 +54,7 @@
 		41D4B8A62749DD4D00F0FB92 /* CampusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B8A52749DD4D00F0FB92 /* CampusDetailView.swift */; };
 		41D4B8A82749E98800F0FB92 /* PersonInsightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B8A72749E98800F0FB92 /* PersonInsightViewModel.swift */; };
 		41D4B8AA2749EAED00F0FB92 /* PersonInsightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B8A92749EAED00F0FB92 /* PersonInsightView.swift */; };
+		41D4B8AD274C95CD00F0FB92 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 41D4B8AC274C95CD00F0FB92 /* Charts */; };
 		41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */; };
 		41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48E2721B37700A51D80 /* ContentView.swift */; };
 		41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E5A4902721B37A00A51D80 /* Assets.xcassets */; };
@@ -143,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41998B7F273970C70021D632 /* OrderedCollections in Frameworks */,
+				41D4B8AD274C95CD00F0FB92 /* Charts in Frameworks */,
 				41998B7D273970C70021D632 /* Collections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +360,7 @@
 			packageProductDependencies = (
 				41998B7C273970C70021D632 /* Collections */,
 				41998B7E273970C70021D632 /* OrderedCollections */,
+				41D4B8AC274C95CD00F0FB92 /* Charts */,
 			);
 			productName = UMSalaryPubV4;
 			productReference = 41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */;
@@ -389,6 +392,7 @@
 			mainGroup = 41E5A4802721B37700A51D80;
 			packageReferences = (
 				41998B7B273970C70021D632 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				41D4B8AB274C95CD00F0FB92 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 41E5A48A2721B37700A51D80 /* Products */;
 			projectDirPath = "";
@@ -689,6 +693,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		41D4B8AB274C95CD00F0FB92 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -701,6 +713,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 41998B7B273970C70021D632 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = OrderedCollections;
+		};
+		41D4B8AC274C95CD00F0FB92 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41D4B8AB274C95CD00F0FB92 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 
