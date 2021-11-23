@@ -10,7 +10,7 @@ import Foundation
 class CampusDetailViewModel: ObservableObject {
     
     @Published var campusesDetail = [CampusViewModel]()
-    @Published var selectedKeyPath: NamePredicate = .Campus
+    private var selectedKeyPath: NamePredicate = .Campus
     
     func getCampuses(vm: CampusViewModel) {
         let request: [Campus] = Campus.byName(keyPath: selectedKeyPath.returnText, name: vm.campusName)

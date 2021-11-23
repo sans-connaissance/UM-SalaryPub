@@ -10,8 +10,9 @@ import Foundation
 class PersonDetailViewModel: ObservableObject {
     
     @Published var personsDetail = [PersonViewModel]()
-    @Published var selectedKeyPath: NamePredicate = .Person
     @Published var isPresented = false
+    
+    private var selectedKeyPath: NamePredicate = .Person
     
     func getPersons(vm: PersonViewModel) {
         let request: [Person] = Person.byName(keyPath: selectedKeyPath.returnText, name: vm.fullName)

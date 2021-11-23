@@ -10,7 +10,7 @@ import Foundation
 class TitleDetailViewModel: ObservableObject {
     
     @Published var titlesDetail = [TitleViewModel]()
-    @Published var selectedKeyPath: NamePredicate = .Title
+    private var selectedKeyPath: NamePredicate = .Title
     
     func getTitles(vm: TitleViewModel) {
         let request: [Title] = Title.byName(keyPath: selectedKeyPath.returnText, name: vm.titleName)

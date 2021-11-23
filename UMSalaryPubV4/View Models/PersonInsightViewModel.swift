@@ -10,24 +10,28 @@ import Foundation
 class PersonInsightViewModel: ObservableObject {
     
     @Published var personsInsight = [PersonViewModel]()
-    @Published var personsKeyPath: NamePredicate = .Person
     @Published var salaries = [Double]()
+    @Published var titlesInsight = [TitleViewModel]()
+    @Published var departmentsInsight = [DepartmentViewModel]()
     
-    @Published var titles = [TitleViewModel]()
-    @Published var titlesKeyPath: NamePredicate = .Title
+    
+    
+    private var personsKeyPath: NamePredicate = .Person
+    private var titleNameKP: NamePredicate = .Title
+    private var titleYearKP: YearByType = .Title
     
     func getPersons(vm: PersonViewModel) {
         let request: [Person] = Person.byName(keyPath: personsKeyPath.returnText, name: vm.fullName)
         personsInsight = request.map(PersonViewModel.init)
     }
     
-
-    
-    func getTitles(vm: TitleViewModel) {
-        let request: [Title] = Title.byName(keyPath: titlesKeyPath.returnText, name: vm.titleName)
-        titles = request.map(TitleViewModel.init)
-        
+// need to add another one for the name or year predicate in the baseClass
+    func getTitles(vm: PersonViewModel) {
+        let request: [Title] = Title.forInsights(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText,  name: vm.title, year: vm.year)
+        titlesInsight = request.map(TitleViewModel.init)
     }
+    
+    
     
     func getPercentChange(array: [PersonViewModel]) {
         salaries = Person.personPercentChange(personsInsight)

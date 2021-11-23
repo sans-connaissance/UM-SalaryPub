@@ -28,6 +28,7 @@ struct PersonInsightView: View {
             
             Text("Annual Full-Time Rate").font(.headline)
             Text("Yearly % Change").font(.headline)
+            Text("Title count: \(vm.titlesInsight.count)")
             
             GeometryReader { geometry in
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -50,12 +51,16 @@ struct PersonInsightView: View {
                             }
                         }
                     }.frame(minWidth: geometry.size.width)
+
+                    
                 }
             }.frame(height: 70)
             Divider()
         }
         .onAppear(perform: {vm.getPersons(vm: person)})
         .onAppear(perform: {vm.getPercentChange(array: vm.personsInsight)})
+        .onAppear(perform: {vm.getTitles(vm: person)})
+        
     }
 }
 
