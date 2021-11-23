@@ -5,6 +5,8 @@
 //  Created by David Malicke on 10/21/21.
 //
 //
+
+import Charts
 import CoreData
 import Foundation
 import SwiftUI
@@ -31,7 +33,7 @@ extension Person: BaseModel {
 
 extension Person : Identifiable {
 
-    
+    //MARK: can this be added to the base model?
     static func byYear(year: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, sortAlphabetically: Bool, filter: String) -> [Person] {
         
         let request: NSFetchRequest<Person> = Person.fetchRequest()
@@ -63,7 +65,7 @@ extension Person : Identifiable {
     }
     
     
-    //MARK: can this be added to the base model?
+  
     static func personPercentChange(_ persons: [PersonViewModel]) -> [Double] {
         var salaries : [Double] = []
         let personsArray = persons
@@ -80,6 +82,26 @@ extension Person : Identifiable {
         }
         
         return percentages
+    }
+    
+    static func personLineChartAnnualFTR(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
+        let personArray = persons
+        
+        return personArray.map{BarChartDataEntry(x: Double($0.year), y: $0.apptAnnualFTRDouble)}
+        
+    }
+    
+    static func personLineChartTitleAverageAnnual(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
+        let personArray = persons
+        //$0.title!.titleAverageAnnual
+        
+        return personArray.map{BarChartDataEntry(x: Double($0.year), y: $0.titleAverageAnnual)}
+    }
+    
+    static func personLineChartDepartmentAverageAnnual(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
+        let person = persons
+        
+        return person.map{BarChartDataEntry(x: Double($0.year), y: $0.departmentAverageAnnual)}
     }
     
 }

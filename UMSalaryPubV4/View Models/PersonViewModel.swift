@@ -29,8 +29,16 @@ struct PersonViewModel: Hashable {
         person.title?.titleName ?? ""
     }
     
+    var titleAverageAnnual: Double {
+        return person.title!.titleAverageAnnual
+    }
+    
     var department: String {
-        person.department?.departmentName ?? ""
+        return person.department?.departmentName ?? ""
+    }
+    
+    var departmentAverageAnnual: Double {
+        return person.department!.departmentAverageAnnual
     }
     
     var campus: String {
