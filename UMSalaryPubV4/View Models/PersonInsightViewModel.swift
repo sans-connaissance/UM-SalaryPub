@@ -55,7 +55,6 @@ class PersonInsightViewModel: ObservableObject {
         personsInsight = request.map(PersonViewModel.init)
     }
     
-    //MARK: PROBABLY NEED TO REMOVE YEAR HERE AND FOR THE OTHERS
     func getTitles(vm: PersonViewModel) {
         let request: [Title] = Title.forInsights(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText,  name: vm.title, year: vm.year)
         titlesInsight = request.map(TitleViewModel.init)
@@ -78,16 +77,12 @@ class PersonInsightViewModel: ObservableObject {
         
     }
     
+    //MARK -- ALL THE CHART VARS AND STUFF NEED TO BE MOVED TO THEIR OWN VIEWMODEL
     func getChartData() {
         personEntryAnnualFTR = Person.lineChartAnnualFTR(personsInsight)
-//        personEntryTitleAverageAnnual =
-        
-        
-        //MARK: THESE ARE WRONG -- NEED TO ADD THEM BY TYPE
-        //pass in the titleInsights not person insights
-//        Person.personLineChartTitleAverage(personsInsight)
-//        personEntryDepartmentAverageAnnual = Person.personLineChartDepartmentAverage(personsInsight)
-//        personEntryCampusAverageAnnual =
+        personEntryTitleAverageAnnual = Title.lineChartTitleAverage(titlesInsight)
+        personEntryDepartmentAverageAnnual = Department.lineChartDepartment(departmentsInsight)
+        personEntryCampusAverageAnnual = Campus.lineChartDepartmentAverage(campusesInsight)
         
     }
     

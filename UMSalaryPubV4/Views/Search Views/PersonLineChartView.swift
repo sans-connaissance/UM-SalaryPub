@@ -12,26 +12,8 @@ struct PersonLineChartView: UIViewRepresentable {
     
     @StateObject private var vm = PersonInsightViewModel()
     
-    let person: PersonViewModel
+    //let person: PersonViewModel
     let lineChart = LineChartView()
-    
-    let personCount: Int
-    let titleCount: Int
-    let departmentCount: Int
-    let campusCount: Int
-    
-    @Binding  var showTitleAverage: Bool
-    @Binding  var showDepartmentAverage: Bool
-    @Binding  var showCampusAverage: Bool
-    @Binding  var showAnnualFTR: Bool
-    
-    
-    let personEntryAnnualFTR: [ChartDataEntry]
-    let personEntryTitleAverageAnnual: [ChartDataEntry]
-    let personEntryDepartmentAverageAnnual: [ChartDataEntry]
-    let personEntryCampusAverageAnnual: [ChartDataEntry]
-    
-    
     
     func makeUIView(context: Context) -> LineChartView {
         return lineChart
@@ -50,10 +32,10 @@ struct PersonLineChartView: UIViewRepresentable {
     
     func setChartData(_ lineChart: LineChartView) {
         
-        let personSetAnnualFTR = LineChartDataSet(entries: personEntryAnnualFTR)
-        let personSetTitleAverageAnnual = LineChartDataSet(entries: personEntryTitleAverageAnnual)
-        let personSetDepartmentAverageAnnual = LineChartDataSet(entries: personEntryDepartmentAverageAnnual)
-        let personSetCampusAverageAnnual = LineChartDataSet(entries: personEntryCampusAverageAnnual)
+        let personSetAnnualFTR = LineChartDataSet(entries: vm.personEntryAnnualFTR)
+        let personSetTitleAverageAnnual = LineChartDataSet(entries: vm.personEntryTitleAverageAnnual)
+        let personSetDepartmentAverageAnnual = LineChartDataSet(entries: vm.personEntryDepartmentAverageAnnual)
+        let personSetCampusAverageAnnual = LineChartDataSet(entries: vm.personEntryCampusAverageAnnual)
         
         
         func createDataSets(showTitleAverage: Bool, showDepartmentAverage: Bool, showCampusAverage: Bool, showAnnualFTR: Bool) -> [LineChartDataSet] {
@@ -87,7 +69,7 @@ struct PersonLineChartView: UIViewRepresentable {
             return dataSets
         }
         
-        let lineChartData = LineChartData(dataSets: createDataSets(showTitleAverage: showTitleAverage, showDepartmentAverage: showDepartmentAverage, showCampusAverage: showCampusAverage, showAnnualFTR: showAnnualFTR))
+        let lineChartData = LineChartData(dataSets: createDataSets(showTitleAverage: vm.showTitleAverage, showDepartmentAverage: vm.showDepartmentAverage, showCampusAverage: vm.showCampusAverage, showAnnualFTR: vm.showAnnualFTR))
         
         lineChart.data = lineChartData
         formatDataSet(dataSet: personSetAnnualFTR, label: "Annual FTR", color: .systemGreen)
@@ -142,14 +124,14 @@ struct PersonLineChartView: UIViewRepresentable {
         
         xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: xAxisFormatter)
         
-        if showCampusAverage == true {
-            xAxis.labelCount = campusCount - 1
-        } else if showTitleAverage == true  {
-            xAxis.labelCount = titleCount - 1
-        } else if showDepartmentAverage == true  {
-            xAxis.labelCount = departmentCount - 1
+        if vm.showCampusAverage == true {
+            xAxis.labelCount = vm.campusCount - 1
+        } else if vm.showTitleAverage == true  {
+            xAxis.labelCount = vm.titleCount - 1
+        } else if vm.showDepartmentAverage == true  {
+            xAxis.labelCount = vm.departmentCount - 1
         } else {
-            xAxis.labelCount = personCount - 1
+            xAxis.labelCount = vm.personCount - 1
         }
         
         xAxis.labelPosition = .bottom
@@ -163,7 +145,7 @@ struct PersonLineChartView: UIViewRepresentable {
         leftAxisFormatter.currencySymbol = "$"
         
         leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
-        if campusCount > 2 {
+        if vm.campusCount > 2 {
             leftAxis.labelCount = 5
         } else {
             leftAxis.labelCount = 4

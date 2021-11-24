@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct PersonInsightView: View {
     
@@ -22,14 +23,17 @@ struct PersonInsightView: View {
             CloseInsightView()
             Text(person.fullName).textStyle(DetailData())
             Divider()
+            
+            
         }
         
         ScrollView(.vertical) {
             
             Text("Annual Full-Time Rate").font(.headline)
             Text("Yearly % Change").font(.headline)
-            Text(String(vm.titleCount))
-            Text(String(vm.departmentCount))
+//            Text(String(vm.titleCount))
+//            Text(String(vm.departmentCount))
+    
             
             
             GeometryReader { geometry in
@@ -59,8 +63,9 @@ struct PersonInsightView: View {
             }.frame(height: 70)
             Divider()
             VStack {
-
-                //linechart goes here
+                PersonLineChartView()
+                    
+                
             }
         }
         //MARK: Wrap these all into one function in the view model
@@ -68,6 +73,8 @@ struct PersonInsightView: View {
         .onAppear(perform: {vm.getPercentChange()})
         .onAppear(perform: {vm.getTitles(vm: person)})
         .onAppear(perform: {vm.getDepartments(vm: person)})
+        .onAppear(perform: {vm.getChartData()})
+        
         
     }
 }
