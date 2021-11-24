@@ -34,6 +34,10 @@ struct CampusViewModel: Hashable {
         return "$" + campusAverageAnnual
     }
     
+    var campusAverageAnnualDouble: Double {
+        return campus.campusAverageAnnual
+    }
+    
     var campusMedianAnnual: String {
         let campusMedianAnnual = campus.campusMedianAnnual.withCommas()
         return "$" + campusMedianAnnual

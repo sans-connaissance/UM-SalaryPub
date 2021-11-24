@@ -34,6 +34,10 @@ struct DepartmentViewModel: Hashable {
         return "$" + departmentAverageAnnual
     }
     
+    var departmentAverageAnnualDouble: Double {
+        return department.departmentAverageAnnual
+    }
+    
     var departmentMedianAnnual: String {
         let departmentMedianAnnual = department.departmentAverageAnnual.withCommas()
         return "$" + departmentMedianAnnual

@@ -5,9 +5,10 @@
 //  Created by David Malicke on 10/21/21.
 //
 //
-
-import Foundation
 import CoreData
+import Charts
+import Foundation
+
 
 
 extension Title: BaseModel {
@@ -79,6 +80,11 @@ extension Title : Identifiable {
         } catch {
             return []
         }
+    }
+    
+    static func lineChartTitleAverage(_ titles: [TitleViewModel]) -> [ChartDataEntry] {
+        let title = titles
+        return title.map{BarChartDataEntry(x: Double($0.year), y: $0.titleAverageAnnualDouble)}
     }
 
 }

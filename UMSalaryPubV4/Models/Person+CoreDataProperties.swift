@@ -80,25 +80,11 @@ extension Person : Identifiable {
         return percentages
     }
     
-    static func personLineChartAnnualFTR(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
+    static func lineChartAnnualFTR(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
         let personArray = persons
         
         return personArray.map{BarChartDataEntry(x: Double($0.year), y: $0.apptAnnualFTRDouble)}
         
-    }
-    
-    
-    //MARK: THESE ARE WRONG -- NEED TO ADD FUNCTIONS BY TYPE 
-    static func personLineChartTitleAverage(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
-        let personArray = persons
-        
-        return personArray.map{BarChartDataEntry(x: Double($0.year), y: $0.titleAverageAnnual)}
-    }
-    
-    static func personLineChartDepartmentAverage(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
-        let person = persons
-        
-        return person.map{BarChartDataEntry(x: Double($0.year), y: $0.departmentAverageAnnual)}
     }
     
 }

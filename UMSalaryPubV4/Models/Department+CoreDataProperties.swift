@@ -6,8 +6,10 @@
 //
 //
 
-import Foundation
 import CoreData
+import Charts
+import Foundation
+
 
 
 extension Department: BaseModel {
@@ -77,5 +79,10 @@ extension Department : Identifiable {
         }
     }
     
+    static func lineChartDepartment(_ departments: [DepartmentViewModel]) -> [ChartDataEntry] {
+        let department = departments.reversed()
+        
+        return department.map{BarChartDataEntry(x: Double($0.year), y: $0.departmentAverageAnnualDouble)}
+    }
 
 }

@@ -35,6 +35,10 @@ struct TitleViewModel: Hashable {
         return "$" + titleAverageAnnual
     }
     
+    var titleAverageAnnualDouble: Double {
+        return title.titleAverageAnnual
+    }
+    
     var titleMedianAnnual: String {
         let titleMedianAnnual = title.titleMedianAnnual.withCommas()
         return "$" + titleMedianAnnual

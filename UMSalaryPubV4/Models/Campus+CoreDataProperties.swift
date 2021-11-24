@@ -84,21 +84,11 @@ extension Campus : Identifiable {
         }
     }
     
-    static func campusLineChartDepartmentAverageAnnual(_ forPerson: [PersonViewModel]) -> [ChartDataEntry] {
+
+    static func lineChartDepartmentAverage(_ campuses:[CampusViewModel]) -> [ChartDataEntry] {
+        let campus = campuses
         
-        let campus: [CampusViewModel]
-        let campusName = forPerson[0].campus
-        let request: NSFetchRequest<Campus> = Campus.fetchRequest()
-        request.predicate = NSPredicate(format: "%K = %@", #keyPath(Campus.campusName), campusName)
-        
-        do {
-             try viewContext.fetch(request)
-        } catch {
-            return []
-        }
-        campus = request.map(CampusViewModel.init)
-        
-        return campus.map{BarChartDataEntry(x: Double($0.campusYear), y: $0.campusAverageAnnual)}
+        return campus.map{BarChartDataEntry(x: Double($0.year), y: $0.campusAverageAnnualDouble)}
     }
 
 }

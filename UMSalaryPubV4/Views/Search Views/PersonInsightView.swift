@@ -28,6 +28,8 @@ struct PersonInsightView: View {
             
             Text("Annual Full-Time Rate").font(.headline)
             Text("Yearly % Change").font(.headline)
+            Text(String(vm.titleCount))
+            Text(String(vm.departmentCount))
             
             
             GeometryReader { geometry in
@@ -61,9 +63,11 @@ struct PersonInsightView: View {
                 //linechart goes here
             }
         }
+        //MARK: Wrap these all into one function in the view model
         .onAppear(perform: {vm.getPersons(vm: person)})
         .onAppear(perform: {vm.getPercentChange()})
         .onAppear(perform: {vm.getTitles(vm: person)})
+        .onAppear(perform: {vm.getDepartments(vm: person)})
         
     }
 }
