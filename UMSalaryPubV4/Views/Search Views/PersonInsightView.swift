@@ -62,7 +62,7 @@ struct PersonInsightView: View {
             //MARK: There are frame sizes in the older version
             VStack {
                 PersonLineChartView(person: person)
-            }.frame(height: 200)
+            }.frame(width: 370, height: 370, alignment: .leading)
         }
         //MARK: Wrap these all into one function in the view model
         .onAppear(perform: {vm.getCampuses(vm: person)})
