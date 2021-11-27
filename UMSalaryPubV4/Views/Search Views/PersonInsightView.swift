@@ -22,20 +22,17 @@ struct PersonInsightView: View {
         VStack {
             CloseInsightView()
             Text(person.fullName).textStyle(DetailData())
+                .font(.headline)
+
             Divider()
-            
-            
         }
-        
+
+
         ScrollView(.vertical) {
-            
+
             Text("Annual Full-Time Rate").font(.headline)
             Text("Yearly % Change").font(.headline)
-//            Text(String(vm.titleCount))
-//            Text(String(vm.departmentCount))
-    
-            
-            
+
             GeometryReader { geometry in
                 ScrollView(.horizontal, showsIndicators: false) {
                     VStack(alignment: .center){
@@ -56,19 +53,19 @@ struct PersonInsightView: View {
                                 Spacer()
                             }
                         }
-                    }.frame(minWidth: geometry.size.width)
-
-                    
+                    }
+                    .frame(minWidth: geometry.size.width)
                 }
             }.frame(height: 70)
             Divider()
+       
+            //MARK: There are frame sizes in the older version
             VStack {
-                PersonLineChartView()
-                    
-                
-            }
+                PersonLineChartView(person: person)
+            }.frame(height: 200)
         }
         //MARK: Wrap these all into one function in the view model
+        .onAppear(perform: {vm.getCampuses(vm: person)})
         .onAppear(perform: {vm.getPersons(vm: person)})
         .onAppear(perform: {vm.getPercentChange()})
         .onAppear(perform: {vm.getTitles(vm: person)})

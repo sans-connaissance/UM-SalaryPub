@@ -1,14 +1,15 @@
 //
-//  PersonInsightViewModel.swift
+//  PersonInsightChartViewModel.swift
 //  UMSalaryPubV4
 //
-//  Created by David Malicke on 11/20/21.
+//  Created by David Malicke on 11/26/21.
 //
 
-import Charts
 import Foundation
+import Charts
 
-class PersonInsightViewModel: ObservableObject {
+class PersonInsightChartViewModel: ObservableObject {
+    
     
     @Published var personsInsight = [PersonViewModel]()
     @Published var salaries = [Double]()
@@ -16,8 +17,8 @@ class PersonInsightViewModel: ObservableObject {
     @Published var departmentsInsight = [DepartmentViewModel]()
     @Published var campusesInsight = [CampusViewModel]()
     
-    @Published  var showTitleAverage = true
-    @Published  var showDepartmentAverage = true
+    @Published  var showTitleAverage = false
+    @Published  var showDepartmentAverage = false
     @Published  var showCampusAverage = true
     @Published  var showAnnualFTR = true
     
@@ -67,7 +68,7 @@ class PersonInsightViewModel: ObservableObject {
     }
     
     func getCampuses(vm: PersonViewModel) {
-        let request: [Campus] = Campus.forInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText,  name: vm.campus, year: vm.year)
+        let request: [Campus] = Campus.forInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusNameKP.returnText,  name: vm.campus, year: vm.year)
         campusesInsight = request.map(CampusViewModel.init)
         
     }

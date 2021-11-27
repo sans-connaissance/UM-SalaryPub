@@ -11,12 +11,20 @@ import Charts
 struct PersonLineChartView: UIViewRepresentable {
     
     @StateObject private var vm = PersonInsightViewModel()
-    
+    // MIGHT NEED TO DO SOMETHING CAMPUSCOUNT
     //let person: PersonViewModel
     let lineChart = LineChartView()
+    let person: PersonViewModel
     
     func makeUIView(context: Context) -> LineChartView {
+        vm.getPersons(vm: person)
+        vm.getTitles(vm: person)
+        vm.getDepartments(vm: person)
+        vm.getCampuses(vm: person)
+        vm.getChartData()
+        
         return lineChart
+       
     }
     
     
@@ -115,6 +123,7 @@ struct PersonLineChartView: UIViewRepresentable {
         if lineChart.scaleX == 1.0 {
             lineChart.zoom(scaleX: 1.0, scaleY: 1.0, x: 0, y: 0)
         }
+
     }
     
     

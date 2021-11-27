@@ -56,6 +56,7 @@
 		41D4B8AA2749EAED00F0FB92 /* PersonInsightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B8A92749EAED00F0FB92 /* PersonInsightView.swift */; };
 		41D4B8AD274C95CD00F0FB92 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 41D4B8AC274C95CD00F0FB92 /* Charts */; };
 		41D4B8AF274D63A800F0FB92 /* PersonLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B8AE274D63A800F0FB92 /* PersonLineChartView.swift */; };
+		41D4B8B12751400C00F0FB92 /* PersonInsightChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B8B02751400C00F0FB92 /* PersonInsightChartViewModel.swift */; };
 		41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */; };
 		41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A48E2721B37700A51D80 /* ContentView.swift */; };
 		41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E5A4902721B37A00A51D80 /* Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		41D4B8A72749E98800F0FB92 /* PersonInsightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInsightViewModel.swift; sourceTree = "<group>"; };
 		41D4B8A92749EAED00F0FB92 /* PersonInsightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInsightView.swift; sourceTree = "<group>"; };
 		41D4B8AE274D63A800F0FB92 /* PersonLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonLineChartView.swift; sourceTree = "<group>"; };
+		41D4B8B02751400C00F0FB92 /* PersonInsightChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInsightChartViewModel.swift; sourceTree = "<group>"; };
 		41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMSalaryPubV4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMSalaryPubV4App.swift; sourceTree = "<group>"; };
 		41E5A48E2721B37700A51D80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				4139F4F527248DCF00E6EC5C /* AdminViewModel.swift */,
+				41D4B8B02751400C00F0FB92 /* PersonInsightChartViewModel.swift */,
 				41D4B8A72749E98800F0FB92 /* PersonInsightViewModel.swift */,
 				41D4B87E2740C4BD00F0FB92 /* PersonDetailViewModel.swift */,
 				41998B842739C2850021D632 /* PersonListViewModel.swift */,
@@ -477,6 +480,7 @@
 				41998B812739A2550021D632 /* PersonViewModel.swift in Sources */,
 				41EA3BB42731D9F2001070CF /* DashboardCountsView.swift in Sources */,
 				41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */,
+				41D4B8B12751400C00F0FB92 /* PersonInsightChartViewModel.swift in Sources */,
 				41E5A4A22721B6CE00A51D80 /* UMSalaryPub.xcdatamodeld in Sources */,
 				4139F4F627248DCF00E6EC5C /* AdminViewModel.swift in Sources */,
 				41D4B8A62749DD4D00F0FB92 /* CampusDetailView.swift in Sources */,
