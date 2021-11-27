@@ -11,8 +11,6 @@ import Charts
 struct PersonLineChartView: UIViewRepresentable {
     
     @StateObject private var vm = PersonInsightViewModel()
-    // MIGHT NEED TO DO SOMETHING CAMPUSCOUNT
-    //let person: PersonViewModel
     let lineChart = LineChartView()
     let person: PersonViewModel
     
