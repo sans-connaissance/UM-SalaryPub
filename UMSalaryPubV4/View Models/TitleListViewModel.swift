@@ -16,11 +16,11 @@ class TitleListViewModel: ObservableObject {
     
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
-    @Published var sortByMoneyDescending = false
-    @Published var sortByMoneyAscending = false
-    @Published var sortAlphabetically = false
-    @Published var sortByPersonCountDescending = true
-    @Published var sortByPersonCountAscending = false
+//    @Published var sortByMoneyDescending = false
+//    @Published var sortByMoneyAscending = false
+//    @Published var sortAlphabetically = false
+//    @Published var sortByPersonCountDescending = true
+//    @Published var sortByPersonCountAscending = false
     
     private var yearByType: YearByType = .Title
     private var importYears = Title.importYears
@@ -35,11 +35,11 @@ class TitleListViewModel: ObservableObject {
             byType: yearByType.returnText,
             bySearchText: searchText,
             byNamePredicate: namePredicate.returnText,
-            sortAlphabetically: sortAlphabetically,
-            sortByMoneyDescending: sortByMoneyDescending,
-            sortByMoneyAscending: sortByMoneyAscending,
-            sortByPersonCountDescending: sortByPersonCountDescending,
-            sortByPersonCountAscending: sortByPersonCountAscending,
+            sortAlphabetically: sortButtons[SortOption.sortAlphabetically] ?? false,
+            sortByMoneyDescending: sortButtons[SortOption.sortByMoneyDescending] ?? false,
+            sortByMoneyAscending: sortButtons[SortOption.sortByMoneyAscending] ?? false,
+            sortByPersonCountDescending: sortButtons[SortOption.sortByPersonCountDescending] ?? false,
+            sortByPersonCountAscending: sortButtons[SortOption.sortByPersonCountAscending] ?? false,
             moneySortDescriptor: moneyDescriptor.returnText,
             countSortDescriptor: countDescriptor.returnText)
         
