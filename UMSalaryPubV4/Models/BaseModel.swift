@@ -12,6 +12,8 @@ protocol BaseModel where Self: NSManagedObject {
     
     static func byId<T: NSManagedObject>(id: NSManagedObjectID) -> T?
     
+    
+    
     static func all<T: NSManagedObject>() -> [T]
     
     static func byName<T: NSManagedObject>(keyPath: String, name: String) -> [T]
@@ -137,6 +139,7 @@ extension BaseModel {
     
 }
 
+// can this all be one enum with multiple variables?
 enum NamePredicate: String, CaseIterable {
     
     case Person

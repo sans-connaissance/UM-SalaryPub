@@ -43,6 +43,7 @@ struct TitleListView: View {
             .listStyle(GroupedListStyle())
             .navigationTitle("Titles")
             .onAppear(perform: { vm.getTitles()})
+            .onAppear(perform: { vm.setButtons()})
         }
     }
     

@@ -12,6 +12,8 @@ class TitleListViewModel: ObservableObject {
 
     @Published var allTitles = [Int: [TitleViewModel]]()
     
+    @Published var sortButtons = [SortOptions : Bool]()
+    
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
     @Published var sortByMoneyDescending = false
@@ -43,4 +45,14 @@ class TitleListViewModel: ObservableObject {
         
         allTitles[year.rawValue] = request.map(TitleViewModel.init)
     }
+    
+    func setButtons() {
+        
+        SortOptions.allCases.forEach { button in
+            sortButtons[button] = false
+        }
+        
+        sortButtons[SortOptions.sortByPersonCountDescending] = true
+    }
+    
 }

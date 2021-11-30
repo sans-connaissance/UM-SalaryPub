@@ -32,6 +32,30 @@ struct SortByMoneyDescendingButton: View {
     }
 }
 
+struct TitleSortButton: View {
+    var name: SortOptions
+    let vm: TitleViewModel
+    
+    var body: some View {
+        
+        Button {
+            
+        } label: {
+            
+        }
+    }
+}
+
+enum SortOptions: String, CaseIterable {
+    case sortByMoneyDescending
+    case sortByMoneyAscending
+    case sortAlphabetically
+    case sortByPersonCountDescending
+    case sortByPersonCountAscending
+}
+
+
+
 struct SortByMoneyAscendingButton: View {
     
     @Binding var sortByMoneyDescending: Bool
