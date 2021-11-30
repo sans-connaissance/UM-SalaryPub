@@ -21,10 +21,12 @@ struct TitleListView: View {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
                     }
-                }
-                .onChange(of: vm.year) { _ in vm.getTitles()}
+                }.onChange(of: vm.year) { _ in vm.getTitles()}
                 
-                sortButtons
+                ForEach(SortOption.allCases, id: \.self) { button in TitleSortButton(pressed: button, vm: vm).onChange(of: vm.sortButtons) { _ in vm.getTitles()}
+                }
+                
+                //sortButtons
                 
             }
             Divider()
@@ -42,8 +44,9 @@ struct TitleListView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Titles")
-            .onAppear(perform: { vm.getTitles()})
             .onAppear(perform: { vm.setButtons()})
+            .onAppear(perform: { vm.getTitles()})
+            
         }
     }
     

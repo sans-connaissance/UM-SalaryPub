@@ -33,15 +33,15 @@ struct SortByMoneyDescendingButton: View {
 }
 
 struct TitleSortButton: View {
-    var name: SortOption
-    let vm: TitleViewModel
+    var pressed: SortOption
+    let vm: TitleListViewModel
     
     var body: some View {
-        
         Button {
-            
+            vm.listBy(sortOption: pressed)
         } label: {
-            
+            Text(pressed.title)
+//                .foregroundColor(vm.sortButtons[pressed]! ? .blue : .gray)
         }
     }
 }
@@ -52,6 +52,21 @@ enum SortOption: String, CaseIterable {
     case sortAlphabetically
     case sortByPersonCountDescending
     case sortByPersonCountAscending
+    
+    var title: String {
+        switch self {
+        case .sortByMoneyDescending:
+            return "$$$"
+        case .sortByMoneyAscending:
+            return "$"
+        case .sortAlphabetically:
+            return "abc"
+        case .sortByPersonCountDescending:
+            return "􀝋"
+        case .sortByPersonCountAscending:
+            return "􀉪"
+        }
+    }
 }
 
 
