@@ -12,7 +12,7 @@ class TitleListViewModel: ObservableObject {
 
     @Published var allTitles = [Int: [TitleViewModel]]()
     
-    @Published var sortButtons = [SortOptions : Bool]()
+    @Published var sortButtons = [SortOption : Bool]()
     
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
@@ -48,11 +48,19 @@ class TitleListViewModel: ObservableObject {
     
     func setButtons() {
         
-        SortOptions.allCases.forEach { button in
+        SortOption.allCases.forEach { button in
             sortButtons[button] = false
         }
         
-        sortButtons[SortOptions.sortByPersonCountDescending] = true
+        sortButtons[SortOption.sortByPersonCountDescending] = true
+    }
+    
+    func listBy(sortOption: SortOption) {
+        SortOption.allCases.forEach { button in
+            sortButtons[button] = false
+        }
+        
+        sortButtons[sortOption] = true
     }
     
 }
