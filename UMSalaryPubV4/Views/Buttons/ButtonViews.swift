@@ -34,17 +34,30 @@ struct SortByMoneyDescendingButton: View {
 
 struct TitleSortButton: View {
     var pressed: SortOption
-    let vm: TitleListViewModel
+   // let  vm: TitleListViewModel
+    @Binding var sortButtons: [SortOption : Bool]
     
     var body: some View {
         Button {
-            vm.listBy(sortOption: pressed)
+            //vm.listBy(sortOption: pressed)
+            ilistBy(sortOption: pressed)
+            
         } label: {
-            Text(pressed.title)
-//                .foregroundColor(vm.sortButtons[pressed]! ? .blue : .gray)
+
+            Text("\(pressed.title)")
+                .foregroundColor(sortButtons[pressed] ?? false ? .blue : .gray)
         }
     }
+    
+    func ilistBy(sortOption: SortOption) {
+        SortOption.allCases.forEach { button in
+            sortButtons[button] = false
+        }
+        
+        sortButtons[sortOption] = true
+    }
 }
+
 
 enum SortOption: String, CaseIterable {
     case sortByMoneyDescending
@@ -53,18 +66,18 @@ enum SortOption: String, CaseIterable {
     case sortByPersonCountDescending
     case sortByPersonCountAscending
     
-    var title: String {
+    var title: Text  {
         switch self {
         case .sortByMoneyDescending:
-            return "$$$"
+            return Text("$$$")
         case .sortByMoneyAscending:
-            return "$"
+            return Text("$")
         case .sortAlphabetically:
-            return "abc"
+            return Text("abc")
         case .sortByPersonCountDescending:
-            return "􀝋"
+            return Text(Image(systemName: "person.3.fill"))
         case .sortByPersonCountAscending:
-            return "􀉪"
+            return Text(Image(systemName: "person.fill"))
         }
     }
 }
