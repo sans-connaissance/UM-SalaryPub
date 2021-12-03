@@ -16,11 +16,7 @@ class TitleListViewModel: ObservableObject {
     
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
-    @Published var sortByMoneyDescending = false
-    @Published var sortByMoneyAscending = false
-    @Published var sortAlphabetically = false
-    @Published var sortByPersonCountDescending = true
-    @Published var sortByPersonCountAscending = false
+
     
     private var yearByType: YearByType = .Title
     private var importYears = Title.importYears
@@ -47,20 +43,9 @@ class TitleListViewModel: ObservableObject {
     }
     
     func setButtons() {
-        
         SortOption.allCases.forEach { button in
             sortButtons[button] = false
         }
-        
         sortButtons[SortOption.sortByPersonCountDescending] = true
     }
-    
-//    func listBy(sortOption: SortOption) {
-//        SortOption.allCases.forEach { button in
-//            sortButtons[button] = false
-//        }
-//
-//        sortButtons[sortOption] = true
-//    }
-    
 }

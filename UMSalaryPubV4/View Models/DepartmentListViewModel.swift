@@ -11,13 +11,11 @@ class DepartmentListViewModel: ObservableObject {
 
     @Published var allDepartments = [Int: [DepartmentViewModel]]()
     
+    @Published var sortButtons = [SortOption : Bool]()
+    
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
-    @Published var sortByMoneyDescending = false
-    @Published var sortByMoneyAscending = false
-    @Published var sortAlphabetically = false
-    @Published var sortByPersonCountDescending = true
-    @Published var sortByPersonCountAscending = false
+
     
     private var yearByType: YearByType = .Department
     private var importYears = Department.importYears
@@ -32,14 +30,23 @@ class DepartmentListViewModel: ObservableObject {
             byType: yearByType.returnText,
             bySearchText: searchText,
             byNamePredicate: namePredicate.returnText,
-            sortAlphabetically: sortAlphabetically,
-            sortByMoneyDescending: sortByMoneyDescending,
-            sortByMoneyAscending: sortByMoneyAscending,
-            sortByPersonCountDescending: sortByPersonCountDescending,
-            sortByPersonCountAscending: sortByPersonCountAscending,
+            sortAlphabetically: sortButtons[SortOption.sortAlphabetically] ?? false,
+            sortByMoneyDescending: sortButtons[SortOption.sortByMoneyDescending] ?? false,
+            sortByMoneyAscending: sortButtons[SortOption.sortByMoneyAscending] ?? false,
+            sortByPersonCountDescending: sortButtons[SortOption.sortByPersonCountDescending] ?? false,
+            sortByPersonCountAscending: sortButtons[SortOption.sortByPersonCountAscending] ?? false,
             moneySortDescriptor: moneyDescriptor.returnText,
             countSortDescriptor: countDescriptor.returnText)
         
         allDepartments[year.rawValue] = request.map(DepartmentViewModel.init)
+    }
+    //Can this be refactored so that we're only defining set buttons in one location?
+    //kind of cool that we can set whatever button we want for each viewlist though
+    //could be put in baseclass maybe?
+    func setButtons() {
+        SortOption.allCases.forEach { button in
+            sortButtons[button] = false
+        }
+        sortButtons[SortOption.sortByPersonCountDescending] = true
     }
 }

@@ -21,10 +21,11 @@ struct DepartmentListView: View {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
                     }
-                }
-                .onChange(of: vm.year) { _ in vm.getDepartments()}
+                }.onChange(of: vm.year) { _ in vm.getDepartments()}
                 
-                sortButtons
+                ForEach(SortOption.allCases, id: \.self) { button in
+                    SortListButton(selected: button, sortButtons: $vm.sortButtons)
+                    .onChange(of: vm.sortButtons) { _ in vm.getDepartments()}}
                 
             }
             Divider()
@@ -42,52 +43,8 @@ struct DepartmentListView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Departments")
+            .onAppear(perform: { vm.setButtons()})
             .onAppear(perform: { vm.getDepartments()})
-        }
-    }
-    
-    var sortButtons: some View {
-        
-        HStack {
-            SortByMoneyDescendingButton(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByMoneyDescending){ _ in vm.getDepartments()}
-            
-            SortByMoneyAscendingButton(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByMoneyAscending){ _ in vm.getDepartments()}
-            
-            SortAlphabeticallyButton(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortAlphabetically){ _ in vm.getDepartments()}
-            
-            SortByPersonCountDescending(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByPersonCountDescending){ _ in vm.getDepartments()}
-            
-            SortByPersonCountAscending(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByPersonCountAscending){ _ in vm.getDepartments()}
         }
     }
 }

@@ -26,14 +26,9 @@ struct TitleListView: View {
                 ForEach(SortOption.allCases, id: \.self) { button in
                     SortListButton(selected: button, sortButtons: $vm.sortButtons)
                         .onChange(of: vm.sortButtons) { _ in vm.getTitles()}}
-    
-                
-                //sortButtons
-                
             }
             Divider()
             List {
-                
                 if let titleArray = vm.allTitles[vm.year.rawValue] {
                     ForEach(titleArray, id: \.self) { title in
                         NavigationLink {
@@ -51,58 +46,12 @@ struct TitleListView: View {
             
         }
     }
-    
-    var sortButtons: some View {
-        
-        HStack {
-            SortByMoneyDescendingButton(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByMoneyDescending){ _ in vm.getTitles()}
-            
-            SortByMoneyAscendingButton(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByMoneyAscending){ _ in vm.getTitles()}
-            
-            SortAlphabeticallyButton(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortAlphabetically){ _ in vm.getTitles()}
-            
-            SortByPersonCountDescending(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByPersonCountDescending){ _ in vm.getTitles()}
-            
-            SortByPersonCountAscending(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByPersonCountAscending){ _ in vm.getTitles()}
-        }
-    }
 }
 
 struct TitleRow: View {
     let title: TitleViewModel
 
     var body: some View {
-        
         VStack(alignment: .leading, spacing: 2) {
             Text(title.titleName).font(.headline)
             Text("People with title:" + title.titleCount).textStyle(DetailData())
