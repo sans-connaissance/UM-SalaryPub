@@ -32,24 +32,21 @@ struct SortByMoneyDescendingButton: View {
     }
 }
 
-struct TitleSortButton: View {
-    var pressed: SortOption
-   // let  vm: TitleListViewModel
+struct SortListButton: View {
+    var selected: SortOption
+    // Should sortButtons be a type?
     @Binding var sortButtons: [SortOption : Bool]
     
     var body: some View {
         Button {
-            //vm.listBy(sortOption: pressed)
-            ilistBy(sortOption: pressed)
-            
+            listBy(sortOption: selected)
         } label: {
-
-            Text("\(pressed.title)")
-                .foregroundColor(sortButtons[pressed] ?? false ? .blue : .gray)
+            Text("\(selected.title)")
+                .foregroundColor(sortButtons[selected] ?? false ? .blue : .gray)
         }
     }
     
-    func ilistBy(sortOption: SortOption) {
+    func listBy(sortOption: SortOption) {
         SortOption.allCases.forEach { button in
             sortButtons[button] = false
         }

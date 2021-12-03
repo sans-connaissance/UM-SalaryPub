@@ -24,7 +24,7 @@ struct TitleListView: View {
                 }.onChange(of: vm.year) { _ in vm.getTitles()}
                 
                 ForEach(SortOption.allCases, id: \.self) { button in
-                    TitleSortButton(pressed: button, sortButtons: $vm.sortButtons)
+                    SortListButton(selected: button, sortButtons: $vm.sortButtons)
                         .onChange(of: vm.sortButtons) { _ in vm.getTitles()}}
     
                 
