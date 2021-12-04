@@ -11,6 +11,7 @@ import Charts
 struct PersonLineChartView: UIViewRepresentable {
     
     @StateObject private var vm = PersonInsightViewModel()
+    
     let lineChart = LineChartView()
     let person: PersonViewModel
     
@@ -22,52 +23,42 @@ struct PersonLineChartView: UIViewRepresentable {
         vm.getChartData()
         
         return lineChart
-       
     }
-    
-    
+
     func updateUIView(_ uiView: LineChartView, context: Context) {
-        
         setChartData(uiView)
         configureChart(uiView)
         formatXAxis(xAxis: uiView.xAxis)
         formatLeftAxis(leftAxis: uiView.leftAxis)
         uiView.notifyDataSetChanged()
     }
-    
-    
+
     func setChartData(_ lineChart: LineChartView) {
-        
         let personSetAnnualFTR = LineChartDataSet(entries: vm.personEntryAnnualFTR)
         let personSetTitleAverageAnnual = LineChartDataSet(entries: vm.personEntryTitleAverageAnnual)
         let personSetDepartmentAverageAnnual = LineChartDataSet(entries: vm.personEntryDepartmentAverageAnnual)
         let personSetCampusAverageAnnual = LineChartDataSet(entries: vm.personEntryCampusAverageAnnual)
-        
-        
+
         func createDataSets(showTitleAverage: Bool, showDepartmentAverage: Bool, showCampusAverage: Bool, showAnnualFTR: Bool) -> [LineChartDataSet] {
             
             var dataSets: [LineChartDataSet] = []
             
             if showAnnualFTR == true {
-                
                 dataSets.append(personSetAnnualFTR)
             }
             
             if showTitleAverage == true {
-                
                 dataSets.append(personSetTitleAverageAnnual)
             }
             
             if showDepartmentAverage == true {
-                
                 dataSets.append(personSetDepartmentAverageAnnual)
             }
             
             if showCampusAverage == true {
-                
                 dataSets.append(personSetCampusAverageAnnual)
             }
-            
+    
             if showTitleAverage == false && showDepartmentAverage == false && showCampusAverage == false && showAnnualFTR == false {
                 dataSets.append(personSetAnnualFTR)
             }
@@ -84,10 +75,8 @@ struct PersonLineChartView: UIViewRepresentable {
         formatDataSet(dataSet: personSetTitleAverageAnnual, label: "Title Average FTR", color: .systemOrange)
         
     }
-    
-    
+
     func formatDataSet(dataSet: LineChartDataSet, label: String, color: UIColor) {
-        
         dataSet.label = label
         dataSet.colors = [color]
         dataSet.valueColors = [color]
@@ -102,8 +91,7 @@ struct PersonLineChartView: UIViewRepresentable {
         dataSet.valueFormatter = DefaultValueFormatter(formatter: format)
         
     }
-    
-    
+
     func configureChart(_ lineChart: LineChartView) {
         lineChart.noDataText = "No Data"
         lineChart.drawGridBackgroundEnabled = false
@@ -115,20 +103,16 @@ struct PersonLineChartView: UIViewRepresentable {
         lineChart.legend.enabled = false
         lineChart.highlightPerTapEnabled = false
         lineChart.highlightPerDragEnabled = false
-        
-        
         lineChart.setScaleEnabled(false)
         if lineChart.scaleX == 1.0 {
             lineChart.zoom(scaleX: 1.0, scaleY: 1.0, x: 0, y: 0)
         }
 
     }
-    
-    
+
     func formatXAxis(xAxis: XAxis) {
         let xAxisFormatter = NumberFormatter()
         xAxisFormatter.generatesDecimalNumbers = false
-        
         xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: xAxisFormatter)
         
         if vm.showCampusAverage == true {
@@ -143,14 +127,12 @@ struct PersonLineChartView: UIViewRepresentable {
         
         xAxis.labelPosition = .bottom
     }
-    
-    
+
     func formatLeftAxis(leftAxis:YAxis) {
         let leftAxisFormatter = NumberFormatter()
         leftAxisFormatter.generatesDecimalNumbers = false
         leftAxisFormatter.numberStyle = .currency
         leftAxisFormatter.currencySymbol = "$"
-        
         leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
         if vm.campusCount > 2 {
             leftAxis.labelCount = 5
