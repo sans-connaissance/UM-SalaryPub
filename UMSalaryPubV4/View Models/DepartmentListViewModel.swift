@@ -40,9 +40,7 @@ class DepartmentListViewModel: ObservableObject {
         
         allDepartments[year.rawValue] = request.map(DepartmentViewModel.init)
     }
-    //Can this be refactored so that we're only defining set buttons in one location?
-    //kind of cool that we can set whatever button we want for each viewlist though
-    //could be put in baseclass maybe?
+
     func setButtons() {
         SortOption.allCases.forEach { button in
             sortButtons[button] = false

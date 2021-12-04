@@ -24,7 +24,10 @@ struct PersonListView: View {
                 }
                 .onChange(of: vm.year) { _ in vm.getPersons()}
                 
-                sortButtons
+                ForEach(SortOption.personList, id: \.self) { button in
+
+                    SortListButton(selected: button, sortButtons: $vm.sortButtons)
+                    .onChange(of: vm.sortButtons) { _ in vm.getPersons()}}
                 
             }
             Divider()
@@ -42,36 +45,8 @@ struct PersonListView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("People")
+            .onAppear(perform: { vm.setButtons()})
             .onAppear(perform: { vm.getPersons()})
-        }
-    }
-    
-    var sortButtons: some View {
-        
-        HStack {
-            SortByMoneyDescendingButton(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByMoneyDescending){ _ in vm.getPersons()}
-            
-            SortByMoneyAscendingButton(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortByMoneyAscending){ _ in vm.getPersons()}
-            
-            SortAlphabeticallyButton(
-                sortByMoneyDescending: $vm.sortByMoneyDescending,
-                sortByMoneyAscending: $vm.sortByMoneyAscending,
-                sortAlphabetically: $vm.sortAlphabetically,
-                sortByPersonCountDescending: $vm.sortByPersonCountDescending,
-                sortByPersonCountAscending: $vm.sortByPersonCountAscending)
-                .onChange(of: vm.sortAlphabetically){ _ in vm.getPersons()}
         }
     }
 }

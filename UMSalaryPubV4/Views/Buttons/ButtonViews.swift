@@ -63,6 +63,8 @@ enum SortOption: String, CaseIterable {
     case sortByPersonCountDescending
     case sortByPersonCountAscending
     
+    static let personList: [SortOption] = [.sortByMoneyDescending, .sortByMoneyAscending, .sortAlphabetically]
+    
     var title: Text  {
         switch self {
         case .sortByMoneyDescending:
