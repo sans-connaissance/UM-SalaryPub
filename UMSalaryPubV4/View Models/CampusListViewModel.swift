@@ -12,13 +12,11 @@ class CampusListViewModel: ObservableObject {
     
     @Published var allCampuses = [Int: [CampusViewModel]]()
     
+    @Published var sortButtons = [SortOption : Bool]()
+    
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
-    @Published var sortByMoneyDescending = true
-    @Published var sortByMoneyAscending = false
-    @Published var sortAlphabetically = false
-    @Published var sortByPersonCountDescending = false
-    @Published var sortByPersonCountAscending = false
+
     
     private var yearByType: YearByType = .Campus
     private var importYears = Campus.importYears
@@ -32,15 +30,22 @@ class CampusListViewModel: ObservableObject {
             byType: yearByType.returnText,
             bySearchText: searchText,
             byNamePredicate: namePredicate.returnText,
-            sortAlphabetically: sortAlphabetically,
-            sortByMoneyDescending: sortByMoneyDescending,
-            sortByMoneyAscending: sortByMoneyAscending,
-            sortByPersonCountDescending: sortByPersonCountDescending,
-            sortByPersonCountAscending: sortByPersonCountAscending,
+            sortAlphabetically: sortButtons[SortOption.sortAlphabetically] ?? false,
+            sortByMoneyDescending: sortButtons[SortOption.sortByMoneyDescending] ?? false,
+            sortByMoneyAscending: sortButtons[SortOption.sortByMoneyAscending] ?? false,
+            sortByPersonCountDescending: sortButtons[SortOption.sortByPersonCountDescending] ?? false,
+            sortByPersonCountAscending: sortButtons[SortOption.sortByPersonCountAscending] ?? false,
             moneySortDescriptor: moneyDescriptor.returnText,
             countSortDescriptor: countDescriptor.returnText)
         
         allCampuses[year.rawValue] = request.map(CampusViewModel.init)
         
+    }
+    
+    func setButtons() {
+        SortOption.allCases.forEach { button in
+            sortButtons[button] = false
+        }
+        sortButtons[SortOption.sortByPersonCountDescending] = true
     }
 }
