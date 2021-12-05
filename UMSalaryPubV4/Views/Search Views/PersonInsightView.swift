@@ -63,7 +63,12 @@ struct PersonInsightView: View {
             VStack {
                 PersonLineChartView(showTitleAverage: $vm.showTitleAverage, showDepartmentAverage: $vm.showDepartmentAverage, showCampusAverage: $vm.showCampusAverage, showAnnualFTR: $vm.showAnnualFTR, person: person)
             }.frame(width: 370, height: 370, alignment: .leading)
-            ChartSwitch(isOn: $vm.showTitleAverage, switchTitle: "Title Avg. FTR", switchData: "Test", color: .systemOrange)
+            VStack {
+                ChartSwitch(isOn: $vm.showAnnualFTR, switchTitle: "Annual FTR", switchData: person.fullName, color: .systemGreen)
+                ChartSwitch(isOn: $vm.showCampusAverage, switchTitle: "Campus Avg. FTR", switchData: person.campus, color: .systemBlue)
+                ChartSwitch(isOn: $vm.showDepartmentAverage, switchTitle: "Department Avg. FTR", switchData: person.department, color: .systemPurple)
+                ChartSwitch(isOn: $vm.showTitleAverage, switchTitle: "Title Avg. FTR", switchData: person.title, color: .systemOrange)
+            }
             
         }
         //MARK: Wrap these all into one function in the view model

@@ -16,8 +16,8 @@ class PersonInsightViewModel: ObservableObject {
     @Published var departmentsInsight = [DepartmentViewModel]()
     @Published var campusesInsight = [CampusViewModel]()
     
-    @Published  var showTitleAverage = true
-    @Published  var showDepartmentAverage = true
+    @Published  var showTitleAverage = false
+    @Published  var showDepartmentAverage = false
     @Published  var showCampusAverage = true
     @Published  var showAnnualFTR = true
     

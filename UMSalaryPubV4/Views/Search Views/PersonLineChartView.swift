@@ -12,10 +12,10 @@ struct PersonLineChartView: UIViewRepresentable {
     
     @StateObject private var vm = PersonInsightViewModel()
     
-    @Binding  var showTitleAverage: Bool
-    @Binding  var showDepartmentAverage: Bool
-    @Binding  var showCampusAverage: Bool
-    @Binding  var showAnnualFTR: Bool
+    @Binding var showTitleAverage: Bool
+    @Binding var showDepartmentAverage: Bool
+    @Binding var showCampusAverage: Bool
+    @Binding var showAnnualFTR: Bool
     
     let lineChart = LineChartView()
     let person: PersonViewModel
