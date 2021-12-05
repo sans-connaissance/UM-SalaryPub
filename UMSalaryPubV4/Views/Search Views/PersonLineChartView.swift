@@ -11,7 +11,11 @@ import Charts
 struct PersonLineChartView: UIViewRepresentable {
     
     @StateObject private var vm = PersonInsightViewModel()
-    @Binding var showTitleAverage: Bool
+    
+    @Binding  var showTitleAverage: Bool
+    @Binding  var showDepartmentAverage: Bool
+    @Binding  var showCampusAverage: Bool
+    @Binding  var showAnnualFTR: Bool
     
     let lineChart = LineChartView()
     let person: PersonViewModel
@@ -67,7 +71,7 @@ struct PersonLineChartView: UIViewRepresentable {
             return dataSets
         }
         
-        let lineChartData = LineChartData(dataSets: createDataSets(showTitleAverage: showTitleAverage, showDepartmentAverage: vm.showDepartmentAverage, showCampusAverage: vm.showCampusAverage, showAnnualFTR: vm.showAnnualFTR))
+        let lineChartData = LineChartData(dataSets: createDataSets(showTitleAverage: showTitleAverage, showDepartmentAverage: showDepartmentAverage, showCampusAverage: showCampusAverage, showAnnualFTR: showAnnualFTR))
         
         lineChart.data = lineChartData
         formatDataSet(dataSet: personSetAnnualFTR, label: "Annual FTR", color: .systemGreen)

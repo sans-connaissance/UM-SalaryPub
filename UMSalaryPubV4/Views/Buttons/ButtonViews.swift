@@ -31,35 +31,28 @@ struct SortListButton: View {
 
 struct ChartSwitch: View {
     @Binding var isOn: Bool
-    
     var switchTitle: String
     var switchData: String
+    var color: UIColor
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
                 label
                 Spacer()
-                switchToggle
-
-            }
-        }
+                switchToggle}}
     }
     var label: some View {
         VStack {
             Text(switchTitle).textStyle(SmallGrey())
             Text(switchData).font(.subheadline)
-        }.padding([.top, .leading])
-    }
+        }.padding([.top, .leading])}
     
     var switchToggle: some View {
-     
         Toggle("", isOn: $isOn)
-            .toggleStyle(SwitchToggleStyle(tint: .init(.systemGreen)))
+            .toggleStyle(SwitchToggleStyle(tint: .init(color)))
             .labelsHidden()
-            .padding(.trailing)
-    }
-
+            .padding(.trailing)}
 }
 
 

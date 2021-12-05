@@ -23,16 +23,16 @@ struct PersonInsightView: View {
             CloseInsightView()
             Text(person.fullName).textStyle(DetailData())
                 .font(.headline)
-
+            
             Divider()
         }
-
-
+        
+        
         ScrollView(.vertical) {
-
+            
             Text("Annual Full-Time Rate").font(.headline)
             Text("Yearly % Change").font(.headline)
-
+            
             GeometryReader { geometry in
                 ScrollView(.horizontal, showsIndicators: false) {
                     VStack(alignment: .center){
@@ -58,13 +58,13 @@ struct PersonInsightView: View {
                 }
             }.frame(height: 70)
             Divider()
-       
+            
             //MARK: There are frame sizes in the older version
             VStack {
-                PersonLineChartView(showTitleAverage: $vm.showTitleAverage, person: person)
+                PersonLineChartView(showTitleAverage: $vm.showTitleAverage, showDepartmentAverage: $vm.showDepartmentAverage, showCampusAverage: $vm.showCampusAverage, showAnnualFTR: $vm.showAnnualFTR, person: person)
             }.frame(width: 370, height: 370, alignment: .leading)
-            ChartSwitch(isOn: $vm.showTitleAverage, switchTitle: "Title Avg. FTR", switchData: "Test")
-    
+            ChartSwitch(isOn: $vm.showTitleAverage, switchTitle: "Title Avg. FTR", switchData: "Test", color: .systemOrange)
+            
         }
         //MARK: Wrap these all into one function in the view model
         .onAppear(perform: {vm.getCampuses(vm: person)})
