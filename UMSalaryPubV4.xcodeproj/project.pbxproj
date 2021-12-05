@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		412A0669275D520C00381773 /* MoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A0668275D520C00381773 /* MoreInfoView.swift */; };
+		412A066E275D533F00381773 /* AnnualFTRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A066A275D533F00381773 /* AnnualFTRView.swift */; };
+		412A066F275D533F00381773 /* AppointmentFractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A066B275D533F00381773 /* AppointmentFractionView.swift */; };
+		412A0670275D533F00381773 /* GeneralFundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A066C275D533F00381773 /* GeneralFundView.swift */; };
+		412A0671275D533F00381773 /* FTRBasisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A066D275D533F00381773 /* FTRBasisView.swift */; };
 		4139F4F627248DCF00E6EC5C /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4F527248DCF00E6EC5C /* AdminViewModel.swift */; };
 		4139F4F82724904500E6EC5C /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4F72724904500E6EC5C /* View+Extensions.swift */; };
 		4139F4FC2725AACB00E6EC5C /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4FB2725AACB00E6EC5C /* HomeScreenView.swift */; };
@@ -76,6 +80,10 @@
 
 /* Begin PBXFileReference section */
 		412A0668275D520C00381773 /* MoreInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoreInfoView.swift; path = ../../../../Developer/UMICHSalaryPub5/Shared/Views/TopViews/MoreInfoView.swift; sourceTree = "<group>"; };
+		412A066A275D533F00381773 /* AnnualFTRView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnualFTRView.swift; sourceTree = "<group>"; };
+		412A066B275D533F00381773 /* AppointmentFractionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentFractionView.swift; sourceTree = "<group>"; };
+		412A066C275D533F00381773 /* GeneralFundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralFundView.swift; sourceTree = "<group>"; };
+		412A066D275D533F00381773 /* FTRBasisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTRBasisView.swift; sourceTree = "<group>"; };
 		4139F4F527248DCF00E6EC5C /* AdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
 		4139F4F72724904500E6EC5C /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		4139F4FB2725AACB00E6EC5C /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
@@ -214,6 +222,10 @@
 			isa = PBXGroup;
 			children = (
 				412A0668275D520C00381773 /* MoreInfoView.swift */,
+				412A066A275D533F00381773 /* AnnualFTRView.swift */,
+				412A066B275D533F00381773 /* AppointmentFractionView.swift */,
+				412A066D275D533F00381773 /* FTRBasisView.swift */,
+				412A066C275D533F00381773 /* GeneralFundView.swift */,
 			);
 			path = "More Info Views";
 			sourceTree = "<group>";
@@ -433,9 +445,11 @@
 			files = (
 				41E5A4B12721B95300A51D80 /* Title+CoreDataClass.swift in Sources */,
 				41E5A4B02721B95300A51D80 /* Department+CoreDataProperties.swift in Sources */,
+				412A066E275D533F00381773 /* AnnualFTRView.swift in Sources */,
 				41EA3BB02731C35C001070CF /* FontStyles.swift in Sources */,
 				41D4B88A2745A71600F0FB92 /* TitleListViewModel.swift in Sources */,
 				41D4B8A82749E98800F0FB92 /* PersonInsightViewModel.swift in Sources */,
+				412A066F275D533F00381773 /* AppointmentFractionView.swift in Sources */,
 				414AD157272320C300316A45 /* PersonDAO.swift in Sources */,
 				41E5A4B52721B95300A51D80 /* Person+CoreDataClass.swift in Sources */,
 				4139F4FC2725AACB00E6EC5C /* HomeScreenView.swift in Sources */,
@@ -459,6 +473,7 @@
 				41D4B89C2749CC1800F0FB92 /* TitleDetailViewModel.swift in Sources */,
 				41D4B8862745942900F0FB92 /* TitleViewModel.swift in Sources */,
 				41D4B8A22749CE6D00F0FB92 /* TitleDetailView.swift in Sources */,
+				412A0671275D533F00381773 /* FTRBasisView.swift in Sources */,
 				414AD156272320C300316A45 /* TitleDAO.swift in Sources */,
 				41E5A4B92721BED800A51D80 /* CoreDataManager.swift in Sources */,
 				41E5A4AF2721B95300A51D80 /* Department+CoreDataClass.swift in Sources */,
@@ -475,6 +490,7 @@
 				41D4B89227474FC500F0FB92 /* CampusViewModel.swift in Sources */,
 				4139F5032725AD0F00E6EC5C /* FavoriteView.swift in Sources */,
 				41D4B8A42749DB4700F0FB92 /* DepartmentDetailView.swift in Sources */,
+				412A0670275D533F00381773 /* GeneralFundView.swift in Sources */,
 				41998B812739A2550021D632 /* PersonViewModel.swift in Sources */,
 				41EA3BB42731D9F2001070CF /* DashboardCountsView.swift in Sources */,
 				41E5A48D2721B37700A51D80 /* UMSalaryPubV4App.swift in Sources */,
