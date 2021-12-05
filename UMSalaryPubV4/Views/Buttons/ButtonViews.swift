@@ -21,14 +21,45 @@ struct SortListButton: View {
                 .foregroundColor(sortButtons[selected] ?? false ? .blue : .gray)
         }
     }
-    
     func listBy(sortOption: SortOption) {
         SortOption.allCases.forEach { button in
             sortButtons[button] = false
         }
-        
         sortButtons[sortOption] = true
     }
+}
+
+struct ChartSwitch: View {
+    @Binding var isOn: Bool
+    
+    var switchTitle: String
+    var switchData: String
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack(alignment: .bottom) {
+                label
+                Spacer()
+                switchToggle
+
+            }
+        }
+    }
+    var label: some View {
+        VStack {
+            Text(switchTitle).textStyle(SmallGrey())
+            Text(switchData).font(.subheadline)
+        }.padding([.top, .leading])
+    }
+    
+    var switchToggle: some View {
+     
+        Toggle("", isOn: $isOn)
+            .toggleStyle(SwitchToggleStyle(tint: .init(.systemGreen)))
+            .labelsHidden()
+            .padding(.trailing)
+    }
+
 }
 
 
@@ -79,12 +110,12 @@ struct InsightsButton: View {
     var body: some View {
         Button(action: {
             isPresented.toggle()}){
-            HStack(alignment: .center, spacing: 2){
-                Image(systemName: "chart.bar.xaxis").rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0)).opacity(0.6)
-                Text("Insights")
-                    .textStyle(DetailData())
+                HStack(alignment: .center, spacing: 2){
+                    Image(systemName: "chart.bar.xaxis").rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0)).opacity(0.6)
+                    Text("Insights")
+                        .textStyle(DetailData())
+                }
             }
-        }
     }
 }
 

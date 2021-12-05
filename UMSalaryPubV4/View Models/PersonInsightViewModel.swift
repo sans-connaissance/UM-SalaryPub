@@ -83,7 +83,5 @@ class PersonInsightViewModel: ObservableObject {
         personEntryTitleAverageAnnual = Title.lineChartTitleAverage(titlesInsight)
         personEntryDepartmentAverageAnnual = Department.lineChartDepartment(departmentsInsight)
         personEntryCampusAverageAnnual = Campus.lineChartDepartmentAverage(campusesInsight)
-        
     }
-    
 }

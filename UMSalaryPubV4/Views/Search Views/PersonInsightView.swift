@@ -61,8 +61,10 @@ struct PersonInsightView: View {
        
             //MARK: There are frame sizes in the older version
             VStack {
-                PersonLineChartView(person: person)
+                PersonLineChartView(showTitleAverage: $vm.showTitleAverage, person: person)
             }.frame(width: 370, height: 370, alignment: .leading)
+            ChartSwitch(isOn: $vm.showTitleAverage, switchTitle: "Title Avg. FTR", switchData: "Test")
+    
         }
         //MARK: Wrap these all into one function in the view model
         .onAppear(perform: {vm.getCampuses(vm: person)})
