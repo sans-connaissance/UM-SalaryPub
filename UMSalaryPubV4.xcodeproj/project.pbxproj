@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		412A0669275D520C00381773 /* MoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A0668275D520C00381773 /* MoreInfoView.swift */; };
 		4139F4F627248DCF00E6EC5C /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4F527248DCF00E6EC5C /* AdminViewModel.swift */; };
 		4139F4F82724904500E6EC5C /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4F72724904500E6EC5C /* View+Extensions.swift */; };
 		4139F4FC2725AACB00E6EC5C /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4FB2725AACB00E6EC5C /* HomeScreenView.swift */; };
-		4139F5002725AC6600E6EC5C /* MoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4FF2725AC6600E6EC5C /* MoreInfoView.swift */; };
 		4139F5032725AD0F00E6EC5C /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F5022725AD0F00E6EC5C /* FavoriteView.swift */; };
 		414AD1502723208A00316A45 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD14F2723208A00316A45 /* AppUtils.swift */; };
 		414AD156272320C300316A45 /* TitleDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD151272320C300316A45 /* TitleDAO.swift */; };
@@ -75,10 +75,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		412A0668275D520C00381773 /* MoreInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoreInfoView.swift; path = ../../../../Developer/UMICHSalaryPub5/Shared/Views/TopViews/MoreInfoView.swift; sourceTree = "<group>"; };
 		4139F4F527248DCF00E6EC5C /* AdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
 		4139F4F72724904500E6EC5C /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		4139F4FB2725AACB00E6EC5C /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
-		4139F4FF2725AC6600E6EC5C /* MoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoView.swift; sourceTree = "<group>"; };
 		4139F5022725AD0F00E6EC5C /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		414AD14F2723208A00316A45 /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		414AD151272320C300316A45 /* TitleDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleDAO.swift; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 		4139F4FE2725AC1B00E6EC5C /* More Info Views */ = {
 			isa = PBXGroup;
 			children = (
-				4139F4FF2725AC6600E6EC5C /* MoreInfoView.swift */,
+				412A0668275D520C00381773 /* MoreInfoView.swift */,
 			);
 			path = "More Info Views";
 			sourceTree = "<group>";
@@ -444,6 +444,7 @@
 				41D4B87F2740C4BD00F0FB92 /* PersonDetailViewModel.swift in Sources */,
 				41D4B87B273FC2EA00F0FB92 /* SearchBarView.swift in Sources */,
 				41D4B88C2745AAC600F0FB92 /* TitleListView.swift in Sources */,
+				412A0669275D520C00381773 /* MoreInfoView.swift in Sources */,
 				414AD15A272320C300316A45 /* CampusDAO.swift in Sources */,
 				41D4B896274755B300F0FB92 /* CampusListViewModel.swift in Sources */,
 				41998BA7273C5BD10021D632 /* PersonListView.swift in Sources */,
@@ -481,7 +482,6 @@
 				4139F4F627248DCF00E6EC5C /* AdminViewModel.swift in Sources */,
 				41D4B8A62749DD4D00F0FB92 /* CampusDetailView.swift in Sources */,
 				41E5A4B22721B95300A51D80 /* Title+CoreDataProperties.swift in Sources */,
-				4139F5002725AC6600E6EC5C /* MoreInfoView.swift in Sources */,
 				41E5A4B62721B95300A51D80 /* Person+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
