@@ -40,6 +40,8 @@ extension BaseModel {
         return [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
     }
     
+    
+    
     static func byId<T>(id: NSManagedObjectID) -> T? where T: NSManagedObject {
         do {
             return try viewContext.existingObject(with: id) as? T
@@ -71,6 +73,8 @@ extension BaseModel {
             return []
         }
     }
+    
+
     
     static func forInsights<T>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T] where T: NSManagedObject {
         let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))

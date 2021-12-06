@@ -33,7 +33,7 @@ struct PersonDetailView: View {
                         VStack {
                             HStack(spacing: 5) {
                                 Spacer()
-                                PersonDetailRowLeft(person: person)
+                                PersonDetailRowLeft(person: person, vm: vm)
                                 Spacer()
                                 PersonDetailRowRight(person: person)
                                 Spacer()
@@ -44,7 +44,50 @@ struct PersonDetailView: View {
             }
         }
         .navigationTitle(person.fullName)
+        .onAppear(perform: { vm.getCampus(vm: person) })
         .onAppear(perform: { vm.getPersons(vm: person) })
+    }
+}
+
+struct PersonDetailRowLeft: View {
+    let person: PersonViewModel
+    let vm: PersonDetailViewModel
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Group {
+                Text("Campus").textStyle(SmallGrey())
+                NavigationLink {
+                    if let campus = vm.campusForDetailView.first {
+                        CampusDetailView(campus: campus)
+                    }
+                } label: {
+                    Text(person.campus).textStyle(DetailData())
+                }
+            }
+            Spacer()
+            Group {
+                Text("Department").textStyle(SmallGrey())
+                Text(person.department).textStyle(DetailData())
+                //                NavigationLink(destination: DepartmentDetailView(departmentDetailViewPredicate1: person.department?.departmentName ?? "")){
+                //                    Text(person.department).textStyle(DetailData())
+                //                }
+            }
+            Spacer()
+            Group {
+                Text("Title").textStyle(SmallGrey())
+                Text(person.title).textStyle(DetailData())
+                //                NavigationLink(destination: TitleDetailView(titleDetailViewPredicate1: person.title?.titleName ?? "")){
+                //                    Text(person.title).textStyle(DetailData())
+                //                }
+            }
+            Spacer()
+            Group {
+                Text(" ").textStyle(SmallGrey())
+                Text(" ").textStyle(DetailData())
+            }
+            Spacer()
+        }
     }
 }
 
@@ -71,44 +114,6 @@ struct PersonDetailRowRight: View {
             Group {
                 Text("Amount from General Fund").textStyle(SmallGrey())
                 Text(person.amtSalaryFromGeneralFund).textStyle(DetailData())
-            }
-            Spacer()
-        }
-    }
-}
-
-struct PersonDetailRowLeft: View {
-    let person: PersonViewModel
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Group {
-                Text("Campus").textStyle(SmallGrey())
-                Text(person.campus).textStyle(DetailData())
-//                NavigationLink(destination: CampusDetailView(campusDetailViewPredicate1: person.campus?.campusName ?? "")){
-//                    Text(person.campus).textStyle(DetailData())
-//                }
-            }
-            Spacer()
-            Group {
-                Text("Department").textStyle(SmallGrey())
-                Text(person.department).textStyle(DetailData())
-//                NavigationLink(destination: DepartmentDetailView(departmentDetailViewPredicate1: person.department?.departmentName ?? "")){
-//                    Text(person.department).textStyle(DetailData())
-//                }
-            }
-            Spacer()
-            Group {
-                Text("Title").textStyle(SmallGrey())
-                Text(person.title).textStyle(DetailData())
-//                NavigationLink(destination: TitleDetailView(titleDetailViewPredicate1: person.title?.titleName ?? "")){
-//                    Text(person.title).textStyle(DetailData())
-//                }
-            }
-            Spacer()
-            Group {
-                Text(" ").textStyle(SmallGrey())
-                Text(" ").textStyle(DetailData())
             }
             Spacer()
         }
