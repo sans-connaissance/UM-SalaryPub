@@ -55,17 +55,17 @@ class PersonInsightViewModel: ObservableObject {
     }
     
     func getTitles(vm: PersonViewModel) {
-        let request: [Title] = Title.forInsights(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText, name: vm.title, year: vm.year)
+        let request: [Title] = Title.forDetailAndInsights(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText, name: vm.title, year: vm.year)
         titlesInsight = request.map(TitleViewModel.init)
     }
     
     func getDepartments(vm: PersonViewModel) {
-        let request: [Department] = Department.forInsights(nameKeyPath: departmentNameKP.returnText, yearKeyPath: departmentYearKP.returnText, name: vm.department, year: vm.year)
+        let request: [Department] = Department.forDetailAndInsights(nameKeyPath: departmentNameKP.returnText, yearKeyPath: departmentYearKP.returnText, name: vm.department, year: vm.year)
         departmentsInsight = request.map(DepartmentViewModel.init)
     }
     
     func getCampuses(vm: PersonViewModel) {
-        let request: [Campus] = Campus.forInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText, name: vm.campus, year: vm.year)
+        let request: [Campus] = Campus.forDetailAndInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText, name: vm.campus, year: vm.year)
         campusesInsight = request.map(CampusViewModel.init)
     }
 
