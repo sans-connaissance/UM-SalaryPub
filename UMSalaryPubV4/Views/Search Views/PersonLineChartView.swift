@@ -5,11 +5,10 @@
 //  Created by David Malicke on 3/14/21.
 //
 
-import SwiftUI
 import Charts
+import SwiftUI
 
 struct PersonLineChartView: UIViewRepresentable {
-    
     @StateObject private var vm = PersonInsightViewModel()
     
     @Binding var showTitleAverage: Bool
@@ -45,7 +44,6 @@ struct PersonLineChartView: UIViewRepresentable {
         let personSetCampusAverageAnnual = LineChartDataSet(entries: vm.personEntryCampusAverageAnnual)
 
         func createDataSets(showTitleAverage: Bool, showDepartmentAverage: Bool, showCampusAverage: Bool, showAnnualFTR: Bool) -> [LineChartDataSet] {
-            
             var dataSets: [LineChartDataSet] = []
             
             if showAnnualFTR == true {
@@ -64,7 +62,7 @@ struct PersonLineChartView: UIViewRepresentable {
                 dataSets.append(personSetCampusAverageAnnual)
             }
     
-            if showTitleAverage == false && showDepartmentAverage == false && showCampusAverage == false && showAnnualFTR == false {
+            if showTitleAverage == false, showDepartmentAverage == false, showCampusAverage == false, showAnnualFTR == false {
                 dataSets.append(personSetAnnualFTR)
             }
             
@@ -78,7 +76,6 @@ struct PersonLineChartView: UIViewRepresentable {
         formatDataSet(dataSet: personSetCampusAverageAnnual, label: "Campus Average FTR", color: .systemBlue)
         formatDataSet(dataSet: personSetDepartmentAverageAnnual, label: "Department Average FTR", color: .systemIndigo)
         formatDataSet(dataSet: personSetTitleAverageAnnual, label: "Title Average FTR", color: .systemOrange)
-        
     }
 
     func formatDataSet(dataSet: LineChartDataSet, label: String, color: UIColor) {
@@ -94,7 +91,6 @@ struct PersonLineChartView: UIViewRepresentable {
         format.numberStyle = .currency
         format.currencySymbol = "$"
         dataSet.valueFormatter = DefaultValueFormatter(formatter: format)
-        
     }
 
     func configureChart(_ lineChart: LineChartView) {
@@ -112,7 +108,6 @@ struct PersonLineChartView: UIViewRepresentable {
         if lineChart.scaleX == 1.0 {
             lineChart.zoom(scaleX: 1.0, scaleY: 1.0, x: 0, y: 0)
         }
-
     }
 
     func formatXAxis(xAxis: XAxis) {
@@ -122,9 +117,9 @@ struct PersonLineChartView: UIViewRepresentable {
         
         if vm.showCampusAverage == true {
             xAxis.labelCount = vm.campusCount - 1
-        } else if vm.showTitleAverage == true  {
+        } else if vm.showTitleAverage == true {
             xAxis.labelCount = vm.titleCount - 1
-        } else if vm.showDepartmentAverage == true  {
+        } else if vm.showDepartmentAverage == true {
             xAxis.labelCount = vm.departmentCount - 1
         } else {
             xAxis.labelCount = vm.personCount - 1
@@ -133,7 +128,7 @@ struct PersonLineChartView: UIViewRepresentable {
         xAxis.labelPosition = .bottom
     }
 
-    func formatLeftAxis(leftAxis:YAxis) {
+    func formatLeftAxis(leftAxis: YAxis) {
         let leftAxisFormatter = NumberFormatter()
         leftAxisFormatter.generatesDecimalNumbers = false
         leftAxisFormatter.numberStyle = .currency
@@ -146,4 +141,3 @@ struct PersonLineChartView: UIViewRepresentable {
         }
     }
 }
-

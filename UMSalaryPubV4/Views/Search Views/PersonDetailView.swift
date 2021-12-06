@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct PersonDetailView: View {
-    
     @StateObject private var vm = PersonDetailViewModel()
     @Environment(\.presentationMode) var presentationMode
     
     let person: PersonViewModel
     
     var body: some View {
-        
         VStack(alignment: .leading) {
             InsightsButton(isPresented: $vm.isPresented)
                 .padding()
@@ -24,9 +22,7 @@ struct PersonDetailView: View {
                 }
         }
         
-        
-        ScrollView{
-            
+        ScrollView {
             VStack(alignment: .center) {
                 ForEach(vm.personsDetail.reversed(), id: \.self) { person in
                     Divider()
@@ -35,7 +31,7 @@ struct PersonDetailView: View {
                         Divider()
                         
                         VStack {
-                            HStack(spacing: 5){
+                            HStack(spacing: 5) {
                                 Spacer()
                                 PersonDetailRowLeft(person: person)
                                 Spacer()
@@ -48,19 +44,16 @@ struct PersonDetailView: View {
             }
         }
         .navigationTitle(person.fullName)
-        .onAppear(perform: {vm.getPersons(vm: person)})
+        .onAppear(perform: { vm.getPersons(vm: person) })
     }
 }
 
-
 struct PersonDetailRowRight: View {
-    
     let person: PersonViewModel
     
     var body: some View {
-        
         VStack(alignment: .leading) {
-            Group{
+            Group {
                 Text("Annual Full-Time Rate (FTR)").textStyle(SmallGrey())
                 Text(person.apptAnnualFTR).textStyle(DetailData())
             }
@@ -70,12 +63,12 @@ struct PersonDetailRowRight: View {
                 Text(person.apptFTRBasis).textStyle(DetailData())
             }
             Spacer()
-            Group{
+            Group {
                 Text("Appointment Fraction").textStyle(SmallGrey())
                 Text(person.apptFraction).textStyle(DetailData())
             }
             Spacer()
-            Group{
+            Group {
                 Text("Amount from General Fund").textStyle(SmallGrey())
                 Text(person.amtSalaryFromGeneralFund).textStyle(DetailData())
             }
@@ -85,20 +78,16 @@ struct PersonDetailRowRight: View {
 }
 
 struct PersonDetailRowLeft: View {
-    
     let person: PersonViewModel
     
     var body: some View {
-
         VStack(alignment: .leading) {
-            Group{
-                
+            Group {
                 Text("Campus").textStyle(SmallGrey())
                 Text(person.campus).textStyle(DetailData())
 //                NavigationLink(destination: CampusDetailView(campusDetailViewPredicate1: person.campus?.campusName ?? "")){
 //                    Text(person.campus).textStyle(DetailData())
 //                }
-                
             }
             Spacer()
             Group {
@@ -109,7 +98,7 @@ struct PersonDetailRowLeft: View {
 //                }
             }
             Spacer()
-            Group{
+            Group {
                 Text("Title").textStyle(SmallGrey())
                 Text(person.title).textStyle(DetailData())
 //                NavigationLink(destination: TitleDetailView(titleDetailViewPredicate1: person.title?.titleName ?? "")){
@@ -117,7 +106,7 @@ struct PersonDetailRowLeft: View {
 //                }
             }
             Spacer()
-            Group{
+            Group {
                 Text(" ").textStyle(SmallGrey())
                 Text(" ").textStyle(DetailData())
             }
@@ -125,9 +114,6 @@ struct PersonDetailRowLeft: View {
         }
     }
 }
-
-
-
 
 struct PersonDetailView_Previews: PreviewProvider {
     static var previews: some View {

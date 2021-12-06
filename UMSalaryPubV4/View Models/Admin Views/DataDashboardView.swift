@@ -8,17 +8,13 @@
 import SwiftUI
 
 struct DataDashboardView: View {
-    
     @StateObject private var adminVM = AdminViewModel()
     @State private var selectedYear = 2020
     
-    
     var body: some View {
-        
         let importYears = adminVM.importYears
         
         VStack {
-            
             loadButton
             Picker("Select year to import", selection: $selectedYear) {
                 ForEach(importYears, id: \.self) {
@@ -27,11 +23,8 @@ struct DataDashboardView: View {
             }
             Divider()
             DashboardCountsView()
-            
         }
     }
-    
-    
     
     var loadButton: some View {
         Button {
@@ -41,7 +34,6 @@ struct DataDashboardView: View {
             Text("Load Data")
         }
     }
-    
 }
 
 struct DataDashBoardView_Previews: PreviewProvider {
@@ -49,4 +41,3 @@ struct DataDashBoardView_Previews: PreviewProvider {
         DataDashboardView()
     }
 }
-

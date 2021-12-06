@@ -16,7 +16,6 @@ struct SmallGrey: ViewModifier {
     }
 }
 
-
 struct DetailData: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -24,7 +23,6 @@ struct DetailData: ViewModifier {
             .lineLimit(nil)
     }
 }
-
 
 struct CustomHeader: View {
     let name: String
@@ -34,17 +32,10 @@ struct CustomHeader: View {
         VStack {
             Spacer()
             HStack {
-                Text(name)
-                    .padding(.leading)
+                Text(name).padding(.leading)
                 Spacer()
             }
             Spacer()
-        }
-        .background(color)
+        }.background(color)
     }
 }
-
-
-
-
-

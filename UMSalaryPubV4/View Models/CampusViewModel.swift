@@ -9,7 +9,6 @@ import CoreData
 import Foundation
 
 struct CampusViewModel: Hashable {
-    
     let campus: Campus
     
     var id: NSManagedObjectID {
@@ -52,5 +51,4 @@ struct CampusViewModel: Hashable {
         let campusMinAnnual = campus.campusMinAnnual.withCommas()
         return "$" + campusMinAnnual
     }
-    
 }

@@ -8,9 +8,7 @@
 import CoreData
 import Foundation
 
-
 struct TitleViewModel: Hashable {
-    
     let title: Title
     
     var id: NSManagedObjectID {
@@ -53,5 +51,4 @@ struct TitleViewModel: Hashable {
         let titleMinAnnual = title.titleMinAnnual.withCommas()
         return "$" + titleMinAnnual
     }
-    
 }

@@ -8,28 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     var body: some View {
-        
         TabView {
             DataDashboardView()
                 .tabItem {
                     Image(systemName: "wrench.and.screwdriver")
                     Text(verbatim: "Admin")
                 }.tag(0)
-            
+
             HomeScreenView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text(verbatim: "Search")
                 }.tag(1)
-            
+
             FavoriteView()
                 .tabItem {
                     Image(systemName: "star")
                     Text(verbatim: "Favorites")
                 }.tag(2)
-            
+
             MoreInfoView()
                 .tabItem {
                     Image(systemName: "info")
@@ -39,19 +37,8 @@ struct ContentView: View {
     }
 }
 
-
-
-
-
-
 struct ContentView_Previews: PreviewProvider {
-    
-    
     static var previews: some View {
         ContentView()
-        
     }
 }
-
-
-

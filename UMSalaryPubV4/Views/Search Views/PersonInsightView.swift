@@ -5,11 +5,10 @@
 //  Created by David Malicke on 11/20/21.
 //
 
-import SwiftUI
 import Charts
+import SwiftUI
 
 struct PersonInsightView: View {
-    
     @StateObject private var vm = PersonInsightViewModel()
     
     @Environment(\.presentationMode) var presentationMode
@@ -27,19 +26,17 @@ struct PersonInsightView: View {
             Divider()
         }
         
-        
         ScrollView(.vertical) {
-            
             Text("Annual Full-Time Rate").font(.headline)
             Text("Yearly % Change").font(.headline)
             
             GeometryReader { geometry in
                 ScrollView(.horizontal, showsIndicators: false) {
-                    VStack(alignment: .center){
-                        HStack(alignment: .center){
-                            ForEach(vm.personsInsight, id: \.self ) { person in
+                    VStack(alignment: .center) {
+                        HStack(alignment: .center) {
+                            ForEach(vm.personsInsight, id: \.self) { person in
                                 Spacer()
-                                VStack(alignment: .center){
+                                VStack(alignment: .center) {
                                     Text(String(person.year)).textStyle(DetailData())
                                     Text(person.apptAnnualFTR).textStyle(DetailData())
                                 }
@@ -59,7 +56,8 @@ struct PersonInsightView: View {
             }.frame(height: 70)
             Divider()
             
-            //MARK: There are frame sizes in the older version
+            // MARK: There are frame sizes in the older version
+
             VStack {
                 PersonLineChartView(showTitleAverage: $vm.showTitleAverage, showDepartmentAverage: $vm.showDepartmentAverage, showCampusAverage: $vm.showCampusAverage, showAnnualFTR: $vm.showAnnualFTR, person: person)
             }.frame(width: 370, height: 370, alignment: .leading)
@@ -69,23 +67,21 @@ struct PersonInsightView: View {
                 ChartSwitch(isOn: $vm.showDepartmentAverage, switchTitle: "Department Avg. FTR", switchData: person.department, color: .systemPurple)
                 ChartSwitch(isOn: $vm.showTitleAverage, switchTitle: "Title Avg. FTR", switchData: person.title, color: .systemOrange)
             }
-            
         }
-        //MARK: Wrap these all into one function in the view model
-        .onAppear(perform: {vm.getCampuses(vm: person)})
-        .onAppear(perform: {vm.getPersons(vm: person)})
-        .onAppear(perform: {vm.getPercentChange()})
-        .onAppear(perform: {vm.getTitles(vm: person)})
-        .onAppear(perform: {vm.getDepartments(vm: person)})
-        .onAppear(perform: {vm.getChartData()})
-        
-        
+
+        // MARK: Wrap these all into one function in the view model
+
+        .onAppear(perform: { vm.getCampuses(vm: person) })
+        .onAppear(perform: { vm.getPersons(vm: person) })
+        .onAppear(perform: { vm.getPercentChange() })
+        .onAppear(perform: { vm.getTitles(vm: person) })
+        .onAppear(perform: { vm.getDepartments(vm: person) })
+        .onAppear(perform: { vm.getChartData() })
     }
 }
 
-
-//struct PersonInsightView_Previews: PreviewProvider {
+// struct PersonInsightView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        PersonInsightView()
 //    }
-//}
+// }

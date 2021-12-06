@@ -8,17 +8,13 @@
 import CoreData
 import SwiftUI
 
-
 struct DashboardCountsView: View {
-    
     @StateObject private var adminVM = AdminViewModel()
     
     var body: some View {
-         
         List {
             ForEach(adminVM.importYears, id: \.self) { year in
                 Section(header: Text(String(year))) {
-                    
                     if let personCount = adminVM.allPersons[year] {
                         let count = personCount.count
                         Text("Person: \(count)")

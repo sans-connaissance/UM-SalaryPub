@@ -6,14 +6,11 @@
 //
 //
 
-import CoreData
 import Charts
+import CoreData
 import Foundation
 
-
-
 extension Campus: BaseModel {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Campus> {
         return NSFetchRequest<Campus>(entityName: "Campus")
     }
@@ -28,67 +25,59 @@ extension Campus: BaseModel {
     @NSManaged public var campusMinAnnual: Double
     @NSManaged public var campusName: String?
     @NSManaged public var campusYear: Int64
-    @NSManaged public var personsOnCampus: Array<Person>
-    
-
+    @NSManaged public var personsOnCampus: [Person]
 }
 
 // MARK: Generated accessors for personsOnCampus
-extension Campus {
 
+public extension Campus {
     @objc(insertObject:inPersonsOnCampusAtIndex:)
-    @NSManaged public func insertIntoPersonsOnCampus(_ value: Person, at idx: Int)
+    @NSManaged func insertIntoPersonsOnCampus(_ value: Person, at idx: Int)
 
     @objc(removeObjectFromPersonsOnCampusAtIndex:)
-    @NSManaged public func removeFromPersonsOnCampus(at idx: Int)
+    @NSManaged func removeFromPersonsOnCampus(at idx: Int)
 
     @objc(insertPersonsOnCampus:atIndexes:)
-    @NSManaged public func insertIntoPersonsOnCampus(_ values: [Person], at indexes: NSIndexSet)
+    @NSManaged func insertIntoPersonsOnCampus(_ values: [Person], at indexes: NSIndexSet)
 
     @objc(removePersonsOnCampusAtIndexes:)
-    @NSManaged public func removeFromPersonsOnCampus(at indexes: NSIndexSet)
+    @NSManaged func removeFromPersonsOnCampus(at indexes: NSIndexSet)
 
     @objc(replaceObjectInPersonsOnCampusAtIndex:withObject:)
-    @NSManaged public func replacePersonsOnCampus(at idx: Int, with value: Person)
+    @NSManaged func replacePersonsOnCampus(at idx: Int, with value: Person)
 
     @objc(replacePersonsOnCampusAtIndexes:withPersonsOnCampus:)
-    @NSManaged public func replacePersonsOnCampus(at indexes: NSIndexSet, with values: [Person])
+    @NSManaged func replacePersonsOnCampus(at indexes: NSIndexSet, with values: [Person])
 
     @objc(addPersonsOnCampusObject:)
-    @NSManaged public func addToPersonsOnCampus(_ value: Person)
+    @NSManaged func addToPersonsOnCampus(_ value: Person)
 
     @objc(removePersonsOnCampusObject:)
-    @NSManaged public func removeFromPersonsOnCampus(_ value: Person)
+    @NSManaged func removeFromPersonsOnCampus(_ value: Person)
 
     @objc(addPersonsOnCampus:)
-    @NSManaged public func addToPersonsOnCampus(_ values: NSOrderedSet)
+    @NSManaged func addToPersonsOnCampus(_ values: NSOrderedSet)
 
     @objc(removePersonsOnCampus:)
-    @NSManaged public func removeFromPersonsOnCampus(_ values: NSOrderedSet)
-
+    @NSManaged func removeFromPersonsOnCampus(_ values: NSOrderedSet)
 }
 
-extension Campus : Identifiable {
-    
-    
+extension Campus: Identifiable {
     static func byYear(year: String) -> [Campus] {
-        
         let request: NSFetchRequest<Campus> = Campus.fetchRequest()
-        
+
         request.predicate = NSPredicate(format: " ANY %K = %@", #keyPath(Campus.personsOnCampus.year), year)
-        
+
         do {
             return try viewContext.fetch(request)
         } catch {
             return []
         }
     }
-    
 
-    static func lineChartDepartmentAverage(_ campuses:[CampusViewModel]) -> [ChartDataEntry] {
+    static func lineChartDepartmentAverage(_ campuses: [CampusViewModel]) -> [ChartDataEntry] {
         let campus = campuses
-        
-        return campus.map{BarChartDataEntry(x: Double($0.year), y: $0.campusAverageAnnualDouble)}
-    }
 
+        return campus.map { BarChartDataEntry(x: Double($0.year), y: $0.campusAverageAnnualDouble) }
+    }
 }

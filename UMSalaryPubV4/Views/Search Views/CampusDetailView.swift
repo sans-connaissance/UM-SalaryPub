@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct CampusDetailView: View {
-    
     @StateObject private var vm = CampusDetailViewModel()
     
     let campus: CampusViewModel
     
     var body: some View {
-        
-        ScrollView{
-            
+        ScrollView {
             VStack(alignment: .center) {
                 ForEach(vm.campusesDetail.reversed(), id: \.self) { campus in
                     Divider()
@@ -25,7 +22,7 @@ struct CampusDetailView: View {
                         Divider()
                         
                         VStack {
-                            HStack(spacing: 5){
+                            HStack(spacing: 5) {
                                 Spacer()
                                 CampusDetailRowLeft(campus: campus)
                                 Spacer()
@@ -38,7 +35,7 @@ struct CampusDetailView: View {
             }
         }
         .navigationTitle(campus.campusName)
-        .onAppear(perform: {vm.getCampuses(vm: campus)})
+        .onAppear(perform: { vm.getCampuses(vm: campus) })
     }
 }
 
@@ -46,16 +43,14 @@ struct CampusDetailRowRight: View {
     let campus: CampusViewModel
     
     var body: some View {
-        
         VStack(alignment: .leading) {
             Spacer()
-            Group{
+            Group {
                 Text("Avg. Annual FTR").textStyle(SmallGrey())
                 Text(campus.campusAverageAnnual).textStyle(DetailData())
-                
             }
             Spacer()
-            Group{
+            Group {
                 Text("Median Annual FTR").textStyle(SmallGrey())
                 Text(campus.campusMedianAnnual).textStyle(DetailData())
             }
@@ -65,7 +60,7 @@ struct CampusDetailRowRight: View {
                 Text(campus.campusMaxAnnual).textStyle(DetailData())
             }
             Spacer()
-            Group{
+            Group {
                 Text("Min Annual FTR").textStyle(SmallGrey())
                 Text(campus.campusMinAnnual).textStyle(DetailData())
             }
@@ -74,32 +69,28 @@ struct CampusDetailRowRight: View {
     }
 }
 
-
 struct CampusDetailRowLeft: View {
-    
     let campus: CampusViewModel
     
     var body: some View {
-        
-        
         VStack(alignment: .leading) {
             Spacer()
-            Group{
+            Group {
                 Text("People on campus").textStyle(SmallGrey())
                 Text(campus.campusCount).textStyle(DetailData())
             }
             Spacer()
-            Group{
+            Group {
                 Text(" ").textStyle(SmallGrey())
                 Text(" ").textStyle(DetailData())
             }
             Spacer()
-            Group{
+            Group {
                 Text(" ").textStyle(SmallGrey())
                 Text(" ").textStyle(DetailData())
             }
             Spacer()
-            Group{
+            Group {
                 Text(" ").textStyle(SmallGrey())
                 Text(" ").textStyle(DetailData())
             }
@@ -107,8 +98,6 @@ struct CampusDetailRowLeft: View {
         }
     }
 }
-
-
 
 struct CampusDetailView_Previews: PreviewProvider {
     static var previews: some View {

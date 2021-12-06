@@ -9,17 +9,16 @@ import Charts
 import Foundation
 
 class PersonInsightViewModel: ObservableObject {
-    
     @Published var personsInsight = [PersonViewModel]()
     @Published var salaries = [Double]()
     @Published var titlesInsight = [TitleViewModel]()
     @Published var departmentsInsight = [DepartmentViewModel]()
     @Published var campusesInsight = [CampusViewModel]()
     
-    @Published  var showTitleAverage = false
-    @Published  var showDepartmentAverage = false
-    @Published  var showCampusAverage = true
-    @Published  var showAnnualFTR = true
+    @Published var showTitleAverage = false
+    @Published var showDepartmentAverage = false
+    @Published var showCampusAverage = true
+    @Published var showAnnualFTR = true
     
     @Published var personEntryAnnualFTR = [ChartDataEntry]()
     @Published var personEntryTitleAverageAnnual = [ChartDataEntry]()
@@ -56,28 +55,26 @@ class PersonInsightViewModel: ObservableObject {
     }
     
     func getTitles(vm: PersonViewModel) {
-        let request: [Title] = Title.forInsights(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText,  name: vm.title, year: vm.year)
+        let request: [Title] = Title.forInsights(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText, name: vm.title, year: vm.year)
         titlesInsight = request.map(TitleViewModel.init)
     }
     
     func getDepartments(vm: PersonViewModel) {
-        let request: [Department] = Department.forInsights(nameKeyPath: departmentNameKP.returnText, yearKeyPath: departmentYearKP.returnText,  name: vm.department, year: vm.year)
+        let request: [Department] = Department.forInsights(nameKeyPath: departmentNameKP.returnText, yearKeyPath: departmentYearKP.returnText, name: vm.department, year: vm.year)
         departmentsInsight = request.map(DepartmentViewModel.init)
-        
     }
     
     func getCampuses(vm: PersonViewModel) {
-        let request: [Campus] = Campus.forInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText,  name: vm.campus, year: vm.year)
+        let request: [Campus] = Campus.forInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText, name: vm.campus, year: vm.year)
         campusesInsight = request.map(CampusViewModel.init)
-        
     }
 
     func getPercentChange() {
         salaries = Person.personPercentChange(personsInsight)
-        
     }
     
-    //MARK -- ALL THE CHART VARS AND STUFF NEED TO BE MOVED TO THEIR OWN VIEWMODEL
+    // MARK: - - ALL THE CHART VARS AND STUFF NEED TO BE MOVED TO THEIR OWN VIEWMODEL
+
     func getChartData() {
         personEntryAnnualFTR = Person.lineChartAnnualFTR(personsInsight)
         personEntryTitleAverageAnnual = Title.lineChartTitleAverage(titlesInsight)

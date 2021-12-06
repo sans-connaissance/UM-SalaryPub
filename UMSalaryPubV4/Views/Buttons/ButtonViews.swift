@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-
 struct SortListButton: View {
     var selected: SortOption
     // Should sortButtons be a type?
-    @Binding var sortButtons: [SortOption : Bool]
-    
+    @Binding var sortButtons: [SortOption: Bool]
+
     var body: some View {
         Button {
             listBy(sortOption: selected)
@@ -21,6 +20,7 @@ struct SortListButton: View {
                 .foregroundColor(sortButtons[selected] ?? false ? .blue : .gray)
         }
     }
+
     func listBy(sortOption: SortOption) {
         SortOption.allCases.forEach { button in
             sortButtons[button] = false
@@ -34,27 +34,31 @@ struct ChartSwitch: View {
     var switchTitle: String
     var switchData: String
     var color: UIColor
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
                 label
                 Spacer()
-                switchToggle}}
+                switchToggle
+            }
+        }
     }
+
     var label: some View {
         VStack {
             Text(switchTitle).textStyle(SmallGrey())
             Text(switchData).font(.subheadline)
-        }.padding([.top, .leading])}
-    
+        }.padding([.top, .leading])
+    }
+
     var switchToggle: some View {
         Toggle("", isOn: $isOn)
             .toggleStyle(SwitchToggleStyle(tint: .init(color)))
             .labelsHidden()
-            .padding(.trailing)}
+            .padding(.trailing)
+    }
 }
-
 
 enum SortOption: String, CaseIterable {
     case sortByMoneyDescending
@@ -62,10 +66,10 @@ enum SortOption: String, CaseIterable {
     case sortAlphabetically
     case sortByPersonCountDescending
     case sortByPersonCountAscending
-    
+
     static let personList: [SortOption] = [.sortByMoneyDescending, .sortByMoneyAscending, .sortAlphabetically]
-    
-    var title: Text  {
+
+    var title: Text {
         switch self {
         case .sortByMoneyDescending:
             return Text("$$$")
@@ -81,34 +85,30 @@ enum SortOption: String, CaseIterable {
     }
 }
 
-
-
-
 struct CloseInsightView: View {
-    
     @Environment(\.presentationMode) var presentationMode
-    
+
     var body: some View {
-        Button( action: {
+        Button(action: {
             presentationMode.wrappedValue.dismiss()
-        },  label: {
-            Text("Close").font(.subheadline)}).padding()
+        }, label: {
+            Text("Close").font(.subheadline)
+        }).padding()
     }
 }
 
 struct InsightsButton: View {
-    
     @Binding var isPresented: Bool
-    
+
     var body: some View {
         Button(action: {
-            isPresented.toggle()}){
-                HStack(alignment: .center, spacing: 2){
-                    Image(systemName: "chart.bar.xaxis").rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0)).opacity(0.6)
-                    Text("Insights")
-                        .textStyle(DetailData())
-                }
+            isPresented.toggle()
+        }) {
+            HStack(alignment: .center, spacing: 2) {
+                Image(systemName: "chart.bar.xaxis").rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0)).opacity(0.6)
+                Text("Insights")
+                    .textStyle(DetailData())
             }
+        }
     }
 }
-

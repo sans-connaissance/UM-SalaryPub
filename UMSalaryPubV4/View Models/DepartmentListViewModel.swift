@@ -8,21 +8,18 @@ import CoreData
 import Foundation
 
 class DepartmentListViewModel: ObservableObject {
-
     @Published var allDepartments = [Int: [DepartmentViewModel]]()
     
-    @Published var sortButtons = [SortOption : Bool]()
+    @Published var sortButtons = [SortOption: Bool]()
     
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
 
-    
     private var yearByType: YearByType = .Department
     private var importYears = Department.importYears
     private var namePredicate: NamePredicate = .Department
     private var moneyDescriptor: MoneySortDescriptor = .Department
     private var countDescriptor: CountSortDescriptor = .Department
-    
     
     func getDepartments() {
         let request: [Department] = Department.search(
@@ -37,7 +34,7 @@ class DepartmentListViewModel: ObservableObject {
             sortByPersonCountAscending: sortButtons[SortOption.sortByPersonCountAscending] ?? false,
             moneySortDescriptor: moneyDescriptor.returnText,
             countSortDescriptor: countDescriptor.returnText)
-        
+
         allDepartments[year.rawValue] = request.map(DepartmentViewModel.init)
     }
 

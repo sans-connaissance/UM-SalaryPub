@@ -5,12 +5,11 @@
 //  Created by David Malicke on 1/2/21.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 class CampusDAO: BaseDAO {
-    
-    // Singleton object 
+    // Singleton object
     static let shared = CampusDAO()
     
     private let campusEntityName = "Campus"
@@ -26,8 +25,8 @@ class CampusDAO: BaseDAO {
                             campusFlintAverage: Double,
                             
                             campusCount: Double,
-                            importYear: Int) -> Campus {
-       
+                            importYear: Int) -> Campus
+    {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: campusEntityName)
         
         let importYear = importYear
@@ -67,5 +66,4 @@ class CampusDAO: BaseDAO {
         
         return newCampus
     }
-    
 }

@@ -5,11 +5,10 @@
 //  Created by David Malicke on 1/2/21.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 class TitleDAO: BaseDAO {
-    
     static let shared = TitleDAO()
     
     private let titleEntityName = "Title"
@@ -23,15 +22,13 @@ class TitleDAO: BaseDAO {
                            titleAnnArborAverage: Double,
                            titleDearbornAverage: Double,
                            titleFlintAverage: Double,
-        
+                           
                            titleCount: Double,
-                           importYear: Int) -> Title {
-       
-        
-        
+                           importYear: Int) -> Title
+    {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: titleEntityName)
         
-        //This is the answer
+        // This is the answer
         let importYear = importYear
         
         let yearPredicate = NSPredicate(format: "titleYear = %i", importYear)
@@ -57,7 +54,7 @@ class TitleDAO: BaseDAO {
             return title!
         }
         
-        //Need to add year to each of these, and remember to remove Parent and Child relationships from database
+        // Need to add year to each of these, and remember to remove Parent and Child relationships from database
         
         // Creating category object in database
         let newTitle = Title(context: managedContext)
@@ -74,5 +71,4 @@ class TitleDAO: BaseDAO {
         
         return newTitle
     }
-    
 }

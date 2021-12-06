@@ -8,29 +8,27 @@
 import SwiftUI
 
 struct DepartmentListView: View {
-    
     @StateObject private var vm = DepartmentListViewModel()
     
     var body: some View {
         VStack {
             SearchBarView(searchText: $vm.searchText)
-                .onChange(of: vm.searchText) { _ in vm.getDepartments()}
+                .onChange(of: vm.searchText) { _ in vm.getDepartments() }
             
             HStack {
                 Picker("Select year", selection: $vm.year) {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
                     }
-                }.onChange(of: vm.year) { _ in vm.getDepartments()}
+                }.onChange(of: vm.year) { _ in vm.getDepartments() }
                 
                 ForEach(SortOption.allCases, id: \.self) { button in
                     SortListButton(selected: button, sortButtons: $vm.sortButtons)
-                    .onChange(of: vm.sortButtons) { _ in vm.getDepartments()}}
-                
+                        .onChange(of: vm.sortButtons) { _ in vm.getDepartments() }
+                }
             }
             Divider()
             List {
-                
                 if let departmentArray = vm.allDepartments[vm.year.rawValue] {
                     ForEach(departmentArray, id: \.self) { department in
                         NavigationLink {
@@ -43,8 +41,8 @@ struct DepartmentListView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Departments")
-            .onAppear(perform: { vm.setButtons()})
-            .onAppear(perform: { vm.getDepartments()})
+            .onAppear(perform: { vm.setButtons() })
+            .onAppear(perform: { vm.getDepartments() })
         }
     }
 }
@@ -53,7 +51,6 @@ struct DepartmentRow: View {
     let department: DepartmentViewModel
 
     var body: some View {
-        
         VStack(alignment: .leading, spacing: 2) {
             Text(department.departmentName).font(.headline)
             Text("People in Department:" + department.departmentCount).textStyle(DetailData())

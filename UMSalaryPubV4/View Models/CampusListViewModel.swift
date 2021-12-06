@@ -5,19 +5,17 @@
 //  Created by David Malicke on 11/18/21.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 class CampusListViewModel: ObservableObject {
-    
     @Published var allCampuses = [Int: [CampusViewModel]]()
     
-    @Published var sortButtons = [SortOption : Bool]()
+    @Published var sortButtons = [SortOption: Bool]()
     
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
 
-    
     private var yearByType: YearByType = .Campus
     private var importYears = Campus.importYears
     private var namePredicate: NamePredicate = .Campus
@@ -39,7 +37,6 @@ class CampusListViewModel: ObservableObject {
             countSortDescriptor: countDescriptor.returnText)
         
         allCampuses[year.rawValue] = request.map(CampusViewModel.init)
-        
     }
     
     func setButtons() {

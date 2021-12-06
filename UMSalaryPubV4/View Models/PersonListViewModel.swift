@@ -5,14 +5,13 @@
 //  Created by David Malicke on 11/8/21.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 class PersonListViewModel: ObservableObject {
-    
     @Published var allPersons = [Int: [PersonViewModel]]()
     
-    @Published var sortButtons = [SortOption : Bool]()
+    @Published var sortButtons = [SortOption: Bool]()
     
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
@@ -38,7 +37,6 @@ class PersonListViewModel: ObservableObject {
             countSortDescriptor: countDescriptor.returnText)
         
         allPersons[year.rawValue] = request.map(PersonViewModel.init)
-        
     }
     
     func setButtons() {
@@ -47,6 +45,4 @@ class PersonListViewModel: ObservableObject {
         }
         sortButtons[SortOption.sortByMoneyDescending] = true
     }
-    
 }
-

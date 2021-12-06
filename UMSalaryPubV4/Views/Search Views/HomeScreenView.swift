@@ -16,29 +16,37 @@ struct HomeScreenView: View {
                         Text("UM SalaryPub")
                     }) {
                         NavigationLink(
-                            destination: PersonListView()){
-                            Text("People").font(.headline)}
-                            .isDetailLink(false)
-                            .padding(.top)
-                            .padding(.bottom)
+                            destination: PersonListView())
+                        {
+                            Text("People").font(.headline)
+                        }
+                        .isDetailLink(false)
+                        .padding(.top)
+                        .padding(.bottom)
                         NavigationLink(
-                            destination: TitleListView()){
-                            Text("Titles").font(.headline)}
-                            .isDetailLink(false)
-                            .padding(.top)
-                            .padding(.bottom)
+                            destination: TitleListView())
+                        {
+                            Text("Titles").font(.headline)
+                        }
+                        .isDetailLink(false)
+                        .padding(.top)
+                        .padding(.bottom)
                         NavigationLink(
-                            destination: DepartmentListView()){
-                            Text("Departments").font(.headline)}
-                            .isDetailLink(false)
-                            .padding(.top)
-                            .padding(.bottom)
+                            destination: DepartmentListView())
+                        {
+                            Text("Departments").font(.headline)
+                        }
+                        .isDetailLink(false)
+                        .padding(.top)
+                        .padding(.bottom)
                         NavigationLink(
-                            destination: CampusListView()){
-                            Text("Campuses").font(.headline)}
-                            .isDetailLink(false)
-                            .padding(.top)
-                            .padding(.bottom)
+                            destination: CampusListView())
+                        {
+                            Text("Campuses").font(.headline)
+                        }
+                        .isDetailLink(false)
+                        .padding(.top)
+                        .padding(.bottom)
                     }
                 }.navigationTitle("Home")
                     .listStyle(GroupedListStyle())

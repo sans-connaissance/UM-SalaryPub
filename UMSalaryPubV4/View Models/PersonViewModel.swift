@@ -8,9 +8,7 @@
 import CoreData
 import Foundation
 
-
 struct PersonViewModel: Hashable {
-    
     let person: Person
     
     var id: NSManagedObjectID {
@@ -67,6 +65,4 @@ struct PersonViewModel: Hashable {
         let amtSalaryFromGeneralFund = person.amtSalaryFromGeneralFund.withCommas()
         return "$" + amtSalaryFromGeneralFund
     }
-    
 }
-

@@ -9,21 +9,18 @@ import CoreData
 import Foundation
 
 class TitleListViewModel: ObservableObject {
-
     @Published var allTitles = [Int: [TitleViewModel]]()
     
-    @Published var sortButtons = [SortOption : Bool]()
+    @Published var sortButtons = [SortOption: Bool]()
     
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
 
-    
     private var yearByType: YearByType = .Title
     private var importYears = Title.importYears
     private var namePredicate: NamePredicate = .Title
     private var moneyDescriptor: MoneySortDescriptor = .Title
     private var countDescriptor: CountSortDescriptor = .Title
-    
     
     func getTitles() {
         let request: [Title] = Title.search(

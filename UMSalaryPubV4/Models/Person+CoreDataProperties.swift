@@ -11,13 +11,11 @@ import CoreData
 import Foundation
 import SwiftUI
 
-
 extension Person: BaseModel {
-    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Person> {
         return NSFetchRequest<Person>(entityName: "Person")
     }
-    
+
     @NSManaged public var amtSalaryFromGeneralFund: Double
     @NSManaged public var apptAnnualFTR: Double
     @NSManaged public var apptFraction: Double
@@ -27,36 +25,30 @@ extension Person: BaseModel {
     @NSManaged public var campus: Campus?
     @NSManaged public var department: Department?
     @NSManaged public var title: Title?
-    
-    
 }
 
-extension Person : Identifiable {
+extension Person: Identifiable {
+    // MARK: can this be added to the base model?
 
-    //MARK: can this be added to the base model?
     static func byYear(year: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, sortAlphabetically: Bool, filter: String) -> [Person] {
-        
         let request: NSFetchRequest<Person> = Person.fetchRequest()
-       
+
         let sortByMoneyDescendingDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: false)
         let sortByMoneyAscendingDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: true)
         let sortAlphabeticallyDescriptor = NSSortDescriptor(key: "fullName", ascending: true)
-        
+
         if sortByMoneyDescending { request.sortDescriptors = [sortByMoneyDescendingDescriptor] }
         if sortByMoneyAscending { request.sortDescriptors = [sortByMoneyAscendingDescriptor] }
         if sortAlphabetically { request.sortDescriptors = [sortAlphabeticallyDescriptor] }
 
-//        request.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.year), year)
-        
         let yearPredicate = NSPredicate(format: "year == %@", year)
         let namePredicate = NSPredicate(format: "fullName CONTAINS[c] %@", filter)
         let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
         request.predicate = combinedPredicate
- 
-            
+
         request.fetchBatchSize = 25
         request.fetchLimit = 50
-        
+
         do {
             return try viewContext.fetch(request)
         } catch {
@@ -64,27 +56,23 @@ extension Person : Identifiable {
         }
     }
 
-  
     static func personPercentChange(_ persons: [PersonViewModel]) -> [Double] {
-        var salaries : [Double] = []
+        var salaries: [Double] = []
         let personsArray = persons
 
-        for salary in  personsArray {
-            
+        for salary in personsArray {
             salaries.append(salary.apptAnnualFTRDouble)
         }
 
         let percentages = [0] + zip(salaries, salaries.dropFirst()).map {
-            100.0 * ($1 - $0) / $0 }
-        
+            100.0 * ($1 - $0) / $0
+        }
         return percentages
     }
-    
+
     static func lineChartAnnualFTR(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
         let personArray = persons
-        
-        return personArray.map{BarChartDataEntry(x: Double($0.year), y: $0.apptAnnualFTRDouble)}
-        
+
+        return personArray.map { BarChartDataEntry(x: Double($0.year), y: $0.apptAnnualFTRDouble) }
     }
-    
 }

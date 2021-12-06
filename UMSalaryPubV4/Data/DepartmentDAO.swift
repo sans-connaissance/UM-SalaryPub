@@ -5,11 +5,10 @@
 //  Created by David Malicke on 1/2/21.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 class DepartmentDAO: BaseDAO {
-    
     static let shared = DepartmentDAO()
     
     private let departmentEntityName = "Department"
@@ -21,10 +20,8 @@ class DepartmentDAO: BaseDAO {
                                 departmentMaxAnnual: Double,
                                 departmentMinAnnual: Double,
                                 departmentCount: Double,
-                                importYear: Int) -> Department {
-        
-        
-        
+                                importYear: Int) -> Department
+    {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: departmentEntityName)
         
         let importYear = importYear
@@ -36,11 +33,6 @@ class DepartmentDAO: BaseDAO {
         let combinedDepartmentPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, departmentNamePredicate])
         
         fetchRequest.predicate = combinedDepartmentPredicate
-        
-        
-        
-        
-        
         
         var department: Department?
         do {
@@ -66,5 +58,4 @@ class DepartmentDAO: BaseDAO {
         
         return newDepartment
     }
-    
 }

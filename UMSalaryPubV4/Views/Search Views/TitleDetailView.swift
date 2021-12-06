@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct TitleDetailView: View {
-    
     @StateObject private var vm = TitleDetailViewModel()
     
     let title: TitleViewModel
     
     var body: some View {
-        
-        ScrollView{
-            
+        ScrollView {
             VStack(alignment: .center) {
                 ForEach(vm.titlesDetail.reversed(), id: \.self) { title in
                     Divider()
@@ -25,7 +22,7 @@ struct TitleDetailView: View {
                         Divider()
                         
                         VStack {
-                            HStack(spacing: 5){
+                            HStack(spacing: 5) {
                                 Spacer()
                                 TitleDetailRowLeft(title: title)
                                 Spacer()
@@ -38,7 +35,7 @@ struct TitleDetailView: View {
             }
         }
         .navigationTitle(title.titleName)
-        .onAppear(perform: {vm.getTitles(vm: title)})
+        .onAppear(perform: { vm.getTitles(vm: title) })
     }
 }
 
@@ -46,16 +43,14 @@ struct TitleDetailRowRight: View {
     let title: TitleViewModel
     
     var body: some View {
-        
         VStack(alignment: .leading) {
             Spacer()
-            Group{
+            Group {
                 Text("Avg. Annual FTR").textStyle(SmallGrey())
                 Text(title.titleAverageAnnual).textStyle(DetailData())
-                
             }
             Spacer()
-            Group{
+            Group {
                 Text("Median Annual FTR").textStyle(SmallGrey())
                 Text(title.titleMedianAnnual).textStyle(DetailData())
             }
@@ -65,7 +60,7 @@ struct TitleDetailRowRight: View {
                 Text(title.titleMaxAnnual).textStyle(DetailData())
             }
             Spacer()
-            Group{
+            Group {
                 Text("Min Annual FTR").textStyle(SmallGrey())
                 Text(title.titleMinAnnual).textStyle(DetailData())
             }
@@ -74,28 +69,25 @@ struct TitleDetailRowRight: View {
     }
 }
 
-
 struct TitleDetailRowLeft: View {
-    
     let title: TitleViewModel
     
     var body: some View {
-
         VStack(alignment: .leading) {
             Spacer()
-            Group{
+            Group {
                 Text("People with Title").textStyle(SmallGrey())
 //                NavigationLink(destination: PersonByTitleListView(titleFilter: title.titleName!, titleYear: String(title.titleYear))){
 //                    Text("\(Int(title.titleCount))").textStyle(DetailData())
 //                }.isDetailLink(true)
             }
             Spacer()
-            Group{
+            Group {
                 Text("Campuses with Title").textStyle(SmallGrey())
 //                CampusWithTitle(campuses: title.personsWithTitle)
             }
             Spacer()
-            Group{
+            Group {
                 Text(" ").textStyle(SmallGrey())
                 Text(" ").textStyle(DetailData())
             }
@@ -103,9 +95,6 @@ struct TitleDetailRowLeft: View {
         }
     }
 }
-
-
-
 
 struct TitleDetailView_Previews: PreviewProvider {
     static var previews: some View {

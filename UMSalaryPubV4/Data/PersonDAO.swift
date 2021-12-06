@@ -5,11 +5,10 @@
 //  Created by David Malicke on 1/2/21.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 class PersonDAO: BaseDAO {
-    
     // Singleton object
     static let shared = PersonDAO()
     
@@ -18,14 +17,12 @@ class PersonDAO: BaseDAO {
     func addPersonsIfNeeded(importYear: Int) {
         guard !hasRecords(importYear: importYear)
         
-        
         else {
             return
         }
         
         if let persons = AppUtils.dictionaryFromFile(name: "csvjson-0\(String(importYear))")["persons"] as? [[String: Any]] {
             for person in persons {
-                
                 var campus: Campus?
                 if let campusName = person["campus"] as? String {
                     if let campusYear = person["year"] as? Int64 {
@@ -37,24 +34,16 @@ class PersonDAO: BaseDAO {
                                             if let campusAnnArborAverage = person["campusAnnArborAverage"] as? Double {
                                                 if let campusDearbornAverage = person["campusDearbornAverage"] as? Double {
                                                     if let campusFlintAverage = person["campusFlintAverage"] as? Double {
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            campus = CampusDAO.shared.saveCampusIfNeeded(campusName: campusName,
-                                                                                         campusYear: campusYear,
-                                                                                         campusAverageAnnual: campusAverageAnnual,
-                                                                                         campusMedianAnnual: campusMedianAnnual,
-                                                                                         campusMaxAnnual: campusMaxAnnual,
-                                                                                        campusMinAnnual: campusMinAnnual,
-                                                                                        campusAnnArborAverage: campusAnnArborAverage,
-                                                                                        campusDearbornAverage: campusDearbornAverage,
-                                                                                        campusFlintAverage: campusFlintAverage,
-                                                                                         campusCount: campusCount, importYear: importYear)
-                                                    
-                                                    
-                                                    
+                                                        campus = CampusDAO.shared.saveCampusIfNeeded(campusName: campusName,
+                                                                                                     campusYear: campusYear,
+                                                                                                     campusAverageAnnual: campusAverageAnnual,
+                                                                                                     campusMedianAnnual: campusMedianAnnual,
+                                                                                                     campusMaxAnnual: campusMaxAnnual,
+                                                                                                     campusMinAnnual: campusMinAnnual,
+                                                                                                     campusAnnArborAverage: campusAnnArborAverage,
+                                                                                                     campusDearbornAverage: campusDearbornAverage,
+                                                                                                     campusFlintAverage: campusFlintAverage,
+                                                                                                     campusCount: campusCount, importYear: importYear)
                                                     }
                                                 }
                                             }
@@ -66,27 +55,14 @@ class PersonDAO: BaseDAO {
                     }
                 }
                 
-                
-                
-                
-                
                 var department: Department?
                 if let departmentName = person["appointmentDepartment"] as? String {
                     if let departmentYear = person["year"] as? Int64 {
                         if let departmentAverageAnnual = person["departmentAverageAnnual"] as? Double {
-                            
                             if let departmentMedianAnnual = person["departmentMedianAnnual"] as? Double {
-                                
                                 if let departmentMaxAnnual = person["departmentMaxAnnual"] as? Double {
-                                    
                                     if let departmentMinAnnual = person["departmentMinAnnual"] as? Double {
-                                        
                                         if let departmentCount = person["departmentCount"] as? Double {
-                                            
-                                            
-                                            
-                                            
-                                            
                                             department = DepartmentDAO.shared.saveDepartmentIfNeeded(departmentName: departmentName,
                                                                                                      departmentYear: departmentYear,
                                                                                                      departmentAverageAnnual: departmentAverageAnnual,
@@ -98,7 +74,6 @@ class PersonDAO: BaseDAO {
                                                                                                      departmentMinAnnual: departmentMinAnnual,
                                                                                                      
                                                                                                      departmentCount: departmentCount, importYear: importYear)
-                                            
                                         }
                                     }
                                 }
@@ -118,18 +93,16 @@ class PersonDAO: BaseDAO {
                                             if let titleAnnArborAverage = person["titleAnnArborAverage"] as? Double {
                                                 if let titleDearbornAverage = person["titleDearbornAverage"] as? Double {
                                                     if let titleFlintAverage = person["titleFlintAverage"] as? Double {
-                                            
-                                            
-                                            title = TitleDAO.shared.saveTitleIfNeeded(titleName: titleName,
-                                                                                      titleYear: titleYear,
-                                                                                      titleAverageAnnual: titleAverageAnnual,
-                                                                                      titleMedianAnnual: titleMedianAnnual,
-                                                                                      titleMaxAnnual: titleMaxAnnual,
-                                                                                      titleMinAnnual: titleMinAnnual,
-                                                                                      titleAnnArborAverage: titleAnnArborAverage,
-                                                                                      titleDearbornAverage: titleDearbornAverage,
-                                                                                      titleFlintAverage: titleFlintAverage,
-                                                                                      titleCount: titleCount, importYear: importYear)
+                                                        title = TitleDAO.shared.saveTitleIfNeeded(titleName: titleName,
+                                                                                                  titleYear: titleYear,
+                                                                                                  titleAverageAnnual: titleAverageAnnual,
+                                                                                                  titleMedianAnnual: titleMedianAnnual,
+                                                                                                  titleMaxAnnual: titleMaxAnnual,
+                                                                                                  titleMinAnnual: titleMinAnnual,
+                                                                                                  titleAnnArborAverage: titleAnnArborAverage,
+                                                                                                  titleDearbornAverage: titleDearbornAverage,
+                                                                                                  titleFlintAverage: titleFlintAverage,
+                                                                                                  titleCount: titleCount, importYear: importYear)
                                                     }
                                                 }
                                             }
@@ -152,8 +125,6 @@ class PersonDAO: BaseDAO {
                 newPerson.campus = campus
                 newPerson.department = department
                 newPerson.title = title
-                
-                
             }
             CoreDataManager.shared.saveContext()
         }
@@ -169,7 +140,7 @@ class PersonDAO: BaseDAO {
             print("Could not count. \(error)")
         }
         
-                        return count != 0
+        return count != 0
 //        return count == 1
     }
 }

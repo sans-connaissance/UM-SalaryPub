@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct DepartmentDetailView: View {
-    
     @StateObject private var vm = DepartmentDetailViewModel()
     
     let department: DepartmentViewModel
     
     var body: some View {
-        
-        ScrollView{
-            
+        ScrollView {
             VStack(alignment: .center) {
                 ForEach(vm.departmentsDetail.reversed(), id: \.self) { department in
                     Divider()
@@ -25,7 +22,7 @@ struct DepartmentDetailView: View {
                         Divider()
                         
                         VStack {
-                            HStack(spacing: 5){
+                            HStack(spacing: 5) {
                                 Spacer()
                                 DepartmentDetailRowLeft(department: department)
                                 Spacer()
@@ -38,25 +35,22 @@ struct DepartmentDetailView: View {
             }
         }
         .navigationTitle(department.departmentName)
-        .onAppear(perform: {vm.getDepartments(vm: department)})
+        .onAppear(perform: { vm.getDepartments(vm: department) })
     }
 }
 
 struct DepartmentDetailRowRight: View {
-    
     let department: DepartmentViewModel
     
     var body: some View {
-        
         VStack(alignment: .leading) {
             Spacer()
-            Group{
+            Group {
                 Text("Avg. Annual FTR").textStyle(SmallGrey())
                 Text(department.departmentAverageAnnual).textStyle(DetailData())
-                
             }
             Spacer()
-            Group{
+            Group {
                 Text("Median Annual FTR").textStyle(SmallGrey())
                 Text(department.departmentMedianAnnual).textStyle(DetailData())
             }
@@ -66,7 +60,7 @@ struct DepartmentDetailRowRight: View {
                 Text(department.departmentMaxAnnual).textStyle(DetailData())
             }
             Spacer()
-            Group{
+            Group {
                 Text("Min Annual FTR").textStyle(SmallGrey())
                 Text(department.departmentMinAnnual).textStyle(DetailData())
             }
@@ -75,30 +69,25 @@ struct DepartmentDetailRowRight: View {
     }
 }
 
-
 struct DepartmentDetailRowLeft: View {
-    
     let department: DepartmentViewModel
     
     var body: some View {
-        
-        
         VStack(alignment: .leading) {
             Spacer()
-            Group{
+            Group {
                 Text("People in Department").textStyle(SmallGrey())
 //                NavigationLink(destination: PersonByDepartmentListView(departmentFilter: department.departmentName!, departmentYear: String(department.departmentYear))){
 //                    Text("\(Int(department.departmentCount))").textStyle(DetailData())
 //                }.isDetailLink(true)
             }
             Spacer()
-            Group{
+            Group {
                 Text("Campuses with Department").textStyle(SmallGrey())
 //                CampusWithDepartment(campuses: department.personsInDepartment)
-                
             }
             Spacer()
-            Group{
+            Group {
                 Text(" ").textStyle(SmallGrey())
                 Text(" ").textStyle(DetailData())
             }
