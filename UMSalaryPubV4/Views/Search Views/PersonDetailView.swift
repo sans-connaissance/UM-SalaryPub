@@ -21,7 +21,7 @@ struct PersonDetailView: View {
                     PersonInsightView(person: person)
                 }
         }
-        
+
         ScrollView {
             VStack(alignment: .center) {
                 ForEach(vm.personsDetail.reversed(), id: \.self) { person in

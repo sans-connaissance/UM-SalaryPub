@@ -39,6 +39,33 @@ struct TitleDetailView: View {
     }
 }
 
+struct TitleDetailRowLeft: View {
+    let title: TitleViewModel
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Spacer()
+            Group {
+                Text("People with Title").textStyle(SmallGrey())
+//                NavigationLink(destination: PersonByTitleListView(titleFilter: title.titleName!, titleYear: String(title.titleYear))){
+//                    Text("\(Int(title.titleCount))").textStyle(DetailData())
+//                }.isDetailLink(true)
+            }
+            Spacer()
+            Group {
+                Text("Campuses with Title").textStyle(SmallGrey())
+//                CampusWithTitle(campuses: title.personsWithTitle)
+            }
+            Spacer()
+            Group {
+                Text(" ").textStyle(SmallGrey())
+                Text(" ").textStyle(DetailData())
+            }
+            Spacer()
+        }
+    }
+}
+
 struct TitleDetailRowRight: View {
     let title: TitleViewModel
     
@@ -63,33 +90,6 @@ struct TitleDetailRowRight: View {
             Group {
                 Text("Min Annual FTR").textStyle(SmallGrey())
                 Text(title.titleMinAnnual).textStyle(DetailData())
-            }
-            Spacer()
-        }
-    }
-}
-
-struct TitleDetailRowLeft: View {
-    let title: TitleViewModel
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Spacer()
-            Group {
-                Text("People with Title").textStyle(SmallGrey())
-//                NavigationLink(destination: PersonByTitleListView(titleFilter: title.titleName!, titleYear: String(title.titleYear))){
-//                    Text("\(Int(title.titleCount))").textStyle(DetailData())
-//                }.isDetailLink(true)
-            }
-            Spacer()
-            Group {
-                Text("Campuses with Title").textStyle(SmallGrey())
-//                CampusWithTitle(campuses: title.personsWithTitle)
-            }
-            Spacer()
-            Group {
-                Text(" ").textStyle(SmallGrey())
-                Text(" ").textStyle(DetailData())
             }
             Spacer()
         }

@@ -10,7 +10,6 @@ import Foundation
 
 class TitleDAO: BaseDAO {
     static let shared = TitleDAO()
-    
     private let titleEntityName = "Title"
     
     func saveTitleIfNeeded(titleName: String,
@@ -22,25 +21,15 @@ class TitleDAO: BaseDAO {
                            titleAnnArborAverage: Double,
                            titleDearbornAverage: Double,
                            titleFlintAverage: Double,
-                           
                            titleCount: Double,
                            importYear: Int) -> Title
     {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: titleEntityName)
-        
-        // This is the answer
         let importYear = importYear
-        
         let yearPredicate = NSPredicate(format: "titleYear = %i", importYear)
-        
         let titleNamePredicate = NSPredicate(format: "titleName = %@", titleName)
-        
         let combinedTitlePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, titleNamePredicate])
-        
         fetchRequest.predicate = combinedTitlePredicate
-        
-//        fetchRequest.predicate = NSPredicate(format: "ANY personsWithTitle.year = %@", "2017")
-//        fetchRequest.predicate =  NSPredicate(format: "titleName = %@", titleName)
         
         var title: Title?
         do {
