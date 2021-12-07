@@ -68,7 +68,7 @@ extension Person: Identifiable {
         if sortAlphabetically { request.sortDescriptors = [sortAlphabeticallyDescriptor] }
 
         let yearPredicate = NSPredicate(format: "year == %@", year)
-        let namePredicate = NSPredicate(format: "titleName CONTAINS[c] %@", titleName)
+        let namePredicate = NSPredicate(format: "ANY title.titleName = %@", titleName)
         let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
         request.predicate = combinedPredicate
         

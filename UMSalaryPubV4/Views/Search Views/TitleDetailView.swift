@@ -47,9 +47,12 @@ struct TitleDetailRowLeft: View {
             Spacer()
             Group {
                 Text("People with Title").textStyle(SmallGrey())
-//                NavigationLink(destination: PersonByTitleListView(titleFilter: title.titleName!, titleYear: String(title.titleYear))){
-//                    Text("\(Int(title.titleCount))").textStyle(DetailData())
-//                }.isDetailLink(true)
+                NavigationLink {
+                    PersonListByTitleView(title: title)
+                 
+                } label: {
+                    Text(title.titleCount).textStyle(DetailData())
+                }
             }
             Spacer()
             Group {
