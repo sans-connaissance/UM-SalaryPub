@@ -25,6 +25,7 @@
 		4157AD04275F00FC002A134D /* PersonListByTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157AD03275F00FC002A134D /* PersonListByTitleView.swift */; };
 		4157AD06275F0122002A134D /* PersonListByTitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157AD05275F0121002A134D /* PersonListByTitleViewModel.swift */; };
 		4157AD08275FB585002A134D /* PersonListByDepartmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157AD07275FB585002A134D /* PersonListByDepartmentView.swift */; };
+		4157AD0A275FB66B002A134D /* PersonListByDepartmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157AD09275FB66B002A134D /* PersonListByDepartmentViewModel.swift */; };
 		416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C8A5D272B10CE00653032 /* BaseModel.swift */; };
 		41998B5C2738480A0021D632 /* DataDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B5B2738480A0021D632 /* DataDashboardView.swift */; };
 		41998B7D273970C70021D632 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 41998B7C273970C70021D632 /* Collections */; };
@@ -100,6 +101,7 @@
 		4157AD03275F00FC002A134D /* PersonListByTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListByTitleView.swift; sourceTree = "<group>"; };
 		4157AD05275F0121002A134D /* PersonListByTitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListByTitleViewModel.swift; sourceTree = "<group>"; };
 		4157AD07275FB585002A134D /* PersonListByDepartmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListByDepartmentView.swift; sourceTree = "<group>"; };
+		4157AD09275FB66B002A134D /* PersonListByDepartmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListByDepartmentViewModel.swift; sourceTree = "<group>"; };
 		416C8A5D272B10CE00653032 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		41998B5B2738480A0021D632 /* DataDashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDashboardView.swift; sourceTree = "<group>"; };
 		41998B802739A2550021D632 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				41D4B89F2749CD0500F0FB92 /* CampusDetailViewModel.swift */,
 				41D4B895274755B300F0FB92 /* CampusListViewModel.swift */,
 				41D4B89127474FC500F0FB92 /* CampusViewModel.swift */,
+				4157AD09275FB66B002A134D /* PersonListByDepartmentViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				41D4B8A02749CD0500F0FB92 /* CampusDetailViewModel.swift in Sources */,
 				416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */,
 				41D4B89A274941C200F0FB92 /* CampusListView.swift in Sources */,
+				4157AD0A275FB66B002A134D /* PersonListByDepartmentViewModel.swift in Sources */,
 				414AD159272320C300316A45 /* DepartmentDAO.swift in Sources */,
 				4157AD04275F00FC002A134D /* PersonListByTitleView.swift in Sources */,
 				41D4B8AA2749EAED00F0FB92 /* PersonInsightView.swift in Sources */,

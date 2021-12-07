@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PersonListByDepartmentView: View {
-    @StateObject private var vm = PersonListByTitleViewModel()
+    @StateObject private var vm = PersonListByDepartmentViewModel()
     let department: DepartmentViewModel
 
     var body: some View {

@@ -39,6 +39,36 @@ struct DepartmentDetailView: View {
     }
 }
 
+struct DepartmentDetailRowLeft: View {
+    let department: DepartmentViewModel
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Spacer()
+            Group {
+                Text("People in Department").textStyle(SmallGrey())
+                NavigationLink {
+                    PersonListByDepartmentView(department: department)
+                 
+                } label: {
+                    Text(department.departmentCount).textStyle(DetailData())
+                }
+            }
+            Spacer()
+            Group {
+                Text("Campuses with Department").textStyle(SmallGrey())
+//                CampusWithDepartment(campuses: department.personsInDepartment)
+            }
+            Spacer()
+            Group {
+                Text(" ").textStyle(SmallGrey())
+                Text(" ").textStyle(DetailData())
+            }
+            Spacer()
+        }
+    }
+}
+
 struct DepartmentDetailRowRight: View {
     let department: DepartmentViewModel
     
@@ -63,33 +93,6 @@ struct DepartmentDetailRowRight: View {
             Group {
                 Text("Min Annual FTR").textStyle(SmallGrey())
                 Text(department.departmentMinAnnual).textStyle(DetailData())
-            }
-            Spacer()
-        }
-    }
-}
-
-struct DepartmentDetailRowLeft: View {
-    let department: DepartmentViewModel
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Spacer()
-            Group {
-                Text("People in Department").textStyle(SmallGrey())
-//                NavigationLink(destination: PersonByDepartmentListView(departmentFilter: department.departmentName!, departmentYear: String(department.departmentYear))){
-//                    Text("\(Int(department.departmentCount))").textStyle(DetailData())
-//                }.isDetailLink(true)
-            }
-            Spacer()
-            Group {
-                Text("Campuses with Department").textStyle(SmallGrey())
-//                CampusWithDepartment(campuses: department.personsInDepartment)
-            }
-            Spacer()
-            Group {
-                Text(" ").textStyle(SmallGrey())
-                Text(" ").textStyle(DetailData())
             }
             Spacer()
         }
