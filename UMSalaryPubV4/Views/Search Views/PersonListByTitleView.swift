@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PersonByTitleListView: View {
+struct PersonListByTitleView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -15,6 +15,6 @@ struct PersonByTitleListView: View {
 
 struct PersonByTitleListView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonByTitleListView()
+        PersonListByTitleView()
     }
 }

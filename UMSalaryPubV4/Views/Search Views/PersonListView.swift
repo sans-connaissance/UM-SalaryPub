@@ -20,11 +20,9 @@ struct PersonListView: View {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
                     }
-                }
-                .onChange(of: vm.year) { _ in vm.getPersons() }
+                }.onChange(of: vm.year) { _ in vm.getPersons() }
                 
                 ForEach(SortOption.personList, id: \.self) { button in
-
                     SortListButton(selected: button, sortButtons: $vm.sortButtons)
                         .onChange(of: vm.sortButtons) { _ in vm.getPersons() }
                 }
