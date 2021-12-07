@@ -80,6 +80,31 @@ extension Person: Identifiable {
             return []
         }
     }
+    
+    static func byDepartment(year: String, departmentName: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, sortAlphabetically: Bool) -> [Person] {
+        let request: NSFetchRequest<Person> = Person.fetchRequest()
+        
+        let sortByMoneyDescendingDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: false)
+        let sortByMoneyAscendingDescriptor = NSSortDescriptor(key: "apptAnnualFTR", ascending: true)
+        let sortAlphabeticallyDescriptor = NSSortDescriptor(key: "fullName", ascending: true)
+
+        if sortByMoneyDescending { request.sortDescriptors = [sortByMoneyDescendingDescriptor] }
+        if sortByMoneyAscending { request.sortDescriptors = [sortByMoneyAscendingDescriptor] }
+        if sortAlphabetically { request.sortDescriptors = [sortAlphabeticallyDescriptor] }
+
+        let yearPredicate = NSPredicate(format: "year == %@", year)
+        let namePredicate = NSPredicate(format: "ANY department.departmentName = %@", departmentName)
+        let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
+        request.predicate = combinedPredicate
+        
+        request.fetchBatchSize = 25
+        
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
 
     static func personPercentChange(_ persons: [PersonViewModel]) -> [Double] {
         var salaries: [Double] = []
