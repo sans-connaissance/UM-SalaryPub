@@ -5,20 +5,22 @@
 //  Created by David Malicke on 12/6/21.
 //
 
-import CoreData
 import Foundation
-
 
 class PersonListByTitleViewModel: ObservableObject {
     @Published var personsByTitle = [PersonViewModel]()
-    
     @Published var sortButtons = [SortOption: Bool]()
     
-    private var namePredicate: NamePredicate = .Person
-    private var moneyDescriptor: MoneySortDescriptor = .Person
-    private var countDescriptor: CountSortDescriptor = .Person
-    
-    
+    func getPersonsByTitle(vm: TitleViewModel) {
+        let request: [Person] = Person.byTitle(
+            year: String(vm.title.titleYear),
+            titleName: vm.titleName,
+            sortByMoneyDescending: sortButtons[SortOption.sortByMoneyDescending] ?? false,
+            sortByMoneyAscending: sortButtons[SortOption.sortByMoneyAscending] ?? false,
+            sortAlphabetically: sortButtons[SortOption.sortAlphabetically] ?? false)
+        
+        personsByTitle = request.map(PersonViewModel.init)
+    }
     
     func setButtons() {
         SortOption.allCases.forEach { button in
@@ -26,5 +28,4 @@ class PersonListByTitleViewModel: ObservableObject {
         }
         sortButtons[SortOption.sortByMoneyDescending] = true
     }
-    
 }
