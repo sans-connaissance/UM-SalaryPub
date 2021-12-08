@@ -9,9 +9,6 @@ import Foundation
 
 class PersonDetailViewModel: ObservableObject {
     @Published var personsDetail = [PersonViewModel]()
-    //@Published var titleForDetailView = [TitleViewModel]()
-    @Published var departmentForDetailView = [DepartmentViewModel]()
-    @Published var campusForDetailView = [CampusViewModel]()
     @Published var isPresented = false
    
     private var selectedKeyPath: NamePredicate = .Person
@@ -31,17 +28,18 @@ class PersonDetailViewModel: ObservableObject {
     func getTitle(vm: PersonViewModel) -> [TitleViewModel] {
         let request: [Title] = Title.forDetailAndInsights(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText, name: vm.title, year: vm.year)
         let titleForDetailView = request.map(TitleViewModel.init)
-        // can reduce this further so that it just returns one viewmodel
         return titleForDetailView
     }
     
-    func getDepartment(vm: PersonViewModel) {
+    func getDepartment(vm: PersonViewModel) -> [DepartmentViewModel] {
         let request: [Department] = Department.forDetailAndInsights(nameKeyPath: departmentNameKP.returnText, yearKeyPath: departmentYearKP.returnText, name: vm.department, year: vm.year)
-        departmentForDetailView = request.map(DepartmentViewModel.init)
+        let departmentForDetailView = request.map(DepartmentViewModel.init)
+        return departmentForDetailView
     }
     
-    func getCampus(vm: PersonViewModel) {
+    func getCampus(vm: PersonViewModel) -> [CampusViewModel] {
         let request: [Campus] = Campus.forDetailAndInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText, name: vm.campus, year: vm.year)
-        campusForDetailView = request.map(CampusViewModel.init)
+        let campusForDetailView = request.map(CampusViewModel.init)
+        return campusForDetailView
     }
 }

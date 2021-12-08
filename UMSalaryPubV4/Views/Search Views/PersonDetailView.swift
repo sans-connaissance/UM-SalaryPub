@@ -34,7 +34,11 @@ struct PersonDetailView: View {
                         VStack {
                             HStack(spacing: 5) {
                                 Spacer()
-                                PersonDetailRowLeft(person: person, title: vm.getTitle(vm: person), vm: vm)
+                                PersonDetailRowLeft(
+                                    person: person,
+                                    title: vm.getTitle(vm: person),
+                                    department: vm.getDepartment(vm: person),
+                                    campus: vm.getCampus(vm: person))
                                 Spacer()
                                 PersonDetailRowRight(person: person)
                                 Spacer()
@@ -45,9 +49,6 @@ struct PersonDetailView: View {
             }
         }
         .navigationTitle(person.fullName)
-        //.onAppear(perform: { vm.getTitle(vm: person) })
-        .onAppear(perform: { vm.getDepartment(vm: person) })
-        .onAppear(perform: { vm.getCampus(vm: person) })
         .onAppear(perform: { vm.getPersons(vm: person) })
     }
 }
@@ -55,7 +56,8 @@ struct PersonDetailView: View {
 struct PersonDetailRowLeft: View {
     let person: PersonViewModel
     let title: [TitleViewModel]
-    let vm: PersonDetailViewModel
+    let department: [DepartmentViewModel]
+    let campus: [CampusViewModel]
     
     //call the function like i did in the old app for the graphs
     //create a function that returns a view model
@@ -68,7 +70,7 @@ struct PersonDetailRowLeft: View {
             Group {
                 Text("Campus").textStyle(SmallGrey())
                 NavigationLink {
-                    if let campus = vm.campusForDetailView.first {
+                    if let campus = campus.first {
                         CampusDetailView(campus: campus)
                     }
                 } label: {
@@ -79,7 +81,7 @@ struct PersonDetailRowLeft: View {
             Group {
                 Text("Department").textStyle(SmallGrey())
                 NavigationLink {
-                    if let department = vm.departmentForDetailView.first {
+                    if let department = department.first {
                         DepartmentDetailView(department: department)
                     }
                 } label: {
