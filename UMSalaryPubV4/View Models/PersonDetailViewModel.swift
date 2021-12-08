@@ -9,7 +9,7 @@ import Foundation
 
 class PersonDetailViewModel: ObservableObject {
     @Published var personsDetail = [PersonViewModel]()
-    @Published var titleForDetailView = [TitleViewModel]()
+    //@Published var titleForDetailView = [TitleViewModel]()
     @Published var departmentForDetailView = [DepartmentViewModel]()
     @Published var campusForDetailView = [CampusViewModel]()
     @Published var isPresented = false
@@ -28,9 +28,11 @@ class PersonDetailViewModel: ObservableObject {
         personsDetail = request.map(PersonViewModel.init)
     }
     
-    func getTitle(vm: PersonViewModel) {
+    func getTitle(vm: PersonViewModel) -> [TitleViewModel] {
         let request: [Title] = Title.forDetailAndInsights(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText, name: vm.title, year: vm.year)
-        titleForDetailView = request.map(TitleViewModel.init)
+        let titleForDetailView = request.map(TitleViewModel.init)
+        // can reduce this further so that it just returns one viewmodel
+        return titleForDetailView
     }
     
     func getDepartment(vm: PersonViewModel) {
@@ -41,5 +43,5 @@ class PersonDetailViewModel: ObservableObject {
     func getCampus(vm: PersonViewModel) {
         let request: [Campus] = Campus.forDetailAndInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText, name: vm.campus, year: vm.year)
         campusForDetailView = request.map(CampusViewModel.init)
-    } 
+    }
 }

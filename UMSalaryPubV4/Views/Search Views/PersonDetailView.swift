@@ -10,15 +10,16 @@ import SwiftUI
 struct PersonDetailView: View {
     @StateObject private var vm = PersonDetailViewModel()
     @Environment(\.presentationMode) var presentationMode
-    
+
     let person: PersonViewModel
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             InsightsButton(isPresented: $vm.isPresented)
                 .padding()
                 .fullScreenCover(isPresented: $vm.isPresented) {
                     PersonInsightView(person: person)
+                    
                 }
         }
 
@@ -26,14 +27,14 @@ struct PersonDetailView: View {
             VStack(alignment: .center) {
                 ForEach(vm.personsDetail.reversed(), id: \.self) { person in
                     Divider()
-                    
+
                     Section(header: Text(String(person.year)).bold()) {
                         Divider()
-                        
+
                         VStack {
                             HStack(spacing: 5) {
                                 Spacer()
-                                PersonDetailRowLeft(person: person, vm: vm)
+                                PersonDetailRowLeft(person: person, title: vm.getTitle(vm: person), vm: vm)
                                 Spacer()
                                 PersonDetailRowRight(person: person)
                                 Spacer()
@@ -44,7 +45,7 @@ struct PersonDetailView: View {
             }
         }
         .navigationTitle(person.fullName)
-        .onAppear(perform: { vm.getTitle(vm: person) })
+        //.onAppear(perform: { vm.getTitle(vm: person) })
         .onAppear(perform: { vm.getDepartment(vm: person) })
         .onAppear(perform: { vm.getCampus(vm: person) })
         .onAppear(perform: { vm.getPersons(vm: person) })
@@ -53,8 +54,15 @@ struct PersonDetailView: View {
 
 struct PersonDetailRowLeft: View {
     let person: PersonViewModel
+    let title: [TitleViewModel]
     let vm: PersonDetailViewModel
     
+    //call the function like i did in the old app for the graphs
+    //create a function that returns a view model
+    
+    //this doesn't need a person viewmodel.
+    //it needs a viewmodel for CAMPUS, DEPARTMENT, and TITLE based on the PERSON FOR EACH above.
+
     var body: some View {
         VStack(alignment: .leading) {
             Group {
@@ -82,7 +90,7 @@ struct PersonDetailRowLeft: View {
             Group {
                 Text("Title").textStyle(SmallGrey())
                 NavigationLink {
-                    if let title = vm.titleForDetailView.first {
+                    if let title = title.first {
                         TitleDetailView(title: title)
                     }
                 } label: {
@@ -101,7 +109,7 @@ struct PersonDetailRowLeft: View {
 
 struct PersonDetailRowRight: View {
     let person: PersonViewModel
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Group {
