@@ -59,12 +59,6 @@ struct PersonDetailRowLeft: View {
     let department: [DepartmentViewModel]
     let campus: [CampusViewModel]
     
-    //call the function like i did in the old app for the graphs
-    //create a function that returns a view model
-    
-    //this doesn't need a person viewmodel.
-    //it needs a viewmodel for CAMPUS, DEPARTMENT, and TITLE based on the PERSON FOR EACH above.
-
     var body: some View {
         VStack(alignment: .leading) {
             Group {
