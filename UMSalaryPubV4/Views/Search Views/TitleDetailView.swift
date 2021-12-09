@@ -60,9 +60,7 @@ struct TitleDetailRowLeft: View {
                 Text("Campuses with Title").textStyle(SmallGrey())
                 ForEach(campusesWithTitle, id: \.self) { campus in
                     Text(campus).textStyle(DetailData())
-                    
                 }
-//
             }
             Spacer()
             Group {
