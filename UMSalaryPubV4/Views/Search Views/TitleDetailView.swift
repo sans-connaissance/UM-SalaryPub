@@ -24,7 +24,7 @@ struct TitleDetailView: View {
                         VStack {
                             HStack(spacing: 5) {
                                 Spacer()
-                                TitleDetailRowLeft(title: title, campusesWithTitle: vm.titlesOnCampus(vm: title))
+                                TitleDetailRowLeft(title: title, campusesWithTitle: vm.campusesWithTitle(vm: title))
                                 Spacer()
                                 TitleDetailRowRight(title: title)
                                 Spacer()
@@ -42,7 +42,6 @@ struct TitleDetailView: View {
 struct TitleDetailRowLeft: View {
     let title: TitleViewModel
     let campusesWithTitle: [String]
-    //inject an array of titles, then create an array of unique
     
     var body: some View {
         VStack(alignment: .leading) {

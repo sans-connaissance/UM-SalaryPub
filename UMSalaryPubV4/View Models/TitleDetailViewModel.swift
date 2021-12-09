@@ -10,17 +10,20 @@ import SwiftUI
 
 class TitleDetailViewModel: ObservableObject {
     @Published var titlesDetail = [TitleViewModel]()
-    private var selectedKeyPath: NamePredicate = .Title
+    private var nameKP: NamePredicate = .Title
+    private var yearKP: YearByType = .Title
 
     func getTitles(vm: TitleViewModel) {
-        let request: [Title] = Title.byName(keyPath: selectedKeyPath.returnText, name: vm.titleName)
+        let request: [Title] = Title.byName(keyPath: nameKP.returnText, name: vm.titleName)
         titlesDetail = request.map(TitleViewModel.init)
     }
 
-    func titlesOnCampus(vm: TitleViewModel) -> [String] {
+    func campusesWithTitle(vm: TitleViewModel) -> [String] {
         var campusArray: [String] = []
         var personsArray: [Person] = []
-        let request: [Title] = Title.byName(keyPath: selectedKeyPath.returnText, name: vm.titleName)
+        
+        let request: [Title] = Title.campusesWithTitle(nameKeyPath: nameKP.returnText, yearKeyPath: yearKP.returnText, name: vm.titleName, year: vm.year)
+          
         let titleTest = request.first
 
         personsArray = titleTest!.personsWithTitle

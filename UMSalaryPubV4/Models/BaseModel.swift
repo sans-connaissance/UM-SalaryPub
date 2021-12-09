@@ -17,6 +17,8 @@ protocol BaseModel where Self: NSManagedObject {
     
     static func forDetailAndInsights<T: NSManagedObject>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T]
     
+    static func campusesWithTitle<T: NSManagedObject>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T]
+    
     static func search<T: NSManagedObject>(
         byYear: String,
         byType: String,
@@ -79,6 +81,21 @@ extension BaseModel {
     static func forDetailAndInsights<T>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T] where T: NSManagedObject {
         let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
         let yearPredicate = NSPredicate(format: "\(yearKeyPath) <= %i", year)
+        let namePredicate = NSPredicate(format: "\(nameKeyPath) = %@", name)
+        let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
+        
+        fetchRequest.predicate = combinedPredicate
+        
+        do {
+            return try viewContext.fetch(fetchRequest)
+        } catch {
+            return []
+        }
+    }
+    
+    static func campusesWithTitle<T>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T] where T: NSManagedObject {
+        let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
+        let yearPredicate = NSPredicate(format: "\(yearKeyPath) = %i", year)
         let namePredicate = NSPredicate(format: "\(nameKeyPath) = %@", name)
         let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
         
