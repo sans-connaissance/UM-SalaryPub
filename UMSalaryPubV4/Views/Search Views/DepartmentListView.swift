@@ -25,6 +25,7 @@ struct DepartmentListView: View {
                 ForEach(SortOption.allCases, id: \.self) { button in
                     SortListButton(selected: button, sortButtons: $vm.sortButtons)
                         .onChange(of: vm.sortButtons) { _ in vm.getDepartments() }
+                        
                 }
             }
             Divider()
@@ -41,8 +42,11 @@ struct DepartmentListView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Departments")
-            .onAppear(perform: { vm.setButtons() })
             .onAppear(perform: { vm.getDepartments() })
+            .onAppear(perform: { vm.setButtons() })
+            .onDisappear(perform: { vm.flipFirstAppear() })
+
+            
         }
     }
 }

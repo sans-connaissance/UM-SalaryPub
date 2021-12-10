@@ -9,12 +9,12 @@ import Foundation
 
 class DepartmentListViewModel: ObservableObject {
     @Published var allDepartments = [Int: [DepartmentViewModel]]()
-    
     @Published var sortButtons = [SortOption: Bool]()
+    @Published var firstAppear = true
     
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
-
+    
     private var yearByType: YearByType = .Department
     private var importYears = Department.importYears
     private var namePredicate: NamePredicate = .Department
@@ -34,14 +34,20 @@ class DepartmentListViewModel: ObservableObject {
             sortByPersonCountAscending: sortButtons[SortOption.sortByPersonCountAscending] ?? false,
             moneySortDescriptor: moneyDescriptor.returnText,
             countSortDescriptor: countDescriptor.returnText)
-
+        
         allDepartments[year.rawValue] = request.map(DepartmentViewModel.init)
     }
-
+    
     func setButtons() {
-        SortOption.allCases.forEach { button in
-            sortButtons[button] = false
+        if firstAppear {
+            SortOption.allCases.forEach { button in
+                sortButtons[button] = false
+            }
+            sortButtons[SortOption.sortByPersonCountDescending] = true
         }
-        sortButtons[SortOption.sortByPersonCountDescending] = true
+    }
+    
+    func flipFirstAppear() {
+        firstAppear = false
     }
 }
