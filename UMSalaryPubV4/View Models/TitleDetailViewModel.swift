@@ -21,7 +21,7 @@ class TitleDetailViewModel: ObservableObject {
     func campusesWithTitle(vm: TitleViewModel) -> [String] {
         var campusArray: [String] = []
         var personsArray: [Person] = []
-        let titlesArray: [Title] = Title.campusesWithTitle(nameKeyPath: nameKP.returnText, yearKeyPath: yearKP.returnText, name: vm.titleName, year: vm.year)
+        let titlesArray: [Title] = Title.campusesWithTitleOrDepartment(nameKeyPath: nameKP.returnText, yearKeyPath: yearKP.returnText, name: vm.titleName, year: vm.year)
         personsArray = titlesArray[0].personsWithTitle
         for campus in personsArray {
             if let campusName = campus.campus?.campusName {

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DepartmentDetailView: View {
     @StateObject private var vm = DepartmentDetailViewModel()
-    
     let department: DepartmentViewModel
     
     var body: some View {
@@ -24,7 +23,7 @@ struct DepartmentDetailView: View {
                         VStack {
                             HStack(spacing: 5) {
                                 Spacer()
-                                DepartmentDetailRowLeft(department: department)
+                                DepartmentDetailRowLeft(department: department, campusesWithDepartment: vm.campusesWithDepartment(vm: department))
                                 Spacer()
                                 DepartmentDetailRowRight(department: department)
                                 Spacer()
@@ -41,6 +40,7 @@ struct DepartmentDetailView: View {
 
 struct DepartmentDetailRowLeft: View {
     let department: DepartmentViewModel
+    let campusesWithDepartment: [String]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -57,7 +57,9 @@ struct DepartmentDetailRowLeft: View {
             Spacer()
             Group {
                 Text("Campuses with Department").textStyle(SmallGrey())
-//                CampusWithDepartment(campuses: department.personsInDepartment)
+                ForEach(campusesWithDepartment, id: \.self) { campus in
+                    Text(campus).textStyle(DetailData())
+                }
             }
             Spacer()
             Group {

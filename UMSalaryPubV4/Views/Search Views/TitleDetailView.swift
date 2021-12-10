@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TitleDetailView: View {
     @StateObject private var vm = TitleDetailViewModel()
-    
     let title: TitleViewModel
     
     var body: some View {
@@ -24,7 +23,9 @@ struct TitleDetailView: View {
                         VStack {
                             HStack(spacing: 5) {
                                 Spacer()
-                                TitleDetailRowLeft(title: title, campusesWithTitle: vm.campusesWithTitle(vm: title))
+                                TitleDetailRowLeft(
+                                    title: title,
+                                    campusesWithTitle: vm.campusesWithTitle(vm: title))
                                 Spacer()
                                 TitleDetailRowRight(title: title)
                                 Spacer()
