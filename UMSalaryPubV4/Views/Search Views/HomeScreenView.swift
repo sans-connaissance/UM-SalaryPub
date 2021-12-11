@@ -9,43 +9,42 @@ import SwiftUI
 
 struct HomeScreenView: View {
     var body: some View {
-        NavigationView {
-            VStack {
-                List {
-                    Section(header: VStack {
-                        Text("UM SalaryPub")
-                    }) {
-                        NavigationLink(
-                            destination: PersonListView())
-                        {Text("People").font(.headline)}
-                        .isDetailLink(false)
-                        .padding(.top)
-                        .padding(.bottom)
-                        NavigationLink(
-                            destination: TitleListView())
-                        {Text("Titles").font(.headline)}
-                        .isDetailLink(false)
-                        .padding(.top)
-                        .padding(.bottom)
-                        NavigationLink(
-                            destination: DepartmentListView())
-                        {Text("Departments").font(.headline)}
-                        .isDetailLink(false)
-                        .padding(.top)
-                        .padding(.bottom)
-                        NavigationLink(
-                            destination: CampusListView())
-                        {Text("Campuses").font(.headline)}
-                        .isDetailLink(false)
-                        .padding(.top)
-                        .padding(.bottom)
-                    }
+        VStack {
+            List {
+                Section(header: VStack {
+                    Text("UM SalaryPub")
+                }) {
+                    NavigationLink(
+                        destination: PersonListView())
+                    {Text("People").font(.headline)}
+                    .isDetailLink(false)
+                    .padding(.top)
+                    .padding(.bottom)
+                    NavigationLink(
+                        destination: TitleListView())
+                    {Text("Titles").font(.headline)}
+                    .isDetailLink(false)
+                    .padding(.top)
+                    .padding(.bottom)
+                    NavigationLink(
+                        destination: DepartmentListView())
+                    {Text("Departments").font(.headline)}
+                    .isDetailLink(false)
+                    .padding(.top)
+                    .padding(.bottom)
+                    NavigationLink(
+                        destination: CampusListView())
+                    {Text("Campuses").font(.headline)}
+                    .isDetailLink(false)
+                    .padding(.top)
+                    .padding(.bottom)
                 }
-                .navigationTitle("Home")
-                .listStyle(GroupedListStyle())
             }
-
         }
+        .embedInNavigationView()
+        .navigationTitle("Home")
+        .listStyle(GroupedListStyle())
+        
     }
 }
 

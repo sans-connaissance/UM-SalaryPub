@@ -43,11 +43,12 @@ struct PersonListView: View {
                     }
                 }
             }
-            .listStyle(GroupedListStyle())
-            .onAppear(perform: { vm.setButtons() })
-            .onAppear(perform: { vm.getPersons() })
-            
-        }.navigationTitle("People")
+        }
+        .padding(.bottom)
+        .navigationTitle("People")
+        .listStyle(GroupedListStyle())
+        .onAppear(perform: { vm.setButtons() })
+        .onAppear(perform: { vm.getPersons() })
     }
 }
 
