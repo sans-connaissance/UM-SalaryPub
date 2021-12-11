@@ -11,18 +11,16 @@ import UIKit
 
 class PersonListViewModel: ObservableObject {
     @Published var allPersons = [Int: [PersonViewModel]]()
-    
     @Published var sortButtons = [SortOption: Bool]()
-    
-    @Published var year: FetchYear = .twenty
+    @Published var firstAppear = true
     @Published var searchText = " "
-    
+    @Published var year: FetchYear = .twenty
     private var yearByType: YearByType = .Person
     private var importYears = Person.importYears
     private var namePredicate: NamePredicate = .Person
     private var moneyDescriptor: MoneySortDescriptor = .Person
     private var countDescriptor: CountSortDescriptor = .Person
-
+    
     func getPersons() {
         let request: [Person] = Person.search(
             byYear: String(year.rawValue),
@@ -41,11 +39,15 @@ class PersonListViewModel: ObservableObject {
     }
     
     func setButtons() {
-        SortOption.allCases.forEach { button in
-            sortButtons[button] = false
+        if firstAppear {
+            SortOption.allCases.forEach { button in
+                sortButtons[button] = false
+            }
+            sortButtons[SortOption.sortByMoneyDescending] = true
         }
-        sortButtons[SortOption.sortByMoneyDescending] = true
     }
     
-    
+    func flipFirstAppear() {
+        firstAppear = false
+    }
 }

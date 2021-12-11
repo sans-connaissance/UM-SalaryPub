@@ -10,10 +10,6 @@ import SwiftUI
 struct PersonListView: View {
     @StateObject private var vm = PersonListViewModel()
     
-    init() {
-        UITabBar.appearance().barTintColor = UIColor(.red)
-    }
-    
     var body: some View {
         VStack {
             SearchBarView(searchText: $vm.searchText)
@@ -44,11 +40,12 @@ struct PersonListView: View {
                 }
             }
         }
-        .padding(.bottom)
         .navigationTitle("People")
         .listStyle(GroupedListStyle())
-        .onAppear(perform: { vm.setButtons() })
+        .padding(.bottom)
         .onAppear(perform: { vm.getPersons() })
+        .onAppear(perform: { vm.setButtons() })
+        .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }
 

@@ -11,10 +11,8 @@ class DepartmentListViewModel: ObservableObject {
     @Published var allDepartments = [Int: [DepartmentViewModel]]()
     @Published var sortButtons = [SortOption: Bool]()
     @Published var firstAppear = true
-    
-    @Published var year: FetchYear = .twenty
     @Published var searchText = " "
-    
+    @Published var year: FetchYear = .twenty
     private var yearByType: YearByType = .Department
     private var importYears = Department.importYears
     private var namePredicate: NamePredicate = .Department

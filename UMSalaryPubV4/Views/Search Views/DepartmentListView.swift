@@ -25,7 +25,6 @@ struct DepartmentListView: View {
                 ForEach(SortOption.allCases, id: \.self) { button in
                     SortListButton(selected: button, sortButtons: $vm.sortButtons)
                         .onChange(of: vm.sortButtons) { _ in vm.getDepartments() }
-                        
                 }
             }
             Divider()
@@ -36,17 +35,16 @@ struct DepartmentListView: View {
                             DepartmentDetailView(department: department)
                         } label: {
                             DepartmentRow(department: department)
-                        }
+                        }.isDetailLink(true)
                     }
                 }
             }
-            .listStyle(GroupedListStyle())
             .navigationTitle("Departments")
+            .listStyle(GroupedListStyle())
+            .padding(.bottom)
             .onAppear(perform: { vm.getDepartments() })
             .onAppear(perform: { vm.setButtons() })
             .onDisappear(perform: { vm.flipFirstAppear() })
-
-            
         }
     }
 }
