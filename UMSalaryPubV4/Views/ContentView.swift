@@ -22,17 +22,11 @@ struct ContentView: View {
                     Text(verbatim: "Search")
                 }.tag(1)
 
-            FavoriteView()
-                .tabItem {
-                    Image(systemName: "star")
-                    Text(verbatim: "Favorites")
-                }.tag(2)
-
             MoreInfoView()
                 .tabItem {
                     Image(systemName: "info")
                     Text(verbatim: "More Info")
-                }.tag(3)
+                }.tag(2)
         }
     }
 }

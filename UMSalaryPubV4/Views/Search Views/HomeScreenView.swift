@@ -17,40 +17,34 @@ struct HomeScreenView: View {
                     }) {
                         NavigationLink(
                             destination: PersonListView())
-                        {
-                            Text("People").font(.headline)
-                        }
+                        {Text("People").font(.headline)}
                         .isDetailLink(false)
                         .padding(.top)
                         .padding(.bottom)
                         NavigationLink(
                             destination: TitleListView())
-                        {
-                            Text("Titles").font(.headline)
-                        }
+                        {Text("Titles").font(.headline)}
                         .isDetailLink(false)
                         .padding(.top)
                         .padding(.bottom)
                         NavigationLink(
                             destination: DepartmentListView())
-                        {
-                            Text("Departments").font(.headline)
-                        }
+                        {Text("Departments").font(.headline)}
                         .isDetailLink(false)
                         .padding(.top)
                         .padding(.bottom)
                         NavigationLink(
                             destination: CampusListView())
-                        {
-                            Text("Campuses").font(.headline)
-                        }
+                        {Text("Campuses").font(.headline)}
                         .isDetailLink(false)
                         .padding(.top)
                         .padding(.bottom)
                     }
-                }.navigationTitle("Home")
-                    .listStyle(GroupedListStyle())
+                }
+                .navigationTitle("Home")
+                .listStyle(GroupedListStyle())
             }
+
         }
     }
 }

@@ -7,6 +7,7 @@
 
 import CoreData
 import Foundation
+import UIKit
 
 class PersonListViewModel: ObservableObject {
     @Published var allPersons = [Int: [PersonViewModel]]()
@@ -45,4 +46,6 @@ class PersonListViewModel: ObservableObject {
         }
         sortButtons[SortOption.sortByMoneyDescending] = true
     }
+    
+    
 }
