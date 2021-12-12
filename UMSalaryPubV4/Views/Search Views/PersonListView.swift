@@ -39,14 +39,12 @@ struct PersonListView: View {
                             PersonDetailView(person: person)
                         } label: {
                             PersonRow(person: person)
-                        }.isDetailLink(true)
-                            .listRowBackground((Color(UIColor.systemBackground)))
+                        }
+                        .isDetailLink(true)
+                        .listRowBackground((Color(UIColor.systemBackground)))
                     }
                 }
-            }
-            .listStyle(GroupedListStyle())
-            
-            
+            }.listStyle(GroupedListStyle())
         }
         .navigationTitle("People")
         .padding(.bottom)
