@@ -16,16 +16,20 @@ struct PersonListView: View {
                 .onChange(of: vm.searchText) { _ in vm.getPersons() }
             
             HStack {
-                Picker("Select year", selection: $vm.year) {
+                Picker("Select Year", selection: $vm.year) {
                     ForEach(FetchYear.allCases, id: \.self) {
                         Text($0.displayText)
                     }
-                }.onChange(of: vm.year) { _ in vm.getPersons() }
-                
+                }
+                .frame(width: 75)
+                .pickerStyle(.menu)
+                .onChange(of: vm.year) { _ in vm.getPersons() }
+        
                 ForEach(SortOption.personList, id: \.self) { button in
                     SortListButton(selected: button, sortButtons: $vm.sortButtons)
                         .onChange(of: vm.sortButtons) { _ in vm.getPersons() }
                 }
+                Spacer()
             }
             Divider()
             List {
