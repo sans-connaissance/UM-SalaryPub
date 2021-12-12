@@ -10,14 +10,14 @@ import SwiftUI
 struct SortListButton: View {
     var selected: SortOption
     @Binding var sortButtons: [SortOption: Bool]
-
+    
     var body: some View {
         Button {
             listBy(sortOption: selected)
         } label: {
             Text("\(selected.title)")
                 .foregroundColor(sortButtons[selected] ?? false ? .blue : .gray)
-                //.padding([.leading, .trailing])
+            //.padding([.leading, .trailing])
         }
     }
     
@@ -118,6 +118,17 @@ struct InsightsButton: View {
                 Text("Insights")
                     .textStyle(DetailData())
             }
+        }
+    }
+}
+
+struct HomeButton: View {
+    
+    var body: some View {
+        Button {
+            AppState.shared.viewID = UUID()
+        } label: {
+            Image(systemName: "house")
         }
     }
 }

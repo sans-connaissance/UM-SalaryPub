@@ -10,12 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            DataDashboardView()
-                .tabItem {
-                    Image(systemName: "wrench.and.screwdriver")
-                    Text(verbatim: "Admin")
-                }.tag(0)
-
+//            DataDashboardView()
+//                .tabItem {
+//                    Image(systemName: "wrench.and.screwdriver")
+//                    Text(verbatim: "Admin")
+//                }.tag(0)
             HomeScreenView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
