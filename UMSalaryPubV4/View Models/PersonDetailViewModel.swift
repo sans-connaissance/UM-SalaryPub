@@ -10,7 +10,7 @@ import Foundation
 class PersonDetailViewModel: ObservableObject {
     @Published var personsDetail = [PersonViewModel]()
     @Published var isPresented = false
-   
+    
     private var selectedKeyPath: NamePredicate = .Person
     private var personsKP: NamePredicate = .Person
     private var titleNameKP: NamePredicate = .Title
@@ -19,7 +19,7 @@ class PersonDetailViewModel: ObservableObject {
     private var departmentYearKP: YearByType = .Department
     private var campusNameKP: NamePredicate = .Campus
     private var campusYearKP: YearByType = .Campus
-
+    
     func getPersons(vm: PersonViewModel) {
         let request: [Person] = Person.byName(keyPath: selectedKeyPath.returnText, name: vm.fullName)
         personsDetail = request.map(PersonViewModel.init)
@@ -41,5 +41,17 @@ class PersonDetailViewModel: ObservableObject {
         let request: [Campus] = Campus.forDetailAndInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText, name: vm.campus, year: vm.year)
         let campusForDetailView = request.map(CampusViewModel.init)
         return campusForDetailView
+    }
+    
+    func personInsightCheck(persons: [PersonViewModel]) -> Bool {
+        var years: [Int64] = []
+        let personsArray = persons
+        for year in personsArray {
+            years.append(year.year)
+        }
+        let mappedItems = years.map { ($0, 1) }
+        let counts = Dictionary(mappedItems, uniquingKeysWith: +)
+        let isGreatThanTwo = counts.contains(where: { $0.value > 1 })
+        return !isGreatThanTwo
     }
 }

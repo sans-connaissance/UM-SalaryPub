@@ -11,24 +11,33 @@ struct PersonDetailView: View {
     @StateObject private var vm = PersonDetailViewModel()
     @Environment(\.presentationMode) var presentationMode
     let person: PersonViewModel
-    
+
     var body: some View {
-        VStack(alignment: .leading) {
-            InsightsButton(isPresented: $vm.isPresented)
-                .padding()
-                .fullScreenCover(isPresented: $vm.isPresented) {
-                    PersonInsightView(person: person)
+        HStack {
+            VStack(alignment: .leading) {
+                if vm.personInsightCheck(persons: vm.personsDetail) == true {
+                    InsightsButton(isPresented: $vm.isPresented)
+                        .padding()
+                        .fullScreenCover(isPresented: $vm.isPresented) {
+                            PersonInsightView(person: person)
+                        }
+                } else {
+                    Text("Insights not available \n(same name or multiple appointments)").textStyle(SmallGrey())
+                        .padding(.leading)
+                        .foregroundColor(.gray)
+                        .font(.subheadline)
                 }
+            }
+            Spacer()
         }
-        
+        Divider()
         ScrollView {
             VStack(alignment: .center) {
                 ForEach(vm.personsDetail.reversed(), id: \.self) { person in
                     Divider()
-                    
+
                     Section(header: Text(String(person.year)).bold()) {
                         Divider()
-                        
                         VStack {
                             HStack(spacing: 5) {
                                 Spacer()
@@ -56,7 +65,7 @@ struct PersonDetailRowLeft: View {
     let title: [TitleViewModel]
     let department: [DepartmentViewModel]
     let campus: [CampusViewModel]
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Group {
@@ -103,7 +112,7 @@ struct PersonDetailRowLeft: View {
 
 struct PersonDetailRowRight: View {
     let person: PersonViewModel
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Group {
