@@ -10,12 +10,10 @@ import Foundation
 
 class TitleListViewModel: ObservableObject {
     @Published var allTitles = [Int: [TitleViewModel]]()
-    
     @Published var sortButtons = [SortOption: Bool]()
-    
+    @Published var firstAppear = true
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
-
     private var yearByType: YearByType = .Title
     private var importYears = Title.importYears
     private var namePredicate: NamePredicate = .Title
@@ -40,9 +38,15 @@ class TitleListViewModel: ObservableObject {
     }
     
     func setButtons() {
-        SortOption.allCases.forEach { button in
-            sortButtons[button] = false
+        if firstAppear {
+            SortOption.allCases.forEach { button in
+                sortButtons[button] = false
+            }
+            sortButtons[SortOption.sortByPersonCountDescending] = true
         }
-        sortButtons[SortOption.sortByPersonCountDescending] = true
+    }
+    
+    func flipFirstAppear() {
+        firstAppear = false
     }
 }

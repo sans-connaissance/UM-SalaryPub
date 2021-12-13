@@ -81,6 +81,7 @@ struct PersonDetailRowLeft: View {
                     }
                 } label: {
                     Text(person.campus).textStyle(DetailData())
+                    .multilineTextAlignment(.leading)
                 }
             }
             Spacer()
@@ -92,6 +93,7 @@ struct PersonDetailRowLeft: View {
                     }
                 } label: {
                     Text(person.department).textStyle(DetailData())
+                    .multilineTextAlignment(.leading)
                 }
             }
             Spacer()
@@ -103,6 +105,7 @@ struct PersonDetailRowLeft: View {
                     }
                 } label: {
                     Text(person.title).textStyle(DetailData())
+                    .multilineTextAlignment(.leading)
                 }
             }
             Spacer()

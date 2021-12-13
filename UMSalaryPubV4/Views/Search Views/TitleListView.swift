@@ -14,19 +14,24 @@ struct TitleListView: View {
         VStack {
             SearchBarView(searchText: $vm.searchText)
                 .onChange(of: vm.searchText) { _ in vm.getTitles() }
-
-            HStack {
-                Picker("Select year", selection: $vm.year) {
-                    ForEach(FetchYear.allCases, id: \.self) {
-                        Text($0.displayText)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 15) {
+                    Picker("Select year", selection: $vm.year) {
+                        ForEach(FetchYear.allCases, id: \.self) {
+                            Text($0.displayText)
+                        }
                     }
-                }.onChange(of: vm.year) { _ in vm.getTitles() }
-
-                ForEach(SortOption.allCases, id: \.self) { button in
-                    SortListButton(selected: button, sortButtons: $vm.sortButtons)
-                        .onChange(of: vm.sortButtons) { _ in vm.getTitles() }
-                }
-            }
+                    .labelsHidden()
+                    .pickerStyle(.menu)
+                    .onChange(of: vm.year) { _ in vm.getTitles() }
+                    Text("|").font(.callout).foregroundColor(.secondary)
+                    ForEach(SortOption.allCases, id: \.self) { button in
+                        SortListButton(selected: button, sortButtons: $vm.sortButtons)
+                            .onChange(of: vm.sortButtons) { _ in vm.getTitles() }
+                    }
+                    Spacer()
+                }.padding([.leading, .trailing])
+            }.padding([.leading, .trailing])
             Divider()
             List {
                 if let titleArray = vm.allTitles[vm.year.rawValue] {
@@ -36,14 +41,17 @@ struct TitleListView: View {
                         } label: {
                             TitleRow(title: title)
                         }
+                        .isDetailLink(true)
+                        .listRowBackground((Color(UIColor.systemBackground)))
                     }
                 }
-            }
-            .listStyle(GroupedListStyle())
-            .navigationTitle("Titles")
-            .onAppear(perform: { vm.setButtons() })
-            .onAppear(perform: { vm.getTitles() })
+            }.listStyle(GroupedListStyle())
         }
+        .navigationTitle("Titles")
+        .padding(.bottom)
+        .onAppear(perform: { vm.setButtons() })
+        .onAppear(perform: { vm.getTitles() })
+        .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }
 
@@ -53,7 +61,7 @@ struct TitleRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(title.titleName).font(.headline)
-            Text("People with title:" + title.titleCount).textStyle(DetailData())
+            Text("People with title: " + title.titleCount).textStyle(DetailData())
             Text("Avg. Annual FTR: " + title.titleAverageAnnual).textStyle(DetailData())
         }
     }

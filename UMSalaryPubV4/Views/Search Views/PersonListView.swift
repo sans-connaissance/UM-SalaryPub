@@ -21,6 +21,7 @@ struct PersonListView: View {
                             Text($0.displayText)
                         }
                     }
+                    .labelsHidden()
                     .pickerStyle(.menu)
                     .onChange(of: vm.year) { _ in vm.getPersons() }
                     Text("|").font(.callout).foregroundColor(.secondary)

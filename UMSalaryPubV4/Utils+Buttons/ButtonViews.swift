@@ -17,7 +17,7 @@ struct SortListButton: View {
         } label: {
             Text("\(selected.title)")
                 .foregroundColor(sortButtons[selected] ?? false ? .blue : .gray)
-            //.padding([.leading, .trailing])
+            // .padding([.leading, .trailing])
         }
     }
     
@@ -61,9 +61,9 @@ struct ChartSwitch: View {
 }
 
 enum SortOption: String, CaseIterable {
+    case sortAlphabetically
     case sortByMoneyDescending
     case sortByMoneyAscending
-    case sortAlphabetically
     case sortByPersonCountDescending
     case sortByPersonCountAscending
     
@@ -123,7 +123,6 @@ struct InsightsButton: View {
 }
 
 struct HomeButton: View {
-    
     var body: some View {
         Button {
             AppState.shared.viewID = UUID()
