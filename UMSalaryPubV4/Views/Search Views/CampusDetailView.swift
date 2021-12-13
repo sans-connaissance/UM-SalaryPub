@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CampusDetailView: View {
     @StateObject private var vm = CampusDetailViewModel()
-    
     let campus: CampusViewModel
     
     var body: some View {
@@ -36,35 +35,10 @@ struct CampusDetailView: View {
         }
         .navigationTitle(campus.campusName)
         .onAppear(perform: { vm.getCampuses(vm: campus) })
-    }
-}
-
-struct CampusDetailRowRight: View {
-    let campus: CampusViewModel
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Spacer()
-            Group {
-                Text("Avg. Annual FTR").textStyle(SmallGrey())
-                Text(campus.campusAverageAnnual).textStyle(DetailData())
-            }
-            Spacer()
-            Group {
-                Text("Median Annual FTR").textStyle(SmallGrey())
-                Text(campus.campusMedianAnnual).textStyle(DetailData())
-            }
-            Spacer()
-            Group {
-                Text("Max Annual FTR").textStyle(SmallGrey())
-                Text(campus.campusMaxAnnual).textStyle(DetailData())
-            }
-            Spacer()
-            Group {
-                Text("Min Annual FTR").textStyle(SmallGrey())
-                Text(campus.campusMinAnnual).textStyle(DetailData())
-            }
-            Spacer()
+        .toolbar { ToolbarItem(placement: .navigationBarTrailing) {
+            if UIDevice.current.userInterfaceIdiom != .pad { HomeButton() }
+        }
+        ToolbarItem(placement: .navigationBarLeading) { Text("") }
         }
     }
 }
@@ -98,6 +72,38 @@ struct CampusDetailRowLeft: View {
         }
     }
 }
+
+struct CampusDetailRowRight: View {
+    let campus: CampusViewModel
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Spacer()
+            Group {
+                Text("Avg. Annual FTR").textStyle(SmallGrey())
+                Text(campus.campusAverageAnnual).textStyle(DetailData())
+            }
+            Spacer()
+            Group {
+                Text("Median Annual FTR").textStyle(SmallGrey())
+                Text(campus.campusMedianAnnual).textStyle(DetailData())
+            }
+            Spacer()
+            Group {
+                Text("Max Annual FTR").textStyle(SmallGrey())
+                Text(campus.campusMaxAnnual).textStyle(DetailData())
+            }
+            Spacer()
+            Group {
+                Text("Min Annual FTR").textStyle(SmallGrey())
+                Text(campus.campusMinAnnual).textStyle(DetailData())
+            }
+            Spacer()
+        }
+    }
+}
+
+
 
 struct CampusDetailView_Previews: PreviewProvider {
     static var previews: some View {
