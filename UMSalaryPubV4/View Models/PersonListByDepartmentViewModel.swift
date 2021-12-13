@@ -11,7 +11,7 @@ import Foundation
 class PersonListByDepartmentViewModel: ObservableObject {
     @Published var personsByTitle = [PersonViewModel]()
     @Published var sortButtons = [SortOption: Bool]()
-    
+    @Published var firstAppear = true
     func getPersonsByDepartment(vm: DepartmentViewModel) {
         let request: [Person] = Person.byDepartment(
             year: String(vm.department.departmentYear),
@@ -24,9 +24,15 @@ class PersonListByDepartmentViewModel: ObservableObject {
     }
     
     func setButtons() {
-        SortOption.allCases.forEach { button in
-            sortButtons[button] = false
+        if firstAppear {
+            SortOption.allCases.forEach { button in
+                sortButtons[button] = false
+            }
+            sortButtons[SortOption.sortByMoneyDescending] = true
         }
-        sortButtons[SortOption.sortByMoneyDescending] = true
+    }
+    
+    func flipFirstAppear() {
+        firstAppear = false
     }
 }
