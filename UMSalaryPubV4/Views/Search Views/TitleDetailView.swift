@@ -19,7 +19,6 @@ struct TitleDetailView: View {
                     
                     Section(header: Text(String(title.year)).bold()) {
                         Divider()
-                        
                         VStack {
                             HStack(spacing: 5) {
                                 Spacer()
@@ -37,6 +36,11 @@ struct TitleDetailView: View {
         }
         .navigationTitle(title.titleName)
         .onAppear(perform: { vm.getTitles(vm: title) })
+        .toolbar { ToolbarItem(placement: .navigationBarTrailing) {
+            if UIDevice.current.userInterfaceIdiom != .pad { HomeButton() }
+        }
+        ToolbarItem(placement: .navigationBarLeading) { Text("") }
+        }
     }
 }
 
