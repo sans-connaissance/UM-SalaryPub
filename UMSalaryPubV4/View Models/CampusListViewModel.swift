@@ -10,12 +10,10 @@ import Foundation
 
 class CampusListViewModel: ObservableObject {
     @Published var allCampuses = [Int: [CampusViewModel]]()
-    
     @Published var sortButtons = [SortOption: Bool]()
-    
+    @Published var firstAppear = true
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
-
     private var yearByType: YearByType = .Campus
     private var importYears = Campus.importYears
     private var namePredicate: NamePredicate = .Campus
@@ -40,9 +38,15 @@ class CampusListViewModel: ObservableObject {
     }
     
     func setButtons() {
-        SortOption.allCases.forEach { button in
-            sortButtons[button] = false
+        if firstAppear {
+            SortOption.allCases.forEach { button in
+                sortButtons[button] = false
+            }
+            sortButtons[SortOption.sortByPersonCountDescending] = true
         }
-        sortButtons[SortOption.sortByPersonCountDescending] = true
+    }
+    
+    func flipFirstAppear() {
+        firstAppear = false
     }
 }

@@ -48,7 +48,6 @@ struct DepartmentListView: View {
             }.listStyle(GroupedListStyle())
         }
         .navigationTitle("Departments")
-        .listStyle(GroupedListStyle())
         .padding(.bottom)
         .onAppear(perform: { vm.getDepartments() })
         .onAppear(perform: { vm.setButtons() })
