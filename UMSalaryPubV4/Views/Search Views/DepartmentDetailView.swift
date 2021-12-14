@@ -34,6 +34,7 @@ struct DepartmentDetailView: View {
             }
         }
         .navigationTitle(department.departmentName)
+        .padding(.bottom)
         .onAppear(perform: { vm.getDepartments(vm: department) })
         .toolbar { ToolbarItem(placement: .navigationBarTrailing) {
             if UIDevice.current.userInterfaceIdiom != .pad { HomeButton() }

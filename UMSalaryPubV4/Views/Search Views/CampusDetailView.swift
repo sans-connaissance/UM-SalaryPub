@@ -34,6 +34,7 @@ struct CampusDetailView: View {
             }
         }
         .navigationTitle(campus.campusName)
+        .padding(.bottom)
         .onAppear(perform: { vm.getCampuses(vm: campus) })
         .toolbar { ToolbarItem(placement: .navigationBarTrailing) {
             if UIDevice.current.userInterfaceIdiom != .pad { HomeButton() }
