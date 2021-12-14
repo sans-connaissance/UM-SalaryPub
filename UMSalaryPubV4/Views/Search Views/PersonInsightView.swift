@@ -50,6 +50,8 @@ struct PersonInsightView: View {
                         }
                     }.frame(minWidth: geometry.size.width)
                 }
+//                .flipsForRightToLeftLayoutDirection(true)
+//                .environment(\.layoutDirection, .rightToLeft)
             }.frame(height: 70)
             Divider()
             VStack {
