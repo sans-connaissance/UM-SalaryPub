@@ -10,12 +10,9 @@ import SwiftUI
 
 struct PersonInsightView: View {
     @StateObject private var vm = PersonInsightViewModel()
-
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-
     let person: PersonViewModel
-    // let title: TitleViewModel
 
     var body: some View {
         VStack {
@@ -32,12 +29,13 @@ struct PersonInsightView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     VStack(alignment: .center) {
                         HStack(alignment: .center) {
-                            ForEach(vm.personsInsight, id: \.self) { person in
+                            ForEach(vm.personsInsight.reversed(), id: \.self) { person in
                                 Spacer()
                                 VStack(alignment: .center) {
                                     Text(String(person.year)).textStyle(DetailData())
                                     Text(person.apptAnnualFTR).textStyle(DetailData())
-                                }
+                                } .rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
+                               
                                 Spacer()
                             }
                         }
@@ -47,11 +45,11 @@ struct PersonInsightView: View {
                                 Text("\(salary, specifier: "%.2f")%").textStyle(DetailData())
                                 Spacer()
                             }
-                        }
+                        }.rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
                     }.frame(minWidth: geometry.size.width)
                 }
-//                .flipsForRightToLeftLayoutDirection(true)
-//                .environment(\.layoutDirection, .rightToLeft)
+                .flipsForRightToLeftLayoutDirection(true)
+                .environment(\.layoutDirection, .rightToLeft)
             }.frame(height: 70)
             Divider()
             VStack {
