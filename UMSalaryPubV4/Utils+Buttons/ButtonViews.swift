@@ -46,10 +46,10 @@ struct ChartSwitch: View {
     }
     
     var label: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(switchTitle).textStyle(SmallGrey())
             Text(switchData).font(.subheadline)
-        }.padding([.top, .leading])
+        }.multilineTextAlignment(.leading)
     }
     
     var switchToggle: some View {

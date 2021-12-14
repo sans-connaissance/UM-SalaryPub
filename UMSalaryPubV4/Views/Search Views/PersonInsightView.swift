@@ -77,7 +77,7 @@ struct PersonInsightView: View {
                             switchTitle: "Title Avg. FTR",
                             switchData: person.title,
                             color: .systemOrange)
-            }
+            }.padding(.leading)
         }
 
         // MARK: Wrap these all into one function in the view model
