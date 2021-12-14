@@ -69,7 +69,11 @@ struct PersonLineChartView: UIViewRepresentable {
             return dataSets
         }
         
-        let lineChartData = LineChartData(dataSets: createDataSets(showTitleAverage: showTitleAverage, showDepartmentAverage: showDepartmentAverage, showCampusAverage: showCampusAverage, showAnnualFTR: showAnnualFTR))
+        let lineChartData = LineChartData(dataSets: createDataSets(
+            showTitleAverage: showTitleAverage,
+            showDepartmentAverage: showDepartmentAverage,
+            showCampusAverage: showCampusAverage,
+            showAnnualFTR: showAnnualFTR))
         
         lineChart.data = lineChartData
         formatDataSet(dataSet: personSetAnnualFTR, label: "Annual FTR", color: .systemGreen)

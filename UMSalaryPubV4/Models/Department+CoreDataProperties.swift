@@ -73,8 +73,7 @@ extension Department: Identifiable {
     }
 
     static func lineChartDepartment(_ departments: [DepartmentViewModel]) -> [ChartDataEntry] {
-        let department = departments.reversed()
-
+        let department = departments
         return department.map { BarChartDataEntry(x: Double($0.year), y: $0.departmentAverageAnnualDouble) }
     }
 }

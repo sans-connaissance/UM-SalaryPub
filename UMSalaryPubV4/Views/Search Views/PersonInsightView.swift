@@ -20,9 +20,7 @@ struct PersonInsightView: View {
     var body: some View {
         VStack {
             CloseInsightView()
-            Text(person.fullName).textStyle(DetailData())
-                .font(.headline)
-
+            Text(person.fullName).font(.headline)
             Divider()
         }
 
@@ -55,11 +53,12 @@ struct PersonInsightView: View {
             }.frame(height: 70)
             Divider()
             VStack {
-                PersonLineChartView(showTitleAverage: $vm.showTitleAverage,
-                                    showDepartmentAverage: $vm.showDepartmentAverage,
-                                    showCampusAverage: $vm.showCampusAverage,
-                                    showAnnualFTR: $vm.showAnnualFTR,
-                                    person: person)
+                PersonLineChartView(
+                    showTitleAverage: $vm.showTitleAverage,
+                    showDepartmentAverage: $vm.showDepartmentAverage,
+                    showCampusAverage: $vm.showCampusAverage,
+                    showAnnualFTR: $vm.showAnnualFTR,
+                    person: person)
             }.frame(width: 370, height: 370, alignment: .leading)
             VStack {
                 ChartSwitch(isOn: $vm.showAnnualFTR,

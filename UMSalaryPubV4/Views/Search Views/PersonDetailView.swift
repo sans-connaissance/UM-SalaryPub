@@ -56,6 +56,7 @@ struct PersonDetailView: View {
             }
         }
         .navigationTitle(person.fullName)
+        .padding(.bottom)
         .onAppear(perform: { vm.getPersons(vm: person) })
         .toolbar { ToolbarItem(placement: .navigationBarTrailing) {
             if UIDevice.current.userInterfaceIdiom != .pad { HomeButton() }
