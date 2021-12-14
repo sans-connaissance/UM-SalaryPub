@@ -12,7 +12,7 @@ struct HomeScreenView: View {
         VStack {
             List {
                 Section(header: VStack {
-                    Text("UM SalaryPub")
+                    Text("Search UM SalaryPub")
                 }) {
                     NavigationLink(
                         destination: PersonListView())
@@ -40,11 +40,10 @@ struct HomeScreenView: View {
                     .padding(.bottom)
                 }
             }
-        }
-        .embedInNavigationView()
-        .navigationTitle("Home")
-        .listStyle(GroupedListStyle())
-        
+            .navigationTitle("Home")
+            .padding(.bottom)
+            .listStyle(GroupedListStyle())
+        }.embedInNavigationView()
     }
 }
 
