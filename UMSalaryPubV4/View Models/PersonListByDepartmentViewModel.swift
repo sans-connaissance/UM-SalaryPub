@@ -12,6 +12,7 @@ class PersonListByDepartmentViewModel: ObservableObject {
     @Published var personsByTitle = [PersonViewModel]()
     @Published var sortButtons = [SortOption: Bool]()
     @Published var firstAppear = true
+    
     func getPersonsByDepartment(vm: DepartmentViewModel) {
         let request: [Person] = Person.byDepartment(
             year: String(vm.department.departmentYear),

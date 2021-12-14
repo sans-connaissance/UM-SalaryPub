@@ -11,9 +11,6 @@ struct PersonListByDepartmentView: View {
     @StateObject private var vm = PersonListByDepartmentViewModel()
     let department: DepartmentViewModel
 
-    
-    // CHECK HOLLY DAUL for messed up INSIGHTS BUTTON
-    //IS THERE A WAY TO USE LESS MEMORY?? MAYBE THE MEMORY USE ISNT THAT BAD
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -35,13 +32,12 @@ struct PersonListByDepartmentView: View {
                     .isDetailLink(true)
                     .listRowBackground((Color(UIColor.systemBackground)))
                 }
-            }
-            .listStyle(GroupedListStyle())
+            }.listStyle(GroupedListStyle())
         }
         .navigationTitle(department.departmentName)
         .padding(.bottom)
-        .onAppear(perform: { vm.setButtons() })
         .onAppear(perform: { vm.getPersonsByDepartment(vm: department) })
+        .onAppear(perform: { vm.setButtons() })
         .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }

@@ -13,12 +13,14 @@ struct PersonListByTitleView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                ForEach(SortOption.personList, id: \.self) { button in
-                    SortListButton(selected: button, sortButtons: $vm.sortButtons)
-                        .onChange(of: vm.sortButtons) { _ in vm.getPersonsByTitle(vm: title) }
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 15) {
+                    ForEach(SortOption.personList, id: \.self) { button in
+                        SortListButton(selected: button, sortButtons: $vm.sortButtons)
+                            .onChange(of: vm.sortButtons) { _ in vm.getPersonsByTitle(vm: title) }
+                    }
                 }
-            }
+            }.padding([.leading, .trailing])
             Divider()
             List {
                 ForEach(vm.personsByTitle, id: \.self) { person in
@@ -27,13 +29,16 @@ struct PersonListByTitleView: View {
                     } label: {
                         PersonRow(person: person)
                     }
+                    .isDetailLink(true)
+                    .listRowBackground((Color(UIColor.systemBackground)))
                 }
-            }
-            .listStyle(GroupedListStyle())
-            .navigationTitle(title.titleName)
-            .onAppear(perform: { vm.setButtons() })
-            .onAppear(perform: { vm.getPersonsByTitle(vm: title) })
+            }.listStyle(GroupedListStyle())
         }
+        .navigationTitle(title.titleName)
+        .padding(.bottom)
+        .onAppear(perform: { vm.getPersonsByTitle(vm: title) })
+        .onAppear(perform: { vm.setButtons() })
+        .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }
 

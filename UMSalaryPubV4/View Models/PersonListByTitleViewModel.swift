@@ -10,6 +10,7 @@ import Foundation
 class PersonListByTitleViewModel: ObservableObject {
     @Published var personsByTitle = [PersonViewModel]()
     @Published var sortButtons = [SortOption: Bool]()
+    @Published var firstAppear = true
     
     func getPersonsByTitle(vm: TitleViewModel) {
         let request: [Person] = Person.byTitle(
@@ -23,9 +24,15 @@ class PersonListByTitleViewModel: ObservableObject {
     }
     
     func setButtons() {
-        SortOption.allCases.forEach { button in
-            sortButtons[button] = false
+        if firstAppear {
+            SortOption.allCases.forEach { button in
+                sortButtons[button] = false
+            }
+            sortButtons[SortOption.sortByMoneyDescending] = true
         }
-        sortButtons[SortOption.sortByMoneyDescending] = true
+    }
+    
+    func flipFirstAppear() {
+        firstAppear = false
     }
 }
