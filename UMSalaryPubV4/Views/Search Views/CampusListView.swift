@@ -21,6 +21,7 @@ struct CampusListView: View {
                             Text($0.displayText)
                         }
                     }
+                    .id(vm.pickerID)
                     .labelsHidden()
                     .pickerStyle(.menu)
                     .onChange(of: vm.year) { _ in vm.getCampuses() }
@@ -51,6 +52,7 @@ struct CampusListView: View {
         .padding(.bottom)
         .onAppear(perform: { vm.setButtons() })
         .onAppear(perform: { vm.getCampuses() })
+        .onAppear(perform: { vm.createPickerID() })
         .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }

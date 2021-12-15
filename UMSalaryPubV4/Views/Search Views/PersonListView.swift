@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PersonListView: View {
     @StateObject private var vm = PersonListViewModel()
-    
+
     var body: some View {
         VStack {
             SearchBarView(searchText: $vm.searchText)
@@ -21,7 +21,7 @@ struct PersonListView: View {
                             Text($0.displayText)
                         }
                     }
-                    // MARK: There's a bug with the year button
+                    .id(vm.pickerID)
                     .labelsHidden()
                     .pickerStyle(.menu)
                     .onChange(of: vm.year) { _ in vm.getPersons() }
@@ -43,7 +43,7 @@ struct PersonListView: View {
                             PersonRow(person: person)
                         }
                         .isDetailLink(true)
-                        .listRowBackground((Color(UIColor.systemBackground)))
+                        .listRowBackground(Color(UIColor.systemBackground))
                     }
                 }
             }.listStyle(GroupedListStyle())
@@ -52,13 +52,14 @@ struct PersonListView: View {
         .padding(.bottom)
         .onAppear(perform: { vm.getPersons() })
         .onAppear(perform: { vm.setButtons() })
+        .onAppear(perform: { vm.createPickerID() })
         .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }
 
 struct PersonRow: View {
     let person: PersonViewModel
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(person.fullName).font(.headline)

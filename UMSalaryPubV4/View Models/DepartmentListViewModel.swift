@@ -13,6 +13,7 @@ class DepartmentListViewModel: ObservableObject {
     @Published var firstAppear = true
     @Published var searchText = " "
     @Published var year: FetchYear = .twenty
+    @Published var pickerID = UUID()
     private var yearByType: YearByType = .Department
     private var importYears = Department.importYears
     private var namePredicate: NamePredicate = .Department
@@ -47,5 +48,9 @@ class DepartmentListViewModel: ObservableObject {
     
     func flipFirstAppear() {
         firstAppear = false
+    }
+    
+    func createPickerID() {
+        pickerID = UUID()
     }
 }

@@ -21,6 +21,7 @@ struct DepartmentListView: View {
                             Text($0.displayText)
                         }
                     }
+                    .id(vm.pickerID)
                     .labelsHidden()
                     .pickerStyle(.menu)
                     .onChange(of: vm.year) { _ in vm.getDepartments() }
@@ -51,6 +52,7 @@ struct DepartmentListView: View {
         .padding(.bottom)
         .onAppear(perform: { vm.getDepartments() })
         .onAppear(perform: { vm.setButtons() })
+        .onAppear(perform: { vm.createPickerID() })
         .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }

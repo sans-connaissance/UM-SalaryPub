@@ -33,14 +33,8 @@
 		41998B5C2738480A0021D632 /* DataDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B5B2738480A0021D632 /* DataDashboardView.swift */; };
 		41998B812739A2550021D632 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B802739A2550021D632 /* PersonViewModel.swift */; };
 		41998B852739C2850021D632 /* PersonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B842739C2850021D632 /* PersonListViewModel.swift */; };
-		41998B9C273C51E00021D632 /* csvjson-02018.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B94273C51DD0021D632 /* csvjson-02018.json */; };
-		41998B9D273C51E00021D632 /* csvjson-02019.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B95273C51DE0021D632 /* csvjson-02019.json */; };
 		41998B9E273C51E00021D632 /* csvjson-02020.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B96273C51DE0021D632 /* csvjson-02020.json */; };
-		41998B9F273C51E00021D632 /* csvjson-02015.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B97273C51DE0021D632 /* csvjson-02015.json */; };
-		41998BA0273C51E00021D632 /* csvjson-02016.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B98273C51DF0021D632 /* csvjson-02016.json */; };
-		41998BA1273C51E00021D632 /* csvjson-02017.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B99273C51DF0021D632 /* csvjson-02017.json */; };
 		41998BA2273C51E00021D632 /* csvjson-02013.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B9A273C51DF0021D632 /* csvjson-02013.json */; };
-		41998BA3273C51E00021D632 /* csvjson-02014.json in Resources */ = {isa = PBXBuildFile; fileRef = 41998B9B273C51E00021D632 /* csvjson-02014.json */; };
 		41998BA7273C5BD10021D632 /* PersonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998BA6273C5BD10021D632 /* PersonListView.swift */; };
 		41D4B87B273FC2EA00F0FB92 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B87A273FC2EA00F0FB92 /* SearchBarView.swift */; };
 		41D4B87D2740B24100F0FB92 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B87C2740B24100F0FB92 /* PersonDetailView.swift */; };
@@ -108,14 +102,8 @@
 		41998B5B2738480A0021D632 /* DataDashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDashboardView.swift; sourceTree = "<group>"; };
 		41998B802739A2550021D632 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		41998B842739C2850021D632 /* PersonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewModel.swift; sourceTree = "<group>"; };
-		41998B94273C51DD0021D632 /* csvjson-02018.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02018.json"; sourceTree = "<group>"; };
-		41998B95273C51DE0021D632 /* csvjson-02019.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02019.json"; sourceTree = "<group>"; };
 		41998B96273C51DE0021D632 /* csvjson-02020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02020.json"; sourceTree = "<group>"; };
-		41998B97273C51DE0021D632 /* csvjson-02015.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02015.json"; sourceTree = "<group>"; };
-		41998B98273C51DF0021D632 /* csvjson-02016.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02016.json"; sourceTree = "<group>"; };
-		41998B99273C51DF0021D632 /* csvjson-02017.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02017.json"; sourceTree = "<group>"; };
 		41998B9A273C51DF0021D632 /* csvjson-02013.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02013.json"; sourceTree = "<group>"; };
-		41998B9B273C51E00021D632 /* csvjson-02014.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02014.json"; sourceTree = "<group>"; };
 		41998BA6273C5BD10021D632 /* PersonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListView.swift; sourceTree = "<group>"; };
 		41D4B87A273FC2EA00F0FB92 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		41D4B87C2740B24100F0FB92 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
@@ -251,12 +239,6 @@
 				414AD152272320C300316A45 /* PersonDAO.swift */,
 				414AD151272320C300316A45 /* TitleDAO.swift */,
 				41998B9A273C51DF0021D632 /* csvjson-02013.json */,
-				41998B9B273C51E00021D632 /* csvjson-02014.json */,
-				41998B97273C51DE0021D632 /* csvjson-02015.json */,
-				41998B98273C51DF0021D632 /* csvjson-02016.json */,
-				41998B99273C51DF0021D632 /* csvjson-02017.json */,
-				41998B94273C51DD0021D632 /* csvjson-02018.json */,
-				41998B95273C51DE0021D632 /* csvjson-02019.json */,
 				41998B96273C51DE0021D632 /* csvjson-02020.json */,
 			);
 			path = Data;
@@ -418,18 +400,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41998B9C273C51E00021D632 /* csvjson-02018.json in Resources */,
 				41998BA2273C51E00021D632 /* csvjson-02013.json in Resources */,
-				41998B9D273C51E00021D632 /* csvjson-02019.json in Resources */,
 				4157AD0F2765277E002A134D /* UMSalaryPub.sqlite in Resources */,
 				41E5A4942721B37A00A51D80 /* Preview Assets.xcassets in Resources */,
-				41998BA3273C51E00021D632 /* csvjson-02014.json in Resources */,
-				41998BA0273C51E00021D632 /* csvjson-02016.json in Resources */,
 				4157AD102765277E002A134D /* UMSalaryPub.sqlite-wal in Resources */,
-				41998B9F273C51E00021D632 /* csvjson-02015.json in Resources */,
 				41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */,
 				41998B9E273C51E00021D632 /* csvjson-02020.json in Resources */,
-				41998BA1273C51E00021D632 /* csvjson-02017.json in Resources */,
 				4157AD0E2765277E002A134D /* UMSalaryPub.sqlite-shm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

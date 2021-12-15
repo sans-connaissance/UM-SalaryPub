@@ -21,6 +21,7 @@ struct TitleListView: View {
                             Text($0.displayText)
                         }
                     }
+                    .id(vm.pickerID)
                     .labelsHidden()
                     .pickerStyle(.menu)
                     .onChange(of: vm.year) { _ in vm.getTitles() }
@@ -51,6 +52,7 @@ struct TitleListView: View {
         .padding(.bottom)
         .onAppear(perform: { vm.setButtons() })
         .onAppear(perform: { vm.getTitles() })
+        .onAppear(perform: { vm.createPickerID() })
         .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }

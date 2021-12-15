@@ -14,6 +14,7 @@ class CampusListViewModel: ObservableObject {
     @Published var firstAppear = true
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
+    @Published var pickerID = UUID()
     private var yearByType: YearByType = .Campus
     private var importYears = Campus.importYears
     private var namePredicate: NamePredicate = .Campus
@@ -48,5 +49,9 @@ class CampusListViewModel: ObservableObject {
     
     func flipFirstAppear() {
         firstAppear = false
+    }
+    
+    func createPickerID() {
+        pickerID = UUID()
     }
 }

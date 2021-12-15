@@ -17,7 +17,6 @@ struct SortListButton: View {
         } label: {
             Text("\(selected.title)")
                 .foregroundColor(sortButtons[selected] ?? false ? .blue : .gray)
-            // .padding([.leading, .trailing])
         }
     }
     
