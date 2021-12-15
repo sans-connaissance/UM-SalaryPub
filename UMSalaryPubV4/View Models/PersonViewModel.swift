@@ -48,6 +48,12 @@ struct PersonViewModel: Hashable {
         return "$" + apptAnnualFTR
     }
     
+    var apptAnnualFTRInsight: String {
+        let apptAnnualFTR = String(format: "%.2f", person.apptAnnualFTR)
+        return "$" + apptAnnualFTR
+    }
+    
+    
     var apptAnnualFTRDouble: Double {
         return person.apptAnnualFTR
     }

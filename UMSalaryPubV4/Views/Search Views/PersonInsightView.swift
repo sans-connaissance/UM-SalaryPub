@@ -32,12 +32,11 @@ struct PersonInsightView: View {
                                 Spacer()
                                 VStack(alignment: .center) {
                                     Text(String(person.year)).textStyle(DetailData())
-                                    Text(person.apptAnnualFTR).textStyle(DetailData())
+                                    Text(person.apptAnnualFTRInsight).textStyle(DetailData())
                                 }.rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
-                                
                                 Spacer()
                             }
-                        }
+                       }
                         HStack {
                             ForEach(vm.salaries, id: \.self) { salary in
                                 Spacer()
