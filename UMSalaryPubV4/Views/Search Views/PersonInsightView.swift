@@ -14,20 +14,13 @@ struct PersonInsightView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     let person: PersonViewModel
     let year: Int64
-
+    
     var body: some View {
         VStack {
             CloseInsightView()
             Text(person.fullName).font(.headline)
             Divider()
-//            VStack {
-//                Text(String(vm.personCount))
-//                Text(String(vm.titleCount))
-//                Text(String(vm.departmentCount))
-//                Text(String(vm.campusCount))
-//            }
         }
-
         ScrollView(.vertical) {
             Text("Annual Full-Time Rate").font(.headline)
             Text("Yearly % Change").font(.headline)
@@ -41,7 +34,7 @@ struct PersonInsightView: View {
                                     Text(String(person.year)).textStyle(DetailData())
                                     Text(person.apptAnnualFTR).textStyle(DetailData())
                                 }.rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
-
+                                
                                 Spacer()
                             }
                         }
@@ -59,13 +52,24 @@ struct PersonInsightView: View {
             }.frame(height: 70)
             Divider()
             VStack {
-                PersonLineChartView(
-                    showTitleAverage: $vm.showTitleAverage,
-                    showDepartmentAverage: $vm.showDepartmentAverage,
-                    showCampusAverage: $vm.showCampusAverage,
-                    showAnnualFTR: $vm.showAnnualFTR,
-                    person: person, year: year)
-            }.frame(width: 370, height: 370, alignment: .leading)
+                if horizontalSizeClass == .compact {
+                    PersonLineChartView(
+                        showTitleAverage: $vm.showTitleAverage,
+                        showDepartmentAverage: $vm.showDepartmentAverage,
+                        showCampusAverage: $vm.showCampusAverage,
+                        showAnnualFTR: $vm.showAnnualFTR,
+                        person: person, year: year)
+                        .frame(width: 370, height: 370, alignment: .leading)
+                } else {
+                    PersonLineChartView(
+                        showTitleAverage: $vm.showTitleAverage,
+                        showDepartmentAverage: $vm.showDepartmentAverage,
+                        showCampusAverage: $vm.showCampusAverage,
+                        showAnnualFTR: $vm.showAnnualFTR,
+                        person: person, year: year)
+                        .frame(width: 470, height: 470, alignment: .leading)
+                }
+            }
             VStack {
                 ChartSwitch(isOn: $vm.showAnnualFTR,
                             switchTitle: "Annual FTR",
@@ -85,9 +89,6 @@ struct PersonInsightView: View {
                             color: .systemOrange)
             }.padding(.leading)
         }
-
-        // MARK: Wrap these all into one function in the view model
-
         .onAppear(perform: { vm.getPersons(vm: person) })
         .onAppear(perform: { vm.getPercentChange() })
         .onAppear(perform: { vm.getCampuses(vm: person, year: year) })

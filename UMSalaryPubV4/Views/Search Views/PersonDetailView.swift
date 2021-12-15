@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PersonDetailView: View {
     @StateObject private var vm = PersonDetailViewModel()
-   // @Environment(\.presentationMode) var presentationMode
     let person: PersonViewModel
 
     var body: some View {
