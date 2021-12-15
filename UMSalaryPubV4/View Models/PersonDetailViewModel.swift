@@ -26,19 +26,19 @@ class PersonDetailViewModel: ObservableObject {
     }
     
     func getTitle(vm: PersonViewModel) -> [TitleViewModel] {
-        let request: [Title] = Title.forDetailAndInsights(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText, name: vm.title, year: vm.year)
+        let request: [Title] = Title.forDetailViews(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText, name: vm.title, year: vm.year)
         let titleForDetailView = request.map(TitleViewModel.init)
         return titleForDetailView
     }
-    
+
     func getDepartment(vm: PersonViewModel) -> [DepartmentViewModel] {
-        let request: [Department] = Department.forDetailAndInsights(nameKeyPath: departmentNameKP.returnText, yearKeyPath: departmentYearKP.returnText, name: vm.department, year: vm.year)
+        let request: [Department] = Department.forDetailViews(nameKeyPath: departmentNameKP.returnText, yearKeyPath: departmentYearKP.returnText, name: vm.department, year: vm.year)
         let departmentForDetailView = request.map(DepartmentViewModel.init)
         return departmentForDetailView
     }
-    
+
     func getCampus(vm: PersonViewModel) -> [CampusViewModel] {
-        let request: [Campus] = Campus.forDetailAndInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText, name: vm.campus, year: vm.year)
+        let request: [Campus] = Campus.forDetailViews(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText, name: vm.campus, year: vm.year)
         let campusForDetailView = request.map(CampusViewModel.init)
         return campusForDetailView
     }

@@ -54,26 +54,24 @@ class PersonInsightViewModel: ObservableObject {
         personsInsight = request.map(PersonViewModel.init)
     }
     
-    func getTitles(vm: PersonViewModel) {
-        let request: [Title] = Title.forDetailAndInsights(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText, name: vm.title, year: vm.year)
+    func getTitles(vm: PersonViewModel, year: Int64) {
+        let request: [Title] = Title.forDetailViews(nameKeyPath: titleNameKP.returnText, yearKeyPath: titleYearKP.returnText, name: vm.title, year: year)
         titlesInsight = request.map(TitleViewModel.init)
     }
     
-    func getDepartments(vm: PersonViewModel) {
-        let request: [Department] = Department.forDetailAndInsights(nameKeyPath: departmentNameKP.returnText, yearKeyPath: departmentYearKP.returnText, name: vm.department, year: vm.year)
+    func getDepartments(vm: PersonViewModel, year: Int64) {
+        let request: [Department] = Department.forDetailViews(nameKeyPath: departmentNameKP.returnText, yearKeyPath: departmentYearKP.returnText, name: vm.department, year: year)
         departmentsInsight = request.map(DepartmentViewModel.init)
     }
     
-    func getCampuses(vm: PersonViewModel) {
-        let request: [Campus] = Campus.forDetailAndInsights(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText, name: vm.campus, year: vm.year)
+    func getCampuses(vm: PersonViewModel, year: Int64) {
+        let request: [Campus] = Campus.forDetailViews(nameKeyPath: campusNameKP.returnText, yearKeyPath: campusYearKP.returnText, name: vm.campus, year: year)
         campusesInsight = request.map(CampusViewModel.init)
     }
-
+    
     func getPercentChange() {
         salaries = Person.personPercentChange(personsInsight)
     }
-    
-    // MARK: - - ALL THE CHART VARS AND STUFF NEED TO BE MOVED TO THEIR OWN VIEWMODEL
 
     func getChartData() {
         personEntryAnnualFTR = Person.lineChartAnnualFTR(personsInsight)

@@ -18,12 +18,13 @@ struct PersonLineChartView: UIViewRepresentable {
     
     let lineChart = LineChartView()
     let person: PersonViewModel
+    let year: Int64
     
     func makeUIView(context: Context) -> LineChartView {
         vm.getPersons(vm: person)
-        vm.getTitles(vm: person)
-        vm.getDepartments(vm: person)
-        vm.getCampuses(vm: person)
+        vm.getTitles(vm: person, year: year)
+        vm.getDepartments(vm: person, year: year)
+        vm.getCampuses(vm: person, year: year)
         vm.getChartData()
         
         return lineChart

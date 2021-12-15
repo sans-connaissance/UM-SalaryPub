@@ -19,7 +19,9 @@ struct PersonDetailView: View {
                     InsightsButton(isPresented: $vm.isPresented)
                         .padding()
                         .fullScreenCover(isPresented: $vm.isPresented) {
-                            PersonInsightView(person: person)
+                            PersonInsightView(
+                                person: person,
+                                year: vm.personsDetail.reversed()[0].year)
                         }
                 } else {
                     Text("Insights not available \n(same name or multiple appointments)").textStyle(SmallGrey())
@@ -82,7 +84,7 @@ struct PersonDetailRowLeft: View {
                     }
                 } label: {
                     Text(person.campus).textStyle(DetailData())
-                    .multilineTextAlignment(.leading)
+                        .multilineTextAlignment(.leading)
                 }
             }
             Spacer()
@@ -94,7 +96,7 @@ struct PersonDetailRowLeft: View {
                     }
                 } label: {
                     Text(person.department).textStyle(DetailData())
-                    .multilineTextAlignment(.leading)
+                        .multilineTextAlignment(.leading)
                 }
             }
             Spacer()
@@ -106,7 +108,7 @@ struct PersonDetailRowLeft: View {
                     }
                 } label: {
                     Text(person.title).textStyle(DetailData())
-                    .multilineTextAlignment(.leading)
+                        .multilineTextAlignment(.leading)
                 }
             }
             Spacer()

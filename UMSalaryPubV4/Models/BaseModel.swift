@@ -15,7 +15,7 @@ protocol BaseModel where Self: NSManagedObject {
     
     static func byName<T: NSManagedObject>(keyPath: String, name: String) -> [T]
     
-    static func forDetailAndInsights<T: NSManagedObject>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T]
+    static func forDetailViews<T: NSManagedObject>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T]
     
     static func campusesWithTitleOrDepartment<T: NSManagedObject>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T]
     
@@ -78,7 +78,7 @@ extension BaseModel {
     
 
     
-    static func forDetailAndInsights<T>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T] where T: NSManagedObject {
+    static func forDetailViews<T>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T] where T: NSManagedObject {
         let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
         let yearPredicate = NSPredicate(format: "\(yearKeyPath) <= %i", year)
         let namePredicate = NSPredicate(format: "\(nameKeyPath) = %@", name)

@@ -21,6 +21,7 @@ struct PersonListView: View {
                             Text($0.displayText)
                         }
                     }
+                    // MARK: There's a bug with the year button
                     .labelsHidden()
                     .pickerStyle(.menu)
                     .onChange(of: vm.year) { _ in vm.getPersons() }
