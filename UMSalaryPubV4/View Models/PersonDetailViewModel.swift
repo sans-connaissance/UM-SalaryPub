@@ -54,4 +54,12 @@ class PersonDetailViewModel: ObservableObject {
         let isGreatThanTwo = counts.contains(where: { $0.value > 1 })
         return !isGreatThanTwo
     }
+    
+//    func resetIsPresented() {
+//        if isPresented {
+//            isPresented = false
+//        }
+//    }
 }
+
+
