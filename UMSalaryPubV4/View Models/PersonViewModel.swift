@@ -53,7 +53,6 @@ struct PersonViewModel: Hashable {
         return "$" + apptAnnualFTR
     }
     
-    
     var apptAnnualFTRDouble: Double {
         return person.apptAnnualFTR
     }

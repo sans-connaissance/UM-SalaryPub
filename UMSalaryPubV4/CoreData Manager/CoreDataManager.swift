@@ -10,28 +10,23 @@ import Foundation
 
 class CoreDataManager {
     let persistentContainer: NSPersistentContainer
-    
     static let shared = CoreDataManager()
-    
     let containerPath = Bundle.main.path(forResource: "UMSalaryPub", ofType: "sqlite")
-    
     var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
     
     private init(inMemory: Bool = true) {
         persistentContainer = NSPersistentContainer(name: "UMSalaryPub")
-        
         if inMemory {
-            persistentContainer.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: containerPath ?? "/dev/null")
+            persistentContainer.persistentStoreDescriptions.first!
+                .url = URL(fileURLWithPath: containerPath ?? "/dev/null")
         }
-        
         persistentContainer.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-        }
-        )
+        })
     }
     
     func saveContext() {
