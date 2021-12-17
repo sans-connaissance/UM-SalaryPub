@@ -10,7 +10,6 @@ import Foundation
 
 class DepartmentDAO: BaseDAO {
     static let shared = DepartmentDAO()
-    
     private let departmentEntityName = "Department"
     
     func saveDepartmentIfNeeded(departmentName: String,
@@ -23,18 +22,13 @@ class DepartmentDAO: BaseDAO {
                                 importYear: Int) -> Department
     {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: departmentEntityName)
-        
         let importYear = importYear
-        
         let yearPredicate = NSPredicate(format: "departmentYear = %i", importYear)
-        
         let departmentNamePredicate = NSPredicate(format: "departmentName = %@", departmentName)
-        
         let combinedDepartmentPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, departmentNamePredicate])
-        
         fetchRequest.predicate = combinedDepartmentPredicate
-        
         var department: Department?
+        
         do {
             department = (try managedContext.fetch(fetchRequest) as! [Department]).first
         } catch let error as NSError {
@@ -42,11 +36,9 @@ class DepartmentDAO: BaseDAO {
         }
         
         guard department == nil else {
-            // Returning category if available in database
             return department!
         }
         
-        // Creating category object in database
         let newDepartment = Department(context: managedContext)
         newDepartment.departmentName = departmentName
         newDepartment.departmentYear = departmentYear
@@ -55,7 +47,6 @@ class DepartmentDAO: BaseDAO {
         newDepartment.departmentMaxAnnual = departmentMaxAnnual
         newDepartment.departmentMinAnnual = departmentMinAnnual
         newDepartment.departmentCount = departmentCount
-        
         return newDepartment
     }
 }

@@ -36,7 +36,6 @@ struct PersonDetailView: View {
             VStack(alignment: .center) {
                 ForEach(vm.personsDetail.reversed(), id: \.self) { person in
                     Divider()
-
                     Section(header: Text(String(person.year)).bold()) {
                         Divider()
                         VStack {

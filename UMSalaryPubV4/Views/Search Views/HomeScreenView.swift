@@ -12,8 +12,8 @@ struct HomeScreenView: View {
         VStack {
             List {
                 Section(header: VStack {
-                    Text("Search UM SalaryPub")
-                }) {
+                    Text("Search UM SalaryPub")})
+                {
                     NavigationLink(
                         destination: PersonListView())
                     {Text("People").font(.headline)}

@@ -64,7 +64,6 @@ public extension Title {
 extension Title: Identifiable {
     static func byYear(year: String) -> [Title] {
         let request: NSFetchRequest<Title> = Title.fetchRequest()
-
         request.predicate = NSPredicate(format: " ANY %K = %@", #keyPath(Title.personsWithTitle.year), year)
 
         do {
@@ -95,7 +94,6 @@ extension Title: Identifiable {
         let namePredicate = NSPredicate(format: "titleName == %@", titleName)
         let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
         request.predicate = combinedPredicate
-        
         request.fetchBatchSize = 25
         
         do {

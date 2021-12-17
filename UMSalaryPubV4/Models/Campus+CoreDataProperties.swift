@@ -65,7 +65,6 @@ public extension Campus {
 extension Campus: Identifiable {
     static func byYear(year: String) -> [Campus] {
         let request: NSFetchRequest<Campus> = Campus.fetchRequest()
-
         request.predicate = NSPredicate(format: " ANY %K = %@", #keyPath(Campus.personsOnCampus.year), year)
 
         do {
@@ -77,7 +76,6 @@ extension Campus: Identifiable {
 
     static func lineChartDepartmentAverage(_ campuses: [CampusViewModel]) -> [ChartDataEntry] {
         let campus = campuses
-
         return campus.map { BarChartDataEntry(x: Double($0.year), y: $0.campusAverageAnnualDouble) }
     }
 }

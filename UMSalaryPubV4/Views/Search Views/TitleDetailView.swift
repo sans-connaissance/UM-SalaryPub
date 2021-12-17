@@ -16,7 +16,6 @@ struct TitleDetailView: View {
             VStack(alignment: .center) {
                 ForEach(vm.titlesDetail.reversed(), id: \.self) { title in
                     Divider()
-                    
                     Section(header: Text(String(title.year)).bold()) {
                         Divider()
                         VStack {

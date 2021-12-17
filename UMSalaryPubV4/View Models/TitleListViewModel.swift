@@ -15,6 +15,7 @@ class TitleListViewModel: ObservableObject {
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
     @Published var pickerID = UUID()
+    
     private var yearByType: YearByType = .Title
     private var importYears = Title.importYears
     private var namePredicate: NamePredicate = .Title

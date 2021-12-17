@@ -39,13 +39,9 @@ class TitleDAO: BaseDAO {
         }
         
         guard title == nil else {
-            // Returning category if available in database
             return title!
         }
-        
-        // Need to add year to each of these, and remember to remove Parent and Child relationships from database
-        
-        // Creating category object in database
+
         let newTitle = Title(context: managedContext)
         newTitle.titleYear = titleYear
         newTitle.titleName = titleName
@@ -57,7 +53,6 @@ class TitleDAO: BaseDAO {
         newTitle.titleAnnArborAverage = titleAnnArborAverage
         newTitle.titleDearbornAverage = titleDearbornAverage
         newTitle.titleFlintAverage = titleFlintAverage
-        
         return newTitle
     }
 }

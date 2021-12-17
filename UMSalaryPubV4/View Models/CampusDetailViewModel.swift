@@ -9,6 +9,7 @@ import Foundation
 
 class CampusDetailViewModel: ObservableObject {
     @Published var campusesDetail = [CampusViewModel]()
+    
     private var selectedKeyPath: NamePredicate = .Campus
 
     func getCampuses(vm: CampusViewModel) {

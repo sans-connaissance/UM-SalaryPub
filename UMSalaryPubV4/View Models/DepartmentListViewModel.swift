@@ -14,6 +14,7 @@ class DepartmentListViewModel: ObservableObject {
     @Published var searchText = " "
     @Published var year: FetchYear = .twenty
     @Published var pickerID = UUID()
+    
     private var yearByType: YearByType = .Department
     private var importYears = Department.importYears
     private var namePredicate: NamePredicate = .Department

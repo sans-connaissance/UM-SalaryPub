@@ -10,6 +10,7 @@ import SwiftUI
 
 class TitleDetailViewModel: ObservableObject {
     @Published var titlesDetail = [TitleViewModel]()
+    
     private var nameKP: NamePredicate = .Title
     private var yearKP: YearByType = .Title
     

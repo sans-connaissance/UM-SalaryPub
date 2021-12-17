@@ -16,13 +16,11 @@ struct SearchBarView: View {
                 Image(systemName: "magnifyingglass")
 
                 TextField("search", text: $searchText, onEditingChanged: { _ in
-                    self.showCancelButton = true
-                }, onCommit: {
-                    print("onCommit")
-                }).foregroundColor(.primary)
+                    showCancelButton = true
+                }, onCommit: { print("onCommit") }).foregroundColor(.primary)
 
                 Button(action: {
-                    self.searchText = " "
+                    searchText = " "
                 }) {
                     Image(systemName: "xmark.circle.fill").opacity(searchText == " " ? 0 : 1)
                 }
@@ -34,14 +32,12 @@ struct SearchBarView: View {
 
             if showCancelButton {
                 Button("Cancel") {
-                    UIApplication.shared.endEditing(true) // this must be placed before the other commands here
-                    self.searchText = " "
-                    self.showCancelButton = false
-                }
-                .foregroundColor(Color(.systemBlue))
+                    UIApplication.shared.endEditing(true)
+                    searchText = " "
+                    showCancelButton = false
+                }.foregroundColor(Color(.systemBlue))
             }
-        }
-        .padding(.horizontal)
+        }.padding(.horizontal)
     }
 }
 

@@ -9,14 +9,11 @@ import CoreData
 import Foundation
 
 class PersonDAO: BaseDAO {
-    // Singleton object
     static let shared = PersonDAO()
-    
     private let personEntityName = "Person"
     
     func addPersonsIfNeeded(importYear: Int) {
         guard !hasRecords(importYear: importYear)
-        
         else {
             return
         }
@@ -66,13 +63,9 @@ class PersonDAO: BaseDAO {
                                             department = DepartmentDAO.shared.saveDepartmentIfNeeded(departmentName: departmentName,
                                                                                                      departmentYear: departmentYear,
                                                                                                      departmentAverageAnnual: departmentAverageAnnual,
-                                                                                                     
                                                                                                      departmentMedianAnnual: departmentMedianAnnual,
-                                                                                                     
                                                                                                      departmentMaxAnnual: departmentMaxAnnual,
-                                                                                                     
                                                                                                      departmentMinAnnual: departmentMinAnnual,
-                                                                                                     
                                                                                                      departmentCount: departmentCount, importYear: importYear)
                                         }
                                     }
@@ -121,7 +114,6 @@ class PersonDAO: BaseDAO {
                 newPerson.apptFTRBasis = person["apptFTRBasis"] as? String
                 newPerson.fullName = person["fullName"] as? String
                 newPerson.year = person["year"] as? Int64 ?? 0
-                
                 newPerson.campus = campus
                 newPerson.department = department
                 newPerson.title = title
@@ -139,7 +131,6 @@ class PersonDAO: BaseDAO {
         } catch let error as NSError {
             print("Could not count. \(error)")
         }
-        
         return count != 0
 //        return count == 1
     }

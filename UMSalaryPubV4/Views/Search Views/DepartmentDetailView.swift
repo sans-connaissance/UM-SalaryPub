@@ -16,10 +16,8 @@ struct DepartmentDetailView: View {
             VStack(alignment: .center) {
                 ForEach(vm.departmentsDetail.reversed(), id: \.self) { department in
                     Divider()
-                    
                     Section(header: Text(String(department.year)).bold()) {
                         Divider()
-                        
                         VStack {
                             HStack(spacing: 5) {
                                 Spacer()

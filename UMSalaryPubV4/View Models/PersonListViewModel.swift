@@ -16,6 +16,7 @@ class PersonListViewModel: ObservableObject {
     @Published var searchText = " "
     @Published var year: FetchYear = .twenty
     @Published var pickerID = UUID()
+    
     private var yearByType: YearByType = .Person
     private var importYears = Person.importYears
     private var namePredicate: NamePredicate = .Person

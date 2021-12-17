@@ -30,5 +30,4 @@ class DepartmentDetailViewModel: ObservableObject {
         let uniqueCampusArray = Array(Set(campusArray)).sorted()
         return uniqueCampusArray
     }
-    
 }

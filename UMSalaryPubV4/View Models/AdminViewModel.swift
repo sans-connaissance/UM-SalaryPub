@@ -22,7 +22,6 @@ class AdminViewModel: ObservableObject {
         getAllCampuses()
     }
     
-    // maybe even abstract all these "By Year functions"
     func getAllPersons() {
         for year in importYears {
             let personViewModel: [Person] = Person.byYear(year: String(year), sortByMoneyDescending: true, sortByMoneyAscending: true, sortAlphabetically: true, filter: " ")

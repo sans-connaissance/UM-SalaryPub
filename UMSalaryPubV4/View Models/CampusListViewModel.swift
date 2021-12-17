@@ -15,6 +15,7 @@ class CampusListViewModel: ObservableObject {
     @Published var year: FetchYear = .twenty
     @Published var searchText = " "
     @Published var pickerID = UUID()
+    
     private var yearByType: YearByType = .Campus
     private var importYears = Campus.importYears
     private var namePredicate: NamePredicate = .Campus

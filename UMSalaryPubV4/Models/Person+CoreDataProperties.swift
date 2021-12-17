@@ -28,7 +28,7 @@ extension Person: BaseModel {
 }
 
 extension Person: Identifiable {
-    // MARK: can this be added to the base model?
+    // MARK: add basemodel version
 
     static func byYear(year: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, sortAlphabetically: Bool, filter: String) -> [Person] {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
@@ -96,7 +96,6 @@ extension Person: Identifiable {
         let namePredicate = NSPredicate(format: "ANY department.departmentName = %@", departmentName)
         let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, namePredicate])
         request.predicate = combinedPredicate
-        
         request.fetchBatchSize = 25
         
         do {
@@ -122,7 +121,6 @@ extension Person: Identifiable {
 
     static func lineChartAnnualFTR(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
         let personArray = persons
-
         return personArray.map { BarChartDataEntry(x: Double($0.year), y: $0.apptAnnualFTRDouble) }
     }
 }
