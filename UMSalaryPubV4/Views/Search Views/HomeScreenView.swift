@@ -46,6 +46,7 @@ struct HomeScreenView: View {
                 .padding(.bottom)
                 .listStyle(GroupedListStyle())
             }
+            //MARK: - This is unwrapped unsafely
             if let person = vm.allPersons[vm.year.rawValue] {
                 PersonDetailView(person: person.randomElement() ?? person[0])
             }

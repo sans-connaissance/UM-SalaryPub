@@ -29,6 +29,7 @@ struct SearchBarView: View {
             .foregroundColor(.secondary)
             .background(Color(.secondarySystemBackground))
             .cornerRadius(10.0)
+            .disableAutocorrection(true)
 
             if showCancelButton {
                 Button("Cancel") {
