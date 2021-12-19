@@ -28,37 +28,6 @@ struct SortListButton: View {
     }
 }
 
-struct ChartSwitch: View {
-    @Binding var isOn: Bool
-    var switchTitle: String
-    var switchData: String
-    var color: UIColor
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .bottom) {
-                label
-                Spacer()
-                switchToggle
-            }
-        }
-    }
-    
-    var label: some View {
-        VStack(alignment: .leading) {
-            Text(switchTitle).textStyle(SmallGrey())
-            Text(switchData).font(.subheadline)
-        }.multilineTextAlignment(.leading)
-    }
-    
-    var switchToggle: some View {
-        Toggle("", isOn: $isOn)
-            .toggleStyle(SwitchToggleStyle(tint: .init(color)))
-            .labelsHidden()
-            .padding(.trailing)
-    }
-}
-
 enum SortOption: String, CaseIterable {
     case sortAlphabetically
     case sortByMoneyDescending

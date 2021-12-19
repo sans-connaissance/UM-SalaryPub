@@ -51,6 +51,7 @@ struct PersonInsightView: View {
             }.frame(height: 70)
             Divider()
             VStack {
+                Spacer()
                 if horizontalSizeClass == .compact {
                     PersonLineChartView(
                         showTitleAverage: $vm.showTitleAverage,
@@ -69,24 +70,22 @@ struct PersonInsightView: View {
                         .frame(width: 470, height: 470, alignment: .leading)
                 }
             }
-            VStack {
-                ChartSwitch(isOn: $vm.showAnnualFTR,
-                            switchTitle: "Annual FTR",
-                            switchData: person.fullName,
-                            color: .systemGreen)
-                ChartSwitch(isOn: $vm.showCampusAverage,
-                            switchTitle: "Campus Avg. FTR",
-                            switchData: person.campus,
-                            color: .systemBlue)
-                ChartSwitch(isOn: $vm.showDepartmentAverage,
-                            switchTitle: "Department Avg. FTR",
-                            switchData: person.department,
-                            color: .systemPurple)
-                ChartSwitch(isOn: $vm.showTitleAverage,
-                            switchTitle: "Title Avg. FTR",
-                            switchData: person.title,
-                            color: .systemOrange)
-            }.padding(.leading)
+            Spacer()
+            HStack {
+                VStack(alignment: .leading, spacing: 7) {
+                    ChartLabel(labelTitle: "Annual FTR", labelData: person.fullName)
+                    ChartLabel(labelTitle: "Campus Avg. FTR", labelData: person.campus)
+                    ChartLabel(labelTitle: "Department Avg. FTR", labelData: person.department)
+                    ChartLabel(labelTitle: "Title Avg. FTR", labelData: person.title)
+                }
+               Spacer()
+                VStack(alignment: .trailing, spacing: 10) {
+                    ChartSwitch(isOn: $vm.showAnnualFTR, color: .systemGreen)
+                    ChartSwitch(isOn: $vm.showCampusAverage, color: .systemBlue)
+                    ChartSwitch(isOn: $vm.showDepartmentAverage, color: .systemPurple)
+                    ChartSwitch(isOn: $vm.showTitleAverage, color: .systemOrange)
+                }
+            }.padding([.bottom, .top])
         }
         .onAppear(perform: { vm.getPersons(vm: person) })
         .onAppear(perform: { vm.getPercentChange() })
@@ -96,6 +95,35 @@ struct PersonInsightView: View {
         .onAppear(perform: { vm.getChartData() })
     }
 }
+
+struct ChartLabel: View {
+    var labelTitle: String
+    var labelData: String
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(labelTitle).textStyle(SmallGrey())
+            Text(labelData).font(.subheadline)
+        }
+        .padding(.leading)
+        .multilineTextAlignment(.leading)
+    }
+}
+
+struct ChartSwitch: View {
+    @Binding var isOn: Bool
+    var color: UIColor
+    
+    var body: some View {
+        VStack(alignment: .trailing) {
+            Toggle("", isOn: $isOn)
+                .toggleStyle(SwitchToggleStyle(tint: .init(color)))
+                .labelsHidden()
+                .padding(.trailing)
+        }
+    }
+}
+
 
 // struct PersonInsightView_Previews: PreviewProvider {
 //    static var previews: some View {
