@@ -47,7 +47,7 @@ struct HomeScreenView: View {
                 .listStyle(GroupedListStyle())
             }
                 if let person = vm.allPersons[vm.year.rawValue] {
-                PersonDetailView(person: person[0])
+                    PersonDetailView(person: person.randomElement() ?? person[0])
             }
         }
         .onAppear(perform: { vm.getPersons() })

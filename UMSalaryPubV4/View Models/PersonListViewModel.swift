@@ -39,7 +39,7 @@ class PersonListViewModel: ObservableObject {
         
         allPersons[year.rawValue] = request.map(PersonViewModel.init)
     }
-    
+        
     func setButtons() {
         if firstAppear {
             SortOption.allCases.forEach { button in
