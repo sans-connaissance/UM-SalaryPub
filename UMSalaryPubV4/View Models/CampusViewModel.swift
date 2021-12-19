@@ -24,7 +24,7 @@ struct CampusViewModel: Hashable {
     }
     
     var campusCount: String {
-        let campusCount = campus.campusCount.withCommas()
+        let campusCount = campus.campusCount.noCommas()
         return campusCount
     }
     
