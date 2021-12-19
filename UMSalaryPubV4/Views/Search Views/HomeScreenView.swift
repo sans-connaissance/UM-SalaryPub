@@ -49,7 +49,8 @@ struct HomeScreenView: View {
                 if let person = vm.allPersons[vm.year.rawValue] {
                 PersonDetailView(person: person[0])
             }
-        }.onAppear(perform: { vm.getPersons() })
+        }
+        .onAppear(perform: { vm.getPersons() })
     }
 }
 
