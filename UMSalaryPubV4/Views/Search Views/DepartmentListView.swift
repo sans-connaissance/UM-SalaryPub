@@ -21,7 +21,7 @@ struct DepartmentListView: View {
                             Text($0.displayText)
                         }
                     }
-                    .id(vm.pickerID)
+                    .id(vm.uuid)
                     .labelsHidden()
                     .pickerStyle(.menu)
                     .onChange(of: vm.year) { _ in vm.getDepartments() }
@@ -46,13 +46,15 @@ struct DepartmentListView: View {
                         .listRowBackground((Color(UIColor.systemBackground)))
                     }
                 }
-            }.listStyle(GroupedListStyle())
+            }
+            .listStyle(GroupedListStyle())
+            .id(vm.uuid)
         }
         .navigationTitle("Departments")
         .padding(.bottom)
         .onAppear(perform: { vm.getDepartments() })
         .onAppear(perform: { vm.setButtons() })
-        .onAppear(perform: { vm.createPickerID() })
+        .onAppear(perform: { vm.createUUID() })
         .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }

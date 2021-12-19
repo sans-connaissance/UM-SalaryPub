@@ -21,7 +21,7 @@ struct CampusListView: View {
                             Text($0.displayText)
                         }
                     }
-                    .id(vm.pickerID)
+                    .id(vm.uuid)
                     .labelsHidden()
                     .pickerStyle(.menu)
                     .onChange(of: vm.year) { _ in vm.getCampuses() }
@@ -46,13 +46,15 @@ struct CampusListView: View {
                         .listRowBackground((Color(UIColor.systemBackground)))
                     }
                 }
-            }.listStyle(GroupedListStyle())
+            }
+            .listStyle(GroupedListStyle())
+            .id(vm.uuid)
         }
         .navigationTitle("Campuses")
         .padding(.bottom)
         .onAppear(perform: { vm.setButtons() })
         .onAppear(perform: { vm.getCampuses() })
-        .onAppear(perform: { vm.createPickerID() })
+        .onAppear(perform: { vm.createUUID() })
         .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }

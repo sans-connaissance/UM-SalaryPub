@@ -14,7 +14,7 @@ class TitleListViewModel: ObservableObject {
     @Published var firstAppear = true
     @Published var year: FetchYear = .twentyOne
     @Published var searchText = " "
-    @Published var pickerID = UUID()
+    @Published var uuid = UUID()
     
     private var yearByType: YearByType = .Title
     private var importYears = Title.importYears
@@ -52,7 +52,7 @@ class TitleListViewModel: ObservableObject {
         firstAppear = false
     }
     
-    func createPickerID() {
-        pickerID = UUID()
+    func createUUID() {
+        uuid = UUID()
     }
 }

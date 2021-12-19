@@ -15,7 +15,7 @@ class PersonListViewModel: ObservableObject {
     @Published var firstAppear = true
     @Published var searchText = " "
     @Published var year: FetchYear = .twentyOne
-    @Published var pickerID = UUID()
+    @Published var uuid = UUID()
     
     private var yearByType: YearByType = .Person
     private var importYears = Person.importYears
@@ -53,7 +53,7 @@ class PersonListViewModel: ObservableObject {
         firstAppear = false
     }
     
-    func createPickerID() {
-        pickerID = UUID()
+    func createUUID() {
+        uuid = UUID()
     }
 }

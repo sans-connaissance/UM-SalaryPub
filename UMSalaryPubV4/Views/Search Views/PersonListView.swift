@@ -21,7 +21,7 @@ struct PersonListView: View {
                             Text($0.displayText)
                         }
                     }
-                    .id(vm.pickerID)
+                    .id(vm.uuid)
                     .labelsHidden()
                     .pickerStyle(.menu)
                     .onChange(of: vm.year) { _ in vm.getPersons() }
@@ -46,13 +46,15 @@ struct PersonListView: View {
                         .listRowBackground(Color(UIColor.systemBackground))
                     }
                 }
-            }.listStyle(GroupedListStyle())
+            }
+            .listStyle(GroupedListStyle())
+            .id(vm.uuid)
         }
         .navigationTitle("People")
         .padding(.bottom)
         .onAppear(perform: { vm.getPersons() })
         .onAppear(perform: { vm.setButtons() })
-        .onAppear(perform: { vm.createPickerID() })
+        .onAppear(perform: { vm.createUUID() })
         .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }
