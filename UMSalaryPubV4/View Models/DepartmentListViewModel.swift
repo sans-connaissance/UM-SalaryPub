@@ -12,7 +12,7 @@ class DepartmentListViewModel: ObservableObject {
     @Published var sortButtons = [SortOption: Bool]()
     @Published var firstAppear = true
     @Published var searchText = " "
-    @Published var year: FetchYear = .twenty
+    @Published var year: FetchYear = .twentyOne
     @Published var pickerID = UUID()
     
     private var yearByType: YearByType = .Department

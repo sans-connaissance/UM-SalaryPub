@@ -169,6 +169,7 @@ enum NamePredicate: String, CaseIterable {
 }
 
 enum FetchYear: Int, CaseIterable {
+    case twentyOne = 2021
     case twenty = 2020
     case nineteen = 2019
     case eighteen = 2018
@@ -180,6 +181,8 @@ enum FetchYear: Int, CaseIterable {
     
     var displayText: String {
         switch self {
+        case.twentyOne:
+            return "2021"
         case .twenty:
             return "2020"
         case .nineteen:

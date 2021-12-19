@@ -16,7 +16,7 @@ class CoreDataManager {
         return persistentContainer.viewContext
     }
     
-    private init(inMemory: Bool = true) {
+    private init(inMemory: Bool = false) {
         persistentContainer = NSPersistentContainer(name: "UMSalaryPub")
         if inMemory {
             persistentContainer.persistentStoreDescriptions.first!

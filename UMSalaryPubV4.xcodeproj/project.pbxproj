@@ -15,7 +15,6 @@
 		4139F4F627248DCF00E6EC5C /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4F527248DCF00E6EC5C /* AdminViewModel.swift */; };
 		4139F4F82724904500E6EC5C /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4F72724904500E6EC5C /* View+Extensions.swift */; };
 		4139F4FC2725AACB00E6EC5C /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139F4FB2725AACB00E6EC5C /* HomeScreenView.swift */; };
-		4141FA862768F4BF00C3DABF /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 4141FA852768F4BF00C3DABF /* Charts */; };
 		414AD1502723208A00316A45 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD14F2723208A00316A45 /* AppUtils.swift */; };
 		414AD156272320C300316A45 /* TitleDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD151272320C300316A45 /* TitleDAO.swift */; };
 		414AD157272320C300316A45 /* PersonDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414AD152272320C300316A45 /* PersonDAO.swift */; };
@@ -26,9 +25,16 @@
 		4157AD06275F0122002A134D /* PersonListByTitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157AD05275F0121002A134D /* PersonListByTitleViewModel.swift */; };
 		4157AD08275FB585002A134D /* PersonListByDepartmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157AD07275FB585002A134D /* PersonListByDepartmentView.swift */; };
 		4157AD0A275FB66B002A134D /* PersonListByDepartmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157AD09275FB66B002A134D /* PersonListByDepartmentViewModel.swift */; };
-		4157AD0E2765277E002A134D /* UMSalaryPub.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 4157AD0B2765277D002A134D /* UMSalaryPub.sqlite-shm */; };
-		4157AD0F2765277E002A134D /* UMSalaryPub.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4157AD0C2765277E002A134D /* UMSalaryPub.sqlite */; };
-		4157AD102765277E002A134D /* UMSalaryPub.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 4157AD0D2765277E002A134D /* UMSalaryPub.sqlite-wal */; };
+		416768E8276D9F60006D42FC /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 416768E7276D9F60006D42FC /* Charts */; };
+		416768EC276E3617006D42FC /* csvjson-02021.json in Resources */ = {isa = PBXBuildFile; fileRef = 416768EB276E3617006D42FC /* csvjson-02021.json */; };
+		416768F5276E3A15006D42FC /* csvjson-02016.json in Resources */ = {isa = PBXBuildFile; fileRef = 416768ED276E3A12006D42FC /* csvjson-02016.json */; };
+		416768F6276E3A15006D42FC /* csvjson-02020.json in Resources */ = {isa = PBXBuildFile; fileRef = 416768EE276E3A12006D42FC /* csvjson-02020.json */; };
+		416768F7276E3A15006D42FC /* csvjson-02013.json in Resources */ = {isa = PBXBuildFile; fileRef = 416768EF276E3A13006D42FC /* csvjson-02013.json */; };
+		416768F8276E3A15006D42FC /* csvjson-02014.json in Resources */ = {isa = PBXBuildFile; fileRef = 416768F0276E3A13006D42FC /* csvjson-02014.json */; };
+		416768F9276E3A15006D42FC /* csvjson-02015.json in Resources */ = {isa = PBXBuildFile; fileRef = 416768F1276E3A13006D42FC /* csvjson-02015.json */; };
+		416768FA276E3A15006D42FC /* csvjson-02019.json in Resources */ = {isa = PBXBuildFile; fileRef = 416768F2276E3A14006D42FC /* csvjson-02019.json */; };
+		416768FB276E3A15006D42FC /* csvjson-02017.json in Resources */ = {isa = PBXBuildFile; fileRef = 416768F3276E3A14006D42FC /* csvjson-02017.json */; };
+		416768FC276E3A15006D42FC /* csvjson-02018.json in Resources */ = {isa = PBXBuildFile; fileRef = 416768F4276E3A15006D42FC /* csvjson-02018.json */; };
 		416C8A5E272B10CE00653032 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C8A5D272B10CE00653032 /* BaseModel.swift */; };
 		41998B5C2738480A0021D632 /* DataDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B5B2738480A0021D632 /* DataDashboardView.swift */; };
 		41998B812739A2550021D632 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B802739A2550021D632 /* PersonViewModel.swift */; };
@@ -93,9 +99,15 @@
 		4157AD05275F0121002A134D /* PersonListByTitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListByTitleViewModel.swift; sourceTree = "<group>"; };
 		4157AD07275FB585002A134D /* PersonListByDepartmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListByDepartmentView.swift; sourceTree = "<group>"; };
 		4157AD09275FB66B002A134D /* PersonListByDepartmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListByDepartmentViewModel.swift; sourceTree = "<group>"; };
-		4157AD0B2765277D002A134D /* UMSalaryPub.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UMSalaryPub.sqlite-shm"; sourceTree = "<group>"; };
-		4157AD0C2765277E002A134D /* UMSalaryPub.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = UMSalaryPub.sqlite; sourceTree = "<group>"; };
-		4157AD0D2765277E002A134D /* UMSalaryPub.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UMSalaryPub.sqlite-wal"; sourceTree = "<group>"; };
+		416768EB276E3617006D42FC /* csvjson-02021.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02021.json"; sourceTree = "<group>"; };
+		416768ED276E3A12006D42FC /* csvjson-02016.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02016.json"; sourceTree = "<group>"; };
+		416768EE276E3A12006D42FC /* csvjson-02020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02020.json"; sourceTree = "<group>"; };
+		416768EF276E3A13006D42FC /* csvjson-02013.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02013.json"; sourceTree = "<group>"; };
+		416768F0276E3A13006D42FC /* csvjson-02014.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02014.json"; sourceTree = "<group>"; };
+		416768F1276E3A13006D42FC /* csvjson-02015.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02015.json"; sourceTree = "<group>"; };
+		416768F2276E3A14006D42FC /* csvjson-02019.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02019.json"; sourceTree = "<group>"; };
+		416768F3276E3A14006D42FC /* csvjson-02017.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02017.json"; sourceTree = "<group>"; };
+		416768F4276E3A15006D42FC /* csvjson-02018.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "csvjson-02018.json"; sourceTree = "<group>"; };
 		416C8A5D272B10CE00653032 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		41998B5B2738480A0021D632 /* DataDashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDashboardView.swift; sourceTree = "<group>"; };
 		41998B802739A2550021D632 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
@@ -147,7 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4141FA862768F4BF00C3DABF /* Charts in Frameworks */,
+				416768E8276D9F60006D42FC /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +241,15 @@
 		414AD1482723146800316A45 /* Data Loader */ = {
 			isa = PBXGroup;
 			children = (
+				416768EB276E3617006D42FC /* csvjson-02021.json */,
+				416768EF276E3A13006D42FC /* csvjson-02013.json */,
+				416768F0276E3A13006D42FC /* csvjson-02014.json */,
+				416768F1276E3A13006D42FC /* csvjson-02015.json */,
+				416768ED276E3A12006D42FC /* csvjson-02016.json */,
+				416768F3276E3A14006D42FC /* csvjson-02017.json */,
+				416768F4276E3A15006D42FC /* csvjson-02018.json */,
+				416768F2276E3A14006D42FC /* csvjson-02019.json */,
+				416768EE276E3A12006D42FC /* csvjson-02020.json */,
 				414AD153272320C300316A45 /* BaseDAO.swift */,
 				414AD155272320C300316A45 /* CampusDAO.swift */,
 				414AD154272320C300316A45 /* DepartmentDAO.swift */,
@@ -280,9 +301,6 @@
 		41E5A4802721B37700A51D80 = {
 			isa = PBXGroup;
 			children = (
-				4157AD0C2765277E002A134D /* UMSalaryPub.sqlite */,
-				4157AD0B2765277D002A134D /* UMSalaryPub.sqlite-shm */,
-				4157AD0D2765277E002A134D /* UMSalaryPub.sqlite-wal */,
 				41E5A48B2721B37700A51D80 /* UMSalaryPubV4 */,
 				41E5A48A2721B37700A51D80 /* Products */,
 			);
@@ -347,7 +365,7 @@
 			);
 			name = UMSalaryPubV4;
 			packageProductDependencies = (
-				4141FA852768F4BF00C3DABF /* Charts */,
+				416768E7276D9F60006D42FC /* Charts */,
 			);
 			productName = UMSalaryPubV4;
 			productReference = 41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */;
@@ -378,7 +396,7 @@
 			);
 			mainGroup = 41E5A4802721B37700A51D80;
 			packageReferences = (
-				4141FA842768F4BF00C3DABF /* XCRemoteSwiftPackageReference "Charts" */,
+				416768E6276D9F60006D42FC /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 41E5A48A2721B37700A51D80 /* Products */;
 			projectDirPath = "";
@@ -394,11 +412,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4157AD0F2765277E002A134D /* UMSalaryPub.sqlite in Resources */,
+				416768FA276E3A15006D42FC /* csvjson-02019.json in Resources */,
+				416768F7276E3A15006D42FC /* csvjson-02013.json in Resources */,
+				416768F6276E3A15006D42FC /* csvjson-02020.json in Resources */,
 				41E5A4942721B37A00A51D80 /* Preview Assets.xcassets in Resources */,
-				4157AD102765277E002A134D /* UMSalaryPub.sqlite-wal in Resources */,
+				416768F8276E3A15006D42FC /* csvjson-02014.json in Resources */,
+				416768F5276E3A15006D42FC /* csvjson-02016.json in Resources */,
+				416768FC276E3A15006D42FC /* csvjson-02018.json in Resources */,
+				416768F9276E3A15006D42FC /* csvjson-02015.json in Resources */,
+				416768FB276E3A15006D42FC /* csvjson-02017.json in Resources */,
 				41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */,
-				4157AD0E2765277E002A134D /* UMSalaryPub.sqlite-shm in Resources */,
+				416768EC276E3617006D42FC /* csvjson-02021.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,7 +698,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4141FA842768F4BF00C3DABF /* XCRemoteSwiftPackageReference "Charts" */ = {
+		416768E6276D9F60006D42FC /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts";
 			requirement = {
@@ -685,9 +709,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4141FA852768F4BF00C3DABF /* Charts */ = {
+		416768E7276D9F60006D42FC /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4141FA842768F4BF00C3DABF /* XCRemoteSwiftPackageReference "Charts" */;
+			package = 416768E6276D9F60006D42FC /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */

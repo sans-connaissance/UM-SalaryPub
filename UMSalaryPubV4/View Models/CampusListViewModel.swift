@@ -12,7 +12,7 @@ class CampusListViewModel: ObservableObject {
     @Published var allCampuses = [Int: [CampusViewModel]]()
     @Published var sortButtons = [SortOption: Bool]()
     @Published var firstAppear = true
-    @Published var year: FetchYear = .twenty
+    @Published var year: FetchYear = .twentyOne
     @Published var searchText = " "
     @Published var pickerID = UUID()
     
