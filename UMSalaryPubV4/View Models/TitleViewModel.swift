@@ -24,7 +24,7 @@ struct TitleViewModel: Hashable {
     }
     
     var titleCount: String {
-        let titleCount = title.titleCount.withCommas()
+        let titleCount = title.titleCount.noCommas()
         return titleCount
     }
     

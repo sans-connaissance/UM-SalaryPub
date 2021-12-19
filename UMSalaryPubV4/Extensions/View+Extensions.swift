@@ -23,3 +23,12 @@ extension Double {
         return numberFormatter.string(from: NSNumber(value: self))!
     }
 }
+
+extension Double {
+    func noCommas() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 0
+        return numberFormatter.string(from: NSNumber(value: self))!
+    }
+}

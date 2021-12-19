@@ -24,7 +24,7 @@ struct DepartmentViewModel: Hashable {
     }
     
     var departmentCount: String {
-        let departmentCount = department.departmentCount.withCommas()
+        let departmentCount = department.departmentCount.noCommas()
         return departmentCount
     }
     
