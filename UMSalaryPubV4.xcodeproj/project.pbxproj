@@ -123,7 +123,7 @@
 		41D4B8A72749E98800F0FB92 /* PersonInsightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInsightViewModel.swift; sourceTree = "<group>"; };
 		41D4B8A92749EAED00F0FB92 /* PersonInsightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInsightView.swift; sourceTree = "<group>"; };
 		41D4B8AE274D63A800F0FB92 /* PersonLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonLineChartView.swift; sourceTree = "<group>"; };
-		41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMSalaryPubV4.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		41E5A4892721B37700A51D80 /* UM SalaryPub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UM SalaryPub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMSalaryPubV4App.swift; sourceTree = "<group>"; };
 		41E5A48E2721B37700A51D80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		41E5A4902721B37A00A51D80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 		41E5A48A2721B37700A51D80 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */,
+				41E5A4892721B37700A51D80 /* UM SalaryPub.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -350,7 +350,7 @@
 				416768E7276D9F60006D42FC /* Charts */,
 			);
 			productName = UMSalaryPubV4;
-			productReference = 41E5A4892721B37700A51D80 /* UMSalaryPubV4.app */;
+			productReference = 41E5A4892721B37700A51D80 /* UM SalaryPub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -596,7 +596,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"UMSalaryPubV4/Preview Content\"";
 				DEVELOPMENT_TEAM = 947MDTH7AR;
 				ENABLE_PREVIEWS = YES;
@@ -611,9 +611,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = FrankfurtIndustries.UMSalaryPubV4;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FrankfurtIndustries.UMICHSalaryPub;
+				PRODUCT_NAME = "UM SalaryPub";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -626,7 +626,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"UMSalaryPubV4/Preview Content\"";
 				DEVELOPMENT_TEAM = 947MDTH7AR;
 				ENABLE_PREVIEWS = YES;
@@ -641,9 +641,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = FrankfurtIndustries.UMSalaryPubV4;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FrankfurtIndustries.UMICHSalaryPub;
+				PRODUCT_NAME = "UM SalaryPub";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
