@@ -14,6 +14,11 @@ struct PersonListView: View {
         VStack {
             SearchBarView(searchText: $vm.searchText)
                 .onChange(of: vm.searchText) { _ in vm.getPersons() }
+                .onTapGesture {
+                    if vm.searchText == " " {
+                        vm.searchText = ""
+                    }
+                }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     Picker("Select Year", selection: $vm.year) {

@@ -14,6 +14,11 @@ struct CampusListView: View {
         VStack {
             SearchBarView(searchText: $vm.searchText)
                 .onChange(of: vm.searchText) { _ in vm.getCampuses() }
+                .onTapGesture {
+                    if vm.searchText == " " {
+                        vm.searchText = ""
+                    }
+                }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     Picker("Select year", selection: $vm.year) {

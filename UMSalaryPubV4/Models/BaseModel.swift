@@ -136,8 +136,8 @@ extension BaseModel {
         if sortByPersonCountAscending { fetchRequest.sortDescriptors = [sortByPersonCountAscendingDescriptor] }
             
         fetchRequest.predicate = combinedPredicate
-        fetchRequest.fetchBatchSize = 25
-        fetchRequest.fetchLimit = 50
+        fetchRequest.fetchBatchSize = 50
+        fetchRequest.fetchLimit = 75
             
         do {
             return try viewContext.fetch(fetchRequest)
