@@ -17,7 +17,7 @@ struct PersonInsightView: View {
     
     var body: some View {
         VStack {
-            CloseInsightView()
+            CloseInsightViewButton()
             Text(person.fullName).font(.headline)
             Divider()
         }

@@ -53,7 +53,7 @@ enum SortOption: String, CaseIterable {
     }
 }
 
-struct CloseInsightView: View {
+struct CloseInsightViewButton: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -61,6 +61,7 @@ struct CloseInsightView: View {
             presentationMode.wrappedValue.dismiss()
         }, label: {
             Text("Close").font(.subheadline)
+                .accessibility(identifier: "closeInsightViewButton")
         }).padding()
     }
 }
@@ -85,6 +86,7 @@ struct InsightsButton: View {
                     .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0)).opacity(0.6)
                 Text("Insights")
                     .textStyle(DetailData())
+                    .accessibility(identifier: "insightButton")
             }
         }
     }
@@ -96,6 +98,7 @@ struct HomeButton: View {
             AppState.shared.viewID = UUID()
         } label: {
             Image(systemName: "house")
+                .accessibility(identifier: "homeButton")
         }
     }
 }
