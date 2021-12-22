@@ -9,10 +9,19 @@ import SwiftUI
 
 struct PersonListView: View {
     @StateObject private var vm = PersonListViewModel()
+    
+    static let accessibilityLabel: [SortOption: LocalizedStringKey] = [
+        .sortAlphabetically: "sortAlphabetically",
+        .sortByMoneyDescending: "sortByMoneyDescending",
+        .sortByMoneyAscending: "sortByMoneyAscending",
+        .sortByPersonCountDescending: "sortByPersonCountDescending",
+        .sortByPersonCountAscending: "sortByPersonCountAscending",
+    ]
 
     var body: some View {
         VStack {
             SearchBarView(searchText: $vm.searchText)
+                .accessibility(identifier: "searchText")
                 .onChange(of: vm.searchText) { _ in vm.getPersons() }
                 .onTapGesture {
                     if vm.searchText == " " {
@@ -33,6 +42,7 @@ struct PersonListView: View {
                     Text("|").font(.callout).foregroundColor(.secondary)
                     ForEach(SortOption.personList, id: \.self) { button in
                         SortListButton(selected: button, sortButtons: $vm.sortButtons)
+                            .accessibility(identifier: String("\(Self.accessibilityLabel[button]!)"))
                             .onChange(of: vm.sortButtons) { _ in vm.getPersons() }
                     }
                     Spacer()
@@ -52,6 +62,7 @@ struct PersonListView: View {
                     }
                 }
             }
+            .accessibility(identifier: "personList")
             .listStyle(GroupedListStyle())
             .id(vm.uuid)
         }

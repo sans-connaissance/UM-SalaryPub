@@ -17,7 +17,8 @@ struct SearchBarView: View {
 
                 TextField("search", text: $searchText, onEditingChanged: { _ in
                     showCancelButton = true
-                }, onCommit: { print("onCommit") }).foregroundColor(.primary)
+                }, onCommit: { print("onCommit") })
+                    .foregroundColor(.primary)
 
                 Button(action: {
                     searchText = " "

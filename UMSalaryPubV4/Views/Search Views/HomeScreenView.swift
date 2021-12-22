@@ -22,6 +22,7 @@ struct HomeScreenView: View {
                             .isDetailLink(false)
                             .padding(.top)
                             .padding(.bottom)
+                            .accessibility(identifier: "peopleSearch")
                         NavigationLink(
                             destination: TitleListView())
                         { Text("Titles").font(.headline) }
