@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		412A0669275D520C00381773 /* MoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A0668275D520C00381773 /* MoreInfoView.swift */; };
 		412A066E275D533F00381773 /* AnnualFTRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A066A275D533F00381773 /* AnnualFTRView.swift */; };
 		412A066F275D533F00381773 /* AppointmentFractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A066B275D533F00381773 /* AppointmentFractionView.swift */; };
 		412A0670275D533F00381773 /* GeneralFundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A066C275D533F00381773 /* GeneralFundView.swift */; };
@@ -72,10 +71,10 @@
 		41E5A4B92721BED800A51D80 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5A4B82721BED800A51D80 /* CoreDataManager.swift */; };
 		41EA3BB02731C35C001070CF /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BAF2731C35C001070CF /* FontStyles.swift */; };
 		41EA3BB42731D9F2001070CF /* DashboardCountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */; };
+		41F64EDF277EB0E800BF545D /* MoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F64EDE277EB0E800BF545D /* MoreInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		412A0668275D520C00381773 /* MoreInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoreInfoView.swift; path = ../../../../Developer/UMICHSalaryPub5/Shared/Views/TopViews/MoreInfoView.swift; sourceTree = "<group>"; };
 		412A066A275D533F00381773 /* AnnualFTRView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnualFTRView.swift; sourceTree = "<group>"; };
 		412A066B275D533F00381773 /* AppointmentFractionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentFractionView.swift; sourceTree = "<group>"; };
 		412A066C275D533F00381773 /* GeneralFundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralFundView.swift; sourceTree = "<group>"; };
@@ -140,6 +139,7 @@
 		41E5A4B82721BED800A51D80 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		41EA3BAF2731C35C001070CF /* FontStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 		41EA3BB32731D9F2001070CF /* DashboardCountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCountsView.swift; sourceTree = "<group>"; };
+		41F64EDE277EB0E800BF545D /* MoreInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,7 +217,7 @@
 		4139F4FE2725AC1B00E6EC5C /* More Info Views */ = {
 			isa = PBXGroup;
 			children = (
-				412A0668275D520C00381773 /* MoreInfoView.swift */,
+				41F64EDE277EB0E800BF545D /* MoreInfoView.swift */,
 				412A066A275D533F00381773 /* AnnualFTRView.swift */,
 				412A066B275D533F00381773 /* AppointmentFractionView.swift */,
 				412A066D275D533F00381773 /* FTRBasisView.swift */,
@@ -425,7 +425,6 @@
 				41D4B87F2740C4BD00F0FB92 /* PersonDetailViewModel.swift in Sources */,
 				41D4B87B273FC2EA00F0FB92 /* SearchBarView.swift in Sources */,
 				41D4B88C2745AAC600F0FB92 /* TitleListView.swift in Sources */,
-				412A0669275D520C00381773 /* MoreInfoView.swift in Sources */,
 				414AD15A272320C300316A45 /* CampusDAO.swift in Sources */,
 				41D4B896274755B300F0FB92 /* CampusListViewModel.swift in Sources */,
 				41998BA7273C5BD10021D632 /* PersonListView.swift in Sources */,
@@ -440,6 +439,7 @@
 				41D4B89C2749CC1800F0FB92 /* TitleDetailViewModel.swift in Sources */,
 				41D4B8862745942900F0FB92 /* TitleViewModel.swift in Sources */,
 				41D4B8A22749CE6D00F0FB92 /* TitleDetailView.swift in Sources */,
+				41F64EDF277EB0E800BF545D /* MoreInfoView.swift in Sources */,
 				412A0671275D533F00381773 /* FTRBasisView.swift in Sources */,
 				414AD156272320C300316A45 /* TitleDAO.swift in Sources */,
 				41E5A4B92721BED800A51D80 /* CoreDataManager.swift in Sources */,
