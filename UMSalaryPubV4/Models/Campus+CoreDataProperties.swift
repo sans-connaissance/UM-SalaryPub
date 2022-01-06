@@ -63,6 +63,9 @@ public extension Campus {
 }
 
 extension Campus: Identifiable {
+    
+    /// This func is only used in the AdminViewModel.
+    // MARK TO DO: create BaseModel.byYear func to replace this
     static func byYear(year: String) -> [Campus] {
         let request: NSFetchRequest<Campus> = Campus.fetchRequest()
         request.predicate = NSPredicate(format: " ANY %K = %@", #keyPath(Campus.personsOnCampus.year), year)
@@ -73,8 +76,9 @@ extension Campus: Identifiable {
             return []
         }
     }
-
-    static func lineChartDepartmentAverage(_ campuses: [CampusViewModel]) -> [ChartDataEntry] {
+    
+    ///Creates a data array that can be used to add points to Charts : line charts
+    static func lineChartCampusAverage(_ campuses: [CampusViewModel]) -> [ChartDataEntry] {
         let campus = campuses
         return campus.map { BarChartDataEntry(x: Double($0.year), y: $0.campusAverageAnnualDouble) }
     }

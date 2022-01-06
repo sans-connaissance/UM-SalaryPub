@@ -32,6 +32,7 @@ struct PersonListView: View {
                     .onChange(of: vm.year) { _ in vm.getPersons() }
                     Text("|").font(.callout).foregroundColor(.secondary)
                     ForEach(SortOption.personList, id: \.self) { button in
+                        ///
                         SortListButton(selected: button, sortButtons: $vm.sortButtons)
                             .onChange(of: vm.sortButtons) { _ in vm.getPersons() }
                     }

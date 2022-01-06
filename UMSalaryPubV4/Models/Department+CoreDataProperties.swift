@@ -60,7 +60,11 @@ public extension Department {
 }
 
 extension Department: Identifiable {
+    
     static func byYear(year: String) -> [Department] {
+        
+        /// This func is only used in the AdminViewModel.
+        // MARK TO DO: create BaseModel.byYear func to replace this
         let request: NSFetchRequest<Department> = Department.fetchRequest()
         request.predicate = NSPredicate(format: " ANY %K = %@", #keyPath(Department.personsInDepartment.year), year)
 
@@ -71,7 +75,8 @@ extension Department: Identifiable {
         }
     }
 
-    static func lineChartDepartment(_ departments: [DepartmentViewModel]) -> [ChartDataEntry] {
+    ///Creates a data array that can be used to add points to Charts : line charts
+    static func lineChartDepartmentAverage(_ departments: [DepartmentViewModel]) -> [ChartDataEntry] {
         let department = departments
         return department.map { BarChartDataEntry(x: Double($0.year), y: $0.departmentAverageAnnualDouble) }
     }

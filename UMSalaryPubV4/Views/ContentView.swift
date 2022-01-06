@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            //MARK: Uncomment below to enable admin views and import functions
+            //MARK: Uncomment below to enable admin view for importing new data from JSON
 //            DataDashboardView()
 //                .tabItem {
 //                    Image(systemName: "wrench.and.screwdriver")

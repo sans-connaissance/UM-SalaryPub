@@ -76,7 +76,7 @@ class PersonInsightViewModel: ObservableObject {
     func getChartData() {
         personEntryAnnualFTR = Person.lineChartAnnualFTR(personsInsight)
         personEntryTitleAverageAnnual = Title.lineChartTitleAverage(titlesInsight)
-        personEntryDepartmentAverageAnnual = Department.lineChartDepartment(departmentsInsight)
-        personEntryCampusAverageAnnual = Campus.lineChartDepartmentAverage(campusesInsight)
+        personEntryDepartmentAverageAnnual = Department.lineChartDepartmentAverage(departmentsInsight)
+        personEntryCampusAverageAnnual = Campus.lineChartCampusAverage(campusesInsight)
     }
 }

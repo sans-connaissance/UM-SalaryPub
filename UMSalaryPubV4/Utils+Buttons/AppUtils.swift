@@ -1,5 +1,6 @@
 import Foundation
 
+/// This class was written by user intelcy on fiverr.com to assist with loading data from JSON files into CoreData persistentContainer
 class AppUtils {
     static func jsonDataFromFile(name: String) -> Data {
         let url = Bundle.main.url(forResource: name, withExtension: "json")!

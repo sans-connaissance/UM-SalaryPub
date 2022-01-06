@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+///SortListButton and  enum SortOption work together to provide buttons for sorting the results from the FetchRequests used to populate  PersonListView, TitleListView, DepartmentListView, CampusListView, etc.
 struct SortListButton: View {
     var selected: SortOption
     @Binding var sortButtons: [SortOption: Bool]
@@ -20,6 +21,7 @@ struct SortListButton: View {
         }
     }
     
+    /// Ensures that only the selected sort button is set to true, thus listing the FetchRequest results according to that SortOption.
     func listBy(sortOption: SortOption) {
         SortOption.allCases.forEach { button in
             sortButtons[button] = false
@@ -70,6 +72,8 @@ struct InsightsButton: View {
     @Binding var isPresented: Bool
     
     var body: some View {
+        
+        ///Trying out one of the new .buttonStyles introduced in iOS 15.
         if #available(iOS 15.0, *) {
             insightButtonStyle.buttonStyle(.borderedProminent)
         } else {
@@ -91,7 +95,7 @@ struct InsightsButton: View {
         }
     }
 }
-
+/// Resets app
 struct HomeButton: View {
     var body: some View {
         Button {

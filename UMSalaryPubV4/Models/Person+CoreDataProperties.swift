@@ -28,8 +28,9 @@ extension Person: BaseModel {
 }
 
 extension Person: Identifiable {
-    // MARK: add basemodel version
 
+    /// This func is only used in the AdminViewModel.
+    // MARK TO DO: create BaseModel.byYear func to replace this
     static func byYear(year: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, sortAlphabetically: Bool, filter: String) -> [Person] {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
 
@@ -56,6 +57,7 @@ extension Person: Identifiable {
         }
     }
     
+    /// Fetches and sorts all  people by a selected  title. Used in the PersonListByTitleViewModel
     static func byTitle(year: String, titleName: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, sortAlphabetically: Bool) -> [Person] {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
         
@@ -80,7 +82,7 @@ extension Person: Identifiable {
             return []
         }
     }
-    
+    /// Fetches and sorts all  people by selected department. Used in the PersonListByDepartmentViewModel
     static func byDepartment(year: String, departmentName: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, sortAlphabetically: Bool) -> [Person] {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
         
@@ -105,6 +107,7 @@ extension Person: Identifiable {
         }
     }
 
+    ///Calculates the yearly percent change of a person's reported Annual Full-Time Rate (FTR)
     static func personPercentChange(_ persons: [PersonViewModel]) -> [Double] {
         var salaries: [Double] = []
         let personsArray = persons
@@ -113,12 +116,14 @@ extension Person: Identifiable {
             salaries.append(salary.apptAnnualFTRDouble)
         }
 
+        ///https://stackoverflow.com/questions/52155931/creating-an-array-based-on-the-percentage-difference-of-each-values-of-a-previou
         let percentages = [0] + zip(salaries, salaries.dropFirst()).map {
             100.0 * ($1 - $0) / $0
         }
         return percentages
     }
 
+    ///Creates a data array that can be used to add points to Charts : line charts
     static func lineChartAnnualFTR(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
         let personArray = persons
         return personArray.map { BarChartDataEntry(x: Double($0.year), y: $0.apptAnnualFTRDouble) }

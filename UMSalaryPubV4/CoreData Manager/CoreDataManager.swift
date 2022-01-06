@@ -9,13 +9,16 @@ import CoreData
 import Foundation
 
 class CoreDataManager {
+    /// This version of the CoreDataManger class was inspired by Mohammad Azam's implentation in Udemy's Core Data in iOS course.
     let persistentContainer: NSPersistentContainer
     static let shared = CoreDataManager()
     let containerPath = Bundle.main.path(forResource: "UMSalaryPub", ofType: "sqlite")
     var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    
+    /// Set inMemory: Bool to false to load data from JSON files
+    /// See working with Default Data in COre Data Apps for more information:
+    /// https://developer.apple.com/library/archive/technotes/tn2350/_index.html
     private init(inMemory: Bool = true) {
         persistentContainer = NSPersistentContainer(name: "UMSalaryPub")
         if inMemory {

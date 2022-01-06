@@ -62,6 +62,9 @@ public extension Title {
 }
 
 extension Title: Identifiable {
+    
+    /// This func is only used in the AdminViewModel.
+    // MARK TO DO: create BaseModel.byYear func to replace this
     static func byYear(year: String) -> [Title] {
         let request: NSFetchRequest<Title> = Title.fetchRequest()
         request.predicate = NSPredicate(format: " ANY %K = %@", #keyPath(Title.personsWithTitle.year), year)
@@ -73,12 +76,13 @@ extension Title: Identifiable {
         }
     }
 
+    ///Creates a data array that can be used to add points to Charts : line charts
     static func lineChartTitleAverage(_ titles: [TitleViewModel]) -> [ChartDataEntry] {
         let title = titles
         return title.map { BarChartDataEntry(x: Double($0.year), y: $0.titleAverageAnnualDouble) }
     }
     
-    
+    // MARK: TO DO - I think this can be deleted. It was replaced by Person.byTitle(...)
     static func byPerson(year: String, titleName: String, sortByMoneyDescending: Bool, sortByMoneyAscending: Bool, sortAlphabetically: Bool) -> [Person] {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
         
