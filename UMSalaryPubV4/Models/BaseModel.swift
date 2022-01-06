@@ -19,6 +19,7 @@ protocol BaseModel where Self: NSManagedObject {
     
     static func campusesWithTitleOrDepartment<T: NSManagedObject>(nameKeyPath: String, yearKeyPath: String, name: String, year: Int64) -> [T]
     
+    ///This is the primary search function for the app.
     static func search<T: NSManagedObject>(
         byYear: String,
         byType: String,
@@ -33,11 +34,18 @@ protocol BaseModel where Self: NSManagedObject {
         countSortDescriptor: String) -> [T]
 }
 
+///Default implementations of BaseModel funcs
 extension BaseModel {
+    
+    /// Inspired by Mohammad Azam's implentation in Udemy's Core Data in iOS course.
+    /// This simplifies viewContext calls in many parts of the code.
+    ///  Eliminates need to call CoreDataManager.shared.
     static var viewContext: NSManagedObjectContext {
         return CoreDataManager.shared.viewContext
     }
     
+    /// Array of years representing each year of data loaded into the database.
+    /// Add year(s) here in order to import additional data.
     static var importYears: [Int] {
         return [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
     }
@@ -103,7 +111,8 @@ extension BaseModel {
             return []
         }
     }
-    
+    /// Primary search function for the app
+    /// enums are used to populate the various sortDescriptors and predicates
     static func search<T>(
         byYear: String,
         byType: String,
@@ -148,6 +157,7 @@ extension BaseModel {
 }
 
 //MARK: Explore refactoring enums
+///Added enums in an attempt to make the ViewModel calls more readable, but I'm not sure if that clarity was accomplished.
 enum NamePredicate: String, CaseIterable {
     case Person
     case Title

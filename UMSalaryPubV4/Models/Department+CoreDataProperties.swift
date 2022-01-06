@@ -75,7 +75,7 @@ extension Department: Identifiable {
         }
     }
 
-    ///Creates a data array that can be used to add points to Charts : line charts
+    ///Creates an array that can be used to add points to Charts : line charts
     static func lineChartDepartmentAverage(_ departments: [DepartmentViewModel]) -> [ChartDataEntry] {
         let department = departments
         return department.map { BarChartDataEntry(x: Double($0.year), y: $0.departmentAverageAnnualDouble) }

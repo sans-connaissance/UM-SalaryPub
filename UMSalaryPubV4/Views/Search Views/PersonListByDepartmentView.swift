@@ -13,6 +13,7 @@ struct PersonListByDepartmentView: View {
 
     var body: some View {
         VStack {
+            ///Sort options
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     ForEach(SortOption.personList, id: \.self) { button in
@@ -22,6 +23,7 @@ struct PersonListByDepartmentView: View {
                 }
             }.padding([.leading, .trailing])
             Divider()
+            //Main List View
             List {
                 ForEach(vm.personsByTitle, id: \.self) { person in
                     NavigationLink {

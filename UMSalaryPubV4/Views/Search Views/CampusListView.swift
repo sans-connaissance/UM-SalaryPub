@@ -15,10 +15,12 @@ struct CampusListView: View {
             SearchBarView(searchText: $vm.searchText)
                 .onChange(of: vm.searchText) { _ in vm.getCampuses() }
                 .onTapGesture {
+                    ///Initial " " space string is needed for fetch request, but needs to be removed when user taps searchbar in order to search
                     if vm.searchText == " " {
                         vm.searchText = ""
                     }
                 }
+            ///Sort options
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     Picker("Select year", selection: $vm.year) {
@@ -39,6 +41,7 @@ struct CampusListView: View {
                 }.padding([.leading, .trailing])
             }.padding([.leading, .trailing])
             Divider()
+            //Main List View
             List {
                 if let campusArray = vm.allCampuses[vm.year.rawValue] {
                     ForEach(campusArray, id: \.self) { campus in

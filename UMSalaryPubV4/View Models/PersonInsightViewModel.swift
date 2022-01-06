@@ -33,6 +33,7 @@ class PersonInsightViewModel: ObservableObject {
     private var campusNameKP: NamePredicate = .Campus
     private var campusYearKP: YearByType = .Campus
     
+    ///These counts are used in the PersonLineChartView to format the line chart's X Axis.
     var personCount: Int {
         return personsInsight.count
     }

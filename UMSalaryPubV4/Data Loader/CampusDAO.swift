@@ -3,6 +3,7 @@
 //  salarySlowBuild-v3 (iOS)
 //
 //  Created by David Malicke on 1/2/21.
+//  Adapted from an example created by user intelcy on fiverr.com to assist with loading data from JSON files into CoreData persistentContainer
 //
 
 import CoreData
@@ -24,6 +25,8 @@ class CampusDAO: BaseDAO {
                             campusCount: Double,
                             importYear: Int) -> Campus
     {
+        ///Ensures that only unique campus records for each year are saved.
+        ///This section was written by David Malicke.
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: campusEntityName)
         let importYear = importYear
         let yearPredicate = NSPredicate(format: "campusYear = %i", importYear)

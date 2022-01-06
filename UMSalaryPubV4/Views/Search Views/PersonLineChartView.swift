@@ -8,6 +8,8 @@
 import Charts
 import SwiftUI
 
+///This is the struct the creates the line charts used in the PersonInsightView.
+///All of the following funcs are used to format and populate the line chart.
 struct PersonLineChartView: UIViewRepresentable {
     @StateObject private var vm = PersonInsightViewModel()
     

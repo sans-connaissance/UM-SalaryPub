@@ -8,6 +8,7 @@
 import CoreData
 import Foundation
 
+///This view model is used to load data into the DataDashboard and DashboardCounts views
 class AdminViewModel: ObservableObject {
     @Published var importYears = Person.importYears
     @Published var allPersons = [Int: [PersonViewModel]]()

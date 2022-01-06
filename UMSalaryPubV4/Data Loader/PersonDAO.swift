@@ -3,6 +3,7 @@
 //  salarySlowBuild-v3 (iOS)
 //
 //  Created by David Malicke on 1/2/21.
+//  Adapted from an example created by user intelcy on fiverr.com to assist with loading data from JSON files into CoreData persistentContainer
 //
 
 import CoreData
@@ -17,7 +18,7 @@ class PersonDAO: BaseDAO {
         else {
             return
         }
-        
+        ///JSON files must follow the naming convention: csvjson-0<year>, for example: csvjson-02021
         if let persons = AppUtils.dictionaryFromFile(name: "csvjson-0\(String(importYear))")["persons"] as? [[String: Any]] {
             for person in persons {
                 var campus: Campus?

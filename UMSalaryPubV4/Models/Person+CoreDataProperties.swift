@@ -123,7 +123,7 @@ extension Person: Identifiable {
         return percentages
     }
 
-    ///Creates a data array that can be used to add points to Charts : line charts
+    ///Creates an array that can be used to add points to Charts : line charts
     static func lineChartAnnualFTR(_ persons: [PersonViewModel]) -> [ChartDataEntry] {
         let personArray = persons
         return personArray.map { BarChartDataEntry(x: Double($0.year), y: $0.apptAnnualFTRDouble) }

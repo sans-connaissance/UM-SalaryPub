@@ -19,6 +19,7 @@ struct TitleListView: View {
                         vm.searchText = ""
                     }
                 }
+            ///Sort options
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     Picker("Select year", selection: $vm.year) {
@@ -39,6 +40,7 @@ struct TitleListView: View {
                 }.padding([.leading, .trailing])
             }.padding([.leading, .trailing])
             Divider()
+            ///Main List View
             List {
                 if let titleArray = vm.allTitles[vm.year.rawValue] {
                     ForEach(titleArray, id: \.self) { title in

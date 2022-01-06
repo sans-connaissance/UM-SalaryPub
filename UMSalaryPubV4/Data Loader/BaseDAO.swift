@@ -1,9 +1,4 @@
-//
-//  BaseDAO.swift
-//  salarySlowBuild-v3 (iOS)
-//
-//  Created by David Malicke on 1/2/21.
-//
+/// This class was written by user intelcy on fiverr.com to assist with loading data from JSON files into CoreData persistentContainer
 
 import CoreData
 import Foundation

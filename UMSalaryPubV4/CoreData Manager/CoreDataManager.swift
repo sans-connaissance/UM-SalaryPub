@@ -17,8 +17,7 @@ class CoreDataManager {
         return persistentContainer.viewContext
     }
     /// Set inMemory: Bool to false to load data from JSON files
-    /// See working with Default Data in COre Data Apps for more information:
-    /// https://developer.apple.com/library/archive/technotes/tn2350/_index.html
+    /// See working with Default Data in Core Data Apps for more information: https://developer.apple.com/library/archive/technotes/tn2350/_index.html
     private init(inMemory: Bool = true) {
         persistentContainer = NSPersistentContainer(name: "UMSalaryPub")
         if inMemory {

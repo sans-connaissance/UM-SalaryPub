@@ -76,7 +76,7 @@ extension Title: Identifiable {
         }
     }
 
-    ///Creates a data array that can be used to add points to Charts : line charts
+    ///Creates an array that can be used to add points to Charts : line charts
     static func lineChartTitleAverage(_ titles: [TitleViewModel]) -> [ChartDataEntry] {
         let title = titles
         return title.map { BarChartDataEntry(x: Double($0.year), y: $0.titleAverageAnnualDouble) }

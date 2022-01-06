@@ -14,6 +14,7 @@ struct PersonDetailView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
+                ///Unique IDs for each record are not provided by UM, and so this function checks to see if an accurate InsightsView can be displayed for the injected PersonViewModel.
                 if vm.personInsightCheck(persons: vm.personsDetail) == true {
                     InsightsButton(isPresented: $vm.isPresented)
                         .padding()

@@ -1,8 +1,4 @@
-//
-//  SearchBarView.swift
-//
-//  Created by Dave Malicke on 12/14/20.
-//
+///Adapted from https://stackoverflow.com/questions/56490963/how-to-display-a-search-bar-with-swiftui
 
 import SwiftUI
 

@@ -77,7 +77,7 @@ extension Campus: Identifiable {
         }
     }
     
-    ///Creates a data array that can be used to add points to Charts : line charts
+    ///Creates an array that can be used to add points to Charts : line charts
     static func lineChartCampusAverage(_ campuses: [CampusViewModel]) -> [ChartDataEntry] {
         let campus = campuses
         return campus.map { BarChartDataEntry(x: Double($0.year), y: $0.campusAverageAnnualDouble) }

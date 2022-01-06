@@ -48,7 +48,7 @@ struct MoreInfoView: View {
         }
         .navigationTitle("More Info")
         .padding()
-        .embedInNavigationView()
+        .embedInNavigationView() ///I think this is so cool
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }

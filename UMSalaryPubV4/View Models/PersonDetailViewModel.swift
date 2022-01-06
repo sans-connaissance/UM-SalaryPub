@@ -42,13 +42,15 @@ class PersonDetailViewModel: ObservableObject {
         let campusForDetailView = request.map(CampusViewModel.init)
         return campusForDetailView
     }
-    
+    ///This function checks to make sure that the number of PersonViewModels per year is not greater than one.
+    ///If it is greater than one, then it is not safe for the PersonDetailView to display the InsightsView button.
     func personInsightCheck(persons: [PersonViewModel]) -> Bool {
         var years: [Int64] = []
         let personsArray = persons
         for year in personsArray {
             years.append(year.year)
         }
+        ///https://www.hackingwithswift.com/example-code/language/how-to-count-element-frequencies-in-an-array
         let mappedItems = years.map { ($0, 1) }
         let counts = Dictionary(mappedItems, uniquingKeysWith: +)
         let isGreatThanTwo = counts.contains(where: { $0.value > 1 })

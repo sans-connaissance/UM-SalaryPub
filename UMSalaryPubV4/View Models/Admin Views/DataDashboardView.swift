@@ -25,7 +25,7 @@ struct DataDashboardView: View {
             DashboardCountsView()
         }
     }
-    
+    ///This button loads new data from JSON files.
     var loadButton: some View {
         Button {
             PersonDAO.shared.addPersonsIfNeeded(importYear: selectedYear)
