@@ -104,9 +104,3 @@ struct DepartmentDetailRowRight: View {
         }
     }
 }
-
-struct DepartmentDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DepartmentDetailView(department: DepartmentViewModel(department: Department(context: CoreDataManager.shared.viewContext)))
-    }
-}

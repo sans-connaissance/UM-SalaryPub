@@ -103,11 +103,3 @@ struct CampusDetailRowRight: View {
         }
     }
 }
-
-
-
-struct CampusDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        CampusDetailView(campus: CampusViewModel(campus: Campus(context: CoreDataManager.shared.viewContext)))
-    }
-}

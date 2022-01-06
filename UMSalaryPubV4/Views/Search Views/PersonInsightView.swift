@@ -124,10 +124,3 @@ struct ChartSwitch: View {
         }
     }
 }
-
-
-// struct PersonInsightView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PersonInsightView()
-//    }
-// }

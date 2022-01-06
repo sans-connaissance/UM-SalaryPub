@@ -66,3 +66,9 @@ struct EmailLinkView: View {
             .font(.subheadline)
     }
 }
+
+struct MoreInfoView_Previews: PreviewProvider {
+    static var previews: some View {
+        MoreInfoView()
+    }
+}

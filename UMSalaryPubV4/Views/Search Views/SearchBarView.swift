@@ -62,3 +62,9 @@ extension View {
         return modifier(ResignKeyboardOnDragGesture())
     }
 }
+
+struct SearchBarView_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchBarView(searchText: .constant(""))
+    }
+}

@@ -106,9 +106,3 @@ struct TitleDetailRowRight: View {
         }
     }
 }
-
-struct TitleDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        TitleDetailView(title: TitleViewModel(title: Title(context: CoreDataManager.shared.viewContext)))
-    }
-}

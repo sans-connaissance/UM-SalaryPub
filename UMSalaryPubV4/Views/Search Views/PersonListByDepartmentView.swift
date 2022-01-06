@@ -43,9 +43,3 @@ struct PersonListByDepartmentView: View {
         .onDisappear(perform: { vm.flipFirstAppear() })
     }
 }
-
-// struct PersonListByDepartmentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PersonListByDepartmentView()
-//    }
-// }

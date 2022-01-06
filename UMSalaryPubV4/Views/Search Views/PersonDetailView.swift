@@ -148,9 +148,3 @@ struct PersonDetailRowRight: View {
         }
     }
 }
-
-struct PersonDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        PersonDetailView(person: PersonViewModel(person: Person(context: CoreDataManager.shared.viewContext)))
-    }
-}
