@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410622D0285B5EB50025F293 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 410622CF285B5EB50025F293 /* Charts */; };
 		412A066E275D533F00381773 /* AnnualFTRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A066A275D533F00381773 /* AnnualFTRView.swift */; };
 		412A066F275D533F00381773 /* AppointmentFractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A066B275D533F00381773 /* AppointmentFractionView.swift */; };
 		412A0670275D533F00381773 /* GeneralFundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A066C275D533F00381773 /* GeneralFundView.swift */; };
@@ -24,7 +25,6 @@
 		4157AD06275F0122002A134D /* PersonListByTitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157AD05275F0121002A134D /* PersonListByTitleViewModel.swift */; };
 		4157AD08275FB585002A134D /* PersonListByDepartmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157AD07275FB585002A134D /* PersonListByDepartmentView.swift */; };
 		4157AD0A275FB66B002A134D /* PersonListByDepartmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157AD09275FB66B002A134D /* PersonListByDepartmentViewModel.swift */; };
-		416768E8276D9F60006D42FC /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 416768E7276D9F60006D42FC /* Charts */; };
 		41676909276EB192006D42FC /* UMSalaryPub.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 41676906276EB192006D42FC /* UMSalaryPub.sqlite */; };
 		4167690A276EB192006D42FC /* UMSalaryPub.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 41676907276EB192006D42FC /* UMSalaryPub.sqlite-wal */; };
 		4167690B276EB192006D42FC /* UMSalaryPub.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 41676908276EB192006D42FC /* UMSalaryPub.sqlite-shm */; };
@@ -147,7 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				416768E8276D9F60006D42FC /* Charts in Frameworks */,
+				410622D0285B5EB50025F293 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +347,7 @@
 			);
 			name = UMSalaryPubV4;
 			packageProductDependencies = (
-				416768E7276D9F60006D42FC /* Charts */,
+				410622CF285B5EB50025F293 /* Charts */,
 			);
 			productName = UMSalaryPubV4;
 			productReference = 41E5A4892721B37700A51D80 /* UM SalaryPub.app */;
@@ -378,7 +378,7 @@
 			);
 			mainGroup = 41E5A4802721B37700A51D80;
 			packageReferences = (
-				416768E6276D9F60006D42FC /* XCRemoteSwiftPackageReference "Charts" */,
+				410622CE285B5EB50025F293 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 41E5A48A2721B37700A51D80 /* Products */;
 			projectDirPath = "";
@@ -674,7 +674,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		416768E6276D9F60006D42FC /* XCRemoteSwiftPackageReference "Charts" */ = {
+		410622CE285B5EB50025F293 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts";
 			requirement = {
@@ -685,9 +685,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		416768E7276D9F60006D42FC /* Charts */ = {
+		410622CF285B5EB50025F293 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 416768E6276D9F60006D42FC /* XCRemoteSwiftPackageReference "Charts" */;
+			package = 410622CE285B5EB50025F293 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
