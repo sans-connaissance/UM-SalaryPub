@@ -3,7 +3,7 @@
 <ul>
 <li>SwiftUI: Majority of app is written in SwiftUI</li>
 <li>UIKit: App uses Charts by <a href="https://github.com/danielgindi/Charts#readme">danielgindi</a></li>
-<li>CoreData for persistence, searching, sorting, and fetching 
+<li>CoreData for persistence, fetching, and sorting
 </ul>
 <b>APP DESCRIPTION</b>
 <ul>
