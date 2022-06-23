@@ -55,6 +55,7 @@ struct DepartmentListView: View {
                     }
                 }
             }
+            .accessibilityIdentifier("departmentListView")
             .listStyle(GroupedListStyle())
             .id(vm.uuid)
         }

@@ -54,6 +54,7 @@ struct TitleListView: View {
                     }
                 }
             }
+            .accessibilityIdentifier("titleListView")
             .listStyle(GroupedListStyle())
             .id(vm.uuid)
         }

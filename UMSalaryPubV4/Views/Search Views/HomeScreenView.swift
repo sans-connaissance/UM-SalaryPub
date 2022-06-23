@@ -26,22 +26,28 @@ struct HomeScreenView: View {
                         .padding(.bottom)
                         NavigationLink(
                             destination: TitleListView())
-                        { Text("Titles").font(.headline) }
-                            .isDetailLink(false)
-                            .padding(.top)
-                            .padding(.bottom)
+                        { Text("Titles").font(.headline)
+                                .accessibilityIdentifier("homeScreenTitlesButton")
+                        }
+                        .isDetailLink(false)
+                        .padding(.top)
+                        .padding(.bottom)
                         NavigationLink(
                             destination: DepartmentListView())
-                        { Text("Departments").font(.headline) }
-                            .isDetailLink(false)
-                            .padding(.top)
-                            .padding(.bottom)
+                        { Text("Departments").font(.headline)
+                                .accessibilityIdentifier("homeScreenDepartmentsButton")
+                        }
+                        .isDetailLink(false)
+                        .padding(.top)
+                        .padding(.bottom)
                         NavigationLink(
                             destination: CampusListView())
-                        { Text("Campuses").font(.headline) }
-                            .isDetailLink(false)
-                            .padding(.top)
-                            .padding(.bottom)
+                        { Text("Campuses").font(.headline)
+                                .accessibilityIdentifier("homeScreenCampusesButton")
+                        }
+                        .isDetailLink(false)
+                        .padding(.top)
+                        .padding(.bottom)
                     }
                 }
                 .navigationTitle("Home")

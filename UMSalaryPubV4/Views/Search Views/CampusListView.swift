@@ -41,7 +41,6 @@ struct CampusListView: View {
                 }.padding([.leading, .trailing])
             }.padding([.leading, .trailing])
             Divider()
-            //Main List View
             List {
                 if let campusArray = vm.allCampuses[vm.year.rawValue] {
                     ForEach(campusArray, id: \.self) { campus in
@@ -55,6 +54,7 @@ struct CampusListView: View {
                     }
                 }
             }
+            .accessibilityIdentifier("campusListView")
             .listStyle(GroupedListStyle())
             .id(vm.uuid)
         }
