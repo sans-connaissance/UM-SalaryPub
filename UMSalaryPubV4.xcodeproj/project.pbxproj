@@ -33,6 +33,8 @@
 		41998B812739A2550021D632 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B802739A2550021D632 /* PersonViewModel.swift */; };
 		41998B852739C2850021D632 /* PersonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998B842739C2850021D632 /* PersonListViewModel.swift */; };
 		41998BA7273C5BD10021D632 /* PersonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41998BA6273C5BD10021D632 /* PersonListView.swift */; };
+		41B34EC92864F0890055BCDD /* UM_SalaryPubUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B34EC82864F0890055BCDD /* UM_SalaryPubUserInterfaceTests.swift */; };
+		41B34ECB2864F0890055BCDD /* UM_SalaryPubUserInterfaceTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B34ECA2864F0890055BCDD /* UM_SalaryPubUserInterfaceTestsLaunchTests.swift */; };
 		41D4B87B273FC2EA00F0FB92 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B87A273FC2EA00F0FB92 /* SearchBarView.swift */; };
 		41D4B87D2740B24100F0FB92 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B87C2740B24100F0FB92 /* PersonDetailView.swift */; };
 		41D4B87F2740C4BD00F0FB92 /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B87E2740C4BD00F0FB92 /* PersonDetailViewModel.swift */; };
@@ -74,6 +76,16 @@
 		41F64EDF277EB0E800BF545D /* MoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F64EDE277EB0E800BF545D /* MoreInfoView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		41B34ECC2864F0890055BCDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41E5A4812721B37700A51D80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41E5A4882721B37700A51D80;
+			remoteInfo = UMSalaryPubV4;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		412A066A275D533F00381773 /* AnnualFTRView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnualFTRView.swift; sourceTree = "<group>"; };
 		412A066B275D533F00381773 /* AppointmentFractionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentFractionView.swift; sourceTree = "<group>"; };
@@ -100,6 +112,9 @@
 		41998B802739A2550021D632 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		41998B842739C2850021D632 /* PersonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewModel.swift; sourceTree = "<group>"; };
 		41998BA6273C5BD10021D632 /* PersonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListView.swift; sourceTree = "<group>"; };
+		41B34EC62864F0890055BCDD /* UM SalaryPubUserInterfaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UM SalaryPubUserInterfaceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41B34EC82864F0890055BCDD /* UM_SalaryPubUserInterfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UM_SalaryPubUserInterfaceTests.swift; sourceTree = "<group>"; };
+		41B34ECA2864F0890055BCDD /* UM_SalaryPubUserInterfaceTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UM_SalaryPubUserInterfaceTestsLaunchTests.swift; sourceTree = "<group>"; };
 		41D4B87A273FC2EA00F0FB92 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		41D4B87C2740B24100F0FB92 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		41D4B87E2740C4BD00F0FB92 /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
@@ -143,6 +158,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		41B34EC32864F0890055BCDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41E5A4862721B37700A51D80 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,6 +299,15 @@
 			path = "../View Models/Admin Views";
 			sourceTree = "<group>";
 		};
+		41B34EC72864F0890055BCDD /* UM SalaryPubUserInterfaceTests */ = {
+			isa = PBXGroup;
+			children = (
+				41B34EC82864F0890055BCDD /* UM_SalaryPubUserInterfaceTests.swift */,
+				41B34ECA2864F0890055BCDD /* UM_SalaryPubUserInterfaceTestsLaunchTests.swift */,
+			);
+			path = "UM SalaryPubUserInterfaceTests";
+			sourceTree = "<group>";
+		};
 		41E5A4802721B37700A51D80 = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +315,7 @@
 				41676908276EB192006D42FC /* UMSalaryPub.sqlite-shm */,
 				41676907276EB192006D42FC /* UMSalaryPub.sqlite-wal */,
 				41E5A48B2721B37700A51D80 /* UMSalaryPubV4 */,
+				41B34EC72864F0890055BCDD /* UM SalaryPubUserInterfaceTests */,
 				41E5A48A2721B37700A51D80 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -292,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				41E5A4892721B37700A51D80 /* UM SalaryPub.app */,
+				41B34EC62864F0890055BCDD /* UM SalaryPubUserInterfaceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,6 +366,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		41B34EC52864F0890055BCDD /* UM SalaryPubUserInterfaceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41B34ED02864F0890055BCDD /* Build configuration list for PBXNativeTarget "UM SalaryPubUserInterfaceTests" */;
+			buildPhases = (
+				41B34EC22864F0890055BCDD /* Sources */,
+				41B34EC32864F0890055BCDD /* Frameworks */,
+				41B34EC42864F0890055BCDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41B34ECD2864F0890055BCDD /* PBXTargetDependency */,
+			);
+			name = "UM SalaryPubUserInterfaceTests";
+			productName = "UM SalaryPubUserInterfaceTests";
+			productReference = 41B34EC62864F0890055BCDD /* UM SalaryPubUserInterfaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		41E5A4882721B37700A51D80 /* UMSalaryPubV4 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41E5A4972721B37A00A51D80 /* Build configuration list for PBXNativeTarget "UMSalaryPubV4" */;
@@ -360,9 +411,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					41B34EC52864F0890055BCDD = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 41E5A4882721B37700A51D80;
+					};
 					41E5A4882721B37700A51D80 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -385,11 +440,19 @@
 			projectRoot = "";
 			targets = (
 				41E5A4882721B37700A51D80 /* UMSalaryPubV4 */,
+				41B34EC52864F0890055BCDD /* UM SalaryPubUserInterfaceTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		41B34EC42864F0890055BCDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41E5A4872721B37700A51D80 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +468,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		41B34EC22864F0890055BCDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41B34EC92864F0890055BCDD /* UM_SalaryPubUserInterfaceTests.swift in Sources */,
+				41B34ECB2864F0890055BCDD /* UM_SalaryPubUserInterfaceTestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41E5A4852721B37700A51D80 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -473,7 +545,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		41B34ECD2864F0890055BCDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41E5A4882721B37700A51D80 /* UMSalaryPubV4 */;
+			targetProxy = 41B34ECC2864F0890055BCDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		41B34ECE2864F0890055BCDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 947MDTH7AR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "FrankfurtIndustries.UM-SalaryPubUserInterfaceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UMSalaryPubV4;
+			};
+			name = Debug;
+		};
+		41B34ECF2864F0890055BCDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 947MDTH7AR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "FrankfurtIndustries.UM-SalaryPubUserInterfaceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UMSalaryPubV4;
+			};
+			name = Release;
+		};
 		41E5A4952721B37A00A51D80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -653,6 +769,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		41B34ED02864F0890055BCDD /* Build configuration list for PBXNativeTarget "UM SalaryPubUserInterfaceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41B34ECE2864F0890055BCDD /* Debug */,
+				41B34ECF2864F0890055BCDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		41E5A4842721B37700A51D80 /* Build configuration list for PBXProject "UMSalaryPubV4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

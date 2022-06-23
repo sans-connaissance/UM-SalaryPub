@@ -55,6 +55,7 @@ struct PersonListView: View {
                     }
                 }
             }
+            .accessibilityIdentifier("personListView")
             .listStyle(GroupedListStyle())
             .id(vm.uuid)
         }

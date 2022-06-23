@@ -18,10 +18,12 @@ struct HomeScreenView: View {
                     }) {
                         NavigationLink(
                             destination: PersonListView())
-                        { Text("People").font(.headline) }
-                            .isDetailLink(false)
-                            .padding(.top)
-                            .padding(.bottom)
+                        { Text("People").font(.headline)
+                                .accessibilityIdentifier("homeScreenPeopleButton")
+                        }
+                        .isDetailLink(false)
+                        .padding(.top)
+                        .padding(.bottom)
                         NavigationLink(
                             destination: TitleListView())
                         { Text("Titles").font(.headline) }
