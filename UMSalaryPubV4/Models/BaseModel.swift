@@ -47,7 +47,7 @@ extension BaseModel {
     /// Array of years representing each year of data loaded into the database.
     /// Add year(s) here in order to import additional data.
     static var importYears: [Int] {
-        return [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
+        return [2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013]
     }
 
     static func byId<T>(id: NSManagedObjectID) -> T? where T: NSManagedObject {
@@ -179,6 +179,7 @@ enum NamePredicate: String, CaseIterable {
 }
 
 enum FetchYear: Int, CaseIterable {
+    case twentyTwo = 2022
     case twentyOne = 2021
     case twenty = 2020
     case nineteen = 2019
@@ -191,7 +192,9 @@ enum FetchYear: Int, CaseIterable {
     
     var displayText: String {
         switch self {
-        case.twentyOne:
+        case .twentyTwo:
+            return "2022"
+        case .twentyOne:
             return "2021"
         case .twenty:
             return "2020"
