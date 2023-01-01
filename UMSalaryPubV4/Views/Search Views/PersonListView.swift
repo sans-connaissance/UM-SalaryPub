@@ -24,8 +24,15 @@ struct PersonListView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     Picker("Select Year", selection: $vm.year) {
-                        ForEach(FetchYear.allCases, id: \.self) {
-                            Text($0.displayText)
+                        switch vm.purchased {
+                        case true:
+                            ForEach(FetchYear.allCases, id: \.self) {
+                                Text($0.displayText)
+                            }
+                        case false:
+                            ForEach(FetchYear.allCases.dropFirst(), id: \.self) {
+                                Text($0.displayText)
+                            }
                         }
                     }
                     .id(vm.uuid)
@@ -46,7 +53,7 @@ struct PersonListView: View {
                 if let personarray = vm.allPersons[vm.year.rawValue] {
                     ForEach(personarray, id: \.self) { person in
                         NavigationLink {
-                            PersonDetailView(person: person)
+                            PersonDetailView(person: person, purchased: vm.purchased)
                         } label: {
                             PersonRow(person: person)
                         }
@@ -61,6 +68,7 @@ struct PersonListView: View {
         }
         .navigationTitle("People")
         .padding(.bottom)
+        .onAppear(perform: { vm.purchased(check: AppState.shared.purchased) })
         .onAppear(perform: { vm.getPersons() })
         .onAppear(perform: { vm.setButtons() })
         .onAppear(perform: { vm.createUUID() })

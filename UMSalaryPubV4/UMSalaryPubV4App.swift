@@ -24,7 +24,7 @@ struct UMSalaryPubV4App: App {
 class AppState: ObservableObject {
     static let shared = AppState()
     @Published var viewID = UUID()
-    @Published var purchased: YearPurchased = .twentyTwo
+    @Published var purchased: YearPurchased = .none
     
     enum YearPurchased {
         case none

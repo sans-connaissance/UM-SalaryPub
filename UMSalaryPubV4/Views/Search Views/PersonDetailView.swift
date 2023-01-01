@@ -10,6 +10,7 @@ import SwiftUI
 struct PersonDetailView: View {
     @StateObject private var vm = PersonDetailViewModel()
     let person: PersonViewModel
+    let purchased: Bool
 
     var body: some View {
         HStack {
@@ -34,22 +35,47 @@ struct PersonDetailView: View {
         }
         Divider()
         ScrollView {
-            VStack(alignment: .center) {
-                ForEach(vm.personsDetail.reversed(), id: \.self) { person in
-                    Divider()
-                    Section(header: Text(String(person.year)).bold()) {
+            switch purchased {
+            case true:
+                VStack(alignment: .center) {
+                    ForEach(vm.personsDetail.reversed(), id: \.self) { person in
                         Divider()
-                        VStack {
-                            HStack(spacing: 5) {
-                                Spacer()
-                                PersonDetailRowLeft(
-                                    person: person,
-                                    title: vm.getTitle(vm: person),
-                                    department: vm.getDepartment(vm: person),
-                                    campus: vm.getCampus(vm: person))
-                                Spacer()
-                                PersonDetailRowRight(person: person)
-                                Spacer()
+                        Section(header: Text(String(person.year)).bold()) {
+                            Divider()
+                            VStack {
+                                HStack(spacing: 5) {
+                                    Spacer()
+                                    PersonDetailRowLeft(
+                                        person: person,
+                                        title: vm.getTitle(vm: person),
+                                        department: vm.getDepartment(vm: person),
+                                        campus: vm.getCampus(vm: person))
+                                    Spacer()
+                                    PersonDetailRowRight(person: person)
+                                    Spacer()
+                                }
+                            }
+                        }
+                    }
+                }
+            case false:
+                VStack(alignment: .center) {
+                    ForEach(vm.personsDetail.reversed().dropFirst(), id: \.self) { person in
+                        Divider()
+                        Section(header: Text(String(person.year)).bold()) {
+                            Divider()
+                            VStack {
+                                HStack(spacing: 5) {
+                                    Spacer()
+                                    PersonDetailRowLeft(
+                                        person: person,
+                                        title: vm.getTitle(vm: person),
+                                        department: vm.getDepartment(vm: person),
+                                        campus: vm.getCampus(vm: person))
+                                    Spacer()
+                                    PersonDetailRowRight(person: person)
+                                    Spacer()
+                                }
                             }
                         }
                     }

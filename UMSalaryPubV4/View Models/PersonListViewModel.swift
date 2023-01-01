@@ -16,6 +16,7 @@ class PersonListViewModel: ObservableObject {
     @Published var searchText = " "
     ///Year needs to be updated when a new year is added.
     @Published var year: FetchYear = .twentyOne
+    @Published var purchased = false
     @Published var uuid = UUID()
     
     private var yearByType: YearByType = .Person
@@ -59,5 +60,14 @@ class PersonListViewModel: ObservableObject {
     ///https://stackoverflow.com/questions/69697944/swiftui-picker-problem-after-dismissing-fullscreencover-or-sheet
     func createUUID() {
         uuid = UUID()
+    }
+    
+    func purchased(check: AppState.YearPurchased) {
+        switch check {
+        case .none:
+            purchased = false
+        case .twentyTwo:
+            purchased = true
+        }
     }
 }

@@ -56,7 +56,7 @@ struct HomeScreenView: View {
             }
             ///Default PersonDetailView for iPad
             if let person = vm.allPersons[vm.year.rawValue] {
-                PersonDetailView(person: person.randomElement() ?? person[0])
+                PersonDetailView(person: person.randomElement() ?? person[0], purchased: vm.purchased)
             }
         }.onAppear(perform: { vm.getPersons() })
     }

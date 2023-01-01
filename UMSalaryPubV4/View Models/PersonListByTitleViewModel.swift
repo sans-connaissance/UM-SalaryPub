@@ -11,6 +11,7 @@ class PersonListByTitleViewModel: ObservableObject {
     @Published var personsByTitle = [PersonViewModel]()
     @Published var sortButtons = [SortOption: Bool]()
     @Published var firstAppear = true
+    @Published var purchased = false
     
     func getPersonsByTitle(vm: TitleViewModel) {
         let request: [Person] = Person.byTitle(
@@ -34,5 +35,14 @@ class PersonListByTitleViewModel: ObservableObject {
     
     func flipFirstAppear() {
         firstAppear = false
+    }
+    
+    func purchased(check: AppState.YearPurchased) {
+        switch check {
+        case .none:
+            purchased = false
+        case .twentyTwo:
+            purchased = true
+        }
     }
 }

@@ -27,7 +27,7 @@ struct PersonListByDepartmentView: View {
             List {
                 ForEach(vm.personsByTitle, id: \.self) { person in
                     NavigationLink {
-                        PersonDetailView(person: person)
+                        PersonDetailView(person: person, purchased: vm.purchased)
                     } label: {
                         PersonRow(person: person)
                     }
@@ -38,6 +38,7 @@ struct PersonListByDepartmentView: View {
         }
         .navigationTitle(department.departmentName)
         .padding(.bottom)
+        .onAppear(perform: { vm.purchased(check: AppState.shared.purchased) })
         .onAppear(perform: { vm.getPersonsByDepartment(vm: department) })
         .onAppear(perform: { vm.setButtons() })
         .onDisappear(perform: { vm.flipFirstAppear() })
