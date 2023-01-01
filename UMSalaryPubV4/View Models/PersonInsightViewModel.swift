@@ -9,21 +9,17 @@ import Charts
 import Foundation
 
 class PersonInsightViewModel: ObservableObject {
-    @Published var personsInsight = [PersonViewModel]()
+    
     @Published var salaries = [Double]()
-    @Published var titlesInsight = [TitleViewModel]()
-    @Published var departmentsInsight = [DepartmentViewModel]()
-    @Published var campusesInsight = [CampusViewModel]()
     
     @Published var showTitleAverage = false
     @Published var showDepartmentAverage = false
     @Published var showCampusAverage = true
     @Published var showAnnualFTR = true
     
-    @Published var personEntryAnnualFTR = [ChartDataEntry]()
-    @Published var personEntryTitleAverageAnnual = [ChartDataEntry]()
-    @Published var personEntryDepartmentAverageAnnual = [ChartDataEntry]()
-    @Published var personEntryCampusAverageAnnual = [ChartDataEntry]()
+    private var titlesInsight = [TitleViewModel]()
+    private var departmentsInsight = [DepartmentViewModel]()
+    private var campusesInsight = [CampusViewModel]()
 
     private var personsKP: NamePredicate = .Person
     private var titleNameKP: NamePredicate = .Title
@@ -32,6 +28,12 @@ class PersonInsightViewModel: ObservableObject {
     private var departmentYearKP: YearByType = .Department
     private var campusNameKP: NamePredicate = .Campus
     private var campusYearKP: YearByType = .Campus
+    
+    var personEntryAnnualFTR = [ChartDataEntry]()
+    var personEntryTitleAverageAnnual = [ChartDataEntry]()
+    var personEntryDepartmentAverageAnnual = [ChartDataEntry]()
+    var personEntryCampusAverageAnnual = [ChartDataEntry]()
+    var personsInsight = [PersonViewModel]()
     
     ///These counts are used in the PersonLineChartView to format the line chart's X Axis.
     var personCount: Int {

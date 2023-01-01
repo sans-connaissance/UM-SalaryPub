@@ -60,21 +60,43 @@ struct PersonDetailView: View {
                 }
             case false:
                 VStack(alignment: .center) {
-                    ForEach(vm.personsDetail.reversed().dropFirst(), id: \.self) { person in
-                        Divider()
-                        Section(header: Text(String(person.year)).bold()) {
+                    if vm.personsDetail.last?.year == 2022 {
+                        ForEach(vm.personsDetail.reversed().dropFirst(), id: \.self) { person in
                             Divider()
-                            VStack {
-                                HStack(spacing: 5) {
-                                    Spacer()
-                                    PersonDetailRowLeft(
-                                        person: person,
-                                        title: vm.getTitle(vm: person),
-                                        department: vm.getDepartment(vm: person),
-                                        campus: vm.getCampus(vm: person))
-                                    Spacer()
-                                    PersonDetailRowRight(person: person)
-                                    Spacer()
+                            Section(header: Text(String(person.year)).bold()) {
+                                Divider()
+                                VStack {
+                                    HStack(spacing: 5) {
+                                        Spacer()
+                                        PersonDetailRowLeft(
+                                            person: person,
+                                            title: vm.getTitle(vm: person),
+                                            department: vm.getDepartment(vm: person),
+                                            campus: vm.getCampus(vm: person))
+                                        Spacer()
+                                        PersonDetailRowRight(person: person)
+                                        Spacer()
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        ForEach(vm.personsDetail.reversed(), id: \.self) { person in
+                            Divider()
+                            Section(header: Text(String(person.year)).bold()) {
+                                Divider()
+                                VStack {
+                                    HStack(spacing: 5) {
+                                        Spacer()
+                                        PersonDetailRowLeft(
+                                            person: person,
+                                            title: vm.getTitle(vm: person),
+                                            department: vm.getDepartment(vm: person),
+                                            campus: vm.getCampus(vm: person))
+                                        Spacer()
+                                        PersonDetailRowRight(person: person)
+                                        Spacer()
+                                    }
                                 }
                             }
                         }

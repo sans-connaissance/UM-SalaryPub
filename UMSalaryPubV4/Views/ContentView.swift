@@ -11,11 +11,11 @@ struct ContentView: View {
     var body: some View {
         TabView {
             //MARK: Uncomment below to enable admin view for importing new data from JSON
-            DataDashboardView()
-                .tabItem {
-                    Image(systemName: "wrench.and.screwdriver")
-                    Text(verbatim: "Admin")
-                }.tag(0)
+//            DataDashboardView()
+//                .tabItem {
+//                    Image(systemName: "wrench.and.screwdriver")
+//                    Text(verbatim: "Admin")
+//                }.tag(0)
             HomeScreenView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
