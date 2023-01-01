@@ -21,6 +21,7 @@ struct PersonLineChartView: UIViewRepresentable {
     let lineChart = LineChartView()
     let person: PersonViewModel
     let year: Int64
+    let purchased: Bool
     
     func makeUIView(context: Context) -> LineChartView {
         vm.getPersons(vm: person)
@@ -41,11 +42,33 @@ struct PersonLineChartView: UIViewRepresentable {
     }
 
     func setChartData(_ lineChart: LineChartView) {
-        let personSetAnnualFTR = LineChartDataSet(entries: vm.personEntryAnnualFTR)
-        let personSetTitleAverageAnnual = LineChartDataSet(entries: vm.personEntryTitleAverageAnnual)
-        let personSetDepartmentAverageAnnual = LineChartDataSet(entries: vm.personEntryDepartmentAverageAnnual)
-        let personSetCampusAverageAnnual = LineChartDataSet(entries: vm.personEntryCampusAverageAnnual)
-
+        
+        var personSetAnnualFTR = LineChartDataSet()
+        var personSetTitleAverageAnnual = LineChartDataSet()
+        var personSetDepartmentAverageAnnual = LineChartDataSet()
+        var personSetCampusAverageAnnual = LineChartDataSet()
+        
+        switch purchased {
+        case true:
+            personSetAnnualFTR = LineChartDataSet(entries: vm.personEntryAnnualFTR)
+            personSetTitleAverageAnnual = LineChartDataSet(entries: vm.personEntryTitleAverageAnnual)
+            personSetDepartmentAverageAnnual = LineChartDataSet(entries: vm.personEntryDepartmentAverageAnnual)
+            personSetCampusAverageAnnual = LineChartDataSet(entries: vm.personEntryCampusAverageAnnual)
+            
+        case false:
+            if vm.personsInsight.last?.year ?? 0 == paidYear {
+                personSetAnnualFTR = LineChartDataSet(entries: vm.personEntryAnnualFTR.dropLast())
+                personSetTitleAverageAnnual = LineChartDataSet(entries: vm.personEntryTitleAverageAnnual.dropLast())
+                personSetDepartmentAverageAnnual = LineChartDataSet(entries: vm.personEntryDepartmentAverageAnnual.dropLast())
+                personSetCampusAverageAnnual = LineChartDataSet(entries: vm.personEntryCampusAverageAnnual.dropLast())
+            } else {
+                personSetAnnualFTR = LineChartDataSet(entries: vm.personEntryAnnualFTR)
+                personSetTitleAverageAnnual = LineChartDataSet(entries: vm.personEntryTitleAverageAnnual)
+                personSetDepartmentAverageAnnual = LineChartDataSet(entries: vm.personEntryDepartmentAverageAnnual)
+                personSetCampusAverageAnnual = LineChartDataSet(entries: vm.personEntryCampusAverageAnnual)
+            }
+        }
+        
         func createDataSets(showTitleAverage: Bool, showDepartmentAverage: Bool, showCampusAverage: Bool, showAnnualFTR: Bool) -> [LineChartDataSet] {
             var dataSets: [LineChartDataSet] = []
             
@@ -118,18 +141,44 @@ struct PersonLineChartView: UIViewRepresentable {
     }
 
     func formatXAxis(xAxis: XAxis) {
+        
+        var personCount = 0
+        var titleCount = 0
+        var departmentCount = 0
+        var campusCount = 0
+        
+        switch purchased {
+        case true:
+            personCount = vm.personCount
+            titleCount = vm.titleCount
+            departmentCount = vm.departmentCount
+            campusCount = vm.campusCount
+        case false:
+            if vm.personsInsight.last?.year ?? 0 == paidYear {
+                personCount = vm.personCount - 1
+                titleCount = vm.titleCount - 1
+                departmentCount = vm.departmentCount - 1
+                campusCount = vm.campusCount - 1
+            } else {
+                personCount = vm.personCount
+                titleCount = vm.titleCount
+                departmentCount = vm.departmentCount
+                campusCount = vm.campusCount
+            }
+        }
+        
         let xAxisFormatter = NumberFormatter()
         xAxisFormatter.generatesDecimalNumbers = false
         xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: xAxisFormatter)
         
         if vm.showCampusAverage == true {
-            xAxis.labelCount = vm.campusCount - 1
+            xAxis.labelCount = campusCount - 1
         } else if vm.showTitleAverage == true {
-            xAxis.labelCount = vm.titleCount - 1
+            xAxis.labelCount = titleCount - 1
         } else if vm.showDepartmentAverage == true {
-            xAxis.labelCount = vm.departmentCount - 1
+            xAxis.labelCount = departmentCount - 1
         } else {
-            xAxis.labelCount = vm.personCount - 1
+            xAxis.labelCount = personCount - 1
         }
         
         xAxis.labelPosition = .bottom

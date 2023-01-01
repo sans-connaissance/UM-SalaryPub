@@ -123,7 +123,8 @@ struct PersonInsightView: View {
                         showDepartmentAverage: $vm.showDepartmentAverage,
                         showCampusAverage: $vm.showCampusAverage,
                         showAnnualFTR: $vm.showAnnualFTR,
-                        person: person, year: year)
+                        person: person, year: year,
+                        purchased: purchased)
                         .frame(width: 370, height: 370, alignment: .leading)
                 } else {
                     PersonLineChartView(
@@ -131,7 +132,8 @@ struct PersonInsightView: View {
                         showDepartmentAverage: $vm.showDepartmentAverage,
                         showCampusAverage: $vm.showCampusAverage,
                         showAnnualFTR: $vm.showAnnualFTR,
-                        person: person, year: year)
+                        person: person, year: year,
+                        purchased: purchased)
                         .frame(width: 470, height: 470, alignment: .leading)
                 }
             }

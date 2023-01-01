@@ -34,6 +34,7 @@ class PersonInsightViewModel: ObservableObject {
     var personEntryDepartmentAverageAnnual = [ChartDataEntry]()
     var personEntryCampusAverageAnnual = [ChartDataEntry]()
     var personsInsight = [PersonViewModel]()
+
     
     ///These counts are used in the PersonLineChartView to format the line chart's X Axis.
     var personCount: Int {
