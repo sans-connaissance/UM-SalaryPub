@@ -14,6 +14,7 @@ struct PersonInsightView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     let person: PersonViewModel
     let year: Int64
+    let purchased: Bool
     
     var body: some View {
         VStack {
@@ -24,32 +25,95 @@ struct PersonInsightView: View {
         ScrollView(.vertical) {
             Text("Annual Full-Time Rate").font(.headline)
             Text("Yearly % Change").font(.headline)
-            GeometryReader { geometry in
-                ScrollView(.horizontal, showsIndicators: false) {
-                    VStack(alignment: .center) {
-                        HStack(alignment: .center) {
-                            ForEach(vm.personsInsight.reversed(), id: \.self) { person in
-                                Spacer()
-                                VStack(alignment: .center) {
-                                    Text(String(person.year)).textStyle(DetailData())
-                                    Text(person.apptAnnualFTR).textStyle(DetailData())
-                                    /// rotation effects are used to enable right to left scrolling and formatting.
+            
+            switch purchased {
+            case true:
+                GeometryReader { geometry in
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        VStack(alignment: .center) {
+                            HStack(alignment: .center) {
+                                ForEach(vm.personsInsight.reversed(), id: \.self) { person in
+                                    Spacer()
+                                    VStack(alignment: .center) {
+                                        Text(String(person.year)).textStyle(DetailData())
+                                        Text(person.apptAnnualFTR).textStyle(DetailData())
+                                        /// rotation effects are used to enable right to left scrolling and formatting.
+                                    }.rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
+                                    Spacer()
+                                }
+                           }
+                            HStack {
+                                ForEach(vm.salaries, id: \.self) { salary in
+                                    Spacer()
+                                    Text("\(salary, specifier: "%.2f")%").textStyle(DetailData())
+                                    Spacer()
+                                }
+                            }.rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
+                        }.frame(minWidth: geometry.size.width)
+                    }
+                    .flipsForRightToLeftLayoutDirection(true)
+                    .environment(\.layoutDirection, .rightToLeft)
+                }.frame(height: 70)
+                
+            case false:
+                if vm.personsInsight.last?.year ?? 0 == paidYear {
+                    GeometryReader { geometry in
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            VStack(alignment: .center) {
+                                HStack(alignment: .center) {
+                                    ForEach(vm.personsInsight.reversed().dropFirst(), id: \.self) { person in
+                                        Spacer()
+                                        VStack(alignment: .center) {
+                                            Text(String(person.year)).textStyle(DetailData())
+                                            Text(person.apptAnnualFTR).textStyle(DetailData())
+                                            /// rotation effects are used to enable right to left scrolling and formatting.
+                                        }.rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
+                                        Spacer()
+                                    }
+                               }
+                                HStack {
+                                    ForEach(vm.salaries.dropFirst(), id: \.self) { salary in
+                                        Spacer()
+                                        Text("\(salary, specifier: "%.2f")%").textStyle(DetailData())
+                                        Spacer()
+                                    }
                                 }.rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
-                                Spacer()
-                            }
-                       }
-                        HStack {
-                            ForEach(vm.salaries, id: \.self) { salary in
-                                Spacer()
-                                Text("\(salary, specifier: "%.2f")%").textStyle(DetailData())
-                                Spacer()
-                            }
-                        }.rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
-                    }.frame(minWidth: geometry.size.width)
+                            }.frame(minWidth: geometry.size.width)
+                        }
+                        .flipsForRightToLeftLayoutDirection(true)
+                        .environment(\.layoutDirection, .rightToLeft)
+                    }.frame(height: 70)
+                    
+                } else {
+                    GeometryReader { geometry in
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            VStack(alignment: .center) {
+                                HStack(alignment: .center) {
+                                    ForEach(vm.personsInsight.reversed(), id: \.self) { person in
+                                        Spacer()
+                                        VStack(alignment: .center) {
+                                            Text(String(person.year)).textStyle(DetailData())
+                                            Text(person.apptAnnualFTR).textStyle(DetailData())
+                                            /// rotation effects are used to enable right to left scrolling and formatting.
+                                        }.rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
+                                        Spacer()
+                                    }
+                               }
+                                HStack {
+                                    ForEach(vm.salaries, id: \.self) { salary in
+                                        Spacer()
+                                        Text("\(salary, specifier: "%.2f")%").textStyle(DetailData())
+                                        Spacer()
+                                    }
+                                }.rotation3DEffect(Angle(degrees: 180), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
+                            }.frame(minWidth: geometry.size.width)
+                        }
+                        .flipsForRightToLeftLayoutDirection(true)
+                        .environment(\.layoutDirection, .rightToLeft)
+                    }.frame(height: 70)
                 }
-                .flipsForRightToLeftLayoutDirection(true)
-                .environment(\.layoutDirection, .rightToLeft)
-            }.frame(height: 70)
+            }
+
             Divider()
             VStack {
                 Spacer()

@@ -178,6 +178,7 @@ enum NamePredicate: String, CaseIterable {
     }
 }
 
+public var paidYear = 2022
 enum FetchYear: Int, CaseIterable {
     case twentyTwo = 2022
     case twentyOne = 2021

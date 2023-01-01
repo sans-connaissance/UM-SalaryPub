@@ -22,7 +22,8 @@ struct PersonDetailView: View {
                         .fullScreenCover(isPresented: $vm.isPresented) {
                             PersonInsightView(
                                 person: person,
-                                year: vm.personsDetail.reversed()[0].year)
+                                year: vm.personsDetail.reversed()[0].year,
+                                purchased: purchased)
                         }
                 } else {
                     Text("Insights not available \n(same name or multiple appointments)").textStyle(SmallGrey())
@@ -60,7 +61,7 @@ struct PersonDetailView: View {
                 }
             case false:
                 VStack(alignment: .center) {
-                    if vm.personsDetail.last?.year == 2022 {
+                    if vm.personsDetail.last?.year ?? 0 == paidYear {
                         ForEach(vm.personsDetail.reversed().dropFirst(), id: \.self) { person in
                             Divider()
                             Section(header: Text(String(person.year)).bold()) {
