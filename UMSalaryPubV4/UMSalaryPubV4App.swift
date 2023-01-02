@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 @main
 struct UMSalaryPubV4App: App {
     /// AppState is used by the "Home" button to reset the app and to bring the user back to the HomeScreenView.

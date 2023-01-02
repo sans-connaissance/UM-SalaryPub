@@ -121,9 +121,6 @@ struct PurchaseButton: View {
                     .accessibility(identifier: "purchaseButton")
             }
         }
-        .onChange(of: AppState.shared.purchased) { _ in
-            AppState.shared.presentPurchaseAlert = false
-        }
     }
 }
 

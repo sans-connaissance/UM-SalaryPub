@@ -35,6 +35,10 @@
 		41CA656F2960D46800C18296 /* UMSalaryPub.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 41CA656C2960D46800C18296 /* UMSalaryPub.sqlite */; };
 		41CA65702960D46800C18296 /* UMSalaryPub.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 41CA656D2960D46800C18296 /* UMSalaryPub.sqlite-shm */; };
 		41CA65712960D46800C18296 /* UMSalaryPub.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 41CA656E2960D46800C18296 /* UMSalaryPub.sqlite-wal */; };
+		41CF437C29635911006E59CB /* Product.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 41CF437B29635911006E59CB /* Product.storekit */; };
+		41CF437E29635A0B006E59CB /* PropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41CF437D29635A0B006E59CB /* PropertyList.plist */; };
+		41CF438029635A8F006E59CB /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF437F29635A8F006E59CB /* StoreKitManager.swift */; };
+		41CF438229637EAE006E59CB /* YearItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF438129637EAE006E59CB /* YearItem.swift */; };
 		41D4B87B273FC2EA00F0FB92 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B87A273FC2EA00F0FB92 /* SearchBarView.swift */; };
 		41D4B87D2740B24100F0FB92 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B87C2740B24100F0FB92 /* PersonDetailView.swift */; };
 		41D4B87F2740C4BD00F0FB92 /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4B87E2740C4BD00F0FB92 /* PersonDetailViewModel.swift */; };
@@ -115,6 +119,10 @@
 		41CA656C2960D46800C18296 /* UMSalaryPub.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = UMSalaryPub.sqlite; sourceTree = "<group>"; };
 		41CA656D2960D46800C18296 /* UMSalaryPub.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UMSalaryPub.sqlite-shm"; sourceTree = "<group>"; };
 		41CA656E2960D46800C18296 /* UMSalaryPub.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UMSalaryPub.sqlite-wal"; sourceTree = "<group>"; };
+		41CF437B29635911006E59CB /* Product.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Product.storekit; sourceTree = "<group>"; };
+		41CF437D29635A0B006E59CB /* PropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PropertyList.plist; sourceTree = "<group>"; };
+		41CF437F29635A8F006E59CB /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		41CF438129637EAE006E59CB /* YearItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearItem.swift; sourceTree = "<group>"; };
 		41D4B87A273FC2EA00F0FB92 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		41D4B87C2740B24100F0FB92 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		41D4B87E2740C4BD00F0FB92 /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
@@ -308,6 +316,17 @@
 			path = "UM SalaryPubUserInterfaceTests";
 			sourceTree = "<group>";
 		};
+		41CF437A296358D1006E59CB /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				41CF437B29635911006E59CB /* Product.storekit */,
+				41CF437D29635A0B006E59CB /* PropertyList.plist */,
+				41CF437F29635A8F006E59CB /* StoreKitManager.swift */,
+				41CF438129637EAE006E59CB /* YearItem.swift */,
+			);
+			path = StoreKit;
+			sourceTree = "<group>";
+		};
 		41E5A4802721B37700A51D80 = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */,
+				41CF437A296358D1006E59CB /* StoreKit */,
 				41E5A4B72721BEBE00A51D80 /* CoreData Manager */,
 				414AD14D272316EE00316A45 /* Extensions */,
 				414AD14E2723175500316A45 /* Utils+Buttons */,
@@ -459,6 +479,8 @@
 			files = (
 				41CA65702960D46800C18296 /* UMSalaryPub.sqlite-shm in Resources */,
 				41CA656F2960D46800C18296 /* UMSalaryPub.sqlite in Resources */,
+				41CF437C29635911006E59CB /* Product.storekit in Resources */,
+				41CF437E29635A0B006E59CB /* PropertyList.plist in Resources */,
 				41E5A4942721B37A00A51D80 /* Preview Assets.xcassets in Resources */,
 				41E5A4912721B37A00A51D80 /* Assets.xcassets in Resources */,
 				41CA65712960D46800C18296 /* UMSalaryPub.sqlite-wal in Resources */,
@@ -500,11 +522,13 @@
 				414AD15A272320C300316A45 /* CampusDAO.swift in Sources */,
 				41D4B896274755B300F0FB92 /* CampusListViewModel.swift in Sources */,
 				41998BA7273C5BD10021D632 /* PersonListView.swift in Sources */,
+				41CF438229637EAE006E59CB /* YearItem.swift in Sources */,
 				41E5A4B32721B95300A51D80 /* Campus+CoreDataClass.swift in Sources */,
 				41D4B88E2745F4B600F0FB92 /* ButtonViews.swift in Sources */,
 				41E5A4B42721B95300A51D80 /* Campus+CoreDataProperties.swift in Sources */,
 				41D4B89827493D6C00F0FB92 /* DepartmentListView.swift in Sources */,
 				414AD158272320C300316A45 /* BaseDAO.swift in Sources */,
+				41CF438029635A8F006E59CB /* StoreKitManager.swift in Sources */,
 				41E5A48F2721B37700A51D80 /* ContentView.swift in Sources */,
 				41D4B89E2749CCA200F0FB92 /* DepartmentDetailViewModel.swift in Sources */,
 				4139F4F82724904500E6EC5C /* View+Extensions.swift in Sources */,

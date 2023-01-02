@@ -1,0 +1,33 @@
+{
+  "identifier" : "EDD015E2",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "57B61D2E",
+      "localizations" : [
+        {
+          "description" : "Load 2022 University of Michigan salary info",
+          "displayName" : "2022 Salary Data",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.temporary.2022",
+      "referenceName" : "2022",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

@@ -5,9 +5,12 @@
 //  Created by David Malicke on 10/24/21.
 
 import SwiftUI
+import StoreKit
 
+@available(iOS 15.0, *)
 struct HomeScreenView: View {
     @StateObject private var vm = PersonListViewModel()
+    @StateObject private var store = StoreKitManager()
     
     @State private var purchasePressed = true
     
@@ -18,10 +21,14 @@ struct HomeScreenView: View {
                     Section(header: VStack {
                         Text("Search UM SalaryPub")
                     }) {
-                        if AppState.shared.purchased == .none {
+                        ForEach(store.storeProducts) { product in
                             HStack {
-                                PurchaseButton(isPresented: $purchasePressed)
-                                Text("Access 2022 data for $1.99").font(.callout)
+                                Button {
+                                    Task { try await store.purchase(product) }
+                                } label: {
+                                    Text(product.displayPrice)
+                                }
+                                YearItem(storeKit: store, product: product)
                             }
                         }
                         NavigationLink(
@@ -70,6 +77,7 @@ struct HomeScreenView: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreenView()
