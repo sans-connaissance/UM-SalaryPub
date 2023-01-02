@@ -112,12 +112,17 @@ struct PurchaseButton: View {
     var purchaseButtonStyle: some View {
         Button {
             isPresented.toggle()
+            AppState.shared.purchased = .twentyTwo
+            AppState.shared.viewID = UUID()
         } label: {
             HStack(alignment: .center, spacing: 2) {
                 Text("Buy Now")
                     .textStyle(DetailData())
                     .accessibility(identifier: "purchaseButton")
             }
+        }
+        .onChange(of: AppState.shared.purchased) { _ in
+            AppState.shared.presentPurchaseAlert = false
         }
     }
 }

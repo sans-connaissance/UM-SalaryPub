@@ -68,9 +68,14 @@ struct PersonListView: View {
         }
         .navigationTitle("People")
         .padding(.bottom)
-        .onAppear(perform: { vm.purchased(check: AppState.shared.purchased) })
+        .alert(isPresented: $vm.presentBuyAlert) {
+            Alert(
+                title: Text("Access 2022 data for $1.99"),
+                primaryButton: .default(Text("Buy Now")) {print("purchased!")},
+                secondaryButton: .cancel())
+        }
         .onAppear(perform: { vm.getPersons() })
-        .onAppear(perform: { vm.setButtons() })
+        .onAppear(perform: { vm.setButtons(check: AppState.shared.purchased) })
         .onAppear(perform: { vm.createUUID() })
         .onDisappear(perform: { vm.flipFirstAppear() })
     }

@@ -18,9 +18,11 @@ struct HomeScreenView: View {
                     Section(header: VStack {
                         Text("Search UM SalaryPub")
                     }) {
-                        HStack {
-                            PurchaseButton(isPresented: $purchasePressed)
-                            Text("Access 2022 data for $1.99").font(.callout)
+                        if AppState.shared.purchased == .none {
+                            HStack {
+                                PurchaseButton(isPresented: $purchasePressed)
+                                Text("Access 2022 data for $1.99").font(.callout)
+                            }
                         }
                         NavigationLink(
                             destination: PersonListView())
