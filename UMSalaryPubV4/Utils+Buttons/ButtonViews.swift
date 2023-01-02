@@ -95,6 +95,33 @@ struct InsightsButton: View {
         }
     }
 }
+
+struct PurchaseButton: View {
+    @Binding var isPresented: Bool
+    
+    var body: some View {
+        
+        ///Trying out one of the new .buttonStyles introduced in iOS 15.
+        if #available(iOS 15.0, *) {
+            purchaseButtonStyle.buttonStyle(.borderedProminent)
+        } else {
+            purchaseButtonStyle
+        }
+    }
+    
+    var purchaseButtonStyle: some View {
+        Button {
+            isPresented.toggle()
+        } label: {
+            HStack(alignment: .center, spacing: 2) {
+                Text("Buy Now")
+                    .textStyle(DetailData())
+                    .accessibility(identifier: "purchaseButton")
+            }
+        }
+    }
+}
+
 /// Resets app
 struct HomeButton: View {
     var body: some View {

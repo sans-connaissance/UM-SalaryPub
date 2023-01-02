@@ -3,12 +3,14 @@
 //  UMSalaryPubV4
 //
 //  Created by David Malicke on 10/24/21.
-//
 
 import SwiftUI
 
 struct HomeScreenView: View {
     @StateObject private var vm = PersonListViewModel()
+    
+    @State private var purchasePressed = true
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -16,6 +18,10 @@ struct HomeScreenView: View {
                     Section(header: VStack {
                         Text("Search UM SalaryPub")
                     }) {
+                        HStack {
+                            PurchaseButton(isPresented: $purchasePressed)
+                            Text("Access 2022 data for $1.99").font(.callout)
+                        }
                         NavigationLink(
                             destination: PersonListView())
                         { Text("People").font(.headline)
