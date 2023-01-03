@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct PersonDetailView: View {
     @StateObject private var vm = PersonDetailViewModel()
     let person: PersonViewModel

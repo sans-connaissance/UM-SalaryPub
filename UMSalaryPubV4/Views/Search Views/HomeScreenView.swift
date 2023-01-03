@@ -7,7 +7,6 @@
 import SwiftUI
 import StoreKit
 
-@available(iOS 15.0, *)
 struct HomeScreenView: View {
     @StateObject private var vm = PersonListViewModel()
     @StateObject private var store = StoreKitManager()
@@ -77,7 +76,6 @@ struct HomeScreenView: View {
     }
 }
 
-@available(iOS 15.0, *)
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreenView()

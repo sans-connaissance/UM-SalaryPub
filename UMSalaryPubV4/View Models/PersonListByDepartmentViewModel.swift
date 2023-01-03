@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class PersonListByDepartmentViewModel: ObservableObject {
     @Published var personsByTitle = [PersonViewModel]()
     @Published var sortButtons = [SortOption: Bool]()

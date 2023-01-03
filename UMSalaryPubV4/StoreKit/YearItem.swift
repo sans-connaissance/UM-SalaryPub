@@ -8,7 +8,6 @@
 import SwiftUI
 import StoreKit
 
-@available(iOS 15.0, *)
 struct YearItem: View {
     @ObservedObject var storeKit: StoreKitManager
     @State var isPurchased: Bool = false
@@ -28,6 +27,7 @@ struct YearItem: View {
         .onChange(of: storeKit.purchasedYears) { year in
             Task {
                 isPurchased = (try? await storeKit.isPurchased(product)) ?? false
+                    AppState.shared.purchased = .twentyTwo
             }
         }
     }

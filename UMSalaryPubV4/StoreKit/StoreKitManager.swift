@@ -8,7 +8,6 @@
 import Foundation
 import StoreKit
 
-@available(iOS 15.0, *)
 class StoreKitManager: ObservableObject {
     
     @Published var storeProducts: [Product] = []
@@ -17,6 +16,8 @@ class StoreKitManager: ObservableObject {
     var updateListenerTask: Task<Void, Error>? = nil
     
     private let productDict: [String: String]
+    
+    static let shared = StoreKitManager()
     
     init() {
         if let plistPath = Bundle.main.path(forResource: "PropertyList", ofType: "plist"),
@@ -108,6 +109,11 @@ class StoreKitManager: ObservableObject {
     
     func isPurchased(_ product: Product) async throws -> Bool {
         return purchasedYears.contains(product)
+    }
+    
+    enum YearPurchased {
+        case none
+        case twentyTwo
     }
 }
 

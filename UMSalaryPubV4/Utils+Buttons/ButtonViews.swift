@@ -100,13 +100,7 @@ struct PurchaseButton: View {
     @Binding var isPresented: Bool
     
     var body: some View {
-        
-        ///Trying out one of the new .buttonStyles introduced in iOS 15.
-        if #available(iOS 15.0, *) {
-            purchaseButtonStyle.buttonStyle(.borderedProminent)
-        } else {
-            purchaseButtonStyle
-        }
+        purchaseButtonStyle.buttonStyle(.borderedProminent)
     }
     
     var purchaseButtonStyle: some View {
@@ -123,7 +117,6 @@ struct PurchaseButton: View {
         }
     }
 }
-
 /// Resets app
 struct HomeButton: View {
     var body: some View {

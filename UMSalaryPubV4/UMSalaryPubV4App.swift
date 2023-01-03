@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 15.0, *)
 @main
 struct UMSalaryPubV4App: App {
     /// AppState is used by the "Home" button to reset the app and to bring the user back to the HomeScreenView.
@@ -29,5 +28,10 @@ class AppState: ObservableObject {
     enum YearPurchased {
         case none
         case twentyTwo
+    }
+    init(){
+        if StoreKitManager.shared.purchasedYears.count > 0 {
+            AppState.shared.purchased = .twentyTwo
+        }
     }
 }
