@@ -25,9 +25,10 @@ struct HomeScreenView: View {
                                 Button {
                                     Task { try await store.purchase(product) }
                                 } label: {
-                                    Text(product.displayPrice)
+                                    YearItem(storeKit: store, product: product)
                                 }
-                                YearItem(storeKit: store, product: product)
+                                .buttonStyle(.borderedProminent)
+                                Text(product.displayName)
                             }
                         }
                         NavigationLink(

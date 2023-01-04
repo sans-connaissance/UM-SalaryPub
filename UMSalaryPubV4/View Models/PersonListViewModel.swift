@@ -69,9 +69,11 @@ class PersonListViewModel: ObservableObject {
         case .none:
             purchased = false
             presentBuyAlert = true
+            year = .twentyOne
         case .twentyTwo:
             purchased = true
             presentBuyAlert = false
+            year = .twentyTwo
         }
     }
 }

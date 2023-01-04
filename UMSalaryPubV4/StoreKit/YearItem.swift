@@ -18,10 +18,8 @@ struct YearItem: View {
             if isPurchased {
                 Text(Image(systemName: "checkmark"))
                     .bold()
-                    .padding(10)
             } else {
                 Text(product.displayPrice)
-                    .padding(10)
             }
         }
         .onChange(of: storeKit.purchasedYears) { year in
