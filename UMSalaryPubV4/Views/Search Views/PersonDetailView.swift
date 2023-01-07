@@ -128,7 +128,7 @@ struct PersonDetailRowLeft: View {
                 Text("Campus").textStyle(SmallGrey())
                 NavigationLink {
                     if let campus = campus.first {
-                        CampusDetailView(campus: campus)
+                        CampusDetailView(campus: campus, purchased: purchased)
                     }
                 } label: {
                     Text(person.campus).textStyle(DetailData())

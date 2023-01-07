@@ -72,8 +72,8 @@ struct PersonListView: View {
         .padding(.bottom)
         .alert(isPresented: $vm.presentBuyAlert) {
             Alert(
-                title: Text("2022 U of M Salary Data is available to load for $1.99."),
-                primaryButton: .default(Text("Buy Now")) {
+                title: Text("2022 U of M Salary Data is available to load for $1.99 on the Home Screen."),
+                primaryButton: .default(Text("Home")) {
                     AppState.shared.viewID = UUID()
                 },
                 secondaryButton: .cancel())

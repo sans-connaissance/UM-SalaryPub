@@ -10,23 +10,67 @@ import SwiftUI
 struct CampusDetailView: View {
     @StateObject private var vm = CampusDetailViewModel()
     let campus: CampusViewModel
+    let purchased: Bool
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .center) {
-                ForEach(vm.campusesDetail.reversed(), id: \.self) { campus in
-                    Divider()
-                    
-                    Section(header: Text(String(campus.year)).bold()) {
+            switch purchased {
+            case true:
+                VStack(alignment: .center) {
+                    ForEach(vm.campusesDetail.reversed(), id: \.self) { campus in
                         Divider()
                         
-                        VStack {
-                            HStack(spacing: 5) {
-                                Spacer()
-                                CampusDetailRowLeft(campus: campus)
-                                Spacer()
-                                CampusDetailRowRight(campus: campus)
-                                Spacer()
+                        Section(header: Text(String(campus.year)).bold()) {
+                            Divider()
+                            
+                            VStack {
+                                HStack(spacing: 5) {
+                                    Spacer()
+                                    CampusDetailRowLeft(campus: campus)
+                                    Spacer()
+                                    CampusDetailRowRight(campus: campus)
+                                    Spacer()
+                                }
+                            }
+                        }
+                    }
+                }
+            case false:
+                VStack(alignment: .center) {
+                    if vm.campusesDetail.last?.year ?? 0 == paidYear {
+                        ForEach(vm.campusesDetail.reversed().dropFirst(), id: \.self) { campus in
+                            Divider()
+                            
+                            Section(header: Text(String(campus.year)).bold()) {
+                                Divider()
+                                
+                                VStack {
+                                    HStack(spacing: 5) {
+                                        Spacer()
+                                        CampusDetailRowLeft(campus: campus)
+                                        Spacer()
+                                        CampusDetailRowRight(campus: campus)
+                                        Spacer()
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        ForEach(vm.campusesDetail.reversed(), id: \.self) { campus in
+                            Divider()
+                            
+                            Section(header: Text(String(campus.year)).bold()) {
+                                Divider()
+                                
+                                VStack {
+                                    HStack(spacing: 5) {
+                                        Spacer()
+                                        CampusDetailRowLeft(campus: campus)
+                                        Spacer()
+                                        CampusDetailRowRight(campus: campus)
+                                        Spacer()
+                                    }
+                                }
                             }
                         }
                     }
@@ -39,7 +83,7 @@ struct CampusDetailView: View {
         .toolbar { ToolbarItem(placement: .navigationBarTrailing) {
             if UIDevice.current.userInterfaceIdiom != .pad { HomeButton() }
         }
-        ToolbarItem(placement: .navigationBarLeading) { Text("") }
+            ToolbarItem(placement: .navigationBarLeading) { Text("") }
         }
     }
 }
