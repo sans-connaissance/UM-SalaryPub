@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct PersonListView: View {
     @StateObject private var vm = PersonListViewModel()
+    @StateObject private var store = StoreKitManager()
 
     var body: some View {
         VStack {
@@ -70,9 +72,16 @@ struct PersonListView: View {
         .padding(.bottom)
         .alert(isPresented: $vm.presentBuyAlert) {
             Alert(
-                title: Text("Access 2022 data for $1.99"),
-                primaryButton: .default(Text("Buy Now")) {print("purchased!")},
+                title: Text("2022 U of M Salary Data is available to load for $1.99."),
+                primaryButton: .default(Text("Buy Now")) {
+                    AppState.shared.viewID = UUID()
+                },
                 secondaryButton: .cancel())
+        }
+        .onChange(of: store.purchasedYears) { year in
+            Task {
+                    AppState.shared.purchased = .twentyTwo
+            }
         }
         .onAppear(perform: { vm.getPersons() })
         .onAppear(perform: { vm.setButtons(check: AppState.shared.purchased) })

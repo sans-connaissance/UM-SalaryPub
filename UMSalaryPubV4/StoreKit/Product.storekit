@@ -11,7 +11,7 @@
       "localizations" : [
         {
           "description" : "Load 2022 University of Michigan salary info",
-          "displayName" : "2022 Salary Data",
+          "displayName" : "2022 U of M Salary Data",
           "locale" : "en_US"
         }
       ],

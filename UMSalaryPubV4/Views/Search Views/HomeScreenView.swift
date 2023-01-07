@@ -17,20 +17,7 @@ struct HomeScreenView: View {
         NavigationView {
             VStack {
                 List {
-                    Section(header: VStack {
-                        Text("Search UM SalaryPub")
-                    }) {
-                        ForEach(store.storeProducts) { product in
-                            HStack {
-                                Button {
-                                    Task { try await store.purchase(product) }
-                                } label: {
-                                    YearItem(storeKit: store, product: product)
-                                }
-                                .buttonStyle(.borderedProminent)
-                                Text(product.displayName)
-                            }
-                        }
+                    Section(header: Text("Search UM SalaryPub")) {
                         NavigationLink(
                             destination: PersonListView())
                         { Text("People").font(.headline)
@@ -63,6 +50,22 @@ struct HomeScreenView: View {
                         .isDetailLink(false)
                         .padding(.top)
                         .padding(.bottom)
+                    }
+                        Section(header: Text("Available Salary Data")) {
+                        ForEach(store.storeProducts) { product in
+                            HStack(alignment: .bottom) {
+                                Button {
+                                    Task { try await store.purchase(product) }
+                                } label: {
+                                    YearItem(storeKit: store, product: product)
+                                }
+                                .buttonStyle(.borderedProminent)
+                                Text(product.displayName)
+                            }
+                        }
+                        ForEach(vm.years, id: \.self) { year in
+                            OldYearItem(year: year)
+                        }
                     }
                 }
                 .navigationTitle("Home")
