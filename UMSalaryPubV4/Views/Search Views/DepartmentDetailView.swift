@@ -10,21 +10,61 @@ import SwiftUI
 struct DepartmentDetailView: View {
     @StateObject private var vm = DepartmentDetailViewModel()
     let department: DepartmentViewModel
+    let purchased: Bool
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .center) {
-                ForEach(vm.departmentsDetail.reversed(), id: \.self) { department in
-                    Divider()
-                    Section(header: Text(String(department.year)).bold()) {
+            switch purchased {
+            case true:
+                VStack(alignment: .center) {
+                    ForEach(vm.departmentsDetail.reversed(), id: \.self) { department in
                         Divider()
-                        VStack {
-                            HStack(spacing: 5) {
-                                Spacer()
-                                DepartmentDetailRowLeft(department: department, campusesWithDepartment: vm.campusesWithDepartment(vm: department))
-                                Spacer()
-                                DepartmentDetailRowRight(department: department)
-                                Spacer()
+                        Section(header: Text(String(department.year)).bold()) {
+                            Divider()
+                            VStack {
+                                HStack(spacing: 5) {
+                                    Spacer()
+                                    DepartmentDetailRowLeft(department: department, campusesWithDepartment: vm.campusesWithDepartment(vm: department))
+                                    Spacer()
+                                    DepartmentDetailRowRight(department: department)
+                                    Spacer()
+                                }
+                            }
+                        }
+                    }
+                }
+            case false:
+                VStack(alignment: .center) {
+                    if vm.departmentsDetail.last?.year ?? 0 == paidYear {
+                        ForEach(vm.departmentsDetail.reversed().dropFirst(), id: \.self) { department in
+                            Divider()
+                            Section(header: Text(String(department.year)).bold()) {
+                                Divider()
+                                VStack {
+                                    HStack(spacing: 5) {
+                                        Spacer()
+                                        DepartmentDetailRowLeft(department: department, campusesWithDepartment: vm.campusesWithDepartment(vm: department))
+                                        Spacer()
+                                        DepartmentDetailRowRight(department: department)
+                                        Spacer()
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        ForEach(vm.departmentsDetail.reversed(), id: \.self) { department in
+                            Divider()
+                            Section(header: Text(String(department.year)).bold()) {
+                                Divider()
+                                VStack {
+                                    HStack(spacing: 5) {
+                                        Spacer()
+                                        DepartmentDetailRowLeft(department: department, campusesWithDepartment: vm.campusesWithDepartment(vm: department))
+                                        Spacer()
+                                        DepartmentDetailRowRight(department: department)
+                                        Spacer()
+                                    }
+                                }
                             }
                         }
                     }

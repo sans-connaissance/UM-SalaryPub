@@ -54,7 +54,7 @@ struct DepartmentListView: View {
                 if let departmentArray = vm.allDepartments[vm.year.rawValue] {
                     ForEach(departmentArray, id: \.self) { department in
                         NavigationLink {
-                            DepartmentDetailView(department: department)
+                            DepartmentDetailView(department: department, purchased: vm.purchased)
                         } label: {
                             DepartmentRow(department: department)
                         }
