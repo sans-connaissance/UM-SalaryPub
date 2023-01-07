@@ -6,21 +6,26 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct MoreInfoView: View {
     var body: some View {
         VStack {
             Divider()
             List {
-                Section(header: Text("Coming Soon")) {
-                    Text("More insights")
-                        .textStyle(DetailData())
+                Section(header: Text("Restore Purchase on Device")) {
+                    Button {
+                        Task {
+                            try? await AppStore.sync()
+                        }
+                    } label: {
+                        Text("Restore Purchase").textStyle(DetailData())
+                    }
                 }
                 Section(header: Text("Contact")) {
                     Text("umichsalarypub@icloud.com")
                         .textStyle(DetailData())
                 }
-
                 Section(header: Text("Definitions")) {
                     NavigationLink(destination: GeneralFundView()) {
                         Text("Amount from General Fund").font(.headline)
