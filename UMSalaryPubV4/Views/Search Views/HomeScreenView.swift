@@ -10,8 +10,7 @@ import StoreKit
 struct HomeScreenView: View {
     @StateObject private var vm = PersonListViewModel()
     @StateObject private var store = StoreKitManager()
-    
-    @State private var purchasePressed = true
+    @State private var isPresented = false
     
     var body: some View {
         NavigationView {
@@ -55,12 +54,19 @@ struct HomeScreenView: View {
                         ForEach(store.storeProducts) { product in
                             HStack(alignment: .bottom) {
                                 Button {
-                                    Task { try await store.purchase(product) }
+                                    if vm.purchased {
+                                        isPresented.toggle()
+                                    } else {
+                                        Task { try await store.purchase(product) }
+                                    }
                                 } label: {
                                     YearItem(storeKit: store, product: product)
                                 }
                                 .buttonStyle(.borderedProminent)
                                 Text(product.displayName)
+                            }
+                            .alert(isPresented: $isPresented) {
+                                Alert(title: Text("2022 U of M Salary Data is loaded."))
                             }
                         }
                         ForEach(vm.years, id: \.self) { year in
@@ -69,6 +75,7 @@ struct HomeScreenView: View {
                     }
                 }
                 .navigationTitle("Home")
+                .onAppear(perform: { vm.setButtons(check: AppState.shared.purchased) })
                 .padding(.bottom)
                 .listStyle(GroupedListStyle())
             }

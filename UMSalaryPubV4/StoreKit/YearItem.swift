@@ -33,13 +33,13 @@ struct YearItem: View {
 }
 
 struct OldYearItem: View {
-    
+    @State var isPresented: Bool = false
     let year: String
     
     var body: some View {
         HStack(alignment: .bottom) {
             Button {
-                
+                isPresented.toggle()
             } label: {
                 Text(Image(systemName: "checkmark"))
                         .bold()
@@ -47,6 +47,9 @@ struct OldYearItem: View {
             }
             .buttonStyle(.borderedProminent)
             Text("\(year) U of M Salary Data")
+        }
+        .alert(isPresented: $isPresented) {
+            Alert(title: Text("\(year) U of M Salary Data is loaded."))
         }
     }
 }
