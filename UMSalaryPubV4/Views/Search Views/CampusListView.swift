@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CampusListView: View {
     @StateObject private var vm = CampusListViewModel()
+    @StateObject private var store = StoreKitManager()
 
     var body: some View {
         VStack {
@@ -23,9 +24,16 @@ struct CampusListView: View {
             ///Sort options
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
-                    Picker("Select year", selection: $vm.year) {
-                        ForEach(FetchYear.allCases, id: \.self) {
-                            Text($0.displayText)
+                    Picker("Select Year", selection: $vm.year) {
+                        switch vm.purchased {
+                        case true:
+                            ForEach(FetchYear.allCases, id: \.self) {
+                                Text($0.displayText)
+                            }
+                        case false:
+                            ForEach(FetchYear.allCases.dropFirst(), id: \.self) {
+                                Text($0.displayText)
+                            }
                         }
                     }
                     .id(vm.uuid)
@@ -60,7 +68,20 @@ struct CampusListView: View {
         }
         .navigationTitle("Campuses")
         .padding(.bottom)
-        .onAppear(perform: { vm.setButtons() })
+        .alert(isPresented: $vm.presentBuyAlert) {
+            Alert(
+                title: Text("2022 U of M Salary Data is available to load for $1.99."),
+                primaryButton: .default(Text("Buy Now")) {
+                    AppState.shared.viewID = UUID()
+                },
+                secondaryButton: .cancel())
+        }
+        .onChange(of: store.purchasedYears) { year in
+            Task {
+                    AppState.shared.purchased = .twentyTwo
+            }
+        }
+        .onAppear(perform: { vm.setButtons(check: AppState.shared.purchased) })
         .onAppear(perform: { vm.getCampuses() })
         .onAppear(perform: { vm.createUUID() })
         .onDisappear(perform: { vm.flipFirstAppear() })

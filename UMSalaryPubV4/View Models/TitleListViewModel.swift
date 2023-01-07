@@ -14,6 +14,8 @@ class TitleListViewModel: ObservableObject {
     @Published var firstAppear = true
     ///Year needs to be updated when a new year is added.
     @Published var year: FetchYear = .twentyOne
+    @Published var purchased = false
+    @Published var presentBuyAlert = false
     @Published var searchText = " "
     @Published var uuid = UUID()
     
@@ -41,12 +43,13 @@ class TitleListViewModel: ObservableObject {
     }
     /// Sets initial state of the sort buttons for the ListView.
     /// If firstAppear = false, then the user selected sortbutton selection on the ListView is saved until the home button is pressed or until the user navigates back to the homescreen.
-    func setButtons() {
+    func setButtons(check: AppState.YearPurchased) {
         if firstAppear {
             SortOption.allCases.forEach { button in
                 sortButtons[button] = false
             }
             sortButtons[SortOption.sortByPersonCountDescending] = true
+            purchased(check: check)
         }
     }
     /// This function is called when the ListView disappears.
@@ -58,5 +61,18 @@ class TitleListViewModel: ObservableObject {
     ///https://stackoverflow.com/questions/69697944/swiftui-picker-problem-after-dismissing-fullscreencover-or-sheet
     func createUUID() {
         uuid = UUID()
+    }
+    
+    func purchased(check: AppState.YearPurchased) {
+        switch check {
+        case .none:
+            purchased = false
+            presentBuyAlert = true
+            year = .twentyOne
+        case .twentyTwo:
+            purchased = true
+            presentBuyAlert = false
+            year = .twentyTwo
+        }
     }
 }
