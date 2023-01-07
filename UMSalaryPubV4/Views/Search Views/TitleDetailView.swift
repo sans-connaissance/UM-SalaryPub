@@ -10,23 +10,67 @@ import SwiftUI
 struct TitleDetailView: View {
     @StateObject private var vm = TitleDetailViewModel()
     let title: TitleViewModel
+    let purchased: Bool
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .center) {
-                ForEach(vm.titlesDetail.reversed(), id: \.self) { title in
-                    Divider()
-                    Section(header: Text(String(title.year)).bold()) {
+            switch purchased {
+            case true:
+                VStack(alignment: .center) {
+                    ForEach(vm.titlesDetail.reversed(), id: \.self) { title in
                         Divider()
-                        VStack {
-                            HStack(spacing: 5) {
-                                Spacer()
-                                TitleDetailRowLeft(
-                                    title: title,
-                                    campusesWithTitle: vm.campusesWithTitle(vm: title))
-                                Spacer()
-                                TitleDetailRowRight(title: title)
-                                Spacer()
+                        Section(header: Text(String(title.year)).bold()) {
+                            Divider()
+                            VStack {
+                                HStack(spacing: 5) {
+                                    Spacer()
+                                    TitleDetailRowLeft(
+                                        title: title,
+                                        campusesWithTitle: vm.campusesWithTitle(vm: title))
+                                    Spacer()
+                                    TitleDetailRowRight(title: title)
+                                    Spacer()
+                                }
+                            }
+                        }
+                    }
+                }
+            case false:
+                VStack(alignment: .center) {
+                    if vm.titlesDetail.last?.year ?? 0 == paidYear {
+                        ForEach(vm.titlesDetail.reversed().dropFirst(), id: \.self) { title in
+                            Divider()
+                            Section(header: Text(String(title.year)).bold()) {
+                                Divider()
+                                VStack {
+                                    HStack(spacing: 5) {
+                                        Spacer()
+                                        TitleDetailRowLeft(
+                                            title: title,
+                                            campusesWithTitle: vm.campusesWithTitle(vm: title))
+                                        Spacer()
+                                        TitleDetailRowRight(title: title)
+                                        Spacer()
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        ForEach(vm.titlesDetail.reversed(), id: \.self) { title in
+                            Divider()
+                            Section(header: Text(String(title.year)).bold()) {
+                                Divider()
+                                VStack {
+                                    HStack(spacing: 5) {
+                                        Spacer()
+                                        TitleDetailRowLeft(
+                                            title: title,
+                                            campusesWithTitle: vm.campusesWithTitle(vm: title))
+                                        Spacer()
+                                        TitleDetailRowRight(title: title)
+                                        Spacer()
+                                    }
+                                }
                             }
                         }
                     }

@@ -53,7 +53,7 @@ struct TitleListView: View {
                 if let titleArray = vm.allTitles[vm.year.rawValue] {
                     ForEach(titleArray, id: \.self) { title in
                         NavigationLink {
-                            TitleDetailView(title: title)
+                            TitleDetailView(title: title, purchased: vm.purchased)
                         } label: {
                             TitleRow(title: title)
                         }

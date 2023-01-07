@@ -49,7 +49,7 @@ struct PersonDetailView: View {
                                         person: person,
                                         title: vm.getTitle(vm: person),
                                         department: vm.getDepartment(vm: person),
-                                        campus: vm.getCampus(vm: person))
+                                        campus: vm.getCampus(vm: person), purchased: purchased)
                                     Spacer()
                                     PersonDetailRowRight(person: person)
                                     Spacer()
@@ -72,7 +72,7 @@ struct PersonDetailView: View {
                                             person: person,
                                             title: vm.getTitle(vm: person),
                                             department: vm.getDepartment(vm: person),
-                                            campus: vm.getCampus(vm: person))
+                                            campus: vm.getCampus(vm: person), purchased: purchased)
                                         Spacer()
                                         PersonDetailRowRight(person: person)
                                         Spacer()
@@ -92,7 +92,7 @@ struct PersonDetailView: View {
                                             person: person,
                                             title: vm.getTitle(vm: person),
                                             department: vm.getDepartment(vm: person),
-                                            campus: vm.getCampus(vm: person))
+                                            campus: vm.getCampus(vm: person), purchased: purchased)
                                         Spacer()
                                         PersonDetailRowRight(person: person)
                                         Spacer()
@@ -120,6 +120,7 @@ struct PersonDetailRowLeft: View {
     let title: [TitleViewModel]
     let department: [DepartmentViewModel]
     let campus: [CampusViewModel]
+    let purchased: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -151,7 +152,7 @@ struct PersonDetailRowLeft: View {
                 Text("Title").textStyle(SmallGrey())
                 NavigationLink {
                     if let title = title.first {
-                        TitleDetailView(title: title)
+                        TitleDetailView(title: title, purchased: purchased)
                     }
                 } label: {
                     Text(person.title).textStyle(DetailData())
