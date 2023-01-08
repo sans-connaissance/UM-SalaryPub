@@ -15,8 +15,8 @@
           "locale" : "en_US"
         }
       ],
-      "productID" : "com.temporary.2022",
-      "referenceName" : "2022",
+      "productID" : "com.frankfurtindustries.umichsalarypub.2022",
+      "referenceName" : "2022 Data",
       "type" : "NonConsumable"
     }
   ],

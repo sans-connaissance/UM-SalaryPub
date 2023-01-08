@@ -123,6 +123,7 @@
 		41CF437D29635A0B006E59CB /* PropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PropertyList.plist; sourceTree = "<group>"; };
 		41CF437F29635A8F006E59CB /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
 		41CF438129637EAE006E59CB /* YearItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearItem.swift; sourceTree = "<group>"; };
+		41CF4383296AFC13006E59CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		41D4B87A273FC2EA00F0FB92 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		41D4B87C2740B24100F0FB92 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		41D4B87E2740C4BD00F0FB92 /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
@@ -351,6 +352,7 @@
 		41E5A48B2721B37700A51D80 /* UMSalaryPubV4 */ = {
 			isa = PBXGroup;
 			children = (
+				41CF4383296AFC13006E59CB /* Info.plist */,
 				41E5A48C2721B37700A51D80 /* UMSalaryPubV4App.swift */,
 				41CF437A296358D1006E59CB /* StoreKit */,
 				41E5A4B72721BEBE00A51D80 /* CoreData Manager */,
@@ -741,6 +743,7 @@
 				DEVELOPMENT_TEAM = 947MDTH7AR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UMSalaryPubV4/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -771,6 +774,7 @@
 				DEVELOPMENT_TEAM = 947MDTH7AR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UMSalaryPubV4/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
